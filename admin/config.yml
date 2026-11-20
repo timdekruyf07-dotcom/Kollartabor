@@ -1,0 +1,321 @@
+# ==========================================
+# KOLLER & TABOR
+# SVELTIA CMS CONFIGURATIE
+# ==========================================
+
+
+# ==========================================
+# GITHUB VERBINDING
+# ==========================================
+
+backend:
+  name: github
+  repo: timdekruyf07-dotcom/Kollartabor
+  branch: main
+
+  auth_type: pkce
+
+  app_id: VUL_HIER_DE_GITHUB_OAUTH_CLIENT_ID_IN
+
+
+# ==========================================
+# TAAL
+# ==========================================
+
+locale: nl
+
+
+# ==========================================
+# AFBEELDINGEN
+# ==========================================
+
+media_folder: images/uploads
+
+public_folder: images/uploads
+
+
+# ==========================================
+# PROJECTEN
+# ==========================================
+
+collections:
+
+  - name: projecten
+    label: Projecten
+    label_singular: Project
+    folder: content/projecten
+
+    create: true
+
+    extension: json
+    format: json
+
+    slug: "{{slug}}"
+
+    sortable_fields:
+      - title
+      - date
+
+    fields:
+
+      - label: Projectnaam
+        name: title
+        widget: string
+
+      - label: Korte omschrijving
+        name: summary
+        widget: text
+
+      - label: Uitgebreide beschrijving
+        name: description
+        widget: text
+        required: false
+
+      - label: Projectfoto
+        name: image
+        widget: image
+
+      - label: Alternatieve fototekst
+        name: image_alt
+        widget: string
+        required: false
+
+      - label: Locatie
+        name: location
+        widget: string
+        required: false
+
+      - label: Datum
+        name: date
+        widget: date
+        required: false
+
+      - label: Volgorde
+        name: order
+        widget: number
+        value_type: int
+        required: false
+
+      - label: Publiceren
+        name: published
+        widget: boolean
+        default: true
+
+
+  # ========================================
+  # ONS TEAM
+  # ========================================
+
+  - name: team
+    label: Ons team
+    label_singular: Medewerker
+    folder: content/team
+
+    create: true
+
+    extension: json
+    format: json
+
+    slug: "{{slug}}"
+
+    fields:
+
+      - label: Naam
+        name: name
+        widget: string
+
+      - label: Functie
+        name: role
+        widget: string
+
+      - label: Introductie
+        name: description
+        widget: text
+        required: false
+
+      - label: Profielfoto
+        name: photo
+        widget: image
+
+      - label: Alternatieve fototekst
+        name: photo_alt
+        widget: string
+        required: false
+
+      - label: Volgorde
+        name: order
+        widget: number
+        value_type: int
+        required: false
+
+      - label: Publiceren
+        name: published
+        widget: boolean
+        default: true
+
+
+  # ========================================
+  # TARIEVEN
+  # ========================================
+
+  - name: tarieven
+    label: Tarieven
+    files:
+
+      - name: tarievenpagina
+        label: Tarievenpagina
+        file: content/tarieven.json
+
+        fields:
+
+          - label: Introductietekst
+            name: introduction
+            widget: text
+
+          - label: Arbeidstarieven
+            name: hourly_rates
+            widget: list
+
+            fields:
+
+              - label: Tariefsoort
+                name: name
+                widget: string
+
+              - label: Exclusief btw
+                name: price_ex
+                widget: string
+
+              - label: Inclusief btw
+                name: price_in
+                widget: string
+
+
+          - label: Toeslagen
+            name: surcharges
+            widget: list
+
+            fields:
+
+              - label: Periode
+                name: period
+                widget: string
+
+              - label: Percentage
+                name: percentage
+                widget: string
+
+
+          - label: Voorrijkosten
+            name: travel
+            widget: object
+
+            fields:
+
+              - label: Binnen 25 kilometer
+                name: within_25
+                widget: string
+
+              - label: Binnen 25 kilometer inclusief btw
+                name: within_25_vat
+                widget: string
+
+              - label: Boven 25 kilometer
+                name: beyond_25
+                widget: string
+
+              - label: Toelichting
+                name: description
+                widget: text
+
+
+          - label: Uitgebreide toelichting
+            name: explanations
+            widget: list
+
+            fields:
+
+              - label: Titel
+                name: title
+                widget: string
+
+              - label: Inhoud
+                name: content
+                widget: text
+
+
+          - label: Algemene voorwaarden consumenten
+            name: consumer_terms
+            widget: string
+
+          - label: Algemene voorwaarden bedrijven
+            name: business_terms
+            widget: string
+
+
+  # ========================================
+  # CONTACT
+  # ========================================
+
+  - name: contact
+    label: Contact
+    files:
+
+      - name: contactpagina
+        label: Contactgegevens
+        file: content/contact.json
+
+        fields:
+
+          - label: Introductietekst
+            name: introduction
+            widget: text
+
+          - label: Telefoonnummer
+            name: phone
+            widget: string
+
+          - label: E-mailadres
+            name: email
+            widget: string
+
+          - label: Straat en huisnummer
+            name: address
+            widget: string
+
+          - label: Postcode
+            name: postal_code
+            widget: string
+
+          - label: Plaats
+            name: city
+            widget: string
+
+          - label: Website
+            name: website
+            widget: string
+            required: false
+
+          - label: Google Maps link
+            name: maps
+            widget: string
+            required: false
+
+          - label: Openingstijden
+            name: opening_hours
+            widget: list
+
+            fields:
+
+              - label: Dag
+                name: day
+                widget: string
+
+              - label: Tijden
+                name: hours
+                widget: string
+
+          - label: Aanvullende informatie
+            name: additional_information
+            widget: text
+            required: false
