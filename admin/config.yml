@@ -13,7 +13,7 @@ backend:
   repo: timdekruyf07-dotcom/Kollartabor
   branch: main
 
-  auth_type: pkce
+  auth_type: ''
 
   app_id: Ov23lidaLcHml90MfeiP
 
@@ -35,14 +35,20 @@ public_folder: images/uploads
 
 
 # ==========================================
-# PROJECTEN
+# COLLECTIES
 # ==========================================
 
 collections:
 
+
+  # ========================================
+  # PROJECTEN
+  # ========================================
+
   - name: projecten
     label: Projecten
     label_singular: Project
+
     folder: content/projecten
 
     create: true
@@ -87,7 +93,8 @@ collections:
 
       - label: Datum
         name: date
-        widget: date
+        widget: datetime
+        type: date
         required: false
 
       - label: Volgorde
@@ -109,6 +116,7 @@ collections:
   - name: team
     label: Ons team
     label_singular: Medewerker
+
     folder: content/team
 
     create: true
@@ -160,10 +168,12 @@ collections:
 
   - name: tarieven
     label: Tarieven
+
     files:
 
       - name: tarievenpagina
         label: Tarievenpagina
+
         file: content/tarieven.json
 
         fields:
@@ -190,6 +200,7 @@ collections:
                 name: price_in
                 widget: string
 
+
           - label: Toeslagen
             name: surcharges
             widget: list
@@ -203,6 +214,7 @@ collections:
               - label: Percentage
                 name: percentage
                 widget: string
+
 
           - label: Voorrijkosten
             name: travel
@@ -226,6 +238,7 @@ collections:
                 name: description
                 widget: text
 
+
           - label: Uitgebreide toelichting
             name: explanations
             widget: list
@@ -239,6 +252,7 @@ collections:
               - label: Inhoud
                 name: content
                 widget: text
+
 
           - label: Algemene voorwaarden consumenten
             name: consumer_terms
@@ -255,10 +269,12 @@ collections:
 
   - name: contact
     label: Contact
+
     files:
 
       - name: contactpagina
         label: Contactgegevens
+
         file: content/contact.json
 
         fields:
