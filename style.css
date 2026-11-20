@@ -1350,3 +1350,77 @@ a.card:focus-visible {
   }
 
 }
+/* ==========================================
+   KOLLER & TABOR
+   DIENSTENKAARTEN — KLEURUPDATE V3.6
+========================================== */
+
+/* KAART 1 — INSTALLATIES */
+
+.cards .card:nth-child(1) {
+    background: linear-gradient(
+        135deg,
+        #f1f6ff 0%,
+        #e2edff 100%
+    );
+
+    border-color: #c5d8f3;
+}
+
+/* KAART 2 — ONDERHOUD & SERVICE */
+
+.cards .card:nth-child(2) {
+    background: linear-gradient(
+        135deg,
+        #fff3f1 0%,
+        #ffe5e1 100%
+    );
+
+    border-color: #efc8c2;
+}
+
+/* KAART 3 — INDUSTRIE */
+
+.cards .card:nth-child(3) {
+    background: linear-gradient(
+        135deg,
+        #edf5ff 0%,
+        #dceaff 100%
+    );
+
+    border-color: #bfd5f0;
+}
+
+/* HOVER — INSTALLATIES */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .cards .card:nth-child(1):hover {
+        background: linear-gradient(
+            135deg,
+            #e8f1ff 0%,
+            #d5e6ff 100%
+        );
+    }
+
+    /* HOVER — ONDERHOUD */
+
+    .cards .card:nth-child(2):hover {
+        background: linear-gradient(
+            135deg,
+            #ffede9 0%,
+            #ffdbd5 100%
+        );
+    }
+
+    /* HOVER — INDUSTRIE */
+
+    .cards .card:nth-child(3):hover {
+        background: linear-gradient(
+            135deg,
+            #e5f0ff 0%,
+            #d1e4ff 100%
+        );
+    }
+
+}
