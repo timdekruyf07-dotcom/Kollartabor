@@ -2416,3 +2416,35 @@ a.card:focus-visible {
   }
 
 }
+/* ==========================================
+   TEAM PAGINA
+   AANGEPASTE TITELGROOTTE
+   KOLLER & TABOR
+========================================== */
+
+/* DESKTOP */
+
+.team-page-hero h1 {
+  font-size: clamp(46px, 4.5vw, 64px);
+  line-height: 1.12;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+  .team-page-hero h1 {
+    font-size: 55px;
+  }
+
+}
+
+/* MOBIEL */
+
+@media (max-width: 650px) {
+
+  .team-page-hero h1 {
+    font-size: 43px;
+  }
+
+}
