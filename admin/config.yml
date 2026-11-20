@@ -1,11 +1,6 @@
 # ==========================================
 # KOLLER & TABOR INSTALLATIETECHNIEK
-# SVELTIA CMS CONFIGURATIE
-# ==========================================
-
-
-# ==========================================
-# GITHUB & INLOGGEN
+# SVELTIA CMS
 # ==========================================
 
 backend:
@@ -15,25 +10,11 @@ backend:
   auth_methods:
     - token
 
-
-# ==========================================
-# TAAL
-# ==========================================
-
 locale: nl
 
-
-# ==========================================
-# AFBEELDINGEN
-# ==========================================
-
 media_folder: "images/uploads"
-public_folder: "/Kollartabor/images/uploads"
+public_folder: "images/uploads"
 
-
-# ==========================================
-# BEHEERONDERDELEN
-# ==========================================
 
 collections:
 
@@ -43,65 +24,77 @@ collections:
 
   - name: projecten
     label: Projecten
-    label_singular: Project
 
-    folder: content/projecten
-    create: true
+    files:
 
-    extension: json
-    format: json
+      - name: projectenpagina
+        label: Projecten beheren
+        file: content/projecten.json
+        format: json
 
-    slug: "{{slug}}"
+        fields:
 
-    sortable_fields:
-      - title
-      - date
+          - label: Introductietekst bovenaan
+            name: introduction
+            widget: text
+            hint: "Deze tekst verschijnt bovenaan de projectenpagina."
 
-    fields:
+          - label: Projecten
+            name: projects
+            widget: list
+            label_singular: Project
+            summary: "{{fields.title}}"
+            required: false
+            default: []
+            hint: "Voeg projecten toe, wijzig bestaande projecten of verwijder ze. De volgorde kun je aanpassen met het veld Volgorde."
 
-      - label: Projectnaam
-        name: title
-        widget: string
+            fields:
 
-      - label: Korte omschrijving
-        name: summary
-        widget: text
+              - label: Projectnaam
+                name: title
+                widget: string
 
-      - label: Uitgebreide beschrijving
-        name: description
-        widget: text
-        required: false
+              - label: Korte omschrijving
+                name: summary
+                widget: text
 
-      - label: Projectfoto
-        name: image
-        widget: image
+              - label: Uitgebreide beschrijving
+                name: description
+                widget: text
+                required: false
 
-      - label: Alternatieve fototekst
-        name: image_alt
-        widget: string
-        required: false
+              - label: Projectfoto
+                name: image
+                widget: image
+                required: false
+                hint: "Upload een foto van het project. Zonder foto blijft het voorbeeldvak zichtbaar."
 
-      - label: Locatie
-        name: location
-        widget: string
-        required: false
+              - label: Beschrijving van de foto
+                name: image_alt
+                widget: string
+                required: false
 
-      - label: Datum
-        name: date
-        widget: datetime
-        type: date
-        required: false
+              - label: Locatie
+                name: location
+                widget: string
+                required: false
 
-      - label: Volgorde
-        name: order
-        widget: number
-        value_type: int
-        required: false
+              - label: Datum
+                name: date
+                widget: datetime
+                type: date
+                required: false
 
-      - label: Publiceren
-        name: published
-        widget: boolean
-        default: true
+              - label: Volgorde
+                name: order
+                widget: number
+                value_type: int
+                required: false
+
+              - label: Project zichtbaar op website
+                name: published
+                widget: boolean
+                default: true
 
 
   # ========================================
@@ -138,6 +131,7 @@ collections:
       - label: Profielfoto
         name: photo
         widget: image
+        required: false
 
       - label: Alternatieve fototekst
         name: photo_alt
@@ -167,7 +161,6 @@ collections:
 
       - name: tarievenpagina
         label: Tarievenpagina
-
         file: content/tarieven.json
         format: json
 
@@ -199,7 +192,6 @@ collections:
                 name: price_in
                 widget: string
 
-
           - label: Toeslagen
             name: surcharges
             widget: list
@@ -217,7 +209,6 @@ collections:
               - label: Percentage
                 name: percentage
                 widget: string
-
 
           - label: Voorrijkosten
             name: travel
@@ -242,7 +233,6 @@ collections:
                 name: description
                 widget: text
 
-
           - label: Uitgebreide toelichting
             name: explanations
             widget: list
@@ -260,7 +250,6 @@ collections:
               - label: Inhoud
                 name: content
                 widget: text
-
 
           - label: Algemene voorwaarden consumenten
             name: consumer_terms
@@ -282,7 +271,6 @@ collections:
 
       - name: contactpagina
         label: Contactgegevens
-
         file: content/contact.json
         format: json
 
@@ -339,7 +327,6 @@ collections:
               - label: Tijden
                 name: hours
                 widget: string
-
 
           - label: Aanvullende informatie
             name: additional_information
