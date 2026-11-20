@@ -16,7 +16,6 @@
   --navy: #273579;
   --blue: #2664a9;
   --red: #ef4438;
-  --orange: #ef914b;
   --paper: #f7f8fa;
   --line: #e2e5eb;
   --muted: #616b78;
@@ -347,7 +346,6 @@ p {
 
 /* ==========================================
    BEWEGENDE LIJNEN
-   ALGEMENE HUISANIMATIE
 ========================================== */
 
 .tech-flow {
@@ -412,7 +410,7 @@ p {
 
 
 /* ==========================================
-   DIENSTENKAARTEN
+   HOMEPAGE DIENSTENKAARTEN
 ========================================== */
 
 .cards {
@@ -455,56 +453,32 @@ a.card:focus-visible {
 }
 
 
-/* KAARTTEKST */
+/* Kaarten blijven wit */
 
-.card > * {
-  position: relative;
-  z-index: 2;
+.cards .card {
+  background: white;
+  border-color: #e0e5ec;
 }
 
-.card .num {
-  display: block;
-  margin-bottom: 37px;
-  color: #1554aa;
-  font-family: var(--font);
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -.045em;
+.cards .card h3,
+.cards .card p {
+  color: var(--ink);
 }
 
-.card h3 {
-  margin-bottom: 12px;
-  color: #161b25;
-  font-family: var(--font);
-  font-size: clamp(21px, 2vw, 28px);
-  font-weight: 700;
-  letter-spacing: -.065em;
-  line-height: 1.23;
-}
-
-.card p {
-  margin: 0;
+.cards .card p {
   color: #5d697b;
-  font-size: 14px;
-  line-height: 1.85;
 }
 
-.card-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 27px;
+.cards .card .num,
+.cards .card .card-link {
   color: #1554aa;
-  font-size: 13px;
-  font-weight: 800;
-  transition: gap .25s ease;
 }
 
 
-/* DECORATIEVE GOLVEN */
+/* Decoratieve golfjes */
 
-.card::before {
+.card::before,
+.card::after {
   content: '';
   position: absolute;
   right: -80px;
@@ -517,19 +491,15 @@ a.card:focus-visible {
 }
 
 .card::after {
-  content: '';
-  position: absolute;
   right: -35px;
   bottom: -165px;
   width: 240px;
   height: 220px;
-  border-radius: 70% 0 0 0;
   transform: rotate(-30deg);
-  pointer-events: none;
 }
 
 
-/* 01 — ORANJE */
+/* 01 ORANJE */
 
 .cards .card:nth-child(1)::before {
   background: linear-gradient(
@@ -548,7 +518,7 @@ a.card:focus-visible {
 }
 
 
-/* 02 — DONKERBLAUW */
+/* 02 DONKERBLAUW */
 
 .cards .card:nth-child(2)::before {
   background: linear-gradient(
@@ -567,7 +537,7 @@ a.card:focus-visible {
 }
 
 
-/* 03 — LICHTBLAUW */
+/* 03 LICHTBLAUW */
 
 .cards .card:nth-child(3)::before {
   background: linear-gradient(
@@ -586,7 +556,45 @@ a.card:focus-visible {
 }
 
 
-/* HOVER */
+/* Kaartinhoud boven golfjes */
+
+.card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.card .num {
+  display: block;
+  margin-bottom: 37px;
+  color: #1554aa;
+  font-family: var(--font);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.card h3 {
+  margin-bottom: 12px;
+  font-size: clamp(21px, 2vw, 28px);
+  font-weight: 700;
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 27px;
+  color: #1554aa;
+  font-size: 13px;
+  font-weight: 800;
+  transition: gap .25s ease;
+}
 
 @media (hover: hover) and (pointer: fine) {
 
@@ -683,288 +691,236 @@ a.card:focus-visible {
 
 
 /* ==========================================
-   DIENSTENPAGINA — HERO
+   DIENSTENPAGINA — NIEUW ONTWERP
    V4.0
 ========================================== */
 
-.services-hero {
-  padding: 52px 0;
-  overflow: hidden;
+.services-page-hero {
+  padding: 90px 0 78px;
+  background: #f7f8fa;
 }
 
-.services-hero .hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
-  align-items: center;
-  gap: clamp(25px, 4vw, 50px);
-
-  min-height: 0;
-  padding: 0;
-}
-
-.services-hero .hero-copy {
-  min-width: 0;
-}
-
-.services-hero .hero-copy h1 {
+.services-page-hero h1 {
   margin: 22px 0;
-  font-size: clamp(48px, 5.3vw, 76px);
 }
 
-.services-hero .hero-copy p {
-  max-width: 550px;
+.services-page-hero .lead {
+  max-width: 720px;
 }
 
 
-/* BESTAAND VLAK — NIET VERGROTEN */
+/* ==========================================
+   DIENSTENOVERZICHT
+========================================== */
 
-.services-hero .hero-visual {
+.services-section {
+  padding: 75px 0 105px;
+  background: #ffffff;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+
+/* ==========================================
+   DIENSTENBLOK
+========================================== */
+
+.service-item {
   position: relative;
-
-  width: 100%;
-  height: 300px;
-  min-height: 0;
-
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: stretch;
+  min-height: 335px;
   overflow: hidden;
-
-  background: #edf0f5;
-  border: 1px solid #e1e6ed;
+  background: #ffffff;
+  border: 1px solid #e3e7ed;
+  border-radius: 17px;
+  box-shadow:
+    0 8px 22px rgba(20, 35, 55, .045),
+    0 20px 35px rgba(20, 35, 55, .025);
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
 }
 
 
-/* SVG */
+/* ==========================================
+   DIENSTEN — TEKSTGEDEELTE
+========================================== */
 
-.services-hero .hero-visual svg {
-  position: absolute;
-  inset: 0;
+.service-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 42px 48px;
+  background: #ffffff;
+}
 
+.service-number {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  color: var(--blue);
+  font-family: var(--font);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.service-number span {
+  color: #687487;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.service-copy h2 {
+  margin-bottom: 15px;
+  font-size: clamp(28px, 3vw, 39px);
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+.service-copy p {
+  max-width: 470px;
+  margin: 0;
+  color: #626d7d;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+
+/* ==========================================
+   DIENSTEN — LINK
+========================================== */
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 25px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 800;
+  transition:
+    gap .25s ease,
+    color .25s ease;
+}
+
+.service-link span {
+  color: var(--red);
+  font-size: 17px;
+  transition: transform .25s ease;
+}
+
+.service-link:hover {
+  gap: 15px;
+  color: var(--navy);
+}
+
+.service-link:hover span {
+  transform: translate(3px, -3px);
+}
+
+
+/* ==========================================
+   DIENSTEN — FOTO
+========================================== */
+
+.service-photo {
+  position: relative;
+  min-width: 0;
+  min-height: 335px;
+  overflow: hidden;
+  background: #edf0f4;
+}
+
+
+/*
+   Foto's behouden hun oorspronkelijke
+   verhouding zo veel mogelijk.
+
+   object-fit: contain voorkomt dat
+   belangrijke onderdelen worden afgesneden.
+*/
+
+.service-photo img {
   display: block;
-
   width: 100%;
   height: 100%;
-
+  min-height: 335px;
   object-fit: contain;
-}
-
-
-/* LABEL */
-
-.services-hero .visual-label {
-  bottom: 12px;
-  left: 12px;
-
-  padding: 9px 11px;
-
-  font-size: 8px;
-  letter-spacing: .09em;
+  object-position: center;
+  background: #edf0f4;
+  transition: transform .65s ease;
 }
 
 
 /* ==========================================
-   WARMTEPOMP — WONINGLIJNEN
+   GEBOGEN OVERGANG TUSSEN TEKST EN FOTO
 ========================================== */
 
-.hp-house-line {
-  fill: none;
-  stroke: #94a6bd;
-  stroke-width: 2.2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.service-photo::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: -12%;
+  left: -54px;
+  width: 108px;
+  height: 124%;
+  background: #ffffff;
+  border-radius: 0 55% 55% 0;
+  pointer-events: none;
 }
 
-.hp-detail-line {
-  fill: none;
-  stroke: #b2bfce;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
 
-.hp-window {
-  fill: #ffffff;
-  stroke: #a5b5c9;
-  stroke-width: 1.5;
-}
+/* Subtiele rode lijn onderaan */
 
-.hp-ground-line {
-  fill: none;
-  stroke: #b4c1d1;
-  stroke-width: 2;
-}
-
-.hp-equipment {
-  fill: #ffffff;
-  stroke: #94a6bd;
-  stroke-width: 1.5;
-}
-
-.hp-unit {
-  fill: #f8fafc;
-  stroke: #8294aa;
-  stroke-width: 1.7;
-}
-
-.hp-display {
-  fill: #e3eaf3;
-  stroke: #a5b5c9;
-  stroke-width: 1;
-}
-
-.hp-small-label {
-  fill: #65758b;
-  font-family: 'DM Sans', Arial, sans-serif;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .7px;
+.service-photo::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 45%;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--red),
+    var(--navy),
+    var(--blue)
+  );
+  opacity: .85;
 }
 
 
 /* ==========================================
-   WARMTEPOMP — LEIDINGEN
+   DIENSTEN — HOVER
 ========================================== */
 
-.hp-pipe-hot {
-  fill: none;
-  stroke: var(--red);
-  stroke-width: 3.2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+@media (hover: hover) and (pointer: fine) {
 
-  stroke-dasharray: 8 8;
-
-  animation: hp-hot-flow 3.5s linear infinite;
-}
-
-.hp-pipe-cold {
-  fill: none;
-  stroke: var(--blue);
-  stroke-width: 3.2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-
-  stroke-dasharray: 8 8;
-
-  animation: hp-cold-flow 3.5s linear infinite;
-}
-
-
-/* VLOERVERWARMING */
-
-.hp-floor-loop {
-  fill: none;
-
-  stroke: url(#hp-floor-gradient);
-
-  stroke-width: 3;
-
-  stroke-linecap: round;
-  stroke-linejoin: round;
-
-  stroke-dasharray: 7 7;
-
-  animation: hp-floor-flow 5s linear infinite;
-}
-
-
-/* KOELMIDDELLEIDINGEN */
-
-.hp-refrigerant {
-  fill: none;
-
-  stroke: #8294aa;
-  stroke-width: 2.2;
-
-  stroke-linecap: round;
-
-  stroke-dasharray: 5 5;
-}
-
-
-/* ==========================================
-   WARMTEPOMP — ANIMATIES
-========================================== */
-
-
-/* RODE AANVOER */
-
-@keyframes hp-hot-flow {
-  to {
-    stroke-dashoffset: -64;
-  }
-}
-
-
-/* BLAUWE RETOUR */
-
-@keyframes hp-cold-flow {
-  to {
-    stroke-dashoffset: 64;
-  }
-}
-
-
-/* VLOERVERWARMING */
-
-@keyframes hp-floor-flow {
-  to {
-    stroke-dashoffset: -56;
-  }
-}
-
-
-/* ==========================================
-   VENTILATOR
-========================================== */
-
-.hp-fan-border {
-  fill: #edf1f6;
-  stroke: #94a6bd;
-  stroke-width: 1.5;
-}
-
-.hp-fan-rotor {
-  transform-box: fill-box;
-  transform-origin: center;
-
-  animation: hp-fan-spin 5s linear infinite;
-}
-
-.hp-fan-blade {
-  fill: #94a6bd;
-  stroke: #8294aa;
-  stroke-width: .8;
-}
-
-@keyframes hp-fan-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-/* ==========================================
-   BUITENLUCHT
-========================================== */
-
-.hp-air-line {
-  fill: none;
-  stroke: #91a5bc;
-  stroke-width: 2;
-  stroke-linecap: round;
-
-  animation: hp-air-move 3s ease-in-out infinite alternate;
-}
-
-@keyframes hp-air-move {
-  from {
-    opacity: .25;
-    transform: translateX(0);
+  .service-item:hover {
+    transform: translateY(-4px);
+    border-color: #cbd7e6;
+    box-shadow:
+      0 15px 30px rgba(20, 35, 55, .075),
+      0 28px 45px rgba(20, 35, 55, .035);
   }
 
-  to {
-    opacity: .9;
-    transform: translateX(5px);
+  .service-item:hover .service-photo img {
+    transform: scale(1.025);
   }
+
 }
 
 
@@ -1423,17 +1379,18 @@ a.card:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  .services-hero {
-    padding: 45px 0;
+  .service-item {
+    grid-template-columns: 1fr .9fr;
+    min-height: 300px;
   }
 
-  .services-hero .hero-grid {
-    gap: 25px;
+  .service-copy {
+    padding: 34px;
   }
 
-  .services-hero .hero-visual {
-    height: 280px;
-    min-height: 0;
+  .service-photo,
+  .service-photo img {
+    min-height: 300px;
   }
 
 }
@@ -1482,6 +1439,9 @@ a.card:focus-visible {
     grid-template-columns: 1fr;
   }
 
+
+  /* HOMEPAGE KAARTEN */
+
   .card {
     min-height: 255px;
     padding: 30px;
@@ -1495,6 +1455,61 @@ a.card:focus-visible {
     font-size: 25px;
   }
 
+
+  /* DIENSTENPAGINA */
+
+  .services-section {
+    padding: 45px 0 70px;
+  }
+
+  .services-list {
+    gap: 22px;
+  }
+
+  .service-item {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .service-copy {
+    padding: 30px 28px 28px;
+  }
+
+  .service-number {
+    margin-bottom: 18px;
+  }
+
+  .service-copy h2 {
+    font-size: 29px;
+  }
+
+  .service-copy p {
+    font-size: 14px;
+  }
+
+  .service-photo {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+
+  .service-photo img {
+    min-height: 0;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .service-photo::before {
+    display: none;
+  }
+
+  .service-photo::after {
+    height: 3px;
+  }
+
+
+  /* INFORMATIERIJEN */
+
   .divider-row {
     grid-template-columns: 40px 1fr;
     gap: 15px;
@@ -1504,6 +1519,9 @@ a.card:focus-visible {
     grid-column: 2;
   }
 
+
+  /* CONTACT */
+
   .cta .container {
     display: block;
   }
@@ -1511,6 +1529,9 @@ a.card:focus-visible {
   .cta .btn {
     margin-top: 18px;
   }
+
+
+  /* INTERACTIEVE WONING */
 
   .diagram {
     padding: 10px;
@@ -1520,33 +1541,15 @@ a.card:focus-visible {
     padding: 20px;
   }
 
+
+  /* FOOTER */
+
   .footer-grid {
     display: block;
   }
 
   .footer-nav {
     margin-top: 20px;
-  }
-
-
-  /* DIENSTENPAGINA */
-
-  .services-hero {
-    padding: 48px 0;
-  }
-
-  .services-hero .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .services-hero .hero-copy h1 {
-    font-size: clamp(48px, 11vw, 65px);
-  }
-
-  .services-hero .hero-visual {
-    height: 290px;
-    min-height: 0;
   }
 
 }
@@ -1576,13 +1579,16 @@ a.card:focus-visible {
     align-items: stretch;
   }
 
-  .services-hero .hero-visual {
-    height: 250px;
+  .service-copy {
+    padding: 26px 23px;
   }
 
-  .services-hero .visual-label {
-    font-size: 7px;
-    padding: 7px 8px;
+  .service-copy h2 {
+    font-size: 26px;
+  }
+
+  .service-number span {
+    font-size: 9px;
   }
 
 }
@@ -1590,7 +1596,6 @@ a.card:focus-visible {
 
 /* ==========================================
    MINDER ANIMATIES
-   TOEGANKELIJKHEID
 ========================================== */
 
 @media (prefers-reduced-motion: reduce) {
