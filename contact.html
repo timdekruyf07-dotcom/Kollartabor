@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="nl">
+
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#ffffff">
@@ -14,6 +16,129 @@
 
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+
+  <style>
+
+    /* ==========================================
+       CONTACTPAGINA - CMS AANVULLINGEN
+       ========================================== */
+
+    .contact-details {
+      margin-top: 28px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .contact-detail {
+      padding: 18px 20px;
+      border: 1px solid rgba(39, 53, 121, 0.12);
+      border-radius: 14px;
+      background: #ffffff;
+    }
+
+    .contact-detail strong {
+      display: block;
+      margin-bottom: 7px;
+      color: #273579;
+      font-weight: 700;
+    }
+
+    .contact-detail p {
+      margin: 0;
+    }
+
+    .contact-detail a {
+      color: #2664a9;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-detail a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-opening-hours {
+      margin-top: 26px;
+      padding: 22px;
+      border-radius: 14px;
+      background: #f5f7fb;
+      border: 1px solid rgba(39, 53, 121, 0.08);
+    }
+
+    .contact-opening-hours h3 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: #273579;
+    }
+
+    .contact-hours-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(39, 53, 121, 0.08);
+    }
+
+    .contact-hours-row:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .contact-hours-row strong {
+      color: #273579;
+    }
+
+    .contact-hours-row span {
+      text-align: right;
+    }
+
+    .contact-company-location {
+      margin-top: 12px;
+    }
+
+    .contact-company-extra {
+      display: block;
+      margin-top: 14px;
+      white-space: pre-line;
+    }
+
+    .contact-form-description p + p {
+      margin-top: 1em;
+    }
+
+    .contact-load-error {
+      color: #af3028;
+      margin-top: 18px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 600px) {
+
+      .contact-hours-row {
+        gap: 12px;
+      }
+
+      .contact-detail {
+        padding: 16px;
+      }
+
+      .contact-opening-hours {
+        padding: 18px;
+      }
+
+    }
+
+  </style>
+
 </head>
 
 <body>
@@ -22,49 +147,121 @@
 
 <main id="main">
 
+
+  <!-- =====================================
+       PAGINA INTRODUCTIE
+  ====================================== -->
+
   <section class="page-hero">
+
     <div class="container">
 
-      <span class="eyebrow">
+      <span
+        class="eyebrow"
+        id="contact-hero-eyebrow"
+      >
         Neem contact op
       </span>
 
       <h1>
-        We helpen u verder<span class="red-dot">.</span>
+        <span id="contact-hero-title">
+          We helpen u verder
+        </span><span class="red-dot">.</span>
       </h1>
 
-      <p class="lead">
+      <p
+        class="lead"
+        id="contact-hero-introduction"
+      >
         Een vraag over installaties,
         onderhoud of een project?
         Neem contact op met Koller &amp; Tabor.
       </p>
 
     </div>
+
   </section>
 
+
+  <!-- =====================================
+       CONTACTMOGELIJKHEDEN
+  ====================================== -->
+
   <section class="section">
+
     <div class="container split">
+
+
+      <!-- LINKERKOLOM -->
 
       <div>
 
-        <span class="eyebrow">
+        <span
+          class="eyebrow"
+          id="contact-section-eyebrow"
+        >
           Contactmogelijkheden
         </span>
 
-        <h2>
+        <h2 id="contact-section-title">
           Een goed gesprek begint hier.
         </h2>
 
-        <p class="lead">
+        <p
+          class="lead"
+          id="contact-section-introduction"
+        >
           De exacte telefoonnummers,
           het e-mailadres en de openingstijden
           nemen we na controle over van
           de huidige website.
         </p>
 
+
+        <!-- CONTACTGEGEVENS -->
+
+        <div
+          class="contact-details"
+          id="contact-details"
+          hidden
+        >
+
+          <!--
+            Telefoonnummer, e-mailadres en adres
+            worden hier automatisch toegevoegd
+            vanuit Sveltia CMS.
+          -->
+
+        </div>
+
+
+        <!-- OPENINGSTIJDEN -->
+
+        <div
+          class="contact-opening-hours"
+          id="contact-opening-hours"
+          hidden
+        >
+
+          <h3>
+            Openingstijden
+          </h3>
+
+          <div
+            class="contact-hours-list"
+            id="contact-hours-list"
+          >
+          </div>
+
+        </div>
+
+
+        <!-- KNOPPEN -->
+
         <div class="btn-row">
 
           <a
+            id="contact-website-button"
             href="https://kollertabor.nl/"
             target="_blank"
             rel="noopener noreferrer"
@@ -73,57 +270,890 @@
             Naar huidige website ↗
           </a>
 
+          <a
+            id="contact-maps-button"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline"
+            hidden
+          >
+            Bekijk locatie ↗
+          </a>
+
         </div>
 
+        <p
+          class="contact-load-error"
+          id="contact-load-error"
+          hidden
+        >
+          De actuele contactgegevens konden niet
+          worden geladen.
+        </p>
+
       </div>
+
+
+      <!-- RECHTERKOLOM -->
 
       <div class="feature-block">
 
         <div class="big">
-          Koller &amp; Tabor<br>
-          Installatietechniek
+
+          <span id="contact-company-name">
+            Koller &amp; Tabor
+          </span>
+
+          <br>
+
+          <span id="contact-company-subtitle">
+            Installatietechniek
+          </span>
+
         </div>
 
-        <p>
+        <p
+          class="contact-company-location"
+          id="contact-company-location"
+        >
           Loenen, Gelderland
         </p>
 
-        <small>
+        <small
+          class="contact-company-extra"
+          id="contact-company-extra"
+        >
           Demoversie · contactgegevens worden geverifieerd
         </small>
 
       </div>
 
     </div>
+
   </section>
 
+
+  <!-- =====================================
+       CONTACTFORMULIER-MELDING
+  ====================================== -->
+
   <section class="section section-soft">
+
     <div class="container">
 
       <div class="callout">
 
-        <h3>
+        <h3 id="contact-form-title">
           Contactformulier in ontwikkeling
         </h3>
 
-        <p>
-          Voor publicatie maken we een werkend
-          formulier met spambeveiliging en
-          privacyvriendelijke verwerking.
+        <div
+          id="contact-form-description"
+          class="contact-form-description"
+        >
 
-          Deze demonstratie bevat daarom
-          bewust geen formulier dat
-          inzendingen zou kunnen verliezen.
-        </p>
+          <p>
+            Voor publicatie maken we een werkend
+            formulier met spambeveiliging en
+            privacyvriendelijke verwerking.
+          </p>
+
+          <p>
+            Deze demonstratie bevat daarom
+            bewust geen formulier dat
+            inzendingen zou kunnen verliezen.
+          </p>
+
+        </div>
 
       </div>
 
     </div>
+
   </section>
+
 
 </main>
 
 <div id="site-footer"></div>
+
+
+<!-- ==========================================
+     CONTACTGEGEVENS LADEN UIT SVELTIA CMS
+========================================== -->
+
+<script>
+
+(function () {
+
+  "use strict";
+
+
+  // ========================================
+  // INSTELLINGEN
+  // ========================================
+
+  const DATA_URL = "content/contact.json";
+
+
+  // ========================================
+  // HTML-ELEMENT MAKEN
+  // ========================================
+
+  function makeElement(tag, className, text) {
+
+    const element = document.createElement(tag);
+
+    if (className) {
+      element.className = className;
+    }
+
+    if (text !== undefined && text !== null) {
+      element.textContent = String(text);
+    }
+
+    return element;
+
+  }
+
+
+  // ========================================
+  // TEKST INVULLEN
+  // ========================================
+
+  function setText(id, value) {
+
+    if (typeof value !== "string") {
+      return;
+    }
+
+    const element = document.getElementById(id);
+
+    if (!element) {
+      return;
+    }
+
+    element.textContent = value;
+
+  }
+
+
+  // ========================================
+  // TEKST MET MEERDERE ALINEA'S
+  // ========================================
+
+  function makeParagraphs(text) {
+
+    const fragment = document.createDocumentFragment();
+
+    if (
+      typeof text !== "string" ||
+      !text.trim()
+    ) {
+      return fragment;
+    }
+
+    const paragraphs = text
+      .trim()
+      .split(/\n\s*\n/);
+
+    paragraphs.forEach(function (paragraph) {
+
+      const p = makeElement(
+        "p",
+        "",
+        paragraph.trim()
+      );
+
+      p.style.whiteSpace = "pre-line";
+
+      fragment.appendChild(p);
+
+    });
+
+    return fragment;
+
+  }
+
+
+  function setParagraphs(id, text) {
+
+    if (typeof text !== "string") {
+      return;
+    }
+
+    const container = document.getElementById(id);
+
+    if (!container) {
+      return;
+    }
+
+    container.replaceChildren(
+      makeParagraphs(text)
+    );
+
+  }
+
+
+  // ========================================
+  // VEILIGE WEBSITE-URL
+  // ========================================
+
+  function getSafeWebUrl(value) {
+
+    if (
+      typeof value !== "string" ||
+      !value.trim()
+    ) {
+      return "";
+    }
+
+    try {
+
+      const url = new URL(value.trim());
+
+      if (
+        url.protocol === "https:" ||
+        url.protocol === "http:"
+      ) {
+        return url.href;
+      }
+
+    } catch (error) {
+
+      return "";
+
+    }
+
+    return "";
+
+  }
+
+
+  // ========================================
+  // TELEFOONNUMMER
+  // ========================================
+
+  function getPhoneLink(value) {
+
+    if (typeof value !== "string") {
+      return "";
+    }
+
+    const phone = value.trim();
+
+    if (!phone) {
+      return "";
+    }
+
+    const cleaned = phone.replace(
+      /[^\d+]/g,
+      ""
+    );
+
+    if (!/^\+?\d{6,15}$/.test(cleaned)) {
+      return "";
+    }
+
+    return "tel:" + cleaned;
+
+  }
+
+
+  // ========================================
+  // E-MAILADRES
+  // ========================================
+
+  function getEmailLink(value) {
+
+    if (typeof value !== "string") {
+      return "";
+    }
+
+    const email = value.trim();
+
+    if (
+      !email ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    ) {
+      return "";
+    }
+
+    return "mailto:" + email;
+
+  }
+
+
+  // ========================================
+  // CONTACTKAART MAKEN
+  // ========================================
+
+  function makeContactDetail(
+    label,
+    value,
+    link
+  ) {
+
+    const card = makeElement(
+      "div",
+      "contact-detail"
+    );
+
+    card.appendChild(
+      makeElement(
+        "strong",
+        "",
+        label
+      )
+    );
+
+    if (link) {
+
+      const a = makeElement(
+        "a",
+        "",
+        value
+      );
+
+      a.href = link;
+
+      card.appendChild(a);
+
+    } else {
+
+      card.appendChild(
+        makeElement(
+          "p",
+          "",
+          value
+        )
+      );
+
+    }
+
+    return card;
+
+  }
+
+
+  // ========================================
+  // ADRES OPBOUWEN
+  // ========================================
+
+  function getAddressLines(data) {
+
+    const lines = [];
+
+    if (data.address) {
+
+      lines.push(
+        String(data.address).trim()
+      );
+
+    }
+
+    const cityLine = [
+      data.postal_code || "",
+      data.city || ""
+    ]
+      .map(function (part) {
+        return String(part).trim();
+      })
+      .filter(Boolean)
+      .join(" ");
+
+    if (cityLine) {
+      lines.push(cityLine);
+    }
+
+    return lines;
+
+  }
+
+
+  // ========================================
+  // CONTACTGEGEVENS WEERGEVEN
+  // ========================================
+
+  function renderContactDetails(data) {
+
+    const container = document.getElementById(
+      "contact-details"
+    );
+
+    const fragment = document.createDocumentFragment();
+
+    let count = 0;
+
+
+    // TELEFOON
+
+    if (
+      typeof data.phone === "string" &&
+      data.phone.trim()
+    ) {
+
+      fragment.appendChild(
+        makeContactDetail(
+          "Telefoon",
+          data.phone.trim(),
+          getPhoneLink(data.phone)
+        )
+      );
+
+      count++;
+
+    }
+
+
+    // E-MAIL
+
+    if (
+      typeof data.email === "string" &&
+      data.email.trim()
+    ) {
+
+      fragment.appendChild(
+        makeContactDetail(
+          "E-mail",
+          data.email.trim(),
+          getEmailLink(data.email)
+        )
+      );
+
+      count++;
+
+    }
+
+
+    // ADRES
+
+    const addressLines = getAddressLines(data);
+
+    // Het adres tonen we wanneer een
+    // straat of postcode is ingevuld.
+    // Alleen "Loenen" staat al rechts.
+    if (
+      (data.address && String(data.address).trim()) ||
+      (data.postal_code && String(data.postal_code).trim())
+    ) {
+
+      fragment.appendChild(
+        makeContactDetail(
+          "Adres",
+          addressLines.join(", "),
+          ""
+        )
+      );
+
+      count++;
+
+    }
+
+
+    container.replaceChildren(fragment);
+
+    container.hidden = count === 0;
+
+  }
+
+
+  // ========================================
+  // OPENINGSTIJDEN WEERGEVEN
+  // ========================================
+
+  function renderOpeningHours(hours) {
+
+    const section = document.getElementById(
+      "contact-opening-hours"
+    );
+
+    const container = document.getElementById(
+      "contact-hours-list"
+    );
+
+    if (
+      !Array.isArray(hours) ||
+      hours.length === 0
+    ) {
+
+      section.hidden = true;
+
+      container.replaceChildren();
+
+      return;
+
+    }
+
+    const fragment = document.createDocumentFragment();
+
+    hours.forEach(function (item) {
+
+      if (
+        !item ||
+        typeof item !== "object"
+      ) {
+        return;
+      }
+
+      const day = item.day || "";
+      const time = item.hours || "";
+
+      if (!day && !time) {
+        return;
+      }
+
+      const row = makeElement(
+        "div",
+        "contact-hours-row"
+      );
+
+      row.appendChild(
+        makeElement(
+          "strong",
+          "",
+          day
+        )
+      );
+
+      row.appendChild(
+        makeElement(
+          "span",
+          "",
+          time
+        )
+      );
+
+      fragment.appendChild(row);
+
+    });
+
+    container.replaceChildren(fragment);
+
+    section.hidden = container.children.length === 0;
+
+  }
+
+
+  // ========================================
+  // WEBSITE- EN MAPSKNOPPEN
+  // ========================================
+
+  function renderButtons(data) {
+
+    const websiteButton = document.getElementById(
+      "contact-website-button"
+    );
+
+    const mapsButton = document.getElementById(
+      "contact-maps-button"
+    );
+
+
+    // WEBSITE
+
+    if (typeof data.website === "string") {
+
+      const websiteUrl = getSafeWebUrl(
+        data.website
+      );
+
+      if (websiteUrl) {
+
+        websiteButton.href = websiteUrl;
+
+        websiteButton.hidden = false;
+
+      } else {
+
+        websiteButton.removeAttribute("href");
+
+        websiteButton.hidden = true;
+
+      }
+
+    }
+
+
+    // KNOPTEKST
+
+    if (
+      typeof data.website_button_text === "string"
+    ) {
+
+      websiteButton.textContent =
+        data.website_button_text;
+
+    }
+
+
+    // GOOGLE MAPS
+
+    if (typeof data.maps === "string") {
+
+      const mapsUrl = getSafeWebUrl(
+        data.maps
+      );
+
+      if (mapsUrl) {
+
+        mapsButton.href = mapsUrl;
+
+        mapsButton.hidden = false;
+
+      } else {
+
+        mapsButton.removeAttribute("href");
+
+        mapsButton.hidden = true;
+
+      }
+
+    }
+
+  }
+
+
+  // ========================================
+  // BEDRIJFSINFORMATIE
+  // ========================================
+
+  function renderCompany(data) {
+
+    setText(
+      "contact-company-name",
+      data.company_name
+    );
+
+    setText(
+      "contact-company-subtitle",
+      data.company_subtitle
+    );
+
+
+    // LOCATIE
+
+    const locationParts = [
+      data.city || "",
+      data.region || ""
+    ]
+      .map(function (part) {
+        return String(part).trim();
+      })
+      .filter(Boolean);
+
+    const location = document.getElementById(
+      "contact-company-location"
+    );
+
+    location.textContent = locationParts.join(", ");
+
+    location.hidden = locationParts.length === 0;
+
+
+    // AANVULLENDE INFORMATIE
+
+    const extra = document.getElementById(
+      "contact-company-extra"
+    );
+
+    if (
+      typeof data.additional_information === "string"
+    ) {
+
+      extra.textContent =
+        data.additional_information;
+
+      extra.hidden =
+        !data.additional_information.trim();
+
+    }
+
+  }
+
+
+  // ========================================
+  // CONTACTFORMULIER-MELDING
+  // ========================================
+
+  function renderFormMessage(form) {
+
+    if (
+      !form ||
+      typeof form !== "object"
+    ) {
+      return;
+    }
+
+    setText(
+      "contact-form-title",
+      form.title
+    );
+
+    setParagraphs(
+      "contact-form-description",
+      form.description
+    );
+
+  }
+
+
+  // ========================================
+  // ALLE CONTACTGEGEVENS WEERGEVEN
+  // ========================================
+
+  function renderContact(data) {
+
+
+    // BOVENKANT PAGINA
+
+    if (
+      data.hero &&
+      typeof data.hero === "object"
+    ) {
+
+      setText(
+        "contact-hero-eyebrow",
+        data.hero.eyebrow
+      );
+
+      setText(
+        "contact-hero-title",
+        data.hero.title
+      );
+
+      setText(
+        "contact-hero-introduction",
+        data.hero.introduction
+      );
+
+    }
+
+
+    // CONTACTSECTIE
+
+    if (
+      data.section &&
+      typeof data.section === "object"
+    ) {
+
+      setText(
+        "contact-section-eyebrow",
+        data.section.eyebrow
+      );
+
+      setText(
+        "contact-section-title",
+        data.section.title
+      );
+
+      setText(
+        "contact-section-introduction",
+        data.section.introduction
+      );
+
+    }
+
+
+    // CONTACTGEGEVENS
+
+    renderContactDetails(data);
+
+
+    // OPENINGSTIJDEN
+
+    renderOpeningHours(
+      data.opening_hours
+    );
+
+
+    // WEBSITE EN GOOGLE MAPS
+
+    renderButtons(data);
+
+
+    // BEDRIJFSGEGEVENS
+
+    renderCompany(data);
+
+
+    // CONTACTFORMULIER-MELDING
+
+    renderFormMessage(data.form);
+
+  }
+
+
+  // ========================================
+  // JSON-BESTAND LADEN
+  // ========================================
+
+  async function loadContact() {
+
+    try {
+
+      const response = await fetch(
+        DATA_URL,
+        {
+          cache: "no-store"
+        }
+      );
+
+      if (!response.ok) {
+
+        throw new Error(
+          "Contactgegevens niet beschikbaar: " +
+          response.status
+        );
+
+      }
+
+      const data = await response.json();
+
+      if (
+        !data ||
+        typeof data !== "object" ||
+        !data.hero ||
+        !data.section
+      ) {
+
+        throw new Error(
+          "Ongeldige contactgegevens"
+        );
+
+      }
+
+      renderContact(data);
+
+    } catch (error) {
+
+      console.error(
+        "Kon contactgegevens niet laden:",
+        error
+      );
+
+      document.getElementById(
+        "contact-load-error"
+      ).hidden = false;
+
+      // De oorspronkelijke teksten blijven
+      // zichtbaar wanneer het laden mislukt.
+
+    }
+
+  }
+
+
+  // ========================================
+  // STARTEN
+  // ========================================
+
+  loadContact();
+
+})();
+
+</script>
 
 </body>
 </html>
