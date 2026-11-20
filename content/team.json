@@ -1,16 +1,13 @@
 {
   "introduction": "Achter iedere installatie staat een team van betrokken vakmensen. Maak kennis met de mensen die dagelijks voor Koller & Tabor klaarstaan.",
-
   "section_title": "De mensen achter Koller & Tabor",
-
   "section_description": "Vakmanschap begint bij de mensen die het iedere dag waarmaken.",
-
   "members": [
     {
-      "name": "Naam volgt",
-      "role": "Functie volgt",
-      "description": "",
-      "photo": "",
+      "name": "The big boss",
+      "role": "Bedrijfsleider",
+      "description": "de nerf koning",
+      "photo": "/images/uploads/pasted-image-1795211891283.png",
       "photo_alt": "",
       "order": 1,
       "published": true
