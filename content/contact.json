@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "eyebrow": "Neem contact op",
+    "title": "We helpen u verder",
+    "introduction": "Een vraag over installaties, onderhoud of een project? Neem contact op met Koller & Tabor."
+  },
+
+  "section": {
+    "eyebrow": "Contactmogelijkheden",
+    "title": "Een goed gesprek begint hier.",
+    "introduction": "De exacte telefoonnummers, het e-mailadres en de openingstijden nemen we na controle over van de huidige website."
+  },
+
+  "phone": "",
+  "email": "",
+
+  "address": "",
+  "postal_code": "",
+  "city": "Loenen",
+
+  "region": "Gelderland",
+
+  "website": "https://kollertabor.nl/",
+  "website_button_text": "Naar huidige website ↗",
+
+  "maps": "",
+
+  "opening_hours": [],
+
+  "company_name": "Koller & Tabor",
+  "company_subtitle": "Installatietechniek",
+
+  "additional_information": "Demoversie · contactgegevens worden geverifieerd",
+
+  "form": {
+    "title": "Contactformulier in ontwikkeling",
+    "description": "Voor publicatie maken we een werkend formulier met spambeveiliging en privacyvriendelijke verwerking.\n\nDeze demonstratie bevat daarom bewust geen formulier dat inzendingen zou kunnen verliezen."
+  }
+}
