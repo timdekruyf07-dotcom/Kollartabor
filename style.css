@@ -1424,3 +1424,91 @@ a.card:focus-visible {
     }
 
 }
+/* ==========================================
+   KOLLER & TABOR — HUISSTIJL V3.7
+   ORANJE - DONKERBLAUW - LICHTBLAUW
+========================================== */
+
+/* 01 — INSTALLATIES: ORANJE */
+
+.cards .card:nth-child(1) {
+    background: linear-gradient(
+        135deg,
+        #fff2e8 0%,
+        #ffdfc5 100%
+    );
+    border-color: #efbd98;
+}
+
+/* 02 — ONDERHOUD: DONKERBLAUW */
+
+.cards .card:nth-child(2) {
+    background: linear-gradient(
+        135deg,
+        #303f85 0%,
+        #202d68 100%
+    );
+    border-color: #202d68;
+}
+
+.cards .card:nth-child(2) h3 {
+    color: #ffffff;
+}
+
+.cards .card:nth-child(2) p {
+    color: #e0e6f7;
+}
+
+.cards .card:nth-child(2) .num {
+    color: #ffffff;
+}
+
+.cards .card:nth-child(2) .card-link {
+    color: #ffffff;
+}
+
+.cards .card:nth-child(2)::before,
+.cards .card:nth-child(2)::after {
+    background: rgba(255,255,255,0.045);
+}
+
+/* 03 — INDUSTRIE: LICHTBLAUW */
+
+.cards .card:nth-child(3) {
+    background: linear-gradient(
+        135deg,
+        #edf5ff 0%,
+        #d4e7ff 100%
+    );
+    border-color: #bfd5f0;
+}
+
+/* HOVER EFFECTS */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .cards .card:nth-child(1):hover {
+        background: linear-gradient(
+            135deg,
+            #ffe9d9,
+            #ffd2b0
+        );
+    }
+
+    .cards .card:nth-child(2):hover {
+        background: linear-gradient(
+            135deg,
+            #394c99,
+            #293978
+        );
+    }
+
+    .cards .card:nth-child(3):hover {
+        background: linear-gradient(
+            135deg,
+            #e1efff,
+            #c7dfff
+        );
+    }
+
+}
