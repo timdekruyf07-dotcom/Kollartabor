@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta
+    name="description"
+    content="Ontdek verwarming, warmtepompen, sanitair en onderhoud in een schematische woning."
+  >
+
+  <title>Interactieve woning | Koller &amp; Tabor</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<div id="site-header"></div>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container">
+
+      <span class="eyebrow">
+        Techniek ontdekken
+      </span>
+
+      <h1>
+        Een woning. Veel techniek<span class="red-dot">.</span>
+      </h1>
+
+      <p class="lead">
+        Ontdek op een eenvoudige manier welke installaties
+        in een gebouw een rol spelen.
+
+        Selecteer een onderdeel in de tekening
+        of gebruik de knoppen.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="house-layout">
+
+        <!-- WONINGTEKENING -->
+
+        <div class="diagram">
+
+          <span class="diagram-label">
+            Interactief schema
+          </span>
+
+          <svg
+            viewBox="0 0 850 550"
+            role="img"
+            aria-label="Schematische doorsnede van een woning met klikbare installaties"
+          >
+
+            <!-- WONING -->
+
+            <path
+              class="house-structure"
+              d="M130 185 L420 44 L710 185 V493 H130 Z"
+            />
+
+            <path
+              class="detail"
+              d="M130 335 H710 M410 185 V493 M590 185 V335"
+            />
+
+            <!-- RAMEN -->
+
+            <rect
+              class="house-structure"
+              x="195"
+              y="222"
+              width="130"
+              height="75"
+            />
+
+            <path
+              class="detail"
+              d="M260 222 V297"
+            />
+
+            <rect
+              class="house-structure"
+              x="466"
+              y="222"
+              width="90"
+              height="75"
+            />
+
+            <!-- DEUR -->
+
+            <rect
+              class="house-structure"
+              x="200"
+              y="381"
+              width="101"
+              height="112"
+            />
+
+            <!-- TECHNIEKRUIMTE -->
+
+            <rect
+              class="house-structure"
+              x="610"
+              y="378"
+              width="65"
+              height="98"
+            />
+
+            <!-- BUITENUNIT -->
+
+            <rect
+              class="house-structure"
+              x="735"
+              y="411"
+              width="88"
+              height="72"
+            />
+
+            <circle
+              class="detail"
+              cx="779"
+              cy="447"
+              r="25"
+            />
+
+            <!-- VERWARMING -->
+
+            <g
+              class="part active"
+              data-system="verwarming"
+              tabindex="0"
+              role="button"
+              aria-label="Verwarming selecteren"
+            >
+
+              <path
+                d="M608 472 H542 V455 H492 V472 H438 V455 H387 V472 H343"
+              />
+
+              <path
+                d="M355 335 V391 H381 V335"
+              />
+
+              <circle
+                cx="438"
+                cy="472"
+                r="10"
+              />
+
+            </g>
+
+            <!-- WARMTEPOMP -->
+
+            <g
+              class="part"
+              data-system="warmtepomp"
+              tabindex="0"
+              role="button"
+              aria-label="Warmtepomp selecteren"
+            >
+
+              <path
+                d="M735 448 H690 V430 H675"
+              />
+
+              <rect
+                x="618"
+                y="389"
+                width="48"
+                height="72"
+              />
+
+              <circle
+                cx="780"
+                cy="447"
+                r="11"
+              />
+
+            </g>
+
+            <!-- SANITAIR -->
+
+            <g
+              class="part"
+              data-system="sanitair"
+              tabindex="0"
+              role="button"
+              aria-label="Sanitair selecteren"
+            >
+
+              <path
+                d="M472 240 H529 V280 H472 M501 280 V336 H535 V404 H607"
+              />
+
+              <circle
+                cx="501"
+                cy="280"
+                r="10"
+              />
+
+            </g>
+
+            <!-- ONDERHOUD -->
+
+            <g
+              class="part"
+              data-system="onderhoud"
+              tabindex="0"
+              role="button"
+              aria-label="Onderhoud selecteren"
+            >
+
+              <rect
+                x="610"
+                y="379"
+                width="65"
+                height="98"
+              />
+
+              <path
+                d="M643 396 V460 M623 425 H663"
+              />
+
+              <circle
+                cx="643"
+                cy="430"
+                r="10"
+              />
+
+            </g>
+
+            <!-- ONDERLIJN -->
+
+            <path
+              class="detail"
+              d="M60 500 H825"
+            />
+
+            <text
+              x="140"
+              y="526"
+              fill="#8596aa"
+              font-size="13"
+            >
+              SCHEMATISCHE VISUALISATIE — GEEN INSTALLATIEPLAN
+            </text>
+
+          </svg>
+
+        </div>
+
+        <!-- BEDIENING -->
+
+        <div class="house-panel">
+
+          <h3>Kies een systeem</h3>
+
+          <button
+            class="system-btn active"
+            data-select="verwarming"
+            aria-pressed="true"
+            type="button"
+          >
+            Verwarming <span>↗</span>
+          </button>
+
+          <button
+            class="system-btn"
+            data-select="warmtepomp"
+            aria-pressed="false"
+            type="button"
+          >
+            Warmtepomp <span>↗</span>
+          </button>
+
+          <button
+            class="system-btn"
+            data-select="sanitair"
+            aria-pressed="false"
+            type="button"
+          >
+            Sanitair <span>↗</span>
+          </button>
+
+          <button
+            class="system-btn"
+            data-select="onderhoud"
+            aria-pressed="false"
+            type="button"
+          >
+            Onderhoud <span>↗</span>
+          </button>
+
+          <!-- DYNAMISCHE UITLEG -->
+
+          <div
+            class="system-info"
+            aria-live="polite"
+          >
+
+            <h4 id="system-title">
+              Verwarming
+            </h4>
+
+            <p id="system-description"></p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <p class="notice">
+        <strong>Let op:</strong>
+        Dit is een illustratief schema.
+        De getekende routes en componenten
+        zijn niet bedoeld als technisch uitvoeringsontwerp.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+
+      <div>
+        <h2>Een vraag over uw installatie?</h2>
+        <p>
+          Neem contact op voor informatie
+          over de mogelijkheden.
+        </p>
+      </div>
+
+      <a class="btn btn-light" href="contact.html">
+        Contact opnemen ↗
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+</body>
+</html>
