@@ -17,6 +17,39 @@
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 
+  <style>
+
+    /* ==========================================
+       AANVULLINGEN VOOR CMS-TEAMFOTO'S
+       ========================================== */
+
+    .person-photo.has-image {
+      padding: 0;
+      overflow: hidden;
+      display: block;
+    }
+
+    .person-photo.has-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      object-fit: cover;
+    }
+
+    .person-description {
+      white-space: pre-line;
+      margin-top: 12px;
+    }
+
+    .team-empty {
+      text-align: center;
+      padding: 48px 20px;
+      grid-column: 1 / -1;
+    }
+
+  </style>
+
 </head>
 
 <body>
@@ -41,7 +74,7 @@
         Ons team<span class="red-dot">.</span>
       </h1>
 
-      <p class="lead">
+      <p class="lead" id="team-introduction">
         Achter iedere installatie staat een team
         van betrokken vakmensen. Maak kennis met
         de mensen die dagelijks voor Koller & Tabor
@@ -70,12 +103,14 @@
           </span>
 
           <h2>
-            De mensen achter Koller &amp; Tabor<span class="red-dot">.</span>
+            <span id="team-section-title">
+              De mensen achter Koller &amp; Tabor
+            </span><span class="red-dot">.</span>
           </h2>
 
         </div>
 
-        <p>
+        <p id="team-section-description">
           Vakmanschap begint bij de mensen
           die het iedere dag waarmaken.
         </p>
@@ -83,7 +118,17 @@
       </div>
 
 
-      <div class="people-grid">
+      <!-- =====================================
+           TEAMKAARTEN
+      ====================================== -->
+
+      <div class="people-grid" id="team-grid">
+
+        <!--
+          De drie bestaande voorbeeldmedewerkers
+          blijven zichtbaar zolang het CMS-bestand
+          nog niet geladen is.
+        -->
 
 
         <!-- MEDEWERKER 01 -->
@@ -142,7 +187,6 @@
 
         </article>
 
-
       </div>
 
     </div>
@@ -165,7 +209,7 @@
         </h2>
 
         <p>
-          Benieuwd wat Koller & Tabor
+          Benieuwd wat Koller &amp; Tabor
           voor u kan betekenen?
         </p>
 
@@ -182,11 +226,367 @@
 
   </section>
 
-
 </main>
 
 <div id="site-footer"></div>
 
-</body>
 
+<!-- ==========================================
+     TEAMGEGEVENS LADEN UIT SVELTIA CMS
+========================================== -->
+
+<script>
+
+(function () {
+
+  "use strict";
+
+  // ========================================
+  // INSTELLINGEN
+  // ========================================
+
+  const DATA_URL = "content/team.json";
+
+  const grid = document.getElementById("team-grid");
+
+  const introduction = document.getElementById(
+    "team-introduction"
+  );
+
+  const sectionTitle = document.getElementById(
+    "team-section-title"
+  );
+
+  const sectionDescription = document.getElementById(
+    "team-section-description"
+  );
+
+
+  // ========================================
+  // HTML-ELEMENT MAKEN
+  // ========================================
+
+  function makeElement(tag, className, text) {
+
+    const element = document.createElement(tag);
+
+    if (className) {
+      element.className = className;
+    }
+
+    if (text !== undefined && text !== null) {
+      element.textContent = String(text);
+    }
+
+    return element;
+  }
+
+
+  // ========================================
+  // FOTO-URL VERWERKEN
+  // ========================================
+
+  function getImageUrl(imagePath) {
+
+    if (!imagePath) {
+      return "";
+    }
+
+    const path = String(imagePath).trim();
+
+    if (!path) {
+      return "";
+    }
+
+    // Volledige HTTPS-URL.
+    if (/^https:\/\//i.test(path)) {
+      return path;
+    }
+
+    // Andere protocollen blokkeren.
+    if (/^[a-z]+:/i.test(path) || path.startsWith("//")) {
+      return "";
+    }
+
+    // Pad dat vanaf de GitHub Pages-website begint.
+    if (path.startsWith("/")) {
+      return path;
+    }
+
+    // Relatief pad, bijvoorbeeld:
+    // images/uploads/medewerker.jpg
+    return new URL(path, document.baseURI).href;
+  }
+
+
+  // ========================================
+  // MEDEWERKERKAART MAKEN
+  // ========================================
+
+  function makeMemberCard(member) {
+
+    const article = makeElement(
+      "article",
+      "person"
+    );
+
+
+    // ======================================
+    // FOTO
+    // ======================================
+
+    const photoContainer = makeElement(
+      "div",
+      "person-photo"
+    );
+
+    const imageUrl = getImageUrl(member.photo);
+
+    if (imageUrl) {
+
+      photoContainer.classList.add("has-image");
+
+      const img = document.createElement("img");
+
+      img.src = imageUrl;
+
+      img.alt = member.photo_alt ||
+        ("Foto van " + (member.name || "een medewerker"));
+
+      img.loading = "lazy";
+
+      // Als de foto niet geladen kan worden,
+      // tonen we alsnog de oorspronkelijke tekst.
+      img.addEventListener("error", function () {
+
+        photoContainer.classList.remove("has-image");
+
+        photoContainer.replaceChildren();
+
+        photoContainer.textContent = "Foto volgt";
+
+      }, { once: true });
+
+      photoContainer.appendChild(img);
+
+    } else {
+
+      photoContainer.textContent = "Foto volgt";
+
+    }
+
+    article.appendChild(photoContainer);
+
+
+    // ======================================
+    // NAAM
+    // ======================================
+
+    const name = makeElement(
+      "h3",
+      "",
+      member.name || "Naam volgt"
+    );
+
+    article.appendChild(name);
+
+
+    // ======================================
+    // FUNCTIE
+    // ======================================
+
+    const role = makeElement(
+      "p",
+      "",
+      member.role || "Functie volgt"
+    );
+
+    article.appendChild(role);
+
+
+    // ======================================
+    // EXTRA BESCHRIJVING
+    // ======================================
+
+    if (member.description) {
+
+      const description = makeElement(
+        "p",
+        "person-description",
+        member.description
+      );
+
+      article.appendChild(description);
+
+    }
+
+    return article;
+  }
+
+
+  // ========================================
+  // MEDEWERKERS TONEN
+  // ========================================
+
+  function renderMembers(members) {
+
+    // Alleen gepubliceerde medewerkers tonen.
+    const visibleMembers = members.filter(function (member) {
+
+      return member &&
+        typeof member === "object" &&
+        member.published !== false;
+
+    });
+
+
+    // Sorteren op ingevulde volgorde.
+    // Zonder nummer blijft de CMS-volgorde behouden.
+    visibleMembers.sort(function (a, b) {
+
+      const aOrder =
+        a.order === undefined ||
+        a.order === null ||
+        a.order === ""
+          ? Infinity
+          : Number(a.order);
+
+      const bOrder =
+        b.order === undefined ||
+        b.order === null ||
+        b.order === ""
+          ? Infinity
+          : Number(b.order);
+
+      return aOrder - bOrder;
+
+    });
+
+
+    // Alle kaarten opbouwen.
+    const fragment = document.createDocumentFragment();
+
+    if (visibleMembers.length === 0) {
+
+      const emptyMessage = makeElement(
+        "p",
+        "team-empty",
+        "Er zijn momenteel nog geen teamleden gepubliceerd."
+      );
+
+      fragment.appendChild(emptyMessage);
+
+    } else {
+
+      visibleMembers.forEach(function (member) {
+
+        fragment.appendChild(
+          makeMemberCard(member)
+        );
+
+      });
+
+    }
+
+
+    // Bestaande kaarten vervangen door CMS-gegevens.
+    grid.replaceChildren(fragment);
+
+  }
+
+
+  // ========================================
+  // JSON LADEN
+  // ========================================
+
+  async function loadTeam() {
+
+    try {
+
+      const response = await fetch(DATA_URL, {
+        cache: "no-store"
+      });
+
+      if (!response.ok) {
+
+        throw new Error(
+          "Teamgegevens niet beschikbaar: " +
+          response.status
+        );
+
+      }
+
+      const data = await response.json();
+
+      if (!data || !Array.isArray(data.members)) {
+        throw new Error("Ongeldige teamgegevens");
+      }
+
+
+      // ======================================
+      // INTRODUCTIETEKST AANPASSEN
+      // ======================================
+
+      if (typeof data.introduction === "string") {
+
+        introduction.textContent = data.introduction;
+
+      }
+
+
+      // ======================================
+      // TITEL AANPASSEN
+      // ======================================
+
+      if (typeof data.section_title === "string") {
+
+        sectionTitle.textContent = data.section_title;
+
+      }
+
+
+      // ======================================
+      // BESCHRIJVING AANPASSEN
+      // ======================================
+
+      if (typeof data.section_description === "string") {
+
+        sectionDescription.textContent =
+          data.section_description;
+
+      }
+
+
+      // ======================================
+      // MEDEWERKERS TONEN
+      // ======================================
+
+      renderMembers(data.members);
+
+    } catch (error) {
+
+      console.error(
+        "Kon teamgegevens niet laden:",
+        error
+      );
+
+      // De oorspronkelijke voorbeeldkaarten
+      // blijven zichtbaar als laden mislukt.
+
+    }
+
+  }
+
+
+  // ========================================
+  // STARTEN
+  // ========================================
+
+  loadTeam();
+
+})();
+
+</script>
+
+</body>
 </html>
