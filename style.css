@@ -1,166 +1,284 @@
 /* ==========================================
-   KOLLER & TABOR V2
-   GEDEELDE STYLESHEET
+   KOLLER & TABOR
+   WEBSITE V3.4
+
+   MODERN ARCHITECTURAL DESIGN
+   RED / NAVY / BLUE / WHITE
+========================================== */
+
+
+/* ==========================================
+   LETTERTYPES
 ========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
+
 /* ==========================================
-   HUISSTIJL
+   KLEUREN
 ========================================== */
 
 :root {
+
   --ink: #161b25;
+
   --navy: #273579;
+
   --blue: #2664a9;
+
   --red: #ef4438;
+
   --paper: #f7f8fa;
+
   --line: #e2e5eb;
+
   --muted: #616b78;
-  --white: #fff;
+
+  --white: #ffffff;
+
   --font: Manrope, Arial, sans-serif;
+
 }
 
+
 /* ==========================================
-   BASISINSTELLINGEN
+   BASIS
 ========================================== */
 
 * {
+
   box-sizing: border-box;
+
 }
 
 html {
+
   scroll-behavior: smooth;
+
 }
 
 body {
+
   margin: 0;
+
   background: white;
+
   color: var(--ink);
+
   font-family: 'DM Sans', Arial, sans-serif;
+
+  overflow-x: hidden;
+
 }
 
 a {
+
   color: inherit;
+
   text-decoration: none;
+
 }
 
 button {
+
   font: inherit;
+
   cursor: pointer;
+
 }
 
 a:focus-visible,
 button:focus-visible {
+
   outline: 3px solid var(--blue);
+
   outline-offset: 4px;
+
 }
 
 .container {
+
   width: min(1220px, 90%);
+
   margin: auto;
+
 }
+
 
 /* ==========================================
    HEADER
 ========================================== */
 
 .site-header {
+
   position: sticky;
+
   top: 0;
+
   z-index: 30;
 
   background: #fffffff5;
+
   border-bottom: 1px solid var(--line);
+
   backdrop-filter: blur(14px);
+
 }
 
 .nav {
+
   display: flex;
+
   align-items: center;
-  gap: 28px;
+
   justify-content: space-between;
+
+  gap: 28px;
+
   min-height: 91px;
+
 }
 
 .brand img {
-  width: 240px;
-  max-width: 100%;
-  height: auto;
+
   display: block;
+
+  width: 240px;
+
+  max-width: 100%;
+
+  height: auto;
+
 }
 
 .menu {
+
   display: flex;
+
   align-items: center;
+
   gap: clamp(10px, 1.65vw, 25px);
+
 }
 
 .menu a {
-  font-size: 12px;
-  font-weight: 700;
-  padding: 13px 0;
-  white-space: nowrap;
+
   position: relative;
+
+  padding: 13px 0;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
 }
 
-.menu a:not(.nav-cta):after {
+.menu a:not(.nav-cta)::after {
+
   content: '';
+
   position: absolute;
+
   left: 0;
+
   right: 100%;
+
   bottom: 5px;
+
   height: 2px;
+
   background: var(--blue);
-  transition: right .25s;
+
+  transition: right .25s ease;
+
 }
 
-.menu a:not(.nav-cta):hover:after,
-.menu a.current:not(.nav-cta):after {
+.menu a:not(.nav-cta):hover::after,
+.menu a.current:not(.nav-cta)::after {
+
   right: 0;
+
 }
 
 .nav-cta {
-  background: var(--navy);
-  color: white;
+
   padding: 14px 17px !important;
+
+  background: var(--navy);
+
+  color: white;
+
   border-radius: 3px;
+
+  transition: background .2s ease;
+
 }
 
 .nav-cta:hover {
+
   background: var(--blue);
+
 }
 
 .menu-toggle {
+
   display: none;
-  border: 1px solid var(--line);
-  background: white;
+
   width: 44px;
+
   height: 44px;
+
+  border: 1px solid var(--line);
+
+  background: white;
+
   font-size: 22px;
+
 }
 
+
 /* ==========================================
-   KLEINE TITELS
+   LABELS
 ========================================== */
 
 .eyebrow {
+
   display: flex;
+
   align-items: center;
+
   gap: 13px;
-  text-transform: uppercase;
-  letter-spacing: .16em;
-  font-weight: 700;
-  font-size: 11px;
+
   color: var(--navy);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: .16em;
+
+  text-transform: uppercase;
+
 }
 
-.eyebrow:before {
+.eyebrow::before {
+
   content: '';
-  height: 2px;
+
+  display: block;
+
+  flex-shrink: 0;
+
   width: 27px;
+
+  height: 2px;
+
   background: var(--red);
+
 }
+
 
 /* ==========================================
    TYPOGRAFIE
@@ -169,600 +287,1159 @@ button:focus-visible {
 h1,
 h2,
 h3 {
-  font-family: var(--font);
+
   margin: 0;
+
+  font-family: var(--font);
+
   letter-spacing: -.065em;
+
 }
 
 h1 {
-  font-weight: 600;
+
   font-size: clamp(52px, 6.8vw, 100px);
+
+  font-weight: 600;
+
   line-height: 1.07;
+
 }
 
 h2 {
+
   font-size: clamp(36px, 4.5vw, 67px);
+
   font-weight: 600;
+
   line-height: 1.12;
+
 }
 
 h3 {
-  font-weight: 650;
+
   font-size: 23px;
+
+  font-weight: 650;
+
   line-height: 1.23;
+
 }
 
 p {
-  line-height: 1.85;
+
   color: var(--muted);
+
+  line-height: 1.85;
+
 }
 
 .lead {
-  font-size: 17px;
+
   max-width: 650px;
+
+  font-size: 17px;
+
 }
 
 .accent {
+
   color: var(--blue);
+
 }
 
 .red-dot {
+
   color: var(--red);
+
 }
+
 
 /* ==========================================
    KNOPPEN
 ========================================== */
 
 .btn {
+
   display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
+
   gap: 21px;
 
   min-height: 53px;
+
   padding: 14px 22px;
 
   border: 1px solid var(--navy);
 
   font-size: 13px;
+
   font-weight: 700;
 
   transition:
-    transform .2s,
-    background .2s,
-    color .2s;
+    transform .2s ease,
+    background .2s ease,
+    color .2s ease;
+
 }
 
 .btn:hover {
+
   transform: translateY(-2px);
+
 }
 
 .btn-primary {
+
   background: var(--navy);
+
   color: white;
+
 }
 
 .btn-primary:hover {
+
   background: var(--blue);
+
 }
 
 .btn-outline {
+
   background: white;
+
+  color: var(--ink);
+
 }
 
 .btn-outline:hover {
+
   background: #f1f5fb;
+
 }
 
 .btn-light {
+
   background: white;
+
   border-color: white;
+
   color: var(--navy);
+
 }
 
 .btn-light:hover {
+
   background: #e8f0fa;
+
 }
 
 .btn-row {
+
   display: flex;
-  gap: 12px;
+
   flex-wrap: wrap;
+
+  gap: 12px;
+
   margin-top: 30px;
+
 }
+
 
 /* ==========================================
    HOMEPAGE HERO
+
+   De huidige homepage heeft extra CSS
+   binnen index.html.
+
+   Die blijft gewoon werken.
 ========================================== */
 
 .hero {
+
   background: linear-gradient(
     112deg,
-    #fff 38%,
+    #ffffff 38%,
     #f3f5f9 38%
   );
+
   overflow: hidden;
+
 }
 
 .hero-grid {
+
   display: grid;
+
   grid-template-columns: 1fr 1.02fr;
-  gap: clamp(30px, 5vw, 75px);
+
   align-items: center;
+
+  gap: clamp(30px, 5vw, 75px);
+
   min-height: 620px;
+
   padding: 70px 0;
+
 }
 
 .hero-copy h1 {
+
   margin: 24px 0;
+
 }
 
 .hero-copy p {
+
   max-width: 490px;
+
 }
 
-/* ==========================================
-   ARCHITECTUURILLUSTRATIE
-========================================== */
-
 .hero-visual {
-  min-height: 460px;
+
   position: relative;
+
+  min-height: 460px;
+
   overflow: hidden;
+
   background: #edf0f5;
+
   border: 1px solid #e1e6ed;
+
 }
 
 .hero-visual svg {
-  width: 100%;
-  height: 100%;
+
   position: absolute;
+
   inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
 }
 
 .hero-visual .visual-label {
+
   position: absolute;
+
   bottom: 18px;
+
   left: 21px;
 
-  background: #fffffff2;
   padding: 11px 15px;
 
-  font-size: 10px;
-  letter-spacing: .12em;
-  font-weight: 800;
+  background: #fffffff2;
+
   color: var(--navy);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: .12em;
+
 }
 
 .arch-line {
-  stroke: #94a6bd;
-  stroke-width: 2;
+
   fill: none;
+
+  stroke: #94a6bd;
+
+  stroke-width: 2;
+
 }
 
+
 /* ==========================================
-   BEWEGENDE TECHNISCHE LIJNEN
+   BEWEGENDE LIJNEN
 ========================================== */
 
 .tech-flow {
-  stroke: var(--blue);
-  stroke-width: 3;
-  stroke-dasharray: 9 13;
-  animation: flow 13s linear infinite;
+
   fill: none;
+
+  stroke: var(--blue);
+
+  stroke-width: 3;
+
+  stroke-dasharray: 9 13;
+
+  animation: flow 13s linear infinite;
+
 }
 
 .warm-flow {
-  stroke: var(--red);
-  stroke-width: 3;
-  stroke-dasharray: 9 13;
-  animation: flow 11s linear infinite;
+
   fill: none;
+
+  stroke: var(--red);
+
+  stroke-width: 3;
+
+  stroke-dasharray: 9 13;
+
+  animation: flow 11s linear infinite;
+
 }
 
 @keyframes flow {
+
   to {
+
     stroke-dashoffset: -220;
+
   }
+
 }
+
 
 /* ==========================================
    ALGEMENE SECTIES
 ========================================== */
 
 .section {
+
   padding: 100px 0;
+
 }
 
 .section-soft {
+
   background: var(--paper);
+
 }
 
 .section-dark {
+
   background: var(--ink);
+
   color: white;
+
 }
 
 .section-dark p {
+
   color: #c5cbd5;
+
 }
 
 .section-head {
+
   display: flex;
+
   align-items: end;
+
   justify-content: space-between;
+
   gap: 35px;
-  margin-bottom: 36px;
+
+  margin-bottom: 43px;
+
 }
 
 .section-head h2 {
+
   margin-top: 15px;
+
 }
 
 .section-head p {
+
   max-width: 340px;
+
 }
 
+
 /* ==========================================
-   DIENSTENKAARTEN
+   NIEUWE DIENSTENKAARTEN V3.4
+
+   Inspiratie: jouw screenshot.
+
+   - Afgeronde hoeken
+   - Subtiele schaduw
+   - Blauwe nummering
+   - Decoratieve lijnen
+   - Vloeiende hoveranimatie
 ========================================== */
 
 .cards {
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
   gap: 15px;
+
 }
+
+
+/* ==========================================
+   KAART
+========================================== */
 
 .card {
-  padding: 31px;
-  min-height: 245px;
-  border: 1px solid var(--line);
-  background: #fff;
+
+  position: relative;
 
   display: flex;
+
   flex-direction: column;
+
   align-items: flex-start;
+
+  min-height: 285px;
+
+  padding: 36px 38px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e5ec;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 9px 20px rgba(16, 30, 50, .055),
+    0 24px 42px rgba(16, 30, 50, .025);
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+
 }
+
+
+/* ==========================================
+   LICHTE ACHTERGRONDVORMEN
+
+   Deze maken de kaarten net iets
+   interessanter zonder druk te worden.
+========================================== */
+
+.card::before {
+
+  content: '';
+
+  position: absolute;
+
+  right: -105px;
+
+  bottom: -155px;
+
+  width: 280px;
+
+  height: 230px;
+
+  border-radius: 55% 0 0 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(38, 100, 169, .015),
+    rgba(38, 100, 169, .09)
+  );
+
+  transform: rotate(-14deg);
+
+  pointer-events: none;
+
+}
+
+
+/* ==========================================
+   TWEEDE SUBTIELE VORM
+========================================== */
+
+.card::after {
+
+  content: '';
+
+  position: absolute;
+
+  right: -35px;
+
+  bottom: -160px;
+
+  width: 220px;
+
+  height: 220px;
+
+  border-radius: 55% 0 0 0;
+
+  background: linear-gradient(
+    135deg,
+    transparent,
+    rgba(38, 100, 169, .055)
+  );
+
+  transform: rotate(-32deg);
+
+  pointer-events: none;
+
+}
+
+
+/* ==========================================
+   MIDDELSTE KAART
+
+   Daar gebruiken we de subtiele
+   rode accentkleur.
+========================================== */
+
+.card:nth-child(2)::before {
+
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 56, .005),
+    rgba(239, 68, 56, .085)
+  );
+
+}
+
+.card:nth-child(2)::after {
+
+  background: linear-gradient(
+    135deg,
+    transparent,
+    rgba(239, 68, 56, .045)
+  );
+
+}
+
+
+/* ==========================================
+   INHOUD BOVEN DE ACHTERGRONDVORMEN
+========================================== */
+
+.card > * {
+
+  position: relative;
+
+  z-index: 2;
+
+}
+
+
+/* ==========================================
+   BLAUW NUMMER
+========================================== */
 
 .card .num {
-  color: var(--blue);
-  font-size: 12px;
+
+  display: block;
+
+  margin-bottom: 37px;
+
+  color: #1554aa;
+
+  font-family: var(--font);
+
+  font-size: 20px;
+
   font-weight: 800;
-  margin-bottom: 40px;
+
+  letter-spacing: -.045em;
+
 }
+
+
+/* ==========================================
+   KAARTTITEL
+========================================== */
 
 .card h3 {
-  margin-bottom: 10px;
+
+  margin-bottom: 12px;
+
+  color: #161b25;
+
+  font-family: var(--font);
+
+  font-size: clamp(21px, 2vw, 28px);
+
+  font-weight: 700;
+
+  letter-spacing: -.065em;
+
+  line-height: 1.23;
+
 }
+
+
+/* ==========================================
+   BESCHRIJVING
+========================================== */
 
 .card p {
-  font-size: 14px;
+
   margin: 0;
+
+  color: #5d697b;
+
+  font-size: 14px;
+
+  line-height: 1.85;
+
 }
 
+
+/* ==========================================
+   LINK ONDERAAN
+========================================== */
+
 .card-link {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
   margin-top: auto;
-  padding-top: 20px;
-  font-weight: 700;
-  font-size: 12px;
-  color: var(--blue);
+
+  padding-top: 27px;
+
+  color: #1554aa;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  transition:
+    gap .25s ease,
+    color .25s ease;
+
 }
+
+.card-link:hover {
+
+  gap: 14px;
+
+  color: var(--navy);
+
+}
+
+
+/* ==========================================
+   HOVERANIMATIE
+
+   Alleen op apparaten met een muis.
+========================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: #c9d6e8;
+
+    box-shadow:
+      0 17px 30px rgba(16, 30, 50, .085),
+      0 32px 55px rgba(16, 30, 50, .045);
+
+  }
+
+}
+
 
 /* ==========================================
    TWEE KOLOMMEN
 ========================================== */
 
 .split {
+
   display: grid;
+
   grid-template-columns: 1fr 1fr;
-  gap: 70px;
+
   align-items: center;
+
+  gap: 70px;
+
 }
 
 .split h2 {
+
   margin: 16px 0 20px;
+
 }
+
 
 /* ==========================================
    FEATUREBLOK
 ========================================== */
 
 .feature-block {
+
   padding: 48px;
+
   background: #e9eef6;
+
   border-left: 4px solid var(--blue);
+
 }
 
 .feature-block .big {
+
   font-family: var(--font);
+
   font-size: clamp(27px, 3.2vw, 45px);
+
   letter-spacing: -.06em;
+
   line-height: 1.3;
+
 }
 
 .feature-block small {
+
   display: block;
+
   margin-top: 25px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+
   color: #53627a;
+
+  letter-spacing: .12em;
+
+  text-transform: uppercase;
+
 }
 
+
 /* ==========================================
-   LOGOKLEUREN BOVENAAN
+   DRI EKLEURIGE LIJN
 ========================================== */
 
 .strip {
+
   height: 5px;
+
   background: linear-gradient(
     to right,
     var(--red) 0 34%,
     var(--navy) 34% 67%,
     var(--blue) 67% 100%
   );
+
 }
 
+
 /* ==========================================
-   PAGINA-OPENING
+   PAGINA-OPENINGEN
 ========================================== */
 
 .page-hero {
+
   padding: 90px 0 72px;
+
   background: var(--paper);
+
   border-bottom: 1px solid var(--line);
+
 }
 
 .page-hero h1 {
-  margin: 22px 0;
+
   max-width: 950px;
+
+  margin: 22px 0;
+
   font-size: clamp(51px, 6vw, 85px);
+
 }
 
 .page-hero p {
+
   max-width: 720px;
+
 }
+
 
 /* ==========================================
    INFORMATIERIJEN
 ========================================== */
 
 .divider-list {
+
   border-top: 1px solid var(--line);
+
 }
 
 .divider-row {
+
   display: grid;
+
   grid-template-columns: 70px 1fr 1.4fr;
+
+  align-items: start;
+
   gap: 20px;
 
   padding: 32px 0;
+
   border-bottom: 1px solid var(--line);
-  align-items: start;
+
 }
 
 .divider-row .number {
-  font-weight: 700;
+
   color: var(--blue);
+
+  font-weight: 700;
+
 }
 
 .divider-row h3 {
+
   font-size: 24px;
+
 }
 
 .divider-row p {
+
   margin: 0;
+
 }
+
 
 /* ==========================================
    INFORMATIEKADERS
 ========================================== */
 
 .callout {
-  background: #ecf0f7;
-  border-left: 4px solid var(--blue);
-  padding: 30px 34px;
+
   margin-top: 45px;
+
+  padding: 30px 34px;
+
+  background: #ecf0f7;
+
+  border-left: 4px solid var(--blue);
+
 }
 
 .callout p:last-child {
+
   margin-bottom: 0;
+
 }
 
 .notice {
-  font-size: 13px;
-  background: #f4f5f6;
-  border: 1px solid var(--line);
+
   padding: 16px 20px;
+
+  background: #f4f5f6;
+
+  border: 1px solid var(--line);
+
+  font-size: 13px;
+
 }
 
 .notice strong {
+
   color: var(--ink);
+
 }
+
 
 /* ==========================================
    INTERACTIEVE WONING
 ========================================== */
 
 .house-layout {
+
   display: grid;
+
   grid-template-columns:
     minmax(0, 1.5fr)
     minmax(300px, .7fr);
 
-  gap: 25px;
   align-items: stretch;
+
+  gap: 25px;
+
   margin-top: 43px;
+
 }
 
 .diagram {
-  border: 1px solid #d9e0e9;
+
+  position: relative;
+
+  padding: 24px;
+
   background: linear-gradient(
     160deg,
     #f5f8fb,
     #edf1f7
   );
-  padding: 24px;
-  position: relative;
+
+  border: 1px solid #d9e0e9;
+
 }
 
 .diagram svg {
-  width: 100%;
+
   display: block;
+
+  width: 100%;
+
 }
 
 .diagram-label {
+
   position: absolute;
+
   top: 15px;
+
   left: 18px;
 
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: .1em;
   color: #637287;
+
+  font-size: 10px;
+
+  letter-spacing: .1em;
+
+  text-transform: uppercase;
+
 }
 
 .house-structure {
-  stroke: #8294aa;
-  stroke-width: 3;
+
   fill: #ffffffb5;
+
+  stroke: #8294aa;
+
+  stroke-width: 3;
+
   stroke-linejoin: round;
+
 }
 
 .detail {
-  stroke: #a5b2c2;
-  stroke-width: 2;
+
   fill: none;
+
+  stroke: #a5b2c2;
+
+  stroke-width: 2;
+
 }
 
+
 /* ==========================================
-   KLIKBARE WONINGONDERDELEN
+   INTERACTIEVE ONDERDELEN
 ========================================== */
 
 .part {
+
   cursor: pointer;
+
   opacity: .19;
-  transition: opacity .2s;
+
+  transition: opacity .2s ease;
+
 }
 
 .part.active,
 .part:hover,
 .part:focus {
+
   opacity: 1;
+
 }
 
 .part path,
 .part circle,
 .part rect {
-  pointer-events: all;
+
   cursor: pointer;
+
+  pointer-events: all;
+
 }
 
 .part path,
 .part rect {
-  stroke: var(--blue);
-  stroke-width: 6;
+
   fill: none;
+
+  stroke: var(--blue);
+
+  stroke-width: 6;
+
   stroke-linecap: round;
+
   stroke-linejoin: round;
+
 }
 
 .part circle {
+
   fill: var(--red);
-  stroke: #fff;
+
+  stroke: white;
+
   stroke-width: 3;
+
 }
 
 .part.active path {
+
   stroke-dasharray: 900;
+
   animation: draw .8s ease-out;
+
 }
 
 @keyframes draw {
+
   from {
+
     stroke-dashoffset: 900;
+
   }
 
   to {
+
     stroke-dashoffset: 0;
+
   }
+
 }
 
+
 /* ==========================================
-   WONINGBEDIENING
+   BEDIENING INTERACTIEVE WONING
 ========================================== */
 
 .house-panel {
+
   padding: 31px;
-  border: 1px solid var(--line);
+
   background: white;
+
+  border: 1px solid var(--line);
+
 }
 
 .house-panel h3 {
+
   margin-bottom: 19px;
+
 }
 
 .system-btn {
-  width: 100%;
 
   display: flex;
+
+  align-items: center;
+
   justify-content: space-between;
 
-  text-align: left;
-  background: white;
-  border: 0;
-  border-top: 1px solid var(--line);
+  width: 100%;
 
   padding: 19px 3px;
 
-  font-weight: 650;
-  font-size: 15px;
+  background: white;
+
+  border: none;
+
+  border-top: 1px solid var(--line);
+
   color: #6e7787;
+
+  font-size: 15px;
+
+  font-weight: 650;
+
+  text-align: left;
+
 }
 
 .system-btn.active {
+
   color: var(--navy);
+
 }
 
 .system-btn.active span:last-child {
+
   color: var(--red);
+
 }
 
 .system-info {
-  margin-top: 20px;
-  padding: 21px;
-  background: var(--paper);
+
   min-height: 150px;
+
+  margin-top: 20px;
+
+  padding: 21px;
+
+  background: var(--paper);
+
 }
 
 .system-info h4 {
-  font-family: var(--font);
-  font-size: 20px;
+
   margin: 0;
+
+  font-family: var(--font);
+
+  font-size: 20px;
+
 }
 
 .system-info p {
-  font-size: 13px;
+
   margin: 9px 0 0;
+
+  font-size: 13px;
+
 }
+
 
 /* ==========================================
    PROJECTEN
 ========================================== */
 
 .placeholder-grid {
+
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
+
   gap: 18px;
+
 }
 
 .placeholder {
-  border: 1px solid var(--line);
+
   background: white;
+
+  border: 1px solid var(--line);
+
 }
 
 .placeholder-art {
+
   position: relative;
+
+  display: grid;
+
+  place-items: center;
+
   height: 230px;
 
   background: linear-gradient(
@@ -771,164 +1448,243 @@ p {
     #f8f9fa
   );
 
-  display: grid;
-  place-items: center;
-
   color: #8291a5;
+
   font-size: 12px;
-  text-align: center;
+
   letter-spacing: .1em;
+
+  text-align: center;
+
   text-transform: uppercase;
+
 }
 
-.placeholder-art:before {
+.placeholder-art::before {
+
   content: '';
-  display: block;
+
+  position: absolute;
 
   width: 58px;
+
   height: 58px;
 
   border: 1px solid #a9b6c9;
-  position: absolute;
+
+  opacity: .5;
 
   transform: rotate(45deg);
-  opacity: .5;
+
 }
 
 .placeholder-info {
+
   padding: 22px;
+
 }
 
 .placeholder-info p {
+
   font-size: 13px;
+
 }
+
 
 /* ==========================================
    TEAM
 ========================================== */
 
 .people-grid {
+
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
+
   gap: 18px;
+
 }
 
 .person {
-  border: 1px solid var(--line);
+
   padding: 25px;
+
   background: var(--paper);
+
+  border: 1px solid var(--line);
+
 }
 
 .person-photo {
-  height: 255px;
-  background: #e4e7ed;
 
   display: grid;
+
   place-items: center;
 
+  height: 255px;
+
+  background: #e4e7ed;
+
   color: #8695a7;
+
   font-size: 12px;
+
   letter-spacing: .1em;
+
 }
 
 .person h3 {
+
   margin-top: 18px;
+
 }
 
 .person p {
+
   font-size: 13px;
+
 }
+
 
 /* ==========================================
    CONTACTBALK
 ========================================== */
 
 .cta {
-  background: var(--navy);
-  color: white;
+
   padding: 74px 0;
+
+  background: var(--navy);
+
+  color: white;
+
 }
 
 .cta .container {
+
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
+
+  justify-content: space-between;
+
   gap: 35px;
+
 }
 
 .cta h2 {
+
   font-size: clamp(32px, 4.5vw, 58px);
+
 }
 
 .cta p {
+
   color: #d0d9ef;
+
 }
+
 
 /* ==========================================
    FOOTER
 ========================================== */
 
 .footer {
-  background: #121726;
-  color: #c0c8d8;
+
   padding: 43px 0 29px;
+
+  background: #121726;
+
+  color: #c0c8d8;
+
 }
 
 .footer-grid {
+
   display: flex;
+
   justify-content: space-between;
-  gap: 35px;
+
   flex-wrap: wrap;
+
+  gap: 35px;
+
 }
 
 .footer-logo {
-  font-size: 19px;
-  font-weight: 800;
+
   color: white;
+
+  font-size: 19px;
+
+  font-weight: 800;
+
   letter-spacing: -.05em;
+
 }
 
 .footer a:hover {
+
   color: white;
+
 }
 
 .footer p,
 .footer a {
+
   font-size: 12px;
+
 }
 
 .footer-nav {
+
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 17px;
+
 }
 
 .footnote {
-  border-top: 1px solid #3b4454;
+
   margin-top: 35px;
+
   padding-top: 21px;
 
-  font-size: 11px;
+  border-top: 1px solid #3b4454;
+
   color: #9ca9c0;
+
+  font-size: 11px;
+
 }
+
 
 /* ==========================================
    SCROLLANIMATIES
 ========================================== */
 
 .reveal {
+
   opacity: 0;
+
   transform: translateY(19px);
 
   transition:
     opacity .65s ease,
     transform .65s ease;
+
 }
 
 .reveal.visible {
+
   opacity: 1;
+
   transform: none;
+
 }
+
 
 /* ==========================================
    TABLET
@@ -937,59 +1693,87 @@ p {
 @media (max-width: 1040px) {
 
   .nav {
+
     min-height: 75px;
+
   }
 
   .menu-toggle {
+
     display: block;
+
   }
 
   .menu {
-    display: none;
 
     position: absolute;
+
     top: 75px;
+
     left: 0;
+
     right: 0;
 
+    display: none;
+
     flex-direction: column;
+
     align-items: stretch;
+
     gap: 0;
 
     padding: 14px 5% 23px;
+
     background: white;
 
     border-bottom: 1px solid var(--line);
+
   }
 
   .menu.open {
+
     display: flex;
+
   }
 
   .menu a {
+
     padding: 12px 0;
+
   }
 
   .nav-cta {
+
     align-self: flex-start;
-    padding: 12px 19px !important;
+
     margin-top: 8px;
+
+    padding: 12px 19px !important;
+
   }
 
   .hero-grid {
+
     min-height: 0;
+
     padding: 55px 0;
+
   }
 
   .hero-visual {
+
     min-height: 390px;
+
   }
 
   .house-layout {
+
     grid-template-columns: 1fr;
+
   }
 
 }
+
 
 /* ==========================================
    MOBIEL
@@ -998,101 +1782,201 @@ p {
 @media (max-width: 760px) {
 
   .brand img {
+
     width: 205px;
+
   }
 
   .hero {
+
     background: white;
+
   }
 
   .hero-grid,
   .split {
+
     grid-template-columns: 1fr;
+
     gap: 34px;
+
   }
 
   .hero-visual {
+
     min-height: 350px;
+
   }
 
   .section,
   .page-hero {
+
     padding: 65px 0;
+
   }
 
   .section-head {
+
     display: block;
+
+  }
+
+  .section-head p {
+
+    max-width: 600px;
+
   }
 
   .cards,
   .placeholder-grid,
   .people-grid {
+
     grid-template-columns: 1fr;
+
   }
 
-  .section-head p {
-    max-width: 600px;
+  /* ======================================
+     DIENSTENKAARTEN OP MOBIEL
+  ====================================== */
+
+  .card {
+
+    min-height: 255px;
+
+    padding: 30px;
+
+  }
+
+  .card .num {
+
+    margin-bottom: 26px;
+
+  }
+
+  .card h3 {
+
+    font-size: 25px;
+
   }
 
   .divider-row {
+
     grid-template-columns: 40px 1fr;
+
     gap: 15px;
+
   }
 
   .divider-row p {
+
     grid-column: 2;
+
   }
 
   .cta .container {
+
     display: block;
+
   }
 
   .cta .btn {
-    margin-top: 18px;
-  }
 
-  .btn-row {
-    align-items: stretch;
+    margin-top: 18px;
+
   }
 
   .diagram {
+
     padding: 10px;
+
   }
 
   .house-panel {
+
     padding: 20px;
+
   }
 
   .footer-grid {
+
     display: block;
+
   }
 
   .footer-nav {
+
     margin-top: 20px;
+
   }
 
 }
 
+
 /* ==========================================
-   MINDER ANIMATIE INDIEN GEWENST
+   KLEINE TELEFOONS
+========================================== */
+
+@media (max-width: 450px) {
+
+  .card {
+
+    padding: 25px;
+
+    border-radius: 13px;
+
+  }
+
+  .card h3 {
+
+    font-size: 23px;
+
+  }
+
+  .feature-block {
+
+    padding: 30px;
+
+  }
+
+  .btn-row {
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+  }
+
+}
+
+
+/* ==========================================
+   MINDER ANIMATIES
 ========================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
   html {
+
     scroll-behavior: auto;
+
   }
 
   *,
-  *:before,
-  *:after {
+  *::before,
+  *::after {
+
     animation: none !important;
+
     transition: none !important;
+
   }
 
   .reveal {
+
     opacity: 1;
+
     transform: none;
+
   }
 
 }
