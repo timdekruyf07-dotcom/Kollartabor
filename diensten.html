@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="nl">
 
@@ -19,6 +20,153 @@
   <style>
 
     /* =====================================
+       DIENSTEN INTRODUCTIE
+    ====================================== */
+
+    .services-intro-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .services-intro-copy h1 {
+      margin: 22px 0;
+    }
+
+    .services-intro-copy p {
+      max-width: 590px;
+    }
+
+
+    /* =====================================
+       TECHNISCHE BOUWTEKENING
+    ====================================== */
+
+    .services-visual {
+      position: relative;
+      width: 100%;
+      max-width: 510px;
+      height: 330px;
+      margin-left: auto;
+
+      overflow: hidden;
+
+      background: #edf0f5;
+      border: 1px solid #dfe5ed;
+    }
+
+    .services-visual svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .services-visual-label {
+      position: absolute;
+      bottom: 14px;
+      left: 15px;
+
+      padding: 9px 13px;
+
+      background: #ffffffed;
+
+      color: #273579;
+
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+
+    /* =====================================
+       BOUWKUNDIGE LIJNEN
+    ====================================== */
+
+    .services-visual .house-outline {
+      fill: none;
+      stroke: #94a6bd;
+      stroke-width: 2.4;
+      stroke-linejoin: round;
+    }
+
+    .services-visual .house-detail {
+      fill: none;
+      stroke: #aab7c7;
+      stroke-width: 1.8;
+    }
+
+    .services-visual .house-window {
+      fill: #ffffff;
+      stroke: #aab9ca;
+      stroke-width: 1.5;
+    }
+
+    .services-visual .technical-unit {
+      fill: #e1e7ef;
+      stroke: #8296ad;
+      stroke-width: 2;
+    }
+
+    .services-visual .technical-detail {
+      fill: none;
+      stroke: #8296ad;
+      stroke-width: 1.5;
+    }
+
+
+    /* =====================================
+       WARME AANVOER — ROOD
+    ====================================== */
+
+    .services-visual .warm-flow {
+      fill: none;
+      stroke: #ef4438;
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+
+      stroke-dasharray: 9 10;
+
+      animation: servicesFlow 9s linear infinite;
+    }
+
+
+    /* =====================================
+       RETOURLEIDING — BLAUW
+    ====================================== */
+
+    .services-visual .cold-flow {
+      fill: none;
+      stroke: #2664a9;
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+
+      stroke-dasharray: 9 10;
+
+      animation: servicesFlow 11s linear infinite;
+    }
+
+
+    /* =====================================
+       VLOEIENDE ANIMATIE
+    ====================================== */
+
+    @keyframes servicesFlow {
+
+      from {
+        stroke-dashoffset: 0;
+      }
+
+      to {
+        stroke-dashoffset: -190;
+      }
+
+    }
+
+
+    /* =====================================
        DIENSTENOVERZICHT
     ====================================== */
 
@@ -30,8 +178,11 @@
 
     .service-item {
       display: grid;
+
       grid-template-columns: 1.2fr .8fr;
+
       align-items: center;
+
       gap: 45px;
 
       padding: 25px 0;
@@ -45,6 +196,7 @@
 
     .service-number {
       display: block;
+
       margin-bottom: 12px;
 
       color: #2664a9;
@@ -66,13 +218,14 @@
 
     .service-copy > p {
       margin: 0 0 14px;
+
       font-size: 14px;
       line-height: 1.8;
     }
 
 
     /* =====================================
-       AFBEELDINGEN
+       DIENSTENFOTO'S
     ====================================== */
 
     .service-photo {
@@ -82,6 +235,7 @@
       overflow: hidden;
 
       background: #f0f2f5;
+
       border: 1px solid #e2e5eb;
     }
 
@@ -98,9 +252,11 @@
     }
 
     @media (hover: hover) {
+
       .service-item:hover .service-photo img {
         transform: scale(1.025);
       }
+
     }
 
 
@@ -124,8 +280,6 @@
 
       cursor: pointer;
       list-style: none;
-
-      transition: color .2s ease;
     }
 
     .service-details summary::-webkit-details-marker {
@@ -134,6 +288,7 @@
 
     .service-details summary::after {
       content: '+';
+
       font-size: 19px;
       font-weight: 500;
 
@@ -157,11 +312,13 @@
 
     .service-extra p {
       margin: 0;
+
       font-size: 14px;
       line-height: 1.85;
     }
 
     @keyframes serviceOpen {
+
       from {
         opacity: 0;
         transform: translateY(-6px);
@@ -171,11 +328,12 @@
         opacity: 1;
         transform: translateY(0);
       }
+
     }
 
 
     /* =====================================
-       CONTACTBLOK
+       CONTACT
     ====================================== */
 
     .services-cta {
@@ -187,15 +345,18 @@
        TABLET
     ====================================== */
 
-    @media (max-width: 900px) {
+    @media (max-width: 1040px) {
+
+      .services-intro-grid {
+        gap: 30px;
+      }
+
+      .services-visual {
+        height: 290px;
+      }
 
       .service-item {
         gap: 25px;
-        grid-template-columns: 1fr .85fr;
-      }
-
-      .service-photo {
-        height: 180px;
       }
 
     }
@@ -205,10 +366,17 @@
        MOBIEL
     ====================================== */
 
-    @media (max-width: 650px) {
+    @media (max-width: 760px) {
 
-      .services-list {
+      .services-intro-grid {
+        grid-template-columns: 1fr;
         gap: 30px;
+      }
+
+      .services-visual {
+        max-width: 100%;
+        height: 280px;
+        margin: 0;
       }
 
       .service-item {
@@ -228,7 +396,34 @@
 
     }
 
+
+    /* =====================================
+       KLEINE TELEFOONS
+    ====================================== */
+
+    @media (max-width: 450px) {
+
+      .services-visual {
+        height: 240px;
+      }
+
+      .service-photo {
+        height: 190px;
+      }
+
+    }
+
+
+    /* =====================================
+       MINDER ANIMATIES
+    ====================================== */
+
     @media (prefers-reduced-motion: reduce) {
+
+      .services-visual .warm-flow,
+      .services-visual .cold-flow {
+        animation: none;
+      }
 
       .service-photo img {
         transition: none;
@@ -253,27 +448,306 @@
 
 
   <!-- =====================================
-       PAGINA INTRO
+       INTRODUCTIE MET BOUWTEKENING
   ====================================== -->
 
-  <section class="page-hero">
+  <section class="page-hero services-page-hero">
 
     <div class="container">
 
-      <span class="eyebrow">
-        Onze werkzaamheden
-      </span>
+      <div class="services-intro-grid">
 
-      <h1>
-        Onze diensten<span class="red-dot">.</span>
-      </h1>
 
-      <p class="lead">
-        Van duurzame verwarmingsoplossingen
-        en sanitair tot ontstopping en industriële
-        installaties. Ontdek waarmee Koller & Tabor
-        u van dienst kan zijn.
-      </p>
+        <!-- TEKST LINKS -->
+
+        <div class="services-intro-copy">
+
+          <span class="eyebrow">
+            Onze werkzaamheden
+          </span>
+
+          <h1>
+            Onze diensten<span class="red-dot">.</span>
+          </h1>
+
+          <p class="lead">
+            Van duurzame verwarmingsoplossingen
+            en sanitair tot ontstopping en industriële
+            installaties. Ontdek waarmee Koller & Tabor
+            u van dienst kan zijn.
+          </p>
+
+        </div>
+
+
+        <!-- BOUWTEKENING RECHTS -->
+
+        <div class="services-visual">
+
+          <svg
+            viewBox="0 0 700 430"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="Schematische woning met warmtepomp en bewegende rode en blauwe leidingen"
+          >
+
+            <!-- HUIS DAK -->
+
+            <path
+              class="house-outline"
+              d="M75 150 L285 35 L495 150"
+            />
+
+            <path
+              class="house-outline"
+              d="M95 145 L285 48 L475 145"
+            />
+
+
+            <!-- HUISGEVEL -->
+
+            <path
+              class="house-outline"
+              d="M105 145 V345 H465 V145"
+            />
+
+
+            <!-- VERDIEPINGEN -->
+
+            <path
+              class="house-detail"
+              d="M105 245 H465"
+            />
+
+            <path
+              class="house-detail"
+              d="M285 245 V345"
+            />
+
+            <path
+              class="house-detail"
+              d="M375 145 V245"
+            />
+
+
+            <!-- RAMEN -->
+
+            <rect
+              class="house-window"
+              x="135"
+              y="170"
+              width="75"
+              height="48"
+            />
+
+            <rect
+              class="house-window"
+              x="315"
+              y="170"
+              width="75"
+              height="48"
+            />
+
+
+            <!-- RAAMVERDELING -->
+
+            <path
+              class="house-detail"
+              d="M172 170 V218 M352 170 V218"
+            />
+
+
+            <!-- DEUR -->
+
+            <rect
+              class="house-window"
+              x="215"
+              y="275"
+              width="62"
+              height="70"
+            />
+
+
+            <!-- RADIATOR -->
+
+            <rect
+              class="technical-unit"
+              x="305"
+              y="188"
+              width="65"
+              height="17"
+              rx="2"
+            />
+
+            <path
+              class="technical-detail"
+              d="M315 190 V203
+                 M326 190 V203
+                 M337 190 V203
+                 M348 190 V203
+                 M359 190 V203"
+            />
+
+
+            <!-- BINNENUNIT WARMTEPOMP -->
+
+            <rect
+              class="technical-unit"
+              x="395"
+              y="270"
+              width="48"
+              height="70"
+              rx="3"
+            />
+
+            <rect
+              class="technical-detail"
+              x="404"
+              y="279"
+              width="30"
+              height="12"
+              rx="2"
+            />
+
+            <circle
+              cx="419"
+              cy="313"
+              r="10"
+              fill="none"
+              stroke="#8296ad"
+              stroke-width="1.7"
+            />
+
+
+            <!-- BUITENUNIT -->
+
+            <rect
+              class="technical-unit"
+              x="525"
+              y="265"
+              width="105"
+              height="85"
+              rx="4"
+            />
+
+            <circle
+              cx="577"
+              cy="307"
+              r="27"
+              fill="none"
+              stroke="#8296ad"
+              stroke-width="2"
+            />
+
+            <circle
+              cx="577"
+              cy="307"
+              r="5"
+              fill="#8296ad"
+            />
+
+            <path
+              class="technical-detail"
+              d="M577 280 V302
+                 M577 312 V334
+                 M550 307 H572
+                 M582 307 H604
+                 M558 288 L573 303
+                 M596 326 L581 311
+                 M596 288 L581 303
+                 M558 326 L573 311"
+            />
+
+
+            <!-- WARMTEPOMP LEIDINGEN -->
+
+            <path
+              class="warm-flow"
+              d="M525 286
+                 H490
+                 V300
+                 H443
+                 V270
+                 H419
+                 V245
+                 H337
+                 V207"
+            />
+
+            <path
+              class="cold-flow"
+              d="M337 207
+                 V230
+                 H350
+                 V320
+                 H419
+                 V340
+                 H443
+                 V330
+                 H490
+                 V320
+                 H525"
+            />
+
+
+            <!-- AANSLUITPUNTEN -->
+
+            <circle
+              cx="525"
+              cy="286"
+              r="5"
+              fill="#ef4438"
+            />
+
+            <circle
+              cx="525"
+              cy="320"
+              r="5"
+              fill="#2664a9"
+            />
+
+            <circle
+              cx="337"
+              cy="207"
+              r="5"
+              fill="#ef4438"
+            />
+
+            <circle
+              cx="337"
+              cy="230"
+              r="5"
+              fill="#2664a9"
+            />
+
+
+            <!-- GRONDLIJN -->
+
+            <path
+              class="house-detail"
+              d="M55 350 H645"
+            />
+
+            <!-- MAATLIJN -->
+
+            <path
+              class="house-detail"
+              d="M105 370 H465
+                 M105 365 V375
+                 M465 365 V375"
+              opacity=".6"
+            />
+
+          </svg>
+
+
+          <div class="services-visual-label">
+            ARCHITECTUUR × INSTALLATIETECHNIEK
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
 
@@ -282,7 +756,7 @@
 
 
   <!-- =====================================
-       DIENSTEN
+       DIENSTENOVERZICHT
   ====================================== -->
 
   <section class="section">
@@ -554,7 +1028,7 @@
 
 
   <!-- =====================================
-       CONTACT
+       CONTACTBLOK
   ====================================== -->
 
   <section class="cta services-cta">
@@ -594,3 +1068,4 @@
 
 </body>
 </html>
+```
