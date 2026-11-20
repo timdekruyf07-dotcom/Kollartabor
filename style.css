@@ -1,7 +1,7 @@
 /* ==========================================
    KOLLER & TABOR
    INSTALLATIETECHNIEK
-   WEBSITE V3.7
+   WEBSITE V4.0
 ========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
@@ -16,6 +16,7 @@
   --navy: #273579;
   --blue: #2664a9;
   --red: #ef4438;
+  --orange: #ef914b;
   --paper: #f7f8fa;
   --line: #e2e5eb;
   --muted: #616b78;
@@ -346,6 +347,7 @@ p {
 
 /* ==========================================
    BEWEGENDE LIJNEN
+   ALGEMENE HUISANIMATIE
 ========================================== */
 
 .tech-flow {
@@ -411,7 +413,6 @@ p {
 
 /* ==========================================
    DIENSTENKAARTEN
-   KOLLER & TABOR V3.7
 ========================================== */
 
 .cards {
@@ -420,52 +421,32 @@ p {
   gap: 15px;
 }
 
-
-/* ==========================================
-   KAART BASIS
-========================================== */
-
 .card {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
   width: 100%;
   min-height: 285px;
-
   padding: 36px 38px;
-
   overflow: hidden;
-
   background: white;
-
   border: 1px solid #e0e5ec;
   border-radius: 16px;
-
   box-shadow:
     0 9px 20px rgba(16, 30, 50, .055),
     0 24px 42px rgba(16, 30, 50, .025);
-
   transition:
     transform .35s ease,
     box-shadow .35s ease,
-    border-color .35s ease,
-    background .35s ease;
+    border-color .35s ease;
 }
-
-
-/* ==========================================
-   VOLLEDIG KLIKBARE KAARTEN
-========================================== */
 
 a.card {
   color: var(--ink);
   text-decoration: none;
   cursor: pointer;
-
-  -webkit-tap-highlight-color:
-    rgba(38, 100, 169, .12);
+  -webkit-tap-highlight-color: rgba(38, 100, 169, .12);
 }
 
 a.card:focus-visible {
@@ -474,415 +455,150 @@ a.card:focus-visible {
 }
 
 
-/* ==========================================
-   01 — INSTALLATIES
-   WARM ORANJE
-========================================== */
-
-.cards .card:nth-child(1) {
-
-  background: linear-gradient(
-    135deg,
-    #fff0e5 0%,
-    #ffdfc5 100%
-  );
-
-  border-color: #efbd98;
-}
-
-.cards .card:nth-child(1) .num {
-  color: #bd571b;
-}
-
-.cards .card:nth-child(1) .card-link {
-  color: #a94a16;
-}
-
-
-/* ==========================================
-   02 — ONDERHOUD & SERVICE
-   DONKERBLAUW
-========================================== */
-
-.cards .card:nth-child(2) {
-
-  background: linear-gradient(
-    135deg,
-    #303f85 0%,
-    #202d68 100%
-  );
-
-  border-color: #202d68;
-
-  box-shadow:
-    0 12px 25px rgba(32, 45, 104, .15),
-    0 24px 42px rgba(16, 30, 50, .04);
-}
-
-
-/* Witte titel */
-
-.cards .card:nth-child(2) h3 {
-  color: #ffffff;
-}
-
-
-/* Lichte beschrijving */
-
-.cards .card:nth-child(2) p {
-  color: #e0e6f7;
-}
-
-
-/* Nummer */
-
-.cards .card:nth-child(2) .num {
-  color: #ffffff;
-}
-
-
-/* Link */
-
-.cards .card:nth-child(2) .card-link {
-  color: #ffffff;
-}
-
-
-/* Decoratieve vormen */
-
-.cards .card:nth-child(2)::before,
-.cards .card:nth-child(2)::after {
-
-  background: rgba(255, 255, 255, .055);
-
-}
-
-
-/* ==========================================
-   03 — INDUSTRIE
-   LICHTBLAUW
-========================================== */
-
-.cards .card:nth-child(3) {
-
-  background: linear-gradient(
-    135deg,
-    #edf5ff 0%,
-    #d4e7ff 100%
-  );
-
-  border-color: #bfd5f0;
-}
-
-.cards .card:nth-child(3) .num {
-  color: #1554aa;
-}
-
-.cards .card:nth-child(3) .card-link {
-  color: #1554aa;
-}
-
-
-/* ==========================================
-   DECORATIEVE VORMEN
-========================================== */
-
-.card::before {
-
-  content: '';
-
-  position: absolute;
-
-  right: -105px;
-  bottom: -155px;
-
-  width: 280px;
-  height: 230px;
-
-  border-radius: 55% 0 0 0;
-
-  background: linear-gradient(
-    135deg,
-    rgba(38, 100, 169, .015),
-    rgba(38, 100, 169, .14)
-  );
-
-  transform: rotate(-14deg);
-
-  pointer-events: none;
-
-}
-
-.card::after {
-
-  content: '';
-
-  position: absolute;
-
-  right: -35px;
-  bottom: -160px;
-
-  width: 220px;
-  height: 220px;
-
-  border-radius: 55% 0 0 0;
-
-  background: linear-gradient(
-    135deg,
-    transparent,
-    rgba(38, 100, 169, .09)
-  );
-
-  transform: rotate(-32deg);
-
-  pointer-events: none;
-
-}
-
-
-/* ==========================================
-   ORANJE DECORATIE
-========================================== */
-
-.cards .card:nth-child(1)::before {
-
-  background: linear-gradient(
-    135deg,
-    rgba(239, 145, 75, .02),
-    rgba(239, 145, 75, .17)
-  );
-
-}
-
-.cards .card:nth-child(1)::after {
-
-  background: linear-gradient(
-    135deg,
-    transparent,
-    rgba(239, 145, 75, .12)
-  );
-
-}
-
-
-/* ==========================================
-   DONKERBLAUWE DECORATIE
-========================================== */
-
-.cards .card:nth-child(2)::before {
-
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, .01),
-    rgba(255, 255, 255, .09)
-  );
-
-}
-
-.cards .card:nth-child(2)::after {
-
-  background: linear-gradient(
-    135deg,
-    transparent,
-    rgba(255, 255, 255, .07)
-  );
-
-}
-
-
-/* ==========================================
-   LICHTBLAUWE DECORATIE
-========================================== */
-
-.cards .card:nth-child(3)::before {
-
-  background: linear-gradient(
-    135deg,
-    rgba(38, 100, 169, .02),
-    rgba(38, 100, 169, .16)
-  );
-
-}
-
-.cards .card:nth-child(3)::after {
-
-  background: linear-gradient(
-    135deg,
-    transparent,
-    rgba(38, 100, 169, .12)
-  );
-
-}
-
-
-/* ==========================================
-   INHOUD BOVEN DECORATIEVE VORMEN
-========================================== */
+/* KAARTTEKST */
 
 .card > * {
   position: relative;
   z-index: 2;
 }
 
-
-/* ==========================================
-   NUMMERING
-========================================== */
-
 .card .num {
-
   display: block;
-
   margin-bottom: 37px;
-
   color: #1554aa;
-
   font-family: var(--font);
-
   font-size: 20px;
-
   font-weight: 800;
-
   letter-spacing: -.045em;
-
 }
-
-
-/* ==========================================
-   KAARTTITELS
-========================================== */
 
 .card h3 {
-
   margin-bottom: 12px;
-
   color: #161b25;
-
   font-family: var(--font);
-
   font-size: clamp(21px, 2vw, 28px);
-
   font-weight: 700;
-
   letter-spacing: -.065em;
-
   line-height: 1.23;
-
 }
-
-
-/* ==========================================
-   KAARTBESCHRIJVINGEN
-========================================== */
 
 .card p {
-
   margin: 0;
-
   color: #5d697b;
-
   font-size: 14px;
-
   line-height: 1.85;
-
 }
-
-
-/* ==========================================
-   LINKTEKST ONDERAAN
-========================================== */
 
 .card-link {
-
   display: inline-flex;
-
   align-items: center;
-
   gap: 8px;
-
   margin-top: auto;
-
   padding-top: 27px;
-
   color: #1554aa;
-
   font-size: 13px;
-
   font-weight: 800;
-
-  transition:
-    gap .25s ease,
-    color .25s ease;
-
+  transition: gap .25s ease;
 }
 
 
-/* ==========================================
-   HOVERANIMATIES
-========================================== */
+/* DECORATIEVE GOLVEN */
+
+.card::before {
+  content: '';
+  position: absolute;
+  right: -80px;
+  bottom: -145px;
+  width: 290px;
+  height: 230px;
+  border-radius: 65% 0 0 0;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  right: -35px;
+  bottom: -165px;
+  width: 240px;
+  height: 220px;
+  border-radius: 70% 0 0 0;
+  transform: rotate(-30deg);
+  pointer-events: none;
+}
+
+
+/* 01 — ORANJE */
+
+.cards .card:nth-child(1)::before {
+  background: linear-gradient(
+    135deg,
+    rgba(239, 145, 75, .02),
+    rgba(239, 145, 75, .24)
+  );
+}
+
+.cards .card:nth-child(1)::after {
+  background: linear-gradient(
+    135deg,
+    transparent,
+    rgba(239, 145, 75, .15)
+  );
+}
+
+
+/* 02 — DONKERBLAUW */
+
+.cards .card:nth-child(2)::before {
+  background: linear-gradient(
+    135deg,
+    rgba(39, 53, 121, .02),
+    rgba(39, 53, 121, .28)
+  );
+}
+
+.cards .card:nth-child(2)::after {
+  background: linear-gradient(
+    135deg,
+    transparent,
+    rgba(39, 53, 121, .17)
+  );
+}
+
+
+/* 03 — LICHTBLAUW */
+
+.cards .card:nth-child(3)::before {
+  background: linear-gradient(
+    135deg,
+    rgba(38, 100, 169, .02),
+    rgba(38, 100, 169, .23)
+  );
+}
+
+.cards .card:nth-child(3)::after {
+  background: linear-gradient(
+    135deg,
+    transparent,
+    rgba(38, 100, 169, .14)
+  );
+}
+
+
+/* HOVER */
 
 @media (hover: hover) and (pointer: fine) {
 
   .card:hover {
-
     transform: translateY(-7px);
-
     box-shadow:
       0 17px 30px rgba(16, 30, 50, .10),
       0 32px 55px rgba(16, 30, 50, .05);
-
   }
-
-
-  /* ORANJE */
-
-  .cards .card:nth-child(1):hover {
-
-    background: linear-gradient(
-      135deg,
-      #ffe9d9,
-      #ffd2b0
-    );
-
-    border-color: #e9a875;
-
-  }
-
-
-  /* DONKERBLAUW */
-
-  .cards .card:nth-child(2):hover {
-
-    background: linear-gradient(
-      135deg,
-      #394c99,
-      #293978
-    );
-
-    border-color: #5368b3;
-
-  }
-
-
-  /* LICHTBLAUW */
-
-  .cards .card:nth-child(3):hover {
-
-    background: linear-gradient(
-      135deg,
-      #e1efff,
-      #c7dfff
-    );
-
-    border-color: #a9c8ed;
-
-  }
-
 
   .card:hover .card-link {
-
     gap: 14px;
-
   }
 
 }
@@ -893,21 +609,14 @@ a.card:focus-visible {
 ========================================== */
 
 .split {
-
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   align-items: center;
-
   gap: 70px;
-
 }
 
 .split h2 {
-
   margin: 16px 0 20px;
-
 }
 
 
@@ -916,39 +625,24 @@ a.card:focus-visible {
 ========================================== */
 
 .feature-block {
-
   padding: 48px;
-
   background: #e9eef6;
-
   border-left: 4px solid var(--blue);
-
 }
 
 .feature-block .big {
-
   font-family: var(--font);
-
   font-size: clamp(27px, 3.2vw, 45px);
-
   letter-spacing: -.06em;
-
   line-height: 1.3;
-
 }
 
 .feature-block small {
-
   display: block;
-
   margin-top: 25px;
-
   color: #53627a;
-
   letter-spacing: .12em;
-
   text-transform: uppercase;
-
 }
 
 
@@ -957,16 +651,13 @@ a.card:focus-visible {
 ========================================== */
 
 .strip {
-
   height: 5px;
-
   background: linear-gradient(
     to right,
     var(--red) 0 34%,
     var(--navy) 34% 67%,
     var(--blue) 67% 100%
   );
-
 }
 
 
@@ -975,29 +666,305 @@ a.card:focus-visible {
 ========================================== */
 
 .page-hero {
-
   padding: 90px 0 72px;
-
   background: var(--paper);
-
   border-bottom: 1px solid var(--line);
-
 }
 
 .page-hero h1 {
-
   max-width: 950px;
-
   margin: 22px 0;
-
   font-size: clamp(51px, 6vw, 85px);
-
 }
 
 .page-hero p {
-
   max-width: 720px;
+}
 
+
+/* ==========================================
+   DIENSTENPAGINA — HERO
+   V4.0
+========================================== */
+
+.services-hero {
+  padding: 52px 0;
+  overflow: hidden;
+}
+
+.services-hero .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  align-items: center;
+  gap: clamp(25px, 4vw, 50px);
+
+  min-height: 0;
+  padding: 0;
+}
+
+.services-hero .hero-copy {
+  min-width: 0;
+}
+
+.services-hero .hero-copy h1 {
+  margin: 22px 0;
+  font-size: clamp(48px, 5.3vw, 76px);
+}
+
+.services-hero .hero-copy p {
+  max-width: 550px;
+}
+
+
+/* BESTAAND VLAK — NIET VERGROTEN */
+
+.services-hero .hero-visual {
+  position: relative;
+
+  width: 100%;
+  height: 300px;
+  min-height: 0;
+
+  overflow: hidden;
+
+  background: #edf0f5;
+  border: 1px solid #e1e6ed;
+}
+
+
+/* SVG */
+
+.services-hero .hero-visual svg {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+
+/* LABEL */
+
+.services-hero .visual-label {
+  bottom: 12px;
+  left: 12px;
+
+  padding: 9px 11px;
+
+  font-size: 8px;
+  letter-spacing: .09em;
+}
+
+
+/* ==========================================
+   WARMTEPOMP — WONINGLIJNEN
+========================================== */
+
+.hp-house-line {
+  fill: none;
+  stroke: #94a6bd;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hp-detail-line {
+  fill: none;
+  stroke: #b2bfce;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hp-window {
+  fill: #ffffff;
+  stroke: #a5b5c9;
+  stroke-width: 1.5;
+}
+
+.hp-ground-line {
+  fill: none;
+  stroke: #b4c1d1;
+  stroke-width: 2;
+}
+
+.hp-equipment {
+  fill: #ffffff;
+  stroke: #94a6bd;
+  stroke-width: 1.5;
+}
+
+.hp-unit {
+  fill: #f8fafc;
+  stroke: #8294aa;
+  stroke-width: 1.7;
+}
+
+.hp-display {
+  fill: #e3eaf3;
+  stroke: #a5b5c9;
+  stroke-width: 1;
+}
+
+.hp-small-label {
+  fill: #65758b;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .7px;
+}
+
+
+/* ==========================================
+   WARMTEPOMP — LEIDINGEN
+========================================== */
+
+.hp-pipe-hot {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  stroke-dasharray: 8 8;
+
+  animation: hp-hot-flow 3.5s linear infinite;
+}
+
+.hp-pipe-cold {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  stroke-dasharray: 8 8;
+
+  animation: hp-cold-flow 3.5s linear infinite;
+}
+
+
+/* VLOERVERWARMING */
+
+.hp-floor-loop {
+  fill: none;
+
+  stroke: url(#hp-floor-gradient);
+
+  stroke-width: 3;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  stroke-dasharray: 7 7;
+
+  animation: hp-floor-flow 5s linear infinite;
+}
+
+
+/* KOELMIDDELLEIDINGEN */
+
+.hp-refrigerant {
+  fill: none;
+
+  stroke: #8294aa;
+  stroke-width: 2.2;
+
+  stroke-linecap: round;
+
+  stroke-dasharray: 5 5;
+}
+
+
+/* ==========================================
+   WARMTEPOMP — ANIMATIES
+========================================== */
+
+
+/* RODE AANVOER */
+
+@keyframes hp-hot-flow {
+  to {
+    stroke-dashoffset: -64;
+  }
+}
+
+
+/* BLAUWE RETOUR */
+
+@keyframes hp-cold-flow {
+  to {
+    stroke-dashoffset: 64;
+  }
+}
+
+
+/* VLOERVERWARMING */
+
+@keyframes hp-floor-flow {
+  to {
+    stroke-dashoffset: -56;
+  }
+}
+
+
+/* ==========================================
+   VENTILATOR
+========================================== */
+
+.hp-fan-border {
+  fill: #edf1f6;
+  stroke: #94a6bd;
+  stroke-width: 1.5;
+}
+
+.hp-fan-rotor {
+  transform-box: fill-box;
+  transform-origin: center;
+
+  animation: hp-fan-spin 5s linear infinite;
+}
+
+.hp-fan-blade {
+  fill: #94a6bd;
+  stroke: #8294aa;
+  stroke-width: .8;
+}
+
+@keyframes hp-fan-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* ==========================================
+   BUITENLUCHT
+========================================== */
+
+.hp-air-line {
+  fill: none;
+  stroke: #91a5bc;
+  stroke-width: 2;
+  stroke-linecap: round;
+
+  animation: hp-air-move 3s ease-in-out infinite alternate;
+}
+
+@keyframes hp-air-move {
+  from {
+    opacity: .25;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: .9;
+    transform: translateX(5px);
+  }
 }
 
 
@@ -1006,45 +973,29 @@ a.card:focus-visible {
 ========================================== */
 
 .divider-list {
-
   border-top: 1px solid var(--line);
-
 }
 
 .divider-row {
-
   display: grid;
-
   grid-template-columns: 70px 1fr 1.4fr;
-
   align-items: start;
-
   gap: 20px;
-
   padding: 32px 0;
-
   border-bottom: 1px solid var(--line);
-
 }
 
 .divider-row .number {
-
   color: var(--blue);
-
   font-weight: 700;
-
 }
 
 .divider-row h3 {
-
   font-size: 24px;
-
 }
 
 .divider-row p {
-
   margin: 0;
-
 }
 
 
@@ -1053,39 +1004,25 @@ a.card:focus-visible {
 ========================================== */
 
 .callout {
-
   margin-top: 45px;
-
   padding: 30px 34px;
-
   background: #ecf0f7;
-
   border-left: 4px solid var(--blue);
-
 }
 
 .callout p:last-child {
-
   margin-bottom: 0;
-
 }
 
 .notice {
-
   padding: 16px 20px;
-
   background: #f4f5f6;
-
   border: 1px solid var(--line);
-
   font-size: 13px;
-
 }
 
 .notice strong {
-
   color: var(--ink);
-
 }
 
 
@@ -1094,82 +1031,52 @@ a.card:focus-visible {
 ========================================== */
 
 .house-layout {
-
   display: grid;
-
   grid-template-columns:
     minmax(0, 1.5fr)
     minmax(300px, .7fr);
-
   align-items: stretch;
-
   gap: 25px;
-
   margin-top: 43px;
-
 }
 
 .diagram {
-
   position: relative;
-
   padding: 24px;
-
   background: linear-gradient(
     160deg,
     #f5f8fb,
     #edf1f7
   );
-
   border: 1px solid #d9e0e9;
-
 }
 
 .diagram svg {
-
   display: block;
-
   width: 100%;
-
 }
 
 .diagram-label {
-
   position: absolute;
-
   top: 15px;
   left: 18px;
-
   color: #637287;
-
   font-size: 10px;
-
   letter-spacing: .1em;
-
   text-transform: uppercase;
-
 }
 
 .house-structure {
-
   fill: #ffffffb5;
-
   stroke: #8294aa;
-
   stroke-width: 3;
-
   stroke-linejoin: round;
-
 }
 
 .detail {
-
   fill: none;
-
   stroke: #a5b2c2;
-
   stroke-width: 2;
-
 }
 
 
@@ -1178,68 +1085,45 @@ a.card:focus-visible {
 ========================================== */
 
 .part {
-
   cursor: pointer;
-
   opacity: .19;
-
   transition: opacity .2s ease;
-
 }
 
 .part.active,
 .part:hover,
 .part:focus {
-
   opacity: 1;
-
 }
 
 .part path,
 .part circle,
 .part rect {
-
   cursor: pointer;
-
   pointer-events: all;
-
 }
 
 .part path,
 .part rect {
-
   fill: none;
-
   stroke: var(--blue);
-
   stroke-width: 6;
-
   stroke-linecap: round;
-
   stroke-linejoin: round;
-
 }
 
 .part circle {
-
   fill: var(--red);
-
   stroke: white;
-
   stroke-width: 3;
-
 }
 
 .part.active path {
-
   stroke-dasharray: 900;
-
   animation: draw .8s ease-out;
-
 }
 
 @keyframes draw {
-
   from {
     stroke-dashoffset: 900;
   }
@@ -1247,7 +1131,6 @@ a.card:focus-visible {
   to {
     stroke-dashoffset: 0;
   }
-
 }
 
 
@@ -1256,89 +1139,54 @@ a.card:focus-visible {
 ========================================== */
 
 .house-panel {
-
   padding: 31px;
-
   background: white;
-
   border: 1px solid var(--line);
-
 }
 
 .house-panel h3 {
-
   margin-bottom: 19px;
-
 }
 
 .system-btn {
-
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
   width: 100%;
-
   padding: 19px 3px;
-
   background: white;
-
   border: none;
-
   border-top: 1px solid var(--line);
-
   color: #6e7787;
-
   font-size: 15px;
-
   font-weight: 650;
-
   text-align: left;
-
 }
 
 .system-btn.active {
-
   color: var(--navy);
-
 }
 
 .system-btn.active span:last-child {
-
   color: var(--red);
-
 }
 
 .system-info {
-
   min-height: 150px;
-
   margin-top: 20px;
-
   padding: 21px;
-
   background: var(--paper);
-
 }
 
 .system-info h4 {
-
   margin: 0;
-
   font-family: var(--font);
-
   font-size: 20px;
-
 }
 
 .system-info p {
-
   margin: 9px 0 0;
-
   font-size: 13px;
-
 }
 
 
@@ -1347,78 +1195,49 @@ a.card:focus-visible {
 ========================================== */
 
 .placeholder-grid {
-
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 18px;
-
 }
 
 .placeholder {
-
   background: white;
-
   border: 1px solid var(--line);
-
 }
 
 .placeholder-art {
-
   position: relative;
-
   display: grid;
-
   place-items: center;
-
   height: 230px;
-
   background: linear-gradient(
     142deg,
     #e5eaf1,
     #f8f9fa
   );
-
   color: #8291a5;
-
   font-size: 12px;
-
   letter-spacing: .1em;
-
   text-align: center;
-
   text-transform: uppercase;
-
 }
 
 .placeholder-art::before {
-
   content: '';
-
   position: absolute;
-
   width: 58px;
   height: 58px;
-
   border: 1px solid #a9b6c9;
-
   opacity: .5;
-
   transform: rotate(45deg);
-
 }
 
 .placeholder-info {
-
   padding: 22px;
-
 }
 
 .placeholder-info p {
-
   font-size: 13px;
-
 }
 
 
@@ -1427,53 +1246,33 @@ a.card:focus-visible {
 ========================================== */
 
 .people-grid {
-
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 18px;
-
 }
 
 .person {
-
   padding: 25px;
-
   background: var(--paper);
-
   border: 1px solid var(--line);
-
 }
 
 .person-photo {
-
   display: grid;
-
   place-items: center;
-
   height: 255px;
-
   background: #e4e7ed;
-
   color: #8695a7;
-
   font-size: 12px;
-
   letter-spacing: .1em;
-
 }
 
 .person h3 {
-
   margin-top: 18px;
-
 }
 
 .person p {
-
   font-size: 13px;
-
 }
 
 
@@ -1482,37 +1281,24 @@ a.card:focus-visible {
 ========================================== */
 
 .cta {
-
   padding: 74px 0;
-
   background: var(--navy);
-
   color: white;
-
 }
 
 .cta .container {
-
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
   gap: 35px;
-
 }
 
 .cta h2 {
-
   font-size: clamp(32px, 4.5vw, 58px);
-
 }
 
 .cta p {
-
   color: #d0d9ef;
-
 }
 
 
@@ -1521,74 +1307,46 @@ a.card:focus-visible {
 ========================================== */
 
 .footer {
-
   padding: 43px 0 29px;
-
   background: #121726;
-
   color: #c0c8d8;
-
 }
 
 .footer-grid {
-
   display: flex;
-
   justify-content: space-between;
-
   flex-wrap: wrap;
-
   gap: 35px;
-
 }
 
 .footer-logo {
-
   color: white;
-
   font-size: 19px;
-
   font-weight: 800;
-
   letter-spacing: -.05em;
-
 }
 
 .footer a:hover {
-
   color: white;
-
 }
 
 .footer p,
 .footer a {
-
   font-size: 12px;
-
 }
 
 .footer-nav {
-
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 17px;
-
 }
 
 .footnote {
-
   margin-top: 35px;
-
   padding-top: 21px;
-
   border-top: 1px solid #3b4454;
-
   color: #9ca9c0;
-
   font-size: 11px;
-
 }
 
 
@@ -1597,23 +1355,16 @@ a.card:focus-visible {
 ========================================== */
 
 .reveal {
-
   opacity: 0;
-
   transform: translateY(19px);
-
   transition:
     opacity .65s ease,
     transform .65s ease;
-
 }
 
 .reveal.visible {
-
   opacity: 1;
-
   transform: none;
-
 }
 
 
@@ -1624,81 +1375,65 @@ a.card:focus-visible {
 @media (max-width: 1040px) {
 
   .nav {
-
     min-height: 75px;
-
   }
 
   .menu-toggle {
-
     display: block;
-
   }
 
   .menu {
-
     position: absolute;
-
     top: 75px;
     left: 0;
     right: 0;
-
     display: none;
-
     flex-direction: column;
-
     align-items: stretch;
-
     gap: 0;
-
     padding: 14px 5% 23px;
-
     background: white;
-
     border-bottom: 1px solid var(--line);
-
   }
 
   .menu.open {
-
     display: flex;
-
   }
 
   .menu a {
-
     padding: 12px 0;
-
   }
 
   .nav-cta {
-
     align-self: flex-start;
-
     margin-top: 8px;
-
     padding: 12px 19px !important;
-
   }
 
   .hero-grid {
-
     min-height: 0;
-
     padding: 55px 0;
-
   }
 
   .hero-visual {
-
     min-height: 390px;
-
   }
 
   .house-layout {
-
     grid-template-columns: 1fr;
+  }
 
+  .services-hero {
+    padding: 45px 0;
+  }
+
+  .services-hero .hero-grid {
+    gap: 25px;
+  }
+
+  .services-hero .hero-visual {
+    height: 280px;
+    min-height: 0;
   }
 
 }
@@ -1711,129 +1446,107 @@ a.card:focus-visible {
 @media (max-width: 760px) {
 
   .brand img {
-
     width: 205px;
-
   }
 
   .hero {
-
     background: white;
-
   }
 
   .hero-grid,
   .split {
-
     grid-template-columns: 1fr;
-
     gap: 34px;
-
   }
 
   .hero-visual {
-
     min-height: 350px;
-
   }
 
   .section,
   .page-hero {
-
     padding: 65px 0;
-
   }
 
   .section-head {
-
     display: block;
-
   }
 
   .section-head p {
-
     max-width: 600px;
-
   }
 
   .cards,
   .placeholder-grid,
   .people-grid {
-
     grid-template-columns: 1fr;
-
   }
 
-  /* DIENSTENKAARTEN */
-
   .card {
-
     min-height: 255px;
-
     padding: 30px;
-
   }
 
   .card .num {
-
     margin-bottom: 26px;
-
   }
 
   .card h3 {
-
     font-size: 25px;
-
   }
 
   .divider-row {
-
     grid-template-columns: 40px 1fr;
-
     gap: 15px;
-
   }
 
   .divider-row p {
-
     grid-column: 2;
-
   }
 
   .cta .container {
-
     display: block;
-
   }
 
   .cta .btn {
-
     margin-top: 18px;
-
   }
 
   .diagram {
-
     padding: 10px;
-
   }
 
   .house-panel {
-
     padding: 20px;
-
   }
 
   .footer-grid {
-
     display: block;
-
   }
 
   .footer-nav {
-
     margin-top: 20px;
+  }
 
+
+  /* DIENSTENPAGINA */
+
+  .services-hero {
+    padding: 48px 0;
+  }
+
+  .services-hero .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .services-hero .hero-copy h1 {
+    font-size: clamp(48px, 11vw, 65px);
+  }
+
+  .services-hero .hero-visual {
+    height: 290px;
+    min-height: 0;
   }
 
 }
@@ -1846,31 +1559,30 @@ a.card:focus-visible {
 @media (max-width: 450px) {
 
   .card {
-
     padding: 25px;
-
     border-radius: 13px;
-
   }
 
   .card h3 {
-
     font-size: 23px;
-
   }
 
   .feature-block {
-
     padding: 30px;
-
   }
 
   .btn-row {
-
     flex-direction: column;
-
     align-items: stretch;
+  }
 
+  .services-hero .hero-visual {
+    height: 250px;
+  }
+
+  .services-hero .visual-label {
+    font-size: 7px;
+    padding: 7px 8px;
   }
 
 }
@@ -1878,273 +1590,25 @@ a.card:focus-visible {
 
 /* ==========================================
    MINDER ANIMATIES
+   TOEGANKELIJKHEID
 ========================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
   html {
-
     scroll-behavior: auto;
-
   }
 
   *,
   *::before,
   *::after {
-
     animation: none !important;
-
     transition: none !important;
-
   }
 
   .reveal {
-
     opacity: 1;
-
     transform: none;
-
   }
-
-}
-/* ==========================================
-   KOLLER & TABOR V3.8
-   WITTE KAARTEN MET GEKLEURDE GOLVEN
-========================================== */
-
-/* BASIS: ALLE KAARTEN WIT */
-
-.cards .card {
-    background: #ffffff !important;
-    border-color: #e0e5ec !important;
-}
-
-/* TEKSTEN BLIJVEN DONKER */
-
-.cards .card h3 {
-    color: #161b25 !important;
-}
-
-.cards .card p {
-    color: #5d697b !important;
-}
-
-.cards .card .num {
-    color: #1554aa !important;
-}
-
-.cards .card .card-link {
-    color: #1554aa !important;
-}
-
-/* GOLFJES ALGEMEEN */
-
-.cards .card::before {
-    content: '';
-    position: absolute;
-    right: -80px;
-    bottom: -145px;
-    width: 290px;
-    height: 230px;
-    border-radius: 65% 0 0 0;
-    transform: rotate(-15deg);
-    pointer-events: none;
-}
-
-.cards .card::after {
-    content: '';
-    position: absolute;
-    right: -35px;
-    bottom: -165px;
-    width: 240px;
-    height: 220px;
-    border-radius: 70% 0 0 0;
-    transform: rotate(-30deg);
-    pointer-events: none;
-}
-
-/* 01 — INSTALLATIES: ORANJE */
-
-.cards .card:nth-child(1)::before {
-    background: linear-gradient(
-        135deg,
-        rgba(239, 145, 75, 0.02),
-        rgba(239, 145, 75, 0.24)
-    ) !important;
-}
-
-.cards .card:nth-child(1)::after {
-    background: linear-gradient(
-        135deg,
-        transparent,
-        rgba(239, 145, 75, 0.15)
-    ) !important;
-}
-
-/* 02 — ONDERHOUD: DONKERBLAUW */
-
-.cards .card:nth-child(2)::before {
-    background: linear-gradient(
-        135deg,
-        rgba(39, 53, 121, 0.02),
-        rgba(39, 53, 121, 0.28)
-    ) !important;
-}
-
-.cards .card:nth-child(2)::after {
-    background: linear-gradient(
-        135deg,
-        transparent,
-        rgba(39, 53, 121, 0.17)
-    ) !important;
-}
-
-/* 03 — INDUSTRIE: LICHTBLAUW */
-
-.cards .card:nth-child(3)::before {
-    background: linear-gradient(
-        135deg,
-        rgba(38, 100, 169, 0.02),
-        rgba(38, 100, 169, 0.23)
-    ) !important;
-}
-
-.cards .card:nth-child(3)::after {
-    background: linear-gradient(
-        135deg,
-        transparent,
-        rgba(38, 100, 169, 0.14)
-    ) !important;
-}
-
-/* HOVER: KAART BLIJFT WIT */
-
-@media (hover: hover) and (pointer: fine) {
-
-    .cards .card:hover {
-        background: #ffffff !important;
-        transform: translateY(-7px);
-    }
-
-}
-/* ==========================================
-   DIENSTENPAGINA — HERO V3.9
-========================================== */
-
-.services-hero .hero-grid {
-
-    grid-template-columns: 1fr 0.95fr;
-
-    align-items: center;
-
-    gap: 55px;
-
-    min-height: 390px;
-
-    padding: 0;
-
-}
-
-.services-hero .hero-copy h1 {
-
-    margin: 22px 0;
-
-}
-
-.services-hero .hero-copy p {
-
-    max-width: 550px;
-
-}
-
-.services-hero .hero-visual {
-
-    min-height: 350px;
-
-    background: #edf0f5;
-
-    border: 1px solid #e1e6ed;
-
-}
-
-.services-hero .hero-visual svg {
-
-    width: 100%;
-
-    height: 100%;
-
-}
-
-.services-hero .arch-line {
-
-    fill: none;
-
-    stroke: #94a6bd;
-
-    stroke-width: 2;
-
-}
-
-.services-hero .tech-flow {
-
-    stroke: #2664a9;
-
-    stroke-width: 3;
-
-    stroke-dasharray: 9 13;
-
-    animation: flow 13s linear infinite;
-
-}
-
-.services-hero .warm-flow {
-
-    stroke: #ef4438;
-
-    stroke-width: 3;
-
-    stroke-dasharray: 9 13;
-
-    animation: flow 11s linear infinite;
-
-}
-
-
-/* TABLET */
-
-@media (max-width: 1040px) {
-
-    .services-hero .hero-grid {
-
-        gap: 30px;
-
-    }
-
-    .services-hero .hero-visual {
-
-        min-height: 320px;
-
-    }
-
-}
-
-
-/* MOBIEL */
-
-@media (max-width: 760px) {
-
-    .services-hero .hero-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-
-    }
-
-    .services-hero .hero-visual {
-
-        min-height: 300px;
-
-    }
 
 }
