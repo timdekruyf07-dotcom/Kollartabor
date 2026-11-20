@@ -55,7 +55,8 @@ button {
 }
 
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+summary:focus-visible {
   outline: 3px solid var(--blue);
   outline-offset: 4px;
 }
@@ -437,7 +438,8 @@ p {
   transition:
     transform .35s ease,
     box-shadow .35s ease,
-    border-color .35s ease;
+    border-color .35s ease,
+    background .35s ease;
 }
 
 a.card {
@@ -453,32 +455,48 @@ a.card:focus-visible {
 }
 
 
-/* Kaarten blijven wit */
+/* ORANJE KAART */
 
-.cards .card {
-  background: white;
+.cards .card:nth-child(1) {
+  background: #ffffff;
   border-color: #e0e5ec;
 }
 
-.cards .card h3,
-.cards .card p {
-  color: var(--ink);
+.cards .card:nth-child(1) .num,
+.cards .card:nth-child(1) .card-link {
+  color: #bd571b;
 }
 
-.cards .card p {
-  color: #5d697b;
+
+/* DONKERBLAUWE KAART */
+
+.cards .card:nth-child(2) {
+  background: #ffffff;
+  border-color: #e0e5ec;
 }
 
-.cards .card .num,
-.cards .card .card-link {
+.cards .card:nth-child(2) .num,
+.cards .card:nth-child(2) .card-link {
+  color: var(--navy);
+}
+
+
+/* LICHTBLAUWE KAART */
+
+.cards .card:nth-child(3) {
+  background: #ffffff;
+  border-color: #e0e5ec;
+}
+
+.cards .card:nth-child(3) .num,
+.cards .card:nth-child(3) .card-link {
   color: #1554aa;
 }
 
 
-/* Decoratieve golfjes */
+/* DECORATIEVE GOLVEN */
 
-.card::before,
-.card::after {
+.card::before {
   content: '';
   position: absolute;
   right: -80px;
@@ -491,15 +509,16 @@ a.card:focus-visible {
 }
 
 .card::after {
+  content: '';
+  position: absolute;
   right: -35px;
   bottom: -165px;
   width: 240px;
   height: 220px;
+  border-radius: 70% 0 0 0;
   transform: rotate(-30deg);
+  pointer-events: none;
 }
-
-
-/* 01 ORANJE */
 
 .cards .card:nth-child(1)::before {
   background: linear-gradient(
@@ -517,9 +536,6 @@ a.card:focus-visible {
   );
 }
 
-
-/* 02 DONKERBLAUW */
-
 .cards .card:nth-child(2)::before {
   background: linear-gradient(
     135deg,
@@ -535,9 +551,6 @@ a.card:focus-visible {
     rgba(39, 53, 121, .17)
   );
 }
-
-
-/* 03 LICHTBLAUW */
 
 .cards .card:nth-child(3)::before {
   background: linear-gradient(
@@ -555,9 +568,6 @@ a.card:focus-visible {
   );
 }
 
-
-/* Kaartinhoud boven golfjes */
-
 .card > * {
   position: relative;
   z-index: 2;
@@ -566,7 +576,6 @@ a.card:focus-visible {
 .card .num {
   display: block;
   margin-bottom: 37px;
-  color: #1554aa;
   font-family: var(--font);
   font-size: 20px;
   font-weight: 800;
@@ -574,12 +583,15 @@ a.card:focus-visible {
 
 .card h3 {
   margin-bottom: 12px;
+  font-family: var(--font);
   font-size: clamp(21px, 2vw, 28px);
   font-weight: 700;
+  letter-spacing: -.065em;
 }
 
 .card p {
   margin: 0;
+  color: #5d697b;
   font-size: 14px;
   line-height: 1.85;
 }
@@ -590,14 +602,12 @@ a.card:focus-visible {
   gap: 8px;
   margin-top: auto;
   padding-top: 27px;
-  color: #1554aa;
   font-size: 13px;
   font-weight: 800;
   transition: gap .25s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
-
   .card:hover {
     transform: translateY(-7px);
     box-shadow:
@@ -608,7 +618,6 @@ a.card:focus-visible {
   .card:hover .card-link {
     gap: 14px;
   }
-
 }
 
 
@@ -691,236 +700,242 @@ a.card:focus-visible {
 
 
 /* ==========================================
-   DIENSTENPAGINA — NIEUW ONTWERP
-   V4.0
-========================================== */
-
-.services-page-hero {
-  padding: 90px 0 78px;
-  background: #f7f8fa;
-}
-
-.services-page-hero h1 {
-  margin: 22px 0;
-}
-
-.services-page-hero .lead {
-  max-width: 720px;
-}
-
-
-/* ==========================================
-   DIENSTENOVERZICHT
+   DIENSTENPAGINA
+   COMPACTE DIENSTBLOKKEN V4.0
 ========================================== */
 
 .services-section {
-  padding: 75px 0 105px;
-  background: #ffffff;
+  padding: 65px 0 85px;
 }
 
 .services-list {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 22px;
 }
 
 
 /* ==========================================
-   DIENSTENBLOK
+   DIENSTBLOK BASIS
 ========================================== */
 
 .service-item {
-  position: relative;
   display: grid;
-  grid-template-columns: 1.05fr .95fr;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, .85fr);
   align-items: stretch;
-  min-height: 335px;
-  overflow: hidden;
-  background: #ffffff;
-  border: 1px solid #e3e7ed;
-  border-radius: 17px;
-  box-shadow:
-    0 8px 22px rgba(20, 35, 55, .045),
-    0 20px 35px rgba(20, 35, 55, .025);
+  gap: 35px;
+
+  min-height: 235px;
+
+  padding: 22px;
+
+  background: white;
+
+  border: 1px solid var(--line);
+  border-radius: 5px;
+
+  box-shadow: 0 8px 24px rgba(16, 30, 50, .035);
+
   transition:
-    transform .35s ease,
-    box-shadow .35s ease,
-    border-color .35s ease;
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+.service-item:hover {
+  border-color: #cbd7e7;
+  box-shadow: 0 12px 28px rgba(16, 30, 50, .07);
 }
 
 
 /* ==========================================
-   DIENSTEN — TEKSTGEDEELTE
+   DIENSTTEKST
 ========================================== */
 
 .service-copy {
-  position: relative;
-  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 42px 48px;
-  background: #ffffff;
+  min-width: 0;
+  padding: 10px 5px;
 }
 
 .service-number {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
+  display: block;
+  margin-bottom: 13px;
   color: var(--blue);
   font-family: var(--font);
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 800;
-  letter-spacing: .02em;
 }
 
 .service-number span {
-  color: #687487;
-  font-family: 'DM Sans', Arial, sans-serif;
+  margin-left: 7px;
+  color: var(--navy);
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .14em;
+  letter-spacing: .13em;
 }
 
 .service-copy h2 {
-  margin-bottom: 15px;
-  font-size: clamp(28px, 3vw, 39px);
+  margin-bottom: 9px;
+  font-family: var(--font);
+  font-size: clamp(25px, 2.5vw, 34px);
   font-weight: 650;
+  letter-spacing: -.06em;
   line-height: 1.2;
 }
 
-.service-copy p {
-  max-width: 470px;
+.service-copy > p {
+  max-width: 580px;
   margin: 0;
-  color: #626d7d;
-  font-size: 15px;
-  line-height: 1.85;
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 
 /* ==========================================
-   DIENSTEN — LINK
-========================================== */
-
-.service-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  margin-top: 25px;
-  color: var(--blue);
-  font-size: 13px;
-  font-weight: 800;
-  transition:
-    gap .25s ease,
-    color .25s ease;
-}
-
-.service-link span {
-  color: var(--red);
-  font-size: 17px;
-  transition: transform .25s ease;
-}
-
-.service-link:hover {
-  gap: 15px;
-  color: var(--navy);
-}
-
-.service-link:hover span {
-  transform: translate(3px, -3px);
-}
-
-
-/* ==========================================
-   DIENSTEN — FOTO
+   DIENSTAFBEELDING
 ========================================== */
 
 .service-photo {
   position: relative;
+  width: 100%;
+  height: 235px;
   min-width: 0;
-  min-height: 335px;
   overflow: hidden;
-  background: #edf0f4;
+  background: #edf0f5;
 }
-
-
-/*
-   Foto's behouden hun oorspronkelijke
-   verhouding zo veel mogelijk.
-
-   object-fit: contain voorkomt dat
-   belangrijke onderdelen worden afgesneden.
-*/
 
 .service-photo img {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 335px;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  background: #edf0f4;
-  transition: transform .65s ease;
+  transition: transform .5s ease;
 }
-
-
-/* ==========================================
-   GEBOGEN OVERGANG TUSSEN TEKST EN FOTO
-========================================== */
-
-.service-photo::before {
-  content: '';
-  position: absolute;
-  z-index: 2;
-  top: -12%;
-  left: -54px;
-  width: 108px;
-  height: 124%;
-  background: #ffffff;
-  border-radius: 0 55% 55% 0;
-  pointer-events: none;
-}
-
-
-/* Subtiele rode lijn onderaan */
-
-.service-photo::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 45%;
-  height: 4px;
-  background: linear-gradient(
-    to right,
-    var(--red),
-    var(--navy),
-    var(--blue)
-  );
-  opacity: .85;
-}
-
-
-/* ==========================================
-   DIENSTEN — HOVER
-========================================== */
 
 @media (hover: hover) and (pointer: fine) {
-
-  .service-item:hover {
-    transform: translateY(-4px);
-    border-color: #cbd7e6;
-    box-shadow:
-      0 15px 30px rgba(20, 35, 55, .075),
-      0 28px 45px rgba(20, 35, 55, .035);
-  }
-
   .service-item:hover .service-photo img {
     transform: scale(1.025);
   }
+}
 
+
+/* ==========================================
+   UITKLAPBARE DIENSTINFORMATIE
+========================================== */
+
+.service-details {
+  width: 100%;
+  margin-top: 14px;
+  border-top: 1px solid #e8ebf0;
+}
+
+.service-details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding: 12px 0 5px;
+
+  color: var(--blue);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+  list-style: none;
+}
+
+.service-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.service-details summary::after {
+  content: '+';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+
+  border: 1px solid #d7e1ed;
+  border-radius: 50%;
+
+  color: var(--blue);
+
+  font-size: 18px;
+  font-weight: 400;
+
+  transition:
+    transform .25s ease,
+    background .25s ease;
+}
+
+.service-details[open] summary::after {
+  content: '−';
+  background: #edf3fa;
+  transform: rotate(180deg);
+}
+
+.service-details summary:hover {
+  color: var(--navy);
+}
+
+
+/* ==========================================
+   UITGEKLAPTE TEKST
+========================================== */
+
+.service-more {
+  padding: 8px 0 12px;
+  animation: serviceOpen .3s ease;
+}
+
+.service-more p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+@keyframes serviceOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ==========================================
+   CONTACTLINK IN DIENSTBLOK
+========================================== */
+
+.service-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 5px;
+
+  color: var(--navy);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  transition: gap .2s ease;
+}
+
+.service-contact:hover {
+  gap: 13px;
 }
 
 
@@ -988,9 +1003,7 @@ a.card:focus-visible {
 
 .house-layout {
   display: grid;
-  grid-template-columns:
-    minmax(0, 1.5fr)
-    minmax(300px, .7fr);
+  grid-template-columns: minmax(0, 1.5fr) minmax(300px, .7fr);
   align-items: stretch;
   gap: 25px;
   margin-top: 43px;
@@ -999,11 +1012,7 @@ a.card:focus-visible {
 .diagram {
   position: relative;
   padding: 24px;
-  background: linear-gradient(
-    160deg,
-    #f5f8fb,
-    #edf1f7
-  );
+  background: linear-gradient(160deg, #f5f8fb, #edf1f7);
   border: 1px solid #d9e0e9;
 }
 
@@ -1166,11 +1175,7 @@ a.card:focus-visible {
   display: grid;
   place-items: center;
   height: 230px;
-  background: linear-gradient(
-    142deg,
-    #e5eaf1,
-    #f8f9fa
-  );
+  background: linear-gradient(142deg, #e5eaf1, #f8f9fa);
   color: #8291a5;
   font-size: 12px;
   letter-spacing: .1em;
@@ -1380,17 +1385,8 @@ a.card:focus-visible {
   }
 
   .service-item {
-    grid-template-columns: 1fr .9fr;
-    min-height: 300px;
-  }
-
-  .service-copy {
-    padding: 34px;
-  }
-
-  .service-photo,
-  .service-photo img {
-    min-height: 300px;
+    grid-template-columns: minmax(0, 1.2fr) minmax(250px, .8fr);
+    gap: 22px;
   }
 
 }
@@ -1439,9 +1435,6 @@ a.card:focus-visible {
     grid-template-columns: 1fr;
   }
 
-
-  /* HOMEPAGE KAARTEN */
-
   .card {
     min-height: 255px;
     padding: 30px;
@@ -1455,60 +1448,40 @@ a.card:focus-visible {
     font-size: 25px;
   }
 
-
-  /* DIENSTENPAGINA */
+  /* DIENSTENBLOKKEN MOBIEL */
 
   .services-section {
-    padding: 45px 0 70px;
+    padding: 40px 0 60px;
   }
 
   .services-list {
-    gap: 22px;
+    gap: 20px;
   }
 
   .service-item {
     grid-template-columns: 1fr;
+    gap: 18px;
     min-height: 0;
+    padding: 17px;
   }
 
   .service-copy {
-    padding: 30px 28px 28px;
-  }
-
-  .service-number {
-    margin-bottom: 18px;
+    padding: 5px 2px;
   }
 
   .service-copy h2 {
-    font-size: 29px;
-  }
-
-  .service-copy p {
-    font-size: 14px;
+    font-size: 27px;
   }
 
   .service-photo {
+    height: 210px;
     min-height: 0;
-    height: auto;
-    aspect-ratio: 3 / 2;
+    order: 2;
   }
 
-  .service-photo img {
-    min-height: 0;
-    height: 100%;
-    object-fit: contain;
+  .service-details {
+    margin-top: 13px;
   }
-
-  .service-photo::before {
-    display: none;
-  }
-
-  .service-photo::after {
-    height: 3px;
-  }
-
-
-  /* INFORMATIERIJEN */
 
   .divider-row {
     grid-template-columns: 40px 1fr;
@@ -1519,9 +1492,6 @@ a.card:focus-visible {
     grid-column: 2;
   }
 
-
-  /* CONTACT */
-
   .cta .container {
     display: block;
   }
@@ -1530,9 +1500,6 @@ a.card:focus-visible {
     margin-top: 18px;
   }
 
-
-  /* INTERACTIEVE WONING */
-
   .diagram {
     padding: 10px;
   }
@@ -1540,9 +1507,6 @@ a.card:focus-visible {
   .house-panel {
     padding: 20px;
   }
-
-
-  /* FOOTER */
 
   .footer-grid {
     display: block;
@@ -1579,12 +1543,12 @@ a.card:focus-visible {
     align-items: stretch;
   }
 
-  .service-copy {
-    padding: 26px 23px;
+  .service-item {
+    padding: 14px;
   }
 
-  .service-copy h2 {
-    font-size: 26px;
+  .service-photo {
+    height: 185px;
   }
 
   .service-number span {
