@@ -2,7 +2,6 @@
 <html lang="nl">
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#ffffff">
@@ -49,7 +48,6 @@
     }
 
   </style>
-
 </head>
 
 <body>
@@ -103,9 +101,7 @@
           </span>
 
           <h2>
-            <span id="team-section-title">
-              De mensen achter Koller &amp; Tabor
-            </span><span class="red-dot">.</span>
+            <span id="team-section-title">De mensen achter Koller &amp; Tabor</span><span class="red-dot">.</span>
           </h2>
 
         </div>
@@ -124,67 +120,28 @@
 
       <div class="people-grid" id="team-grid">
 
-        <!--
-          De drie bestaande voorbeeldmedewerkers
-          blijven zichtbaar zolang het CMS-bestand
-          nog niet geladen is.
-        -->
-
-
-        <!-- MEDEWERKER 01 -->
-
         <article class="person">
-
           <div class="person-photo">
             Foto volgt
           </div>
-
-          <h3>
-            Naam volgt
-          </h3>
-
-          <p>
-            Functie volgt
-          </p>
-
+          <h3>Naam volgt</h3>
+          <p>Functie volgt</p>
         </article>
 
-
-        <!-- MEDEWERKER 02 -->
-
         <article class="person">
-
           <div class="person-photo">
             Foto volgt
           </div>
-
-          <h3>
-            Naam volgt
-          </h3>
-
-          <p>
-            Functie volgt
-          </p>
-
+          <h3>Naam volgt</h3>
+          <p>Functie volgt</p>
         </article>
 
-
-        <!-- MEDEWERKER 03 -->
-
         <article class="person">
-
           <div class="person-photo">
             Foto volgt
           </div>
-
-          <h3>
-            Naam volgt
-          </h3>
-
-          <p>
-            Functie volgt
-          </p>
-
+          <h3>Naam volgt</h3>
+          <p>Functie volgt</p>
         </article>
 
       </div>
@@ -236,30 +193,15 @@
 ========================================== -->
 
 <script>
-
 (function () {
-
   "use strict";
-
-  // ========================================
-  // INSTELLINGEN
-  // ========================================
 
   const DATA_URL = "content/team.json";
 
   const grid = document.getElementById("team-grid");
-
-  const introduction = document.getElementById(
-    "team-introduction"
-  );
-
-  const sectionTitle = document.getElementById(
-    "team-section-title"
-  );
-
-  const sectionDescription = document.getElementById(
-    "team-section-description"
-  );
+  const introduction = document.getElementById("team-introduction");
+  const sectionTitle = document.getElementById("team-section-title");
+  const sectionDescription = document.getElementById("team-section-description");
 
 
   // ========================================
@@ -267,7 +209,6 @@
   // ========================================
 
   function makeElement(tag, className, text) {
-
     const element = document.createElement(tag);
 
     if (className) {
@@ -283,39 +224,56 @@
 
 
   // ========================================
-  // FOTO-URL VERWERKEN
+  // FOTO-URL CORRECT MAKEN
   // ========================================
 
   function getImageUrl(imagePath) {
-
     if (!imagePath) {
       return "";
     }
 
-    const path = String(imagePath).trim();
+    let path = String(imagePath).trim();
 
     if (!path) {
       return "";
     }
 
-    // Volledige HTTPS-URL.
+    // Externe HTTPS-afbeeldingen ondersteunen.
     if (/^https:\/\//i.test(path)) {
       return path;
     }
 
-    // Andere protocollen blokkeren.
-    if (/^[a-z]+:/i.test(path) || path.startsWith("//")) {
+    // Onveilige en andere protocollen blokkeren.
+    if (/^[a-z][a-z0-9+.-]*:/i.test(path) || path.startsWith("//")) {
       return "";
     }
 
-    // Pad dat vanaf de GitHub Pages-website begint.
-    if (path.startsWith("/")) {
-      return path;
+    // Basisadres van deze website:
+    // https://timdekruyf07-dotcom.github.io/Kollartabor/
+    const siteBase = new URL(".", document.baseURI);
+
+    // Een pad met /Kollartabor/ ervoor herkennen.
+    const siteFolder = siteBase.pathname.replace(/\/$/, "");
+
+    if (
+      siteFolder &&
+      path.startsWith(siteFolder + "/")
+    ) {
+      path = path.slice(siteFolder.length);
     }
 
-    // Relatief pad, bijvoorbeeld:
-    // images/uploads/medewerker.jpg
-    return new URL(path, document.baseURI).href;
+    // Voorloopslashes verwijderen.
+    // Zo wordt /images/uploads/foto.png
+    // automatisch images/uploads/foto.png.
+    path = path.replace(/^\/+/, "");
+
+    // Voorkomen dat een pad buiten de
+    // websitemap terechtkomt.
+    if (path.split("/").includes("..")) {
+      return "";
+    }
+
+    return new URL(path, siteBase).href;
   }
 
 
@@ -324,17 +282,9 @@
   // ========================================
 
   function makeMemberCard(member) {
+    const article = makeElement("article", "person");
 
-    const article = makeElement(
-      "article",
-      "person"
-    );
-
-
-    // ======================================
     // FOTO
-    // ======================================
-
     const photoContainer = makeElement(
       "div",
       "person-photo"
@@ -343,7 +293,6 @@
     const imageUrl = getImageUrl(member.photo);
 
     if (imageUrl) {
-
       photoContainer.classList.add("has-image");
 
       const img = document.createElement("img");
@@ -355,33 +304,21 @@
 
       img.loading = "lazy";
 
-      // Als de foto niet geladen kan worden,
-      // tonen we alsnog de oorspronkelijke tekst.
       img.addEventListener("error", function () {
-
         photoContainer.classList.remove("has-image");
-
         photoContainer.replaceChildren();
-
         photoContainer.textContent = "Foto volgt";
-
       }, { once: true });
 
       photoContainer.appendChild(img);
-
     } else {
-
       photoContainer.textContent = "Foto volgt";
-
     }
 
     article.appendChild(photoContainer);
 
 
-    // ======================================
     // NAAM
-    // ======================================
-
     const name = makeElement(
       "h3",
       "",
@@ -391,10 +328,7 @@
     article.appendChild(name);
 
 
-    // ======================================
     // FUNCTIE
-    // ======================================
-
     const role = makeElement(
       "p",
       "",
@@ -404,12 +338,8 @@
     article.appendChild(role);
 
 
-    // ======================================
-    // EXTRA BESCHRIJVING
-    // ======================================
-
+    // BESCHRIJVING
     if (member.description) {
-
       const description = makeElement(
         "p",
         "person-description",
@@ -417,7 +347,6 @@
       );
 
       article.appendChild(description);
-
     }
 
     return article;
@@ -425,25 +354,17 @@
 
 
   // ========================================
-  // MEDEWERKERS TONEN
+  // MEDEWERKERS WEERGEVEN
   // ========================================
 
   function renderMembers(members) {
-
-    // Alleen gepubliceerde medewerkers tonen.
     const visibleMembers = members.filter(function (member) {
-
       return member &&
         typeof member === "object" &&
         member.published !== false;
-
     });
 
-
-    // Sorteren op ingevulde volgorde.
-    // Zonder nummer blijft de CMS-volgorde behouden.
     visibleMembers.sort(function (a, b) {
-
       const aOrder =
         a.order === undefined ||
         a.order === null ||
@@ -459,15 +380,11 @@
           : Number(b.order);
 
       return aOrder - bOrder;
-
     });
 
-
-    // Alle kaarten opbouwen.
     const fragment = document.createDocumentFragment();
 
     if (visibleMembers.length === 0) {
-
       const emptyMessage = makeElement(
         "p",
         "team-empty",
@@ -475,45 +392,30 @@
       );
 
       fragment.appendChild(emptyMessage);
-
     } else {
-
       visibleMembers.forEach(function (member) {
-
-        fragment.appendChild(
-          makeMemberCard(member)
-        );
-
+        fragment.appendChild(makeMemberCard(member));
       });
-
     }
 
-
-    // Bestaande kaarten vervangen door CMS-gegevens.
     grid.replaceChildren(fragment);
-
   }
 
 
   // ========================================
-  // JSON LADEN
+  // TEAMGEGEVENS OPHALEN
   // ========================================
 
   async function loadTeam() {
-
     try {
-
       const response = await fetch(DATA_URL, {
         cache: "no-store"
       });
 
       if (!response.ok) {
-
         throw new Error(
-          "Teamgegevens niet beschikbaar: " +
-          response.status
+          "Teamgegevens niet beschikbaar: " + response.status
         );
-
       }
 
       const data = await response.json();
@@ -522,59 +424,26 @@
         throw new Error("Ongeldige teamgegevens");
       }
 
-
-      // ======================================
-      // INTRODUCTIETEKST AANPASSEN
-      // ======================================
-
       if (typeof data.introduction === "string") {
-
         introduction.textContent = data.introduction;
-
       }
-
-
-      // ======================================
-      // TITEL AANPASSEN
-      // ======================================
 
       if (typeof data.section_title === "string") {
-
         sectionTitle.textContent = data.section_title;
-
       }
-
-
-      // ======================================
-      // BESCHRIJVING AANPASSEN
-      // ======================================
 
       if (typeof data.section_description === "string") {
-
-        sectionDescription.textContent =
-          data.section_description;
-
+        sectionDescription.textContent = data.section_description;
       }
-
-
-      // ======================================
-      // MEDEWERKERS TONEN
-      // ======================================
 
       renderMembers(data.members);
 
     } catch (error) {
+      console.error("Kon teamgegevens niet laden:", error);
 
-      console.error(
-        "Kon teamgegevens niet laden:",
-        error
-      );
-
-      // De oorspronkelijke voorbeeldkaarten
-      // blijven zichtbaar als laden mislukt.
-
+      // Bestaande voorbeeldkaarten blijven
+      // zichtbaar wanneer laden mislukt.
     }
-
   }
 
 
@@ -585,7 +454,6 @@
   loadTeam();
 
 })();
-
 </script>
 
 </body>
