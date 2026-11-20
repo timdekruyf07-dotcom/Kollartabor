@@ -1,13 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="nl">
 
 <head>
 
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1"
+    content="width=device-width, initial-scale=1.0"
   >
 
   <meta
@@ -17,15 +17,19 @@
 
   <meta
     name="description"
-    content="Installatietechniek en onderhoud bij Koller & Tabor in Loenen."
+    content="Koller & Tabor Installatietechniek in Loenen. Techniek die werkt."
   >
 
   <title>Home | Koller &amp; Tabor</title>
+
+  <!-- BESTAANDE STYLESHEET -->
 
   <link
     rel="stylesheet"
     href="style.css"
   >
+
+  <!-- BESTAANDE JAVASCRIPT -->
 
   <script
     src="script.js"
@@ -33,23 +37,28 @@
   ></script>
 
   <!-- ======================================
-       HOMEPAGE V3.2
+       HOMEPAGE V3.3
 
-       De foto vult nu de volledige
-       rechterkant van de hero.
+       Alleen de eerste sectie krijgt
+       een nieuwe indeling.
 
-       Alle overige onderdelen blijven gelijk.
+       De bestaande style.css en script.js
+       blijven ongewijzigd.
   ====================================== -->
 
   <style>
 
     /* ======================================
-       HERO — VOLLEDIGE BREEDTE
+       HERO BASIS
     ====================================== */
 
     .hero {
 
       position: relative;
+
+      width: 100%;
+
+      min-height: 650px;
 
       overflow: hidden;
 
@@ -60,112 +69,54 @@
     }
 
     /* ======================================
-       HERO GRID
+       FOTO ACHTERGROND
 
-       De tekst blijft op zijn plek.
-       De afbeelding wordt daarachter
-       onafhankelijk gepositioneerd.
+       De foto staat in een eigen vlak
+       aan de rechterkant.
+
+       Hierdoor wordt hij niet meer
+       onnodig ingezoomd.
     ====================================== */
 
-    .hero-grid {
-
-      position: relative;
-
-      z-index: 2;
-
-      display: grid;
-
-      grid-template-columns: 1fr 1.02fr;
-
-      align-items: center;
-
-      min-height: 620px;
-
-      padding: 70px 0;
-
-    }
-
-    /* ======================================
-       LINKERKANT — TEKST
-    ====================================== */
-
-    .hero-copy {
-
-      position: relative;
-
-      z-index: 3;
-
-      grid-column: 1;
-
-    }
-
-    /* ======================================
-       RECHTERKANT — VOLLEDIGE FOTO
-
-       Dit is de belangrijkste wijziging.
-
-       De foto is niet meer beperkt tot
-       de container van de website.
-
-       Hij vult de hele hero en wordt
-       links schuin afgesneden.
-    ====================================== */
-
-    .hero-visual {
+    .hero-photo-area {
 
       position: absolute;
 
       top: 0;
-      right: 0;
       bottom: 0;
-      left: 0;
+      right: 0;
 
-      width: 100%;
-      height: 100%;
-
-      min-height: 0;
-
-      margin: 0;
-      padding: 0;
-
-      border: none;
-
-      background: #e8edf5;
-
-      overflow: hidden;
+      width: 59%;
 
       z-index: 1;
 
+      overflow: hidden;
+
       /*
-        Schuine overgang.
+        De schuine overgang.
 
-        Links boven begint de foto op 48%.
-        Links onder begint hij op 36%.
+        De bovenkant begint verder rechts.
 
-        Zo blijft voldoende ruimte voor
-        de titel en knoppen.
+        De onderkant loopt naar links,
+        zonder de tekst te bedekken.
       */
 
       clip-path: polygon(
-        48% 0,
+        24% 0,
         100% 0,
         100% 100%,
-        36% 100%
+        0 100%
       );
 
-      animation: photoReveal 1s ease-out both;
+      background: #e8e9eb;
 
     }
 
     /* ======================================
-       DE FOTO ZELF
+       DE INSTALLATIEFOTO
     ====================================== */
 
-    .hero-tech-photo {
-
-      position: absolute;
-
-      inset: 0;
+    .hero-photo {
 
       display: block;
 
@@ -175,53 +126,27 @@
       object-fit: cover;
 
       /*
-        Zorgt dat de installaties rechts
-        duidelijk zichtbaar blijven.
+        Meer van de technische ruimte
+        blijft zichtbaar.
       */
 
-      object-position: 70% center;
+      object-position: center center;
+
+      animation: heroPhotoAppear 1.2s ease-out both;
 
     }
 
     /* ======================================
-       LABEL RECHTSONDER
+       SUBTIELE FOTOANIMATIE
     ====================================== */
 
-    .hero-visual .visual-label {
-
-      position: absolute;
-
-      bottom: 24px;
-      right: 5%;
-      left: auto;
-
-      z-index: 2;
-
-      background: #ffffffed;
-
-      color: #273579;
-
-      padding: 12px 16px;
-
-      font-size: 10px;
-
-      font-weight: 800;
-
-      letter-spacing: .12em;
-
-    }
-
-    /* ======================================
-       SUBTIELE FOTO-ANIMATIE
-    ====================================== */
-
-    @keyframes photoReveal {
+    @keyframes heroPhotoAppear {
 
       from {
 
         opacity: 0;
 
-        transform: scale(1.025);
+        transform: scale(1.04);
 
       }
 
@@ -236,45 +161,351 @@
     }
 
     /* ======================================
-       TABLET
-
-       Iets minder schuine uitsnede.
+       TEKSTCONTAINER
     ====================================== */
 
-    @media (max-width: 1050px) {
+    .hero-content {
 
-      .hero-visual {
+      position: relative;
 
-        clip-path: polygon(
-          51% 0,
-          100% 0,
-          100% 100%,
-          43% 100%
-        );
+      z-index: 3;
+
+      display: flex;
+
+      align-items: center;
+
+      min-height: 650px;
+
+      padding-top: 75px;
+      padding-bottom: 75px;
+
+    }
+
+    /* ======================================
+       LINKER TEKSTGEDEELTE
+    ====================================== */
+
+    .hero-content .hero-copy {
+
+      width: 49%;
+
+      max-width: 540px;
+
+      min-width: 0;
+
+      position: relative;
+
+      z-index: 4;
+
+    }
+
+    /* ======================================
+       TITEL
+
+       Techniek
+       die werkt.
+
+       Precies zoals in het voorbeeld.
+    ====================================== */
+
+    .hero-heading {
+
+      margin-top: 30px;
+      margin-bottom: 30px;
+
+      font-family: Manrope, Arial, sans-serif;
+
+      font-size: clamp(
+        56px,
+        6.2vw,
+        98px
+      );
+
+      font-weight: 600;
+
+      line-height: 1.07;
+
+      letter-spacing: -.08em;
+
+      color: #161b25;
+
+    }
+
+    .hero-heading .line {
+
+      display: block;
+
+      white-space: nowrap;
+
+    }
+
+    .hero-heading .accent {
+
+      color: #2664a9;
+
+    }
+
+    .hero-heading .red-dot {
+
+      color: #ef4438;
+
+    }
+
+    /* ======================================
+       ONDERTITEL
+    ====================================== */
+
+    .hero-description {
+
+      max-width: 460px;
+
+      margin-bottom: 0;
+
+      font-size: 16px;
+
+      line-height: 1.9;
+
+      color: #616b78;
+
+    }
+
+    /* ======================================
+       KNOPPEN
+    ====================================== */
+
+    .hero-content .btn-row {
+
+      margin-top: 31px;
+
+    }
+
+    /* ======================================
+       GROTERE SCHERMEN
+
+       Op brede schermen houden we
+       de compositie mooi in balans.
+    ====================================== */
+
+    @media (min-width: 1500px) {
+
+      .hero-photo-area {
+
+        width: 59%;
 
       }
 
-      .hero-tech-photo {
+      .hero-heading {
 
-        object-position: 72% center;
+        font-size: 98px;
 
       }
 
     }
 
     /* ======================================
-       MOBIEL
+       KLEINERE LAPTOPS
+    ====================================== */
 
-       Op een telefoon komt de foto
-       gewoon onder de tekst.
+    @media (max-width: 1200px) {
 
-       Anders zou de tekst te weinig
-       ruimte krijgen.
+      .hero-photo-area {
+
+        width: 57%;
+
+        clip-path: polygon(
+          29% 0,
+          100% 0,
+          100% 100%,
+          9% 100%
+        );
+
+      }
+
+      .hero-heading {
+
+        font-size: clamp(
+          51px,
+          6vw,
+          76px
+        );
+
+      }
+
+      .hero-content .hero-copy {
+
+        max-width: 480px;
+
+      }
+
+    }
+
+    /* ======================================
+       TABLETS
+
+       We houden een duidelijke scheiding
+       tussen tekst en foto.
+    ====================================== */
+
+    @media (max-width: 900px) {
+
+      .hero {
+
+        min-height: 570px;
+
+      }
+
+      .hero-content {
+
+        min-height: 570px;
+
+      }
+
+      .hero-photo-area {
+
+        width: 55%;
+
+        clip-path: polygon(
+          34% 0,
+          100% 0,
+          100% 100%,
+          15% 100%
+        );
+
+      }
+
+      .hero-content .hero-copy {
+
+        width: 53%;
+
+      }
+
+      .hero-heading {
+
+        font-size: clamp(
+          46px,
+          5.6vw,
+          65px
+        );
+
+      }
+
+      .hero-description {
+
+        font-size: 14px;
+
+      }
+
+    }
+
+    /* ======================================
+       MOBIELE SCHERMEN
+
+       Tekst bovenaan.
+       Foto daaronder over de volle breedte.
+
+       Geen overlappende elementen.
     ====================================== */
 
     @media (max-width: 760px) {
 
-      .hero-grid {
+      .hero {
+
+        min-height: 0;
+
+        display: flex;
+
+        flex-direction: column;
+
+      }
+
+      .hero-content {
+
+        order: 1;
+
+        min-height: 0;
+
+        width: 90%;
+
+        padding-top: 65px;
+        padding-bottom: 55px;
+
+      }
+
+      .hero-content .hero-copy {
+
+        width: 100%;
+
+        max-width: 100%;
+
+      }
+
+      .hero-heading {
+
+        font-size: clamp(
+          48px,
+          10vw,
+          76px
+        );
+
+      }
+
+      .hero-description {
+
+        max-width: 540px;
+
+        font-size: 15px;
+
+      }
+
+      .hero-photo-area {
+
+        position: relative;
+
+        top: auto;
+        right: auto;
+        bottom: auto;
+
+        order: 2;
+
+        width: 100%;
+
+        height: 380px;
+
+        clip-path: none;
+
+      }
+
+      .hero-photo {
+
+        object-position: center;
+
+      }
+
+    }
+
+    /* ======================================
+       KLEINE MOBIELE SCHERMEN
+    ====================================== */
+
+    @media (max-width: 450px) {
+
+      .hero-heading {
+
+        font-size: clamp(
+          41px,
+          10.4vw,
+          52px
+        );
+
+      }
+
+      .hero-photo-area {
+
+        height: 290px;
+
+      }
+
+      .hero-content .btn-row {
 
         display: flex;
 
@@ -282,92 +513,17 @@
 
         align-items: stretch;
 
-        gap: 35px;
-
-        min-height: 0;
-
-        padding: 55px 0 0;
-
-      }
-
-      .hero-copy {
-
-        width: 100%;
-
-      }
-
-      .hero-visual {
-
-        position: relative;
-
-        top: auto;
-        right: auto;
-        bottom: auto;
-        left: auto;
-
-        width: 100%;
-
-        height: 350px;
-
-        min-height: 350px;
-
-        /*
-          Foto loopt op mobiel ook
-          over de volledige schermbreedte.
-        */
-
-        width: 100vw;
-
-        margin-left: calc(
-          -1 * (100vw - 100%) / 2
-        );
-
-        clip-path: none;
-
-        animation: none;
-
-      }
-
-      .hero-tech-photo {
-
-        object-position: center;
-
-      }
-
-      .hero-visual .visual-label {
-
-        right: 15px;
-        bottom: 15px;
-
-        font-size: 9px;
-
       }
 
     }
 
     /* ======================================
-       EXTRA KLEINE SCHERMEN
-    ====================================== */
-
-    @media (max-width: 480px) {
-
-      .hero-visual {
-
-        height: 290px;
-
-        min-height: 290px;
-
-      }
-
-    }
-
-    /* ======================================
-       TOEGANKELIJKHEID
+       MINDER BEWEGING
     ====================================== */
 
     @media (prefers-reduced-motion: reduce) {
 
-      .hero-visual {
+      .hero-photo {
 
         animation: none;
 
@@ -384,7 +540,8 @@
   <!-- ======================================
        NAVIGATIE
 
-       Wordt geladen door script.js.
+       Wordt automatisch aangemaakt
+       door script.js.
   ====================================== -->
 
   <div id="site-header"></div>
@@ -392,29 +549,27 @@
   <main id="main">
 
     <!-- ======================================
-         HERO
+         HOMEPAGE OPENING
     ====================================== -->
 
     <section class="hero">
 
       <!-- ==================================
-           FOTO OVER VOLLEDIGE RECHTERKANT
+           FOTO RECHTS
+
+           Deze staat nu los van de
+           tekstcontainer en vult het
+           rechtergedeelte volledig op.
       ================================== -->
 
-      <div class="hero-visual">
+      <div class="hero-photo-area">
 
         <img
-          class="hero-tech-photo"
+          class="hero-photo"
           src="images/hero-installatie.png"
-          alt="Conceptbeeld van een moderne technische ruimte met verwarmingsinstallaties"
+          alt="Conceptafbeelding van een moderne technische ruimte met verwarmingsinstallaties"
           fetchpriority="high"
         >
-
-        <span class="visual-label">
-
-          INSTALLATIETECHNIEK / CONCEPTBEELD
-
-        </span>
 
       </div>
 
@@ -422,7 +577,7 @@
            TEKST LINKS
       ================================== -->
 
-      <div class="container hero-grid">
+      <div class="container hero-content">
 
         <div class="hero-copy reveal">
 
@@ -432,14 +587,27 @@
 
           </span>
 
-          <h1>
+          <!-- TITEL -->
 
-            Techniek die
-            <span class="accent">werkt</span><span class="red-dot">.</span>
+          <h1 class="hero-heading">
+
+            <span class="line">
+
+              Techniek
+
+            </span>
+
+            <span class="line">
+
+              die <span class="accent">werkt</span><span class="red-dot">.</span>
+
+            </span>
 
           </h1>
 
-          <p class="lead">
+          <!-- BESCHRIJVING -->
+
+          <p class="hero-description">
 
             Voor woning, bedrijf en industrie.
             Installaties, onderhoud en praktische
@@ -447,6 +615,8 @@
             en vakkundig uitgevoerd.
 
           </p>
+
+          <!-- KNOPPEN -->
 
           <div class="btn-row">
 
@@ -515,9 +685,7 @@
 
         <div class="cards">
 
-          <!-- ==================================
-               DIENST 1
-          ================================== -->
+          <!-- DIENST 1 -->
 
           <article class="card reveal">
 
@@ -551,9 +719,7 @@
 
           </article>
 
-          <!-- ==================================
-               DIENST 2
-          ================================== -->
+          <!-- DIENST 2 -->
 
           <article class="card reveal">
 
@@ -587,9 +753,7 @@
 
           </article>
 
-          <!-- ==================================
-               DIENST 3
-          ================================== -->
+          <!-- DIENST 3 -->
 
           <article class="card reveal">
 
@@ -633,9 +797,6 @@
          INTERACTIEVE WONING
 
          ONGEWIJZIGD
-
-         De interactieve woning blijft
-         bereikbaar via woning.html.
     ====================================== -->
 
     <section class="section section-soft">
@@ -819,5 +980,4 @@
   <div id="site-footer"></div>
 
 </body>
-
 </html>
