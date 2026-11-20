@@ -1907,3 +1907,123 @@ a.card:focus-visible {
   }
 
 }
+/* ==========================================
+   KOLLER & TABOR V3.8
+   WITTE KAARTEN MET GEKLEURDE GOLVEN
+========================================== */
+
+/* BASIS: ALLE KAARTEN WIT */
+
+.cards .card {
+    background: #ffffff !important;
+    border-color: #e0e5ec !important;
+}
+
+/* TEKSTEN BLIJVEN DONKER */
+
+.cards .card h3 {
+    color: #161b25 !important;
+}
+
+.cards .card p {
+    color: #5d697b !important;
+}
+
+.cards .card .num {
+    color: #1554aa !important;
+}
+
+.cards .card .card-link {
+    color: #1554aa !important;
+}
+
+/* GOLFJES ALGEMEEN */
+
+.cards .card::before {
+    content: '';
+    position: absolute;
+    right: -80px;
+    bottom: -145px;
+    width: 290px;
+    height: 230px;
+    border-radius: 65% 0 0 0;
+    transform: rotate(-15deg);
+    pointer-events: none;
+}
+
+.cards .card::after {
+    content: '';
+    position: absolute;
+    right: -35px;
+    bottom: -165px;
+    width: 240px;
+    height: 220px;
+    border-radius: 70% 0 0 0;
+    transform: rotate(-30deg);
+    pointer-events: none;
+}
+
+/* 01 — INSTALLATIES: ORANJE */
+
+.cards .card:nth-child(1)::before {
+    background: linear-gradient(
+        135deg,
+        rgba(239, 145, 75, 0.02),
+        rgba(239, 145, 75, 0.24)
+    ) !important;
+}
+
+.cards .card:nth-child(1)::after {
+    background: linear-gradient(
+        135deg,
+        transparent,
+        rgba(239, 145, 75, 0.15)
+    ) !important;
+}
+
+/* 02 — ONDERHOUD: DONKERBLAUW */
+
+.cards .card:nth-child(2)::before {
+    background: linear-gradient(
+        135deg,
+        rgba(39, 53, 121, 0.02),
+        rgba(39, 53, 121, 0.28)
+    ) !important;
+}
+
+.cards .card:nth-child(2)::after {
+    background: linear-gradient(
+        135deg,
+        transparent,
+        rgba(39, 53, 121, 0.17)
+    ) !important;
+}
+
+/* 03 — INDUSTRIE: LICHTBLAUW */
+
+.cards .card:nth-child(3)::before {
+    background: linear-gradient(
+        135deg,
+        rgba(38, 100, 169, 0.02),
+        rgba(38, 100, 169, 0.23)
+    ) !important;
+}
+
+.cards .card:nth-child(3)::after {
+    background: linear-gradient(
+        135deg,
+        transparent,
+        rgba(38, 100, 169, 0.14)
+    ) !important;
+}
+
+/* HOVER: KAART BLIJFT WIT */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .cards .card:hover {
+        background: #ffffff !important;
+        transform: translateY(-7px);
+    }
+
+}
