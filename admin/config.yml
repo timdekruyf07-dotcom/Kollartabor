@@ -87,7 +87,6 @@ collections:
                 name: image
                 widget: image
                 required: false
-                hint: "Upload een foto van het project."
 
               - label: Beschrijving van de foto
                 name: image_alt
@@ -133,28 +132,18 @@ collections:
 
         fields:
 
-          # Introductietekst bovenaan
           - label: Introductietekst bovenaan
             name: introduction
             widget: text
-            hint: "Deze tekst verschijnt bovenaan de teampagina."
 
-
-          # Titel boven de medewerkers
           - label: Titel boven de medewerkers
             name: section_title
             widget: string
-            hint: "Bijvoorbeeld: De mensen achter Koller & Tabor"
 
-
-          # Beschrijving boven de medewerkers
           - label: Beschrijving boven de medewerkers
             name: section_description
             widget: text
-            hint: "Deze tekst staat naast de titel boven de medewerkers."
 
-
-          # Medewerkers
           - label: Medewerkers
             name: members
             widget: list
@@ -162,44 +151,37 @@ collections:
             summary: "{{fields.name}}"
             required: false
             default: []
-            hint: "Voeg medewerkers toe, wijzig ze of verwijder ze. Je kunt de volgorde zelf bepalen."
 
             fields:
 
               - label: Naam
                 name: name
                 widget: string
-                hint: "Vul de naam van de medewerker in."
 
               - label: Functie
                 name: role
                 widget: string
-                hint: "Bijvoorbeeld: Installatiemonteur"
 
               - label: Introductie
                 name: description
                 widget: text
                 required: false
-                hint: "Een korte beschrijving van de medewerker."
 
               - label: Profielfoto
                 name: photo
                 widget: image
                 required: false
-                hint: "Upload een profielfoto. Zonder foto verschijnt Foto volgt."
 
               - label: Beschrijving van de foto
                 name: photo_alt
                 widget: string
                 required: false
-                hint: "Beschrijf kort wat op de foto te zien is."
 
               - label: Volgorde
                 name: order
                 widget: number
                 value_type: int
                 required: false
-                hint: "Bijvoorbeeld 1, 2 of 3."
 
               - label: Medewerker zichtbaar op website
                 name: published
@@ -217,14 +199,60 @@ collections:
     files:
 
       - name: tarievenpagina
-        label: Tarievenpagina
+        label: Tarievenpagina beheren
         file: content/tarieven.json
         format: json
 
         fields:
 
-          - label: Introductietekst
+          # ==================================
+          # PAGINATITEL
+          # ==================================
+
+          - label: Bovenkant van de tarievenpagina
+            name: hero
+            widget: object
+            collapsed: true
+
+            fields:
+
+              - label: Kleine tekst boven de titel
+                name: eyebrow
+                widget: string
+
+              - label: Titel
+                name: title
+                widget: string
+
+              - label: Tekst onder de titel
+                name: introduction
+                widget: text
+
+
+          # ==================================
+          # ALGEMENE INTRODUCTIE
+          # ==================================
+
+          - label: Eerste deel van de introductietitel
+            name: intro_heading
+            widget: string
+
+          - label: Gekleurd deel van de introductietitel
+            name: intro_accent
+            widget: string
+
+          - label: Uitgebreide introductietekst
             name: introduction
+            widget: text
+            hint: "Gebruik een lege regel om een nieuwe alinea te maken."
+
+
+          # ==================================
+          # UURTARIEVEN
+          # ==================================
+
+          - label: Tekst boven de uurtarieven
+            name: hourly_intro
             widget: text
 
           - label: Arbeidstarieven
@@ -234,21 +262,33 @@ collections:
             summary: "{{fields.name}}"
             required: false
             default: []
+            hint: "Voeg tarieven toe of wijzig de bestaande bedragen. Vul bedragen inclusief het euroteken in."
 
             fields:
 
               - label: Tariefsoort
                 name: name
                 widget: string
+                hint: "Bijvoorbeeld: Hoofdmonteur"
 
-              - label: Exclusief btw
+              - label: Prijs exclusief btw
                 name: price_ex
                 widget: string
+                hint: "Bijvoorbeeld: € 75,00"
 
-              - label: Inclusief btw
+              - label: Prijs inclusief btw
                 name: price_in
                 widget: string
+                hint: "Bijvoorbeeld: € 90,75"
 
+          - label: Toelichting onder de arbeidstarieven
+            name: hourly_note
+            widget: text
+
+
+          # ==================================
+          # TOESLAGEN
+          # ==================================
 
           - label: Toeslagen
             name: surcharges
@@ -257,17 +297,28 @@ collections:
             summary: "{{fields.period}}"
             required: false
             default: []
+            hint: "Hier beheer je de toeslagen voor avondwerk, zaterdagen en zon- en feestdagen."
 
             fields:
 
               - label: Periode
                 name: period
                 widget: string
+                hint: "Bijvoorbeeld: Zaterdagen"
 
               - label: Percentage
                 name: percentage
                 widget: string
+                hint: "Bijvoorbeeld: 150%"
 
+          - label: Toelichting onder de toeslagen
+            name: surcharges_note
+            widget: text
+
+
+          # ==================================
+          # VOORRIJKOSTEN
+          # ==================================
 
           - label: Voorrijkosten
             name: travel
@@ -276,49 +327,136 @@ collections:
 
             fields:
 
-              - label: Binnen 25 kilometer
+              - label: Introductietekst voorrijkosten
+                name: introduction
+                widget: text
+                hint: "Gebruik een lege regel tussen alinea's."
+
+              - label: Binnen 25 kilometer exclusief btw
                 name: within_25
                 widget: string
+                hint: "Bijvoorbeeld: € 12,50"
 
               - label: Binnen 25 kilometer inclusief btw
                 name: within_25_vat
                 widget: string
+                hint: "Bijvoorbeeld: € 15,13"
 
-              - label: Boven 25 kilometer
+              - label: Boven 25 kilometer exclusief btw
                 name: beyond_25
                 widget: string
+                hint: "Bijvoorbeeld: € 0,50"
 
-              - label: Toelichting
+              - label: Tekst bij prijs per kilometer
+                name: beyond_25_note
+                widget: string
+                hint: "Bijvoorbeeld: Per kilometer, naar boven afgerond"
+
+              - label: Uitleg over afstand berekenen
                 name: description
                 widget: text
 
+              - label: Datumvermelding bij voorrijkosten
+                name: date_note
+                widget: text
 
-          - label: Uitgebreide toelichting
+
+          # ==================================
+          # UITGEBREIDE TOELICHTINGEN
+          # ==================================
+
+          - label: Introductie boven de toelichtingen
+            name: explanations_intro
+            widget: text
+
+          - label: Uitgebreide toelichtingen
             name: explanations
             widget: list
             label_singular: Toelichting
             summary: "{{fields.title}}"
             required: false
             default: []
+            hint: "Hier beheer je de negen uitklapbare onderdelen van de tarievenpagina."
 
             fields:
 
-              - label: Titel
+              - label: Titel van de toelichting
                 name: title
                 widget: string
 
-              - label: Inhoud
+              - label: Hoofdtekst
                 name: content
                 widget: text
+                hint: "Gebruik een lege regel tussen alinea's."
+
+              - label: Opvallend informatieblok
+                name: highlight
+                widget: text
+                required: false
+                hint: "Deze tekst verschijnt in een opvallend gekleurd blok."
+
+              - label: Tekst onder het informatieblok
+                name: after_highlight
+                widget: text
+                required: false
+
+              - label: Extra tussenkop
+                name: subheading
+                widget: string
+                required: false
+                hint: "Bijvoorbeeld: Mogelijke netwerkproblemen"
+
+              - label: Extra punten
+                name: problems
+                widget: list
+                label_singular: Punt
+                summary: "{{fields.title}}"
+                required: false
+                default: []
+                hint: "Bijvoorbeeld de netwerkproblemen bij Smarthome en netwerkverbindingen."
+
+                fields:
+
+                  - label: Titel
+                    name: title
+                    widget: string
+
+                  - label: Beschrijving
+                    name: description
+                    widget: text
 
 
-          - label: Algemene voorwaarden consumenten
+          # ==================================
+          # ALGEMENE VOORWAARDEN
+          # ==================================
+
+          - label: Link naar algemene voorwaarden consumenten
             name: consumer_terms
             widget: string
+            hint: "Pad naar het PDF-bestand in de map documents."
 
-          - label: Algemene voorwaarden bedrijven
+          - label: Link naar algemene voorwaarden bedrijven
             name: business_terms
             widget: string
+            required: false
+            hint: "Laat leeg zolang de zakelijke voorwaarden niet beschikbaar zijn."
+
+          - label: Tekst wanneer zakelijke voorwaarden ontbreken
+            name: business_terms_description
+            widget: text
+
+
+          # ==================================
+          # CONTACTBLOK ONDERAAN
+          # ==================================
+
+          - label: Titel van het contactblok
+            name: contact_heading
+            widget: string
+
+          - label: Tekst van het contactblok
+            name: contact_description
+            widget: text
 
 
   # ========================================
@@ -388,7 +526,6 @@ collections:
               - label: Tijden
                 name: hours
                 widget: string
-
 
           - label: Aanvullende informatie
             name: additional_information
