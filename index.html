@@ -1,2568 +1,352 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="theme-color" content="#f6f6f3">
-
-  <meta
-    name="description"
-    content="Koller & Tabor Installatietechniek. Installatie, onderhoud en technische oplossingen voor woningen, bedrijven en industrie."
-  >
-
-  <title>Koller & Tabor — Installatietechniek</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
-
-  <style>
-    /* =========================================
-       BASIS
-    ========================================= */
-
-    :root {
-      --paper: #f6f6f3;
-      --white: #ffffff;
-      --ink: #202321;
-      --muted: #777c78;
-      --line: #dddfda;
-      --dark: #202824;
-      --accent: #718d80;
-      --accent-light: #e7eee8;
-
-      --font: "Manrope", Arial, sans-serif;
-      --body: "DM Sans", Arial, sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--body);
-      overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    button,
-    input,
-    textarea {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button:focus-visible,
-    a:focus-visible,
-    [tabindex="0"]:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 5px;
-    }
-
-    .container {
-      width: min(1340px, 88%);
-      margin-inline: auto;
-    }
-
-    .section {
-      padding: 125px 0;
-    }
-
-    .label {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-
-      color: #6b7670;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-    }
-
-    .label::before {
-      content: "";
-      display: block;
-      width: 25px;
-      height: 1px;
-      background: currentColor;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-family: var(--font);
-    }
-
-    .section-title {
-      font-size: clamp(43px, 5.4vw, 79px);
-      font-weight: 500;
-      line-height: 1.08;
-      letter-spacing: -.075em;
-    }
-
-    .body-text {
-      font-size: 16px;
-      line-height: 1.9;
-      color: #626a64;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-
-      min-height: 54px;
-      padding: 16px 23px;
-
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .015em;
-
-      border: 1px solid var(--ink);
-
-      transition:
-        background .25s,
-        color .25s,
-        transform .25s;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-dark {
-      color: white;
-      background: var(--ink);
-    }
-
-    .btn-dark:hover {
-      background: #45554b;
-    }
-
-    .btn-outline {
-      color: var(--ink);
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      background: var(--ink);
-      color: white;
-    }
-
-    /* =========================================
-       NAVIGATIE
-    ========================================= */
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-
-      background: #f6f6f3f2;
-      backdrop-filter: blur(16px);
-
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav-wrap {
-      width: min(1440px, 92%);
-      margin: auto;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-
-      min-height: 91px;
-    }
-
-    .brand {
-      display: block;
-      min-width: 190px;
-      font-family: var(--font);
-      line-height: 1.1;
-    }
-
-    .brand-name {
-      display: block;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -.065em;
-    }
-
-    .brand-sub {
-      display: block;
-      margin-top: 6px;
-
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: #777d78;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: clamp(14px, 2.5vw, 35px);
-    }
-
-    .nav-links a {
-      font-size: 12px;
-      font-weight: 600;
-      white-space: nowrap;
-      transition: color .2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .nav-contact {
-      border-bottom: 1px solid currentColor;
-      padding-bottom: 5px;
-    }
-
-    .menu-btn {
-      display: none;
-      background: transparent;
-      border: 1px solid var(--line);
-
-      width: 45px;
-      height: 45px;
-
-      font-size: 22px;
-    }
-
-    /* =========================================
-       HERO
-    ========================================= */
-
-    .hero {
-      padding: 92px 0 110px;
-      min-height: 735px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: .93fr 1.07fr;
-      gap: clamp(35px, 5vw, 90px);
-      align-items: center;
-    }
-
-    .hero-copy {
-      padding: 35px 0;
-    }
-
-    .hero h1 {
-      margin: 28px 0 29px;
-
-      font-size: clamp(55px, 6.5vw, 102px);
-      font-weight: 500;
-      letter-spacing: -.087em;
-      line-height: 1.035;
-    }
-
-    .hero h1 span {
-      color: #929b93;
-    }
-
-    .hero-copy > p {
-      max-width: 475px;
-      font-size: 16px;
-      line-height: 1.9;
-      color: #646c65;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 37px;
-    }
-
-    /* =========================================
-       HERO BEELD
-
-       Zodra images/hero-project.jpg bestaat,
-       komt de echte foto over deze illustratie.
-    ========================================= */
-
-    .hero-media {
-      position: relative;
-      height: min(590px, 63vw);
-      min-height: 430px;
-
-      background: #e5e7e2;
-      overflow: hidden;
-    }
-
-    .hero-media::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-
-      background: linear-gradient(
-        180deg,
-        transparent 65%,
-        #121a16aa
-      );
-      z-index: 2;
-    }
-
-    .hero-architecture {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-photo {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-      z-index: 1;
-    }
-
-    .hero-photo[hidden] {
-      display: none;
-    }
-
-    .hero-caption {
-      position: absolute;
-      bottom: 25px;
-      left: 28px;
-      right: 28px;
-
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-
-      z-index: 3;
-      color: white;
-
-      font-size: 10px;
-      letter-spacing: .11em;
-      text-transform: uppercase;
-    }
-
-    /* =========================================
-       INTRO / OVER ONS
-    ========================================= */
-
-    .intro {
-      background: var(--white);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .intro-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 13%;
-    }
-
-    .intro h2 {
-      margin-top: 28px;
-    }
-
-    .intro-copy {
-      align-self: end;
-    }
-
-    .intro-copy .btn {
-      margin-top: 19px;
-    }
-
-    /* =========================================
-       DIENSTEN
-    ========================================= */
-
-    .section-top {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 30px;
-
-      margin-bottom: 55px;
-    }
-
-    .section-top h2 {
-      margin: 22px 0 0;
-    }
-
-    .section-top p {
-      max-width: 345px;
-      margin-bottom: 8px;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-
-    .service {
-      position: relative;
-      min-height: 280px;
-
-      padding: clamp(28px, 4vw, 53px);
-      background: var(--paper);
-
-      transition: background .3s;
-    }
-
-    .service:hover {
-      background: var(--white);
-    }
-
-    .service-number {
-      display: block;
-      margin-bottom: 46px;
-
-      font-size: 11px;
-      font-weight: 700;
-      color: #7b867d;
-    }
-
-    .service h3 {
-      margin-bottom: 14px;
-
-      font-size: clamp(24px, 2.6vw, 37px);
-      font-weight: 500;
-      letter-spacing: -.055em;
-    }
-
-    .service p {
-      max-width: 395px;
-
-      font-size: 14px;
-      line-height: 1.85;
-      color: #69736b;
-    }
-
-    .service-arrow {
-      position: absolute;
-      right: 38px;
-      top: 38px;
-
-      font-size: 23px;
-      color: #8a978d;
-    }
-
-    /* =========================================
-       INTERACTIEVE WONING
-    ========================================= */
-
-    .house-section {
-      background: var(--dark);
-      color: #f4f5f1;
-      overflow: hidden;
-    }
-
-    .house-section .label {
-      color: #b0c1b6;
-    }
-
-    .house-section .section-title {
-      max-width: 800px;
-      margin: 25px 0 18px;
-    }
-
-    .house-intro {
-      max-width: 650px;
-      color: #b2beb5;
-      line-height: 1.9;
-    }
-
-    .house-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.65fr) minmax(270px, .85fr);
-      gap: 35px;
-
-      margin-top: 65px;
-      align-items: stretch;
-    }
-
-    .house-visual {
-      display: grid;
-      place-items: center;
-
-      min-height: 475px;
-      padding: 18px;
-
-      background: #28312c;
-      border: 1px solid #455047;
-
-      position: relative;
-    }
-
-    .house-visual::before {
-      content: "TECHNISCH SCHEMA / CONCEPT";
-      position: absolute;
-      top: 20px;
-      left: 23px;
-
-      font-size: 10px;
-      letter-spacing: .14em;
-      color: #9baca0;
-    }
-
-    .house-svg {
-      width: 100%;
-      max-height: 460px;
-      overflow: visible;
-    }
-
-    .house-structure {
-      fill: none;
-      stroke: #a1aea4;
-      stroke-width: 3;
-      stroke-linejoin: round;
-    }
-
-    .house-surface {
-      fill: #303c35;
-      stroke: #66766b;
-      stroke-width: 2;
-    }
-
-    .house-detail {
-      fill: none;
-      stroke: #829187;
-      stroke-width: 2;
-    }
-
-    .system {
-      opacity: .18;
-      transition: opacity .3s ease;
-      cursor: pointer;
-    }
-
-    .system.active,
-    .system:hover,
-    .system:focus-visible {
-      opacity: 1;
-    }
-
-    .system * {
-      pointer-events: none;
-    }
-
-    .system-line {
-      fill: none;
-      stroke: #b7d6be;
-      stroke-width: 5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .system-node {
-      fill: #c2e6c8;
-      stroke: #233128;
-      stroke-width: 3;
-    }
-
-    .system.active .system-node {
-      animation: nodeGlow 2.2s ease-in-out infinite;
-    }
-
-    @keyframes nodeGlow {
-      50% {
-        filter: drop-shadow(0 0 9px #b5f3c3);
-      }
-    }
-
-    .house-controls {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      padding: 8px 0;
-    }
-
-    .house-control-title {
-      margin: 0 0 20px;
-      color: #a4b5a9;
-
-      font-size: 11px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-
-    .house-option {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-
-      padding: 20px 0;
-      text-align: left;
-
-      border: 0;
-      border-bottom: 1px solid #526056;
-      background: transparent;
-      color: #b2bfb5;
-
-      font-family: var(--font);
-      font-size: 19px;
-      font-weight: 500;
-      letter-spacing: -.035em;
-
-      transition: color .2s;
-    }
-
-    .house-option.active,
-    .house-option:hover {
-      color: #fff;
-    }
-
-    .house-option span:last-child {
-      font-size: 19px;
-    }
-
-    .house-option.active span:last-child {
-      color: #b6dfbf;
-    }
-
-    .house-information {
-      margin-top: 38px;
-      padding-top: 25px;
-      border-top: 1px solid #526056;
-
-      min-height: 150px;
-    }
-
-    .house-information small {
-      color: #a8baa9;
-      font-size: 10px;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-
-    .house-information h3 {
-      margin: 12px 0;
-      font-size: 25px;
-      font-weight: 500;
-      letter-spacing: -.045em;
-    }
-
-    .house-information p {
-      margin: 0;
-      font-size: 13px;
-      line-height: 1.9;
-      color: #b8c6ba;
-    }
-
-    /* =========================================
-       WAAROM KOLLER & TABOR
-    ========================================= */
-
-    .why {
-      background: var(--white);
-    }
-
-    .why-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 13%;
-      margin-top: 55px;
-    }
-
-    .why-row {
-      display: grid;
-      grid-template-columns: 45px 1fr;
-      gap: 22px;
-
-      padding: 27px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .why-row:last-child {
-      border-bottom: 1px solid var(--line);
-    }
-
-    .why-number {
-      font-size: 11px;
-      color: #788279;
-    }
-
-    .why-row h3 {
-      margin-bottom: 9px;
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: -.04em;
-    }
-
-    .why-row p {
-      margin: 0;
-      color: #667168;
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .why-aside {
-      align-self: center;
-      padding: clamp(35px, 5vw, 70px);
-      background: #e7ebe5;
-    }
-
-    .why-aside blockquote {
-      margin: 0;
-      font-family: var(--font);
-      font-size: clamp(28px, 3vw, 43px);
-      font-weight: 500;
-      letter-spacing: -.065em;
-      line-height: 1.3;
-    }
-
-    .why-aside p {
-      margin: 30px 0 0;
-      font-size: 11px;
-      letter-spacing: .12em;
-      color: #717e73;
-    }
-
-    /* =========================================
-       PROJECTEN
-    ========================================= */
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 22px;
-    }
-
-    .project {
-      min-width: 0;
-    }
-
-    .project-image {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-
-      background: #e4e7e1;
-    }
-
-    .project:nth-child(2) .project-image {
-      background: #dfe3dd;
-    }
-
-    .project-image::before,
-    .project-image::after {
-      content: "";
-      position: absolute;
-      border: 1px solid #bac5ba;
-      pointer-events: none;
-    }
-
-    .project-image::before {
-      inset: 17%;
-    }
-
-    .project-image::after {
-      inset: 28% 30%;
-    }
-
-    .project-image img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 1;
-    }
-
-    .project-image img[hidden] {
-      display: none;
-    }
-
-    .photo-placeholder {
-      position: absolute;
-      z-index: 0;
-
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-
-      width: 80%;
-      text-align: center;
-      color: #7c897d;
-
-      font-size: 11px;
-      line-height: 1.8;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-
-    .project-info {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-
-      padding: 23px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .project-info h3 {
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: -.04em;
-      margin-bottom: 8px;
-    }
-
-    .project-info span {
-      color: #778078;
-      font-size: 12px;
-    }
-
-    /* =========================================
-       MEDEWERKERS
-    ========================================= */
-
-    .team {
-      background: #e9ece7;
-    }
-
-    .team-empty {
-      display: grid;
-      place-items: center;
-      text-align: center;
-
-      min-height: 285px;
-      padding: 35px;
-
-      border: 1px solid #bbc6bc;
-      background: #f3f5f1;
-    }
-
-    .team-empty h3 {
-      font-size: 29px;
-      font-weight: 500;
-      letter-spacing: -.06em;
-      margin-bottom: 12px;
-    }
-
-    .team-empty p {
-      max-width: 480px;
-      color: #6e7970;
-      font-size: 14px;
-      line-height: 1.9;
-    }
-
-    .team-empty small {
-      color: #778278;
-      font-size: 10px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    /* =========================================
-       CONTACT
-    ========================================= */
-
-    .contact {
-      background: var(--dark);
-      color: #fff;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.3fr .7fr;
-      align-items: end;
-      gap: 50px;
-    }
-
-    .contact .label {
-      color: #b4c4b7;
-    }
-
-    .contact h2 {
-      max-width: 850px;
-      margin: 26px 0 0;
-
-      font-size: clamp(53px, 7vw, 100px);
-      font-weight: 500;
-      letter-spacing: -.08em;
-      line-height: 1.05;
-    }
-
-    .contact h2 span {
-      color: #9caea0;
-    }
-
-    .contact-side p {
-      color: #c3cfc5;
-      font-size: 15px;
-      line-height: 1.9;
-      margin-bottom: 28px;
-    }
-
-    .contact .btn {
-      background: #f2f4ef;
-      color: var(--dark);
-      border-color: #f2f4ef;
-    }
-
-    /* =========================================
-       FOOTER
-    ========================================= */
-
-    footer {
-      padding: 40px 0;
-      background: #1a201c;
-      color: #acb6ae;
-    }
-
-    .footer-grid {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-
-    footer p {
-      margin: 0;
-      font-size: 12px;
-      line-height: 1.9;
-    }
-
-    footer a:hover {
-      color: #fff;
-    }
-
-    /* =========================================
-       SCROLLANIMATIES
-    ========================================= */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-
-      transition:
-        opacity .8s ease,
-        transform .8s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* =========================================
-       TABLET
-    ========================================= */
-
-    @media (max-width: 1050px) {
-      .nav-links {
-        gap: 16px;
-      }
-
-      .nav-links a {
-        font-size: 11px;
-      }
-
-      .brand {
-        min-width: auto;
-      }
-
-      .brand-name {
-        font-size: 19px;
-      }
-
-      .hero-grid {
-        gap: 35px;
-      }
-
-      .house-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .house-controls {
-        display: block;
-      }
-
-      .house-option {
-        max-width: 100%;
-      }
-    }
-
-    /* =========================================
-       MOBIEL
-    ========================================= */
-
-    @media (max-width: 780px) {
-      .container {
-        width: 90%;
-      }
-
-      .section {
-        padding: 85px 0;
-      }
-
-      .nav-wrap {
-        min-height: 75px;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-
-        position: absolute;
-        top: 75px;
-        left: 0;
-        right: 0;
-
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-
-        padding: 20px 5% 30px;
-
-        background: var(--paper);
-        border-bottom: 1px solid var(--line);
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        padding: 14px 0;
-        font-size: 14px;
-      }
-
-      .hero {
-        padding: 55px 0 75px;
-      }
-
-      .hero-grid,
-      .intro-grid,
-      .why-layout,
-      .projects-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .hero-copy {
-        padding: 0;
-      }
-
-      .hero h1 {
-        font-size: clamp(53px, 11vw, 78px);
-      }
-
-      .hero-media {
-        height: 480px;
-        min-height: 0;
-      }
-
-      .section-top {
-        display: block;
-      }
-
-      .section-top p {
-        max-width: 550px;
-        margin-top: 20px;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .service {
-        min-height: 250px;
-      }
-
-      .house-visual {
-        min-height: 330px;
-      }
-
-      .house-svg {
-        max-height: 360px;
-      }
-
-      .why-aside {
-        min-height: 260px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-media {
-        height: 350px;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .hero-caption {
-        font-size: 8px;
-      }
-
-      .house-visual {
-        padding: 6px;
-        min-height: 275px;
-      }
-
-      .house-visual::before {
-        font-size: 8px;
-      }
-
-      .house-option {
-        font-size: 17px;
-      }
-
-      .service-arrow {
-        right: 23px;
-        top: 23px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-
-      .system,
-      .btn {
-        transition: none;
-      }
-
-      .system.active .system-node {
-        animation: none;
-      }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Installatietechniek en onderhoud bij Koller & Tabor in Loenen.">
+
+  <title>Home | Koller &amp; Tabor</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
 
-  <!-- ======================================
-       NAVIGATIE
-  ====================================== -->
+<div id="site-header"></div>
 
-  <header class="header">
-    <div class="nav-wrap">
+<main id="main">
 
-      <a class="brand" href="#home" aria-label="Koller en Tabor, naar boven">
-        <span class="brand-name">Koller &amp; Tabor</span>
-        <span class="brand-sub">Installatietechniek</span>
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div class="hero-copy reveal">
+
+        <span class="eyebrow">
+          Installatietechniek in Loenen
+        </span>
+
+        <h1>
+          Techniek die
+          <span class="accent">werkt</span><span class="red-dot">.</span>
+        </h1>
+
+        <p class="lead">
+          Voor woning, bedrijf en industrie.
+          Installaties, onderhoud en praktische
+          technische oplossingen — helder uitgelegd
+          en vakkundig uitgevoerd.
+        </p>
+
+        <div class="btn-row">
+          <a class="btn btn-primary" href="diensten.html">
+            Ontdek onze diensten ↗
+          </a>
+
+          <a class="btn btn-outline" href="contact.html">
+            Contact opnemen
+          </a>
+        </div>
+
+      </div>
+
+      <div
+        class="hero-visual"
+        aria-label="Gestileerde architectonische tekening"
+      >
+
+        <svg
+          viewBox="0 0 600 540"
+          preserveAspectRatio="xMidYMid meet"
+          role="img"
+          aria-label="Minimalistische lijntekening van een modern gebouw met installatielijnen"
+        >
+
+          <path
+            d="M95 415 L95 182 L335 82 L520 170 L520 415 Z"
+            fill="#e5ebf3"
+            stroke="#a1afc0"
+            stroke-width="3"
+          />
+
+          <path
+            d="M78 186 L335 64 L542 164"
+            class="arch-line"
+            stroke-width="5"
+          />
+
+          <path
+            d="M117 225 H502 M117 328 H502"
+            class="arch-line"
+          />
+
+          <path
+            d="M225 225 V415 M387 225 V415"
+            class="arch-line"
+          />
+
+          <rect
+            x="137"
+            y="246"
+            width="61"
+            height="62"
+            fill="#fff"
+            stroke="#9aabc1"
+          />
+
+          <rect
+            x="273"
+            y="246"
+            width="81"
+            height="62"
+            fill="#fff"
+            stroke="#9aabc1"
+          />
+
+          <rect
+            x="422"
+            y="246"
+            width="62"
+            height="62"
+            fill="#fff"
+            stroke="#9aabc1"
+          />
+
+          <rect
+            x="269"
+            y="349"
+            width="85"
+            height="66"
+            fill="#fff"
+            stroke="#9aabc1"
+          />
+
+          <path
+            d="M26 425 H563"
+            stroke="#b3bece"
+            stroke-width="2"
+          />
+
+          <path
+            d="M490 415 V450 H440 V470 H205 V423"
+            class="tech-flow"
+          />
+
+          <path
+            d="M467 416 V440 H370 V456 H250"
+            class="warm-flow"
+          />
+
+          <circle
+            cx="490"
+            cy="415"
+            r="7"
+            fill="#2664a9"
+          />
+
+          <circle
+            cx="467"
+            cy="416"
+            r="7"
+            fill="#ef4438"
+          />
+
+          <path
+            d="M65 440 V180 M57 180 H73 M57 440 H73"
+            stroke="#c8cfda"
+            fill="none"
+          />
+
+          <path
+            d="M100 465 H520 M100 458 V472 M520 458 V472"
+            stroke="#c8cfda"
+            fill="none"
+          />
+
+        </svg>
+
+        <span class="visual-label">
+          ARCHITECTUUR × INSTALLATIETECHNIEK
+        </span>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DIENSTEN -->
+
+  <section class="section">
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <div>
+          <span class="eyebrow">Wat we doen</span>
+          <h2>Expertise in techniek.</h2>
+        </div>
+
+        <p>
+          Een overzicht van de werkzaamheden.
+          Klik door voor uitgebreide informatie.
+        </p>
+
+      </div>
+
+      <div class="cards">
+
+        <article class="card reveal">
+          <span class="num">01 /</span>
+          <h3>Installaties</h3>
+          <p>
+            Verwarming, warmtepompen,
+            sanitair en meer.
+          </p>
+          <a class="card-link" href="diensten.html">
+            Bekijk de diensten ↗
+          </a>
+        </article>
+
+        <article class="card reveal">
+          <span class="num">02 /</span>
+          <h3>Onderhoud &amp; service</h3>
+          <p>
+            Een betrouwbare werking begint
+            met aandacht voor onderhoud.
+          </p>
+          <a class="card-link" href="diensten.html">
+            Lees verder ↗
+          </a>
+        </article>
+
+        <article class="card reveal">
+          <span class="num">03 /</span>
+          <h3>Industrie</h3>
+          <p>
+            Installatietechnische oplossingen
+            voor zakelijke toepassingen.
+          </p>
+          <a class="card-link" href="diensten.html">
+            Ontdek meer ↗
+          </a>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERACTIEVE WONING -->
+
+  <section class="section section-soft">
+    <div class="container split">
+
+      <div class="reveal">
+
+        <span class="eyebrow">Interactief</span>
+
+        <h2>Ontdek hoe techniek samenkomt.</h2>
+
+        <p class="lead">
+          Een schematische woning waarin u
+          verschillende installaties kunt selecteren.
+          Informatief, toegankelijk en interactief.
+        </p>
+
+        <a class="btn btn-primary" href="woning.html">
+          Bekijk de interactieve woning ↗
+        </a>
+
+      </div>
+
+      <div class="feature-block reveal">
+
+        <div class="big">
+          Niet alleen wat techniek
+          <strong>doet.</strong>
+          <br>
+          Maar ook hoe systemen
+          <span class="accent">samenwerken.</span>
+        </div>
+
+        <small>
+          Technisch concept — klikbaar schema
+        </small>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OVER ONS -->
+
+  <section class="section">
+    <div class="container split">
+
+      <div class="reveal">
+
+        <span class="eyebrow">
+          Over Koller &amp; Tabor
+        </span>
+
+        <h2>
+          Een bedrijf van mensen en vakkennis.
+        </h2>
+
+      </div>
+
+      <div class="reveal">
+
+        <p class="lead">
+          Lees meer over het bedrijf,
+          de aanpak en het team.
+          Ook projecten en tarieven krijgen
+          een eigen, overzichtelijke pagina.
+        </p>
+
+        <div class="btn-row">
+
+          <a class="btn btn-outline" href="waarom.html">
+            Over ons ↗
+          </a>
+
+          <a class="btn btn-outline" href="team.html">
+            Ons team ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACTBALK -->
+
+  <section class="cta">
+    <div class="container">
+
+      <div>
+        <h2>Een vraag over uw installatie?</h2>
+        <p>
+          Neem contact op voor informatie
+          over de mogelijkheden.
+        </p>
+      </div>
+
+      <a class="btn btn-light" href="contact.html">
+        Contact opnemen ↗
       </a>
 
-      <nav class="nav-links" id="navLinks" aria-label="Hoofdnavigatie">
-        <a href="#home">Home</a>
-        <a href="#diensten">Diensten</a>
-        <a href="#woning">Techniek ontdekken</a>
-        <a href="#waarom">Over ons</a>
-        <a href="#projecten">Projecten</a>
-        <a href="#team">Ons team</a>
-        <a class="nav-contact" href="#contact">Contact ↗</a>
-      </nav>
-
-      <button
-        type="button"
-        class="menu-btn"
-        id="menuButton"
-        aria-label="Menu openen"
-        aria-expanded="false"
-        aria-controls="navLinks"
-      >
-        ☰
-      </button>
-
     </div>
-  </header>
+  </section>
 
-  <main>
+</main>
 
-    <!-- ======================================
-         HERO
-    ====================================== -->
-
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-
-        <div class="hero-copy reveal">
-
-          <span class="label">
-            Installatietechniek • Loenen
-          </span>
-
-          <h1>
-            Techniek<br>
-            achter elk<br>
-            <span>gebouw.</span>
-          </h1>
-
-          <p>
-            Van verwarming en sanitair tot onderhoud
-            en industriële installaties.
-            Koller &amp; Tabor staat voor
-            praktische oplossingen en degelijk vakwerk.
-          </p>
-
-          <div class="hero-buttons">
-
-            <a href="#diensten" class="btn btn-dark">
-              Ontdek onze diensten <span>↗</span>
-            </a>
-
-            <a href="#contact" class="btn btn-outline">
-              Contact opnemen <span>↗</span>
-            </a>
-
-          </div>
-
-        </div>
-
-        <!-- ARCHITECTONISCHE PLACEHOLDER -->
-
-        <div class="hero-media reveal">
-
-          <!--
-            Later plaatsen we hier een echte foto:
-            images/hero-project.jpg
-          -->
-
-          <svg
-            class="hero-architecture"
-            viewBox="0 0 650 750"
-            preserveAspectRatio="xMidYMid slice"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <rect width="650" height="750" fill="#e5e8e2"/>
-
-            <path
-              d="M0 610 L650 460 L650 750 L0 750 Z"
-              fill="#d9ddd6"
-            />
-
-            <path
-              d="M110 240 L390 95 L640 240 L640 645 L110 645 Z"
-              fill="#c5cdc4"
-              stroke="#778679"
-              stroke-width="2"
-            />
-
-            <path
-              d="M80 250 L390 75 L665 240"
-              stroke="#67786b"
-              stroke-width="9"
-              fill="none"
-            />
-
-            <rect
-              x="185"
-              y="285"
-              width="380"
-              height="305"
-              fill="#e7ebe4"
-              stroke="#78887b"
-              stroke-width="2"
-            />
-
-            <rect
-              x="212"
-              y="315"
-              width="145"
-              height="235"
-              fill="#98a99c"
-            />
-
-            <rect
-              x="388"
-              y="315"
-              width="148"
-              height="235"
-              fill="#98a99c"
-            />
-
-            <path
-              d="M284 315 V550 M462 315 V550"
-              stroke="#e5e8e1"
-              stroke-width="8"
-            />
-
-            <path
-              d="M212 432 H357 M388 432 H536"
-              stroke="#e5e8e1"
-              stroke-width="8"
-            />
-
-            <path
-              d="M110 645 H650"
-              stroke="#738476"
-              stroke-width="3"
-            />
-
-            <path
-              d="M28 677 H650"
-              stroke="#9ba99b"
-              stroke-width="2"
-            />
-
-            <path
-              d="M0 695 H650"
-              stroke="#a8b5a8"
-              stroke-width="1"
-            />
-
-            <!-- Architectonische maatlijnen -->
-
-            <path
-              d="M85 240 V645 M75 240 H95 M75 645 H95"
-              stroke="#839184"
-              stroke-width="1"
-              fill="none"
-              stroke-dasharray="5 5"
-            />
-
-            <path
-              d="M110 673 H640 M110 665 V681 M640 665 V681"
-              stroke="#839184"
-              stroke-width="1"
-              fill="none"
-            />
-
-          </svg>
-
-          <img
-            class="hero-photo"
-            src="./images/hero-project.jpg"
-            alt="Projectfoto van Koller en Tabor"
-            onerror="this.hidden=true"
-          >
-
-          <div class="hero-caption">
-            <span>Architectuur &amp; techniek</span>
-            <span>01 / Introductie</span>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================
-         INTRODUCTIE
-    ====================================== -->
-
-    <section class="intro section" id="over">
-      <div class="container intro-grid">
-
-        <div class="reveal">
-
-          <span class="label">
-            Aangenaam, Koller &amp; Tabor
-          </span>
-
-          <h2 class="section-title">
-            Goed werk.<br>
-            Goed geregeld.
-          </h2>
-
-        </div>
-
-        <div class="intro-copy reveal">
-
-          <p class="body-text">
-            Goede installatietechniek zie je niet altijd.
-            Maar je merkt het iedere dag.
-          </p>
-
-          <p class="body-text">
-            Bij Koller &amp; Tabor draait het om
-            installaties die passen bij het gebouw,
-            de gebruikers en de toekomst.
-            Voor zowel particuliere als zakelijke
-            opdrachtgevers.
-          </p>
-
-          <a href="#waarom" class="btn btn-outline">
-            Meer over ons <span>↗</span>
-          </a>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================
-         DIENSTEN
-    ====================================== -->
-
-    <section class="section" id="diensten">
-      <div class="container">
-
-        <div class="section-top reveal">
-
-          <div>
-            <span class="label">
-              Wat we doen
-            </span>
-
-            <h2 class="section-title">
-              Onze expertise.
-            </h2>
-          </div>
-
-          <p class="body-text">
-            Verschillende technische disciplines,
-            met één uitgangspunt:
-            een oplossing die goed werkt.
-          </p>
-
-        </div>
-
-        <div class="services-grid">
-
-          <article class="service reveal">
-            <span class="service-number">01 /</span>
-            <span class="service-arrow" aria-hidden="true">↗</span>
-
-            <h3>Installatietechniek</h3>
-
-            <p>
-              Technische installaties voor woningen
-              en gebouwen, waaronder verwarming,
-              warmtepompen en sanitair.
-            </p>
-          </article>
-
-          <article class="service reveal">
-            <span class="service-number">02 /</span>
-            <span class="service-arrow" aria-hidden="true">↗</span>
-
-            <h3>Onderhoud &amp; service</h3>
-
-            <p>
-              Onderhoud en service voor technische
-              installaties, met aandacht voor
-              betrouwbaarheid en continuïteit.
-            </p>
-          </article>
-
-          <article class="service reveal">
-            <span class="service-number">03 /</span>
-            <span class="service-arrow" aria-hidden="true">↗</span>
-
-            <h3>Ontstoppingsdienst</h3>
-
-            <p>
-              Hulp bij verstoppingen en
-              afvoerproblemen, als onderdeel
-              van de dienstverlening.
-            </p>
-          </article>
-
-          <article class="service reveal">
-            <span class="service-number">04 /</span>
-            <span class="service-arrow" aria-hidden="true">↗</span>
-
-            <h3>Industrie</h3>
-
-            <p>
-              Installatietechnische werkzaamheden
-              voor industriële toepassingen
-              en zakelijke opdrachtgevers.
-            </p>
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================
-         INTERACTIEVE WONING
-    ====================================== -->
-
-    <section class="house-section section" id="woning">
-      <div class="container">
-
-        <div class="reveal">
-
-          <span class="label">
-            Techniek in beeld
-          </span>
-
-          <h2 class="section-title">
-            Achter iedere ruimte<br>
-            zit een systeem.
-          </h2>
-
-          <p class="house-intro">
-            Ontdek hoe verschillende installaties
-            samenkomen in een gebouw.
-            Selecteer een onderdeel van de woning
-            om meer te lezen.
-          </p>
-
-        </div>
-
-        <div class="house-layout">
-
-          <!-- ==================================
-               SCHEMATISCHE WONING
-          ================================== -->
-
-          <div class="house-visual reveal">
-
-            <svg
-              class="house-svg"
-              viewBox="0 0 900 560"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Schematische woning met selecteerbare verwarmings-, warmtepomp- en sanitairsystemen"
-            >
-
-              <!-- GROND -->
-
-              <path
-                d="M70 495 H840"
-                class="house-structure"
-              />
-
-              <path
-                d="M70 505 H840"
-                class="house-detail"
-                stroke-dasharray="10 9"
-              />
-
-              <!-- DAK -->
-
-              <path
-                d="M160 175 L440 40 L720 175"
-                class="house-structure"
-                stroke-width="6"
-              />
-
-              <path
-                d="M185 175 L440 62 L695 175"
-                class="house-detail"
-              />
-
-              <!-- GEBOUWSCHIL -->
-
-              <rect
-                x="165"
-                y="176"
-                width="550"
-                height="318"
-                class="house-surface"
-              />
-
-              <!-- VERDIEPING -->
-
-              <path
-                d="M165 337 H715"
-                class="house-structure"
-              />
-
-              <!-- BINNENWANDEN -->
-
-              <path
-                d="M420 176 V495"
-                class="house-detail"
-              />
-
-              <path
-                d="M570 176 V337"
-                class="house-detail"
-              />
-
-              <!-- RAMEN -->
-
-              <rect
-                x="215"
-                y="222"
-                width="115"
-                height="78"
-                class="house-structure"
-              />
-
-              <path
-                d="M272 222 V300"
-                class="house-detail"
-              />
-
-              <rect
-                x="610"
-                y="222"
-                width="65"
-                height="78"
-                class="house-structure"
-              />
-
-              <path
-                d="M642 222 V300"
-                class="house-detail"
-              />
-
-              <!-- DEUR -->
-
-              <rect
-                x="235"
-                y="380"
-                width="95"
-                height="115"
-                class="house-structure"
-              />
-
-              <circle
-                cx="315"
-                cy="440"
-                r="4"
-                fill="#9aa99d"
-              />
-
-              <!-- TECHNISCHE KAST -->
-
-              <rect
-                x="585"
-                y="375"
-                width="95"
-                height="102"
-                class="house-structure"
-              />
-
-              <path
-                d="M597 397 H668"
-                class="house-detail"
-              />
-
-              <circle
-                cx="634"
-                cy="433"
-                r="17"
-                class="house-detail"
-              />
-
-              <!-- BUITENUNIT -->
-
-              <rect
-                x="756"
-                y="398"
-                width="83"
-                height="78"
-                rx="4"
-                class="house-structure"
-              />
-
-              <circle
-                cx="798"
-                cy="438"
-                r="27"
-                class="house-detail"
-              />
-
-              <path
-                d="M798 411 V465 M771 438 H825"
-                class="house-detail"
-              />
-
-              <!-- =================================
-                   SYSTEEM: VERWARMING
-              ================================= -->
-
-              <g
-                class="system active"
-                data-system="verwarming"
-                tabindex="0"
-                role="button"
-                aria-label="Verwarming selecteren"
-              >
-
-                <path
-                  class="system-line"
-                  d="M590 462 H540 V476 H455
-                     V462 H420 V476 H385
-                     V462 H350 V476 H315"
-                />
-
-                <path
-                  class="system-line"
-                  d="M355 337 V387 H385 V337"
-                />
-
-                <path
-                  class="system-line"
-                  d="M368 337 V387"
-                />
-
-                <circle
-                  class="system-node"
-                  cx="455"
-                  cy="476"
-                  r="10"
-                />
-
-                <circle
-                  class="system-node"
-                  cx="368"
-                  cy="361"
-                  r="9"
-                />
-
-              </g>
-
-              <!-- =================================
-                   SYSTEEM: WARMTEPOMP
-              ================================= -->
-
-              <g
-                class="system"
-                data-system="warmtepomp"
-                tabindex="0"
-                role="button"
-                aria-label="Warmtepomp selecteren"
-              >
-
-                <path
-                  class="system-line"
-                  d="M757 448 H725 V450 H680"
-                />
-
-                <rect
-                  x="600"
-                  y="404"
-                  width="64"
-                  height="57"
-                  rx="4"
-                  fill="none"
-                  stroke="#b7d6be"
-                  stroke-width="5"
-                />
-
-                <path
-                  class="system-line"
-                  d="M614 428 H648 M614 441 H648"
-                />
-
-                <circle
-                  class="system-node"
-                  cx="798"
-                  cy="438"
-                  r="11"
-                />
-
-              </g>
-
-              <!-- =================================
-                   SYSTEEM: SANITAIR
-              ================================= -->
-
-              <g
-                class="system"
-                data-system="sanitair"
-                tabindex="0"
-                role="button"
-                aria-label="Sanitair selecteren"
-              >
-
-                <path
-                  class="system-line"
-                  d="M490 236 H536 V254 H490"
-                />
-
-                <path
-                  class="system-line"
-                  d="M513 254 V290 H545 V338
-                     H550 V418 H585"
-                />
-
-                <path
-                  class="system-line"
-                  d="M477 217 V234 H548 V217"
-                />
-
-                <circle
-                  class="system-node"
-                  cx="513"
-                  cy="254"
-                  r="10"
-                />
-
-                <circle
-                  class="system-node"
-                  cx="545"
-                  cy="337"
-                  r="9"
-                />
-
-              </g>
-
-              <!-- =================================
-                   SYSTEEM: ONDERHOUD
-              ================================= -->
-
-              <g
-                class="system"
-                data-system="onderhoud"
-                tabindex="0"
-                role="button"
-                aria-label="Onderhoud selecteren"
-              >
-
-                <rect
-                  x="596"
-                  y="384"
-                  width="73"
-                  height="84"
-                  rx="3"
-                  fill="none"
-                  stroke="#b7d6be"
-                  stroke-width="5"
-                />
-
-                <circle
-                  cx="632"
-                  cy="430"
-                  r="17"
-                  fill="none"
-                  stroke="#b7d6be"
-                  stroke-width="5"
-                />
-
-                <path
-                  class="system-line"
-                  d="M632 413 V447 M615 430 H649"
-                />
-
-                <circle
-                  class="system-node"
-                  cx="632"
-                  cy="430"
-                  r="9"
-                />
-
-              </g>
-
-              <!-- ONDERSCHRIFTEN -->
-
-              <text
-                x="175"
-                y="530"
-                fill="#93a69a"
-                font-size="12"
-                letter-spacing="2"
-              >
-                BEGANE GROND
-              </text>
-
-              <text
-                x="175"
-                y="192"
-                fill="#93a69a"
-                font-size="12"
-                letter-spacing="2"
-              >
-                VERDIEPING
-              </text>
-
-              <text
-                x="747"
-                y="493"
-                fill="#93a69a"
-                font-size="11"
-                letter-spacing="1"
-              >
-                BUITENUNIT
-              </text>
-
-            </svg>
-
-          </div>
-
-          <!-- ==================================
-               WONING BEDIENING
-          ================================== -->
-
-          <div class="house-controls reveal">
-
-            <div>
-
-              <p class="house-control-title">
-                Selecteer een installatie
-              </p>
-
-              <button
-                type="button"
-                class="house-option active"
-                data-select="verwarming"
-                aria-pressed="true"
-              >
-                <span>Verwarming</span>
-                <span>↗</span>
-              </button>
-
-              <button
-                type="button"
-                class="house-option"
-                data-select="warmtepomp"
-                aria-pressed="false"
-              >
-                <span>Warmtepomp</span>
-                <span>↗</span>
-              </button>
-
-              <button
-                type="button"
-                class="house-option"
-                data-select="sanitair"
-                aria-pressed="false"
-              >
-                <span>Sanitair</span>
-                <span>↗</span>
-              </button>
-
-              <button
-                type="button"
-                class="house-option"
-                data-select="onderhoud"
-                aria-pressed="false"
-              >
-                <span>Onderhoud</span>
-                <span>↗</span>
-              </button>
-
-            </div>
-
-            <div class="house-information" aria-live="polite">
-
-              <small>
-                Geselecteerd onderdeel
-              </small>
-
-              <h3 id="systemTitle">
-                Verwarming
-              </h3>
-
-              <p id="systemDescription">
-                Een goed ontworpen verwarmingssysteem
-                zorgt voor een comfortabele temperatuur
-                en een efficiënte warmteverdeling.
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================
-         WAAROM KOLLER & TABOR
-    ====================================== -->
-
-    <section class="why section" id="waarom">
-      <div class="container">
-
-        <div class="reveal">
-
-          <span class="label">
-            Waarom Koller &amp; Tabor
-          </span>
-
-          <h2 class="section-title">
-            Vakmanschap<br>
-            als uitgangspunt.
-          </h2>
-
-        </div>
-
-        <div class="why-layout">
-
-          <div class="reveal">
-
-            <div class="why-row">
-
-              <span class="why-number">01</span>
-
-              <div>
-                <h3>Technische kennis</h3>
-                <p>
-                  Verschillende disciplines binnen
-                  de installatietechniek.
-                </p>
-              </div>
-
-            </div>
-
-            <div class="why-row">
-
-              <span class="why-number">02</span>
-
-              <div>
-                <h3>Persoonlijk contact</h3>
-                <p>
-                  Directe communicatie en aandacht
-                  voor de vraag van de opdrachtgever.
-                </p>
-              </div>
-
-            </div>
-
-            <div class="why-row">
-
-              <span class="why-number">03</span>
-
-              <div>
-                <h3>Praktische oplossingen</h3>
-                <p>
-                  Installaties afgestemd op
-                  het gebruik van het gebouw.
-                </p>
-              </div>
-
-            </div>
-
-            <div class="why-row">
-
-              <span class="why-number">04</span>
-
-              <div>
-                <h3>Regionaal betrokken</h3>
-                <p>
-                  Vanuit Loenen actief voor
-                  opdrachtgevers in de regio.
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="why-aside reveal">
-
-            <blockquote>
-              “Techniek is pas goed
-              wanneer alles samenwerkt.”
-            </blockquote>
-
-            <p>
-              ONTWERPTEKST — NOG GEEN
-              UITSPRAAK VAN HET BEDRIJF
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================
-         PROJECTEN
-    ====================================== -->
-
-    <section class="section" id="projecten">
-      <div class="container">
-
-        <div class="section-top reveal">
-
-          <div>
-
-            <span class="label">
-              Ons werk
-            </span>
-
-            <h2 class="section-title">
-              Projecten.
-            </h2>
-
-          </div>
-
-          <p class="body-text">
-            Een kijkje achter de schermen.
-            Hier presenteren we straks echte
-            projecten van Koller &amp; Tabor.
-          </p>
-
-        </div>
-
-        <div class="projects-grid">
-
-          <article class="project reveal">
-
-            <div class="project-image">
-
-              <span class="photo-placeholder">
-                Projectfoto toevoegen
-              </span>
-
-              <img
-                src="./images/project-1.jpg"
-                alt="Projectfoto 1"
-                onerror="this.hidden=true"
-              >
-
-            </div>
-
-            <div class="project-info">
-
-              <div>
-                <h3>Project 01</h3>
-                <span>Foto en projectomschrijving volgen</span>
-              </div>
-
-              <span>↗</span>
-
-            </div>
-
-          </article>
-
-          <article class="project reveal">
-
-            <div class="project-image">
-
-              <span class="photo-placeholder">
-                Projectfoto toevoegen
-              </span>
-
-              <img
-                src="./images/project-2.jpg"
-                alt="Projectfoto 2"
-                onerror="this.hidden=true"
-              >
-
-            </div>
-
-            <div class="project-info">
-
-              <div>
-                <h3>Project 02</h3>
-                <span>Foto en projectomschrijving volgen</span>
-              </div>
-
-              <span>↗</span>
-
-            </div>
-
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================
-         TEAM
-    ====================================== -->
-
-    <section class="team section" id="team">
-      <div class="container">
-
-        <div class="section-top reveal">
-
-          <div>
-
-            <span class="label">
-              De mensen achter de techniek
-            </span>
-
-            <h2 class="section-title">
-              Ons team.
-            </h2>
-
-          </div>
-
-          <p class="body-text">
-            Achter goed technisch werk staan mensen
-            met kennis en ervaring.
-            Maak kennis met het team.
-          </p>
-
-        </div>
-
-        <div class="team-empty reveal">
-
-          <div>
-
-            <small>
-              Binnenkort op deze plek
-            </small>
-
-            <h3>
-              Maak kennis met ons team.
-            </h3>
-
-            <p>
-              Hier komen medewerkers met hun
-              eigen foto, naam en functie.
-              De eigenaar kan deze gegevens
-              later zelf beheren via het CMS.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================
-         CONTACT
-    ====================================== -->
-
-    <section class="contact section" id="contact">
-      <div class="container contact-grid">
-
-        <div class="reveal">
-
-          <span class="label">
-            Contact
-          </span>
-
-          <h2>
-            Samen aan<br>
-            de slag<span>?</span>
-          </h2>
-
-        </div>
-
-        <div class="contact-side reveal">
-
-          <p>
-            Een vraag over een installatie,
-            onderhoud of een toekomstig project?
-            Neem contact op met Koller &amp; Tabor.
-          </p>
-
-          <!--
-            Tijdelijke link naar huidige website.
-            Later vervangen door het definitieve
-            contactformulier en geverifieerde gegevens.
-          -->
-
-          <a
-            href="https://kollertabor.nl/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn"
-          >
-            Naar huidige website <span>↗</span>
-          </a>
-
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ======================================
-       FOOTER
-  ====================================== -->
-
-  <footer>
-    <div class="container footer-grid">
-
-      <p>
-        © <span id="year"></span>
-        Koller &amp; Tabor Installatietechniek
-      </p>
-
-      <p>
-        Websiteconcept — demonstratieversie
-      </p>
-
-      <p>
-        <a href="#home">Terug naar boven ↑</a>
-      </p>
-
-    </div>
-  </footer>
-
-  <!-- ======================================
-       JAVASCRIPT
-  ====================================== -->
-
-  <script>
-    "use strict";
-
-    /* =====================================
-       MOBIEL MENU
-    ===================================== */
-
-    const menuButton = document.getElementById("menuButton");
-    const navLinks = document.getElementById("navLinks");
-
-    function closeMenu() {
-      navLinks.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
-      menuButton.setAttribute("aria-label", "Menu openen");
-      menuButton.textContent = "☰";
-    }
-
-    menuButton.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-
-      menuButton.setAttribute(
-        "aria-label",
-        isOpen ? "Menu sluiten" : "Menu openen"
-      );
-
-      menuButton.textContent = isOpen ? "✕" : "☰";
-    });
-
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", closeMenu);
-    });
-
-    /* =====================================
-       SCROLLANIMATIES
-    ===================================== */
-
-    const revealElements = document.querySelectorAll(".reveal");
-
-    if (
-      "IntersectionObserver" in window &&
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-
-      const observer = new IntersectionObserver(
-        entries => {
-
-          entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target);
-            }
-
-          });
-
-        },
-        {
-          threshold: 0.08,
-          rootMargin: "0px 0px -30px 0px"
-        }
-      );
-
-      revealElements.forEach(element => observer.observe(element));
-
-    } else {
-
-      revealElements.forEach(element => {
-        element.classList.add("visible");
-      });
-
-    }
-
-    /* =====================================
-       INTERACTIEVE WONING
-    ===================================== */
-
-    const systemData = {
-
-      verwarming: {
-        title: "Verwarming",
-
-        description:
-          "Een goed ontworpen verwarmingssysteem " +
-          "zorgt voor een comfortabele temperatuur " +
-          "en een efficiënte warmteverdeling."
-      },
-
-      warmtepomp: {
-        title: "Warmtepomp",
-
-        description:
-          "Een warmtepomp gebruikt warmte uit de " +
-          "omgeving om een gebouw te verwarmen. " +
-          "De juiste toepassing hangt af van " +
-          "het gebouw en de bestaande installatie."
-      },
-
-      sanitair: {
-        title: "Sanitair",
-
-        description:
-          "Van waterleidingen tot sanitaire " +
-          "voorzieningen: een zorgvuldig aangelegd " +
-          "systeem draagt bij aan dagelijks comfort."
-      },
-
-      onderhoud: {
-        title: "Onderhoud & service",
-
-        description:
-          "Regelmatig onderhoud helpt om " +
-          "installaties betrouwbaar te laten " +
-          "functioneren en problemen tijdig " +
-          "te signaleren."
-      }
-
-    };
-
-    const systemTitle = document.getElementById("systemTitle");
-    const systemDescription = document.getElementById("systemDescription");
-
-    const optionButtons = document.querySelectorAll(
-      "[data-select]"
-    );
-
-    const houseSystems = document.querySelectorAll(
-      "[data-system]"
-    );
-
-    function selectSystem(name) {
-
-      const data = systemData[name];
-
-      if (!data) return;
-
-      /* Informatie aanpassen */
-
-      systemTitle.textContent = data.title;
-      systemDescription.textContent = data.description;
-
-      /* Rechterknoppen aanpassen */
-
-      optionButtons.forEach(button => {
-
-        const selected = button.dataset.select === name;
-
-        button.classList.toggle("active", selected);
-
-        button.setAttribute(
-          "aria-pressed",
-          String(selected)
-        );
-
-      });
-
-      /* Onderdelen in woning uitlichten */
-
-      houseSystems.forEach(system => {
-
-        const selected = system.dataset.system === name;
-
-        system.classList.toggle("active", selected);
-
-      });
-
-    }
-
-    /* Knoppen naast de woning */
-
-    optionButtons.forEach(button => {
-
-      button.addEventListener("click", () => {
-
-        selectSystem(button.dataset.select);
-
-      });
-
-    });
-
-    /* Klikken op de woning zelf */
-
-    houseSystems.forEach(system => {
-
-      system.addEventListener("click", () => {
-
-        selectSystem(system.dataset.system);
-
-      });
-
-      /* Toetsenbordondersteuning */
-
-      system.addEventListener("keydown", event => {
-
-        if (event.key === "Enter" || event.key === " ") {
-
-          event.preventDefault();
-
-          selectSystem(system.dataset.system);
-
-        }
-
-      });
-
-    });
-
-    /* Beginstand */
-
-    selectSystem("verwarming");
-
-    /* =====================================
-       FOOTERJAAR
-    ===================================== */
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-  </script>
+<div id="site-footer"></div>
 
 </body>
 </html>
