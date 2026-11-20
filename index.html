@@ -22,31 +22,24 @@
 
   <title>Home | Koller &amp; Tabor</title>
 
-  <!-- BESTAANDE STYLESHEET -->
-
   <link
     rel="stylesheet"
     href="style.css"
   >
-
-  <!-- BESTAANDE JAVASCRIPT -->
 
   <script
     src="script.js"
     defer
   ></script>
 
-  <!-- ======================================
-       HOMEPAGE V3.3
-
-       Alleen de eerste sectie krijgt
-       een nieuwe indeling.
-
-       De bestaande style.css en script.js
-       blijven ongewijzigd.
-  ====================================== -->
-
   <style>
+
+    /* ======================================
+       HOMEPAGE V3.5
+
+       Bestaande hero blijft ongewijzigd.
+       Alleen de dienstenkaarten zijn nieuw.
+    ====================================== */
 
     /* ======================================
        HERO BASIS
@@ -69,13 +62,7 @@
     }
 
     /* ======================================
-       FOTO ACHTERGROND
-
-       De foto staat in een eigen vlak
-       aan de rechterkant.
-
-       Hierdoor wordt hij niet meer
-       onnodig ingezoomd.
+       FOTO RECHTS
     ====================================== */
 
     .hero-photo-area {
@@ -92,15 +79,6 @@
 
       overflow: hidden;
 
-      /*
-        De schuine overgang.
-
-        De bovenkant begint verder rechts.
-
-        De onderkant loopt naar links,
-        zonder de tekst te bedekken.
-      */
-
       clip-path: polygon(
         24% 0,
         100% 0,
@@ -112,10 +90,6 @@
 
     }
 
-    /* ======================================
-       DE INSTALLATIEFOTO
-    ====================================== */
-
     .hero-photo {
 
       display: block;
@@ -124,44 +98,28 @@
       height: 100%;
 
       object-fit: cover;
-
-      /*
-        Meer van de technische ruimte
-        blijft zichtbaar.
-      */
-
       object-position: center center;
 
       animation: heroPhotoAppear 1.2s ease-out both;
 
     }
 
-    /* ======================================
-       SUBTIELE FOTOANIMATIE
-    ====================================== */
-
     @keyframes heroPhotoAppear {
 
       from {
-
         opacity: 0;
-
         transform: scale(1.04);
-
       }
 
       to {
-
         opacity: 1;
-
         transform: scale(1);
-
       }
 
     }
 
     /* ======================================
-       TEKSTCONTAINER
+       HERO TEKST
     ====================================== */
 
     .hero-content {
@@ -171,7 +129,6 @@
       z-index: 3;
 
       display: flex;
-
       align-items: center;
 
       min-height: 650px;
@@ -181,31 +138,19 @@
 
     }
 
-    /* ======================================
-       LINKER TEKSTGEDEELTE
-    ====================================== */
-
     .hero-content .hero-copy {
 
       width: 49%;
-
       max-width: 540px;
-
       min-width: 0;
 
       position: relative;
-
       z-index: 4;
 
     }
 
     /* ======================================
-       TITEL
-
-       Techniek
-       die werkt.
-
-       Precies zoals in het voorbeeld.
+       HERO TITEL
     ====================================== */
 
     .hero-heading {
@@ -215,16 +160,11 @@
 
       font-family: Manrope, Arial, sans-serif;
 
-      font-size: clamp(
-        56px,
-        6.2vw,
-        98px
-      );
+      font-size: clamp(56px, 6.2vw, 98px);
 
       font-weight: 600;
 
       line-height: 1.07;
-
       letter-spacing: -.08em;
 
       color: #161b25;
@@ -234,25 +174,20 @@
     .hero-heading .line {
 
       display: block;
-
       white-space: nowrap;
 
     }
 
     .hero-heading .accent {
-
       color: #2664a9;
-
     }
 
     .hero-heading .red-dot {
-
       color: #ef4438;
-
     }
 
     /* ======================================
-       ONDERTITEL
+       BESCHRIJVING EN KNOPPEN
     ====================================== */
 
     .hero-description {
@@ -262,42 +197,28 @@
       margin-bottom: 0;
 
       font-size: 16px;
-
       line-height: 1.9;
 
       color: #616b78;
 
     }
 
-    /* ======================================
-       KNOPPEN
-    ====================================== */
-
     .hero-content .btn-row {
-
       margin-top: 31px;
-
     }
 
     /* ======================================
-       GROTERE SCHERMEN
-
-       Op brede schermen houden we
-       de compositie mooi in balans.
+       GROTE SCHERMEN
     ====================================== */
 
     @media (min-width: 1500px) {
 
       .hero-photo-area {
-
         width: 59%;
-
       }
 
       .hero-heading {
-
         font-size: 98px;
-
       }
 
     }
@@ -322,42 +243,27 @@
       }
 
       .hero-heading {
-
-        font-size: clamp(
-          51px,
-          6vw,
-          76px
-        );
-
+        font-size: clamp(51px, 6vw, 76px);
       }
 
       .hero-content .hero-copy {
-
         max-width: 480px;
-
       }
 
     }
 
     /* ======================================
-       TABLETS
-
-       We houden een duidelijke scheiding
-       tussen tekst en foto.
+       TABLET
     ====================================== */
 
     @media (max-width: 900px) {
 
       .hero {
-
         min-height: 570px;
-
       }
 
       .hero-content {
-
         min-height: 570px;
-
       }
 
       .hero-photo-area {
@@ -374,36 +280,21 @@
       }
 
       .hero-content .hero-copy {
-
         width: 53%;
-
       }
 
       .hero-heading {
-
-        font-size: clamp(
-          46px,
-          5.6vw,
-          65px
-        );
-
+        font-size: clamp(46px, 5.6vw, 65px);
       }
 
       .hero-description {
-
         font-size: 14px;
-
       }
 
     }
 
     /* ======================================
-       MOBIELE SCHERMEN
-
-       Tekst bovenaan.
-       Foto daaronder over de volle breedte.
-
-       Geen overlappende elementen.
+       MOBIEL
     ====================================== */
 
     @media (max-width: 760px) {
@@ -413,7 +304,6 @@
         min-height: 0;
 
         display: flex;
-
         flex-direction: column;
 
       }
@@ -423,7 +313,6 @@
         order: 1;
 
         min-height: 0;
-
         width: 90%;
 
         padding-top: 65px;
@@ -434,25 +323,17 @@
       .hero-content .hero-copy {
 
         width: 100%;
-
         max-width: 100%;
 
       }
 
       .hero-heading {
-
-        font-size: clamp(
-          48px,
-          10vw,
-          76px
-        );
-
+        font-size: clamp(48px, 10vw, 76px);
       }
 
       .hero-description {
 
         max-width: 540px;
-
         font-size: 15px;
 
       }
@@ -468,7 +349,6 @@
         order: 2;
 
         width: 100%;
-
         height: 380px;
 
         clip-path: none;
@@ -476,41 +356,29 @@
       }
 
       .hero-photo {
-
         object-position: center;
-
       }
 
     }
 
     /* ======================================
-       KLEINE MOBIELE SCHERMEN
+       KLEINE TELEFOONS
     ====================================== */
 
     @media (max-width: 450px) {
 
       .hero-heading {
-
-        font-size: clamp(
-          41px,
-          10.4vw,
-          52px
-        );
-
+        font-size: clamp(41px, 10.4vw, 52px);
       }
 
       .hero-photo-area {
-
         height: 290px;
-
       }
 
       .hero-content .btn-row {
 
         display: flex;
-
         flex-direction: column;
-
         align-items: stretch;
 
       }
@@ -524,9 +392,7 @@
     @media (prefers-reduced-motion: reduce) {
 
       .hero-photo {
-
         animation: none;
-
       }
 
     }
@@ -537,12 +403,7 @@
 
 <body>
 
-  <!-- ======================================
-       NAVIGATIE
-
-       Wordt automatisch aangemaakt
-       door script.js.
-  ====================================== -->
+  <!-- NAVIGATIE UIT SCRIPT.JS -->
 
   <div id="site-header"></div>
 
@@ -553,14 +414,6 @@
     ====================================== -->
 
     <section class="hero">
-
-      <!-- ==================================
-           FOTO RECHTS
-
-           Deze staat nu los van de
-           tekstcontainer en vult het
-           rechtergedeelte volledig op.
-      ================================== -->
 
       <div class="hero-photo-area">
 
@@ -573,39 +426,28 @@
 
       </div>
 
-      <!-- ==================================
-           TEKST LINKS
-      ================================== -->
-
       <div class="container hero-content">
 
         <div class="hero-copy reveal">
 
           <span class="eyebrow">
-
             Installatietechniek in Loenen
-
           </span>
-
-          <!-- TITEL -->
 
           <h1 class="hero-heading">
 
             <span class="line">
-
               Techniek
-
             </span>
 
             <span class="line">
 
-              die <span class="accent">werkt</span><span class="red-dot">.</span>
+              die
+              <span class="accent">werkt</span><span class="red-dot">.</span>
 
             </span>
 
           </h1>
-
-          <!-- BESCHRIJVING -->
 
           <p class="hero-description">
 
@@ -616,26 +458,20 @@
 
           </p>
 
-          <!-- KNOPPEN -->
-
           <div class="btn-row">
 
             <a
               class="btn btn-primary"
               href="diensten.html"
             >
-
               Ontdek onze diensten ↗
-
             </a>
 
             <a
               class="btn btn-outline"
               href="contact.html"
             >
-
               Contact opnemen
-
             </a>
 
           </div>
@@ -649,7 +485,8 @@
     <!-- ======================================
          DIENSTEN
 
-         ONGEWIJZIGD
+         NIEUW:
+         DE DRIE HELE KAARTEN ZIJN LINKS.
     ====================================== -->
 
     <section class="section">
@@ -661,15 +498,11 @@
           <div>
 
             <span class="eyebrow">
-
               Wat we doen
-
             </span>
 
             <h2>
-
               Expertise in techniek.
-
             </h2>
 
           </div>
@@ -685,20 +518,24 @@
 
         <div class="cards">
 
-          <!-- DIENST 1 -->
+          <!-- ==================================
+               KAART 1 — INSTALLATIES
 
-          <article class="card reveal">
+               DE HELE KAART IS KLIKBAAR.
+          ================================== -->
+
+          <a
+            class="card reveal"
+            href="diensten.html"
+            aria-label="Bekijk onze diensten: installaties"
+          >
 
             <span class="num">
-
               01 /
-
             </span>
 
             <h3>
-
               Installaties
-
             </h3>
 
             <p>
@@ -708,31 +545,30 @@
 
             </p>
 
-            <a
-              class="card-link"
-              href="diensten.html"
-            >
-
+            <span class="card-link">
               Bekijk de diensten ↗
+            </span>
 
-            </a>
+          </a>
 
-          </article>
+          <!-- ==================================
+               KAART 2 — ONDERHOUD
 
-          <!-- DIENST 2 -->
+               DE HELE KAART IS KLIKBAAR.
+          ================================== -->
 
-          <article class="card reveal">
+          <a
+            class="card reveal"
+            href="diensten.html"
+            aria-label="Lees meer over onderhoud en service"
+          >
 
             <span class="num">
-
               02 /
-
             </span>
 
             <h3>
-
               Onderhoud &amp; service
-
             </h3>
 
             <p>
@@ -742,31 +578,30 @@
 
             </p>
 
-            <a
-              class="card-link"
-              href="diensten.html"
-            >
-
+            <span class="card-link">
               Lees verder ↗
+            </span>
 
-            </a>
+          </a>
 
-          </article>
+          <!-- ==================================
+               KAART 3 — INDUSTRIE
 
-          <!-- DIENST 3 -->
+               DE HELE KAART IS KLIKBAAR.
+          ================================== -->
 
-          <article class="card reveal">
+          <a
+            class="card reveal"
+            href="diensten.html"
+            aria-label="Ontdek meer over onze industriële installaties"
+          >
 
             <span class="num">
-
               03 /
-
             </span>
 
             <h3>
-
               Industrie
-
             </h3>
 
             <p>
@@ -776,16 +611,11 @@
 
             </p>
 
-            <a
-              class="card-link"
-              href="diensten.html"
-            >
-
+            <span class="card-link">
               Ontdek meer ↗
+            </span>
 
-            </a>
-
-          </article>
+          </a>
 
         </div>
 
@@ -806,15 +636,11 @@
         <div class="reveal">
 
           <span class="eyebrow">
-
             Interactief
-
           </span>
 
           <h2>
-
             Ontdek hoe techniek samenkomt.
-
           </h2>
 
           <p class="lead">
@@ -829,9 +655,7 @@
             class="btn btn-primary"
             href="woning.html"
           >
-
             Bekijk de interactieve woning ↗
-
           </a>
 
         </div>
@@ -847,17 +671,13 @@
 
             Maar ook hoe systemen
             <span class="accent">
-
               samenwerken.
-
             </span>
 
           </div>
 
           <small>
-
             Technisch concept — klikbaar schema
-
           </small>
 
         </div>
@@ -879,9 +699,7 @@
         <div class="reveal">
 
           <span class="eyebrow">
-
             Over Koller &amp; Tabor
-
           </span>
 
           <h2>
@@ -909,18 +727,14 @@
               class="btn btn-outline"
               href="waarom.html"
             >
-
               Over ons ↗
-
             </a>
 
             <a
               class="btn btn-outline"
               href="team.html"
             >
-
               Ons team ↗
-
             </a>
 
           </div>
@@ -944,9 +758,7 @@
         <div>
 
           <h2>
-
             Een vraag over uw installatie?
-
           </h2>
 
           <p>
@@ -962,9 +774,7 @@
           class="btn btn-light"
           href="contact.html"
         >
-
           Contact opnemen ↗
-
         </a>
 
       </div>
@@ -973,9 +783,7 @@
 
   </main>
 
-  <!-- ======================================
-       FOOTER
-    ====================================== -->
+  <!-- FOOTER UIT SCRIPT.JS -->
 
   <div id="site-footer"></div>
 
