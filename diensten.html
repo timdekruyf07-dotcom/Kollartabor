@@ -8,14 +8,242 @@
 
   <meta
     name="description"
-    content="Ontdek de diensten van Koller & Tabor: duurzame verwarming, ontstopping, sanitair en industrie."
+    content="Ontdek de diensten van Koller & Tabor: duurzame verwarming, sanitair, ontstopping en industrie."
   >
 
   <title>Diensten | Koller &amp; Tabor</title>
 
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+
+  <style>
+
+    /* =====================================
+       DIENSTENOVERZICHT
+    ====================================== */
+
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .service-item {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 45px;
+
+      padding: 25px 0;
+
+      border-bottom: 1px solid #e2e5eb;
+    }
+
+    .service-copy {
+      max-width: 650px;
+    }
+
+    .service-number {
+      display: block;
+      margin-bottom: 12px;
+
+      color: #2664a9;
+
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .13em;
+    }
+
+    .service-number span {
+      color: #737e8e;
+      font-size: 10px;
+    }
+
+    .service-copy h2 {
+      margin-bottom: 12px;
+      font-size: clamp(27px, 3vw, 38px);
+    }
+
+    .service-copy > p {
+      margin: 0 0 14px;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+
+    /* =====================================
+       AFBEELDINGEN
+    ====================================== */
+
+    .service-photo {
+      width: 100%;
+      height: 205px;
+
+      overflow: hidden;
+
+      background: #f0f2f5;
+      border: 1px solid #e2e5eb;
+    }
+
+    .service-photo img {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+
+      transition: transform .5s ease;
+    }
+
+    @media (hover: hover) {
+      .service-item:hover .service-photo img {
+        transform: scale(1.025);
+      }
+    }
+
+
+    /* =====================================
+       LEES MEER
+    ====================================== */
+
+    .service-details {
+      margin-top: 12px;
+    }
+
+    .service-details summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      color: #1554aa;
+
+      font-size: 13px;
+      font-weight: 800;
+
+      cursor: pointer;
+      list-style: none;
+
+      transition: color .2s ease;
+    }
+
+    .service-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .service-details summary::after {
+      content: '+';
+      font-size: 19px;
+      font-weight: 500;
+
+      transition: transform .25s ease;
+    }
+
+    .service-details[open] summary::after {
+      content: '−';
+    }
+
+    .service-details summary:hover {
+      color: #ef4438;
+    }
+
+    .service-extra {
+      max-width: 600px;
+      padding-top: 12px;
+
+      animation: serviceOpen .3s ease;
+    }
+
+    .service-extra p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    @keyframes serviceOpen {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    /* =====================================
+       CONTACTBLOK
+    ====================================== */
+
+    .services-cta {
+      margin-top: 20px;
+    }
+
+
+    /* =====================================
+       TABLET
+    ====================================== */
+
+    @media (max-width: 900px) {
+
+      .service-item {
+        gap: 25px;
+        grid-template-columns: 1fr .85fr;
+      }
+
+      .service-photo {
+        height: 180px;
+      }
+
+    }
+
+
+    /* =====================================
+       MOBIEL
+    ====================================== */
+
+    @media (max-width: 650px) {
+
+      .services-list {
+        gap: 30px;
+      }
+
+      .service-item {
+        grid-template-columns: 1fr;
+        gap: 17px;
+        padding: 22px 0;
+      }
+
+      .service-photo {
+        height: 210px;
+        grid-row: 1;
+      }
+
+      .service-copy h2 {
+        font-size: 29px;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .service-photo img {
+        transition: none;
+      }
+
+      .service-extra {
+        animation: none;
+      }
+
+    }
+
+  </style>
+
 </head>
+
 
 <body>
 
@@ -23,9 +251,12 @@
 
 <main id="main">
 
-  <!-- PAGINA INTRO -->
 
-  <section class="page-hero services-page-hero">
+  <!-- =====================================
+       PAGINA INTRO
+  ====================================== -->
+
+  <section class="page-hero">
 
     <div class="container">
 
@@ -38,9 +269,9 @@
       </h1>
 
       <p class="lead">
-        Van duurzame verwarmingsoplossingen tot sanitair,
-        ontstopping en industriële installaties.
-        Ontdek hieronder waarmee Koller & Tabor
+        Van duurzame verwarmingsoplossingen
+        en sanitair tot ontstopping en industriële
+        installaties. Ontdek waarmee Koller & Tabor
         u van dienst kan zijn.
       </p>
 
@@ -49,16 +280,21 @@
   </section>
 
 
-  <!-- DIENSTENOVERZICHT -->
 
-  <section class="section services-section">
+  <!-- =====================================
+       DIENSTEN
+  ====================================== -->
+
+  <section class="section">
 
     <div class="container">
 
       <div class="services-list">
 
 
-        <!-- 01 DUURZAME VERWARMING -->
+        <!-- =================================
+             01 DUURZAME VERWARMING
+        ================================== -->
 
         <article class="service-item reveal">
 
@@ -68,52 +304,114 @@
               01 <span>/ DUURZAME VERWARMING</span>
             </span>
 
-            <h2>Duurzame verwarming</h2>
+            <h2>
+              Duurzame verwarming
+            </h2>
 
             <p>
-              Van cv-ketels tot warmtepompen:
-              wij helpen u met comfortabele en
-              energiezuinige verwarmingsoplossingen.
+              Van cv-ketels tot warmtepompen.
+              Koller & Tabor helpt bij het realiseren
+              van passende verwarmingsoplossingen
+              voor uw woning of gebouw.
             </p>
 
             <details class="service-details">
 
               <summary>
-                <span>Lees meer</span>
+                Lees meer
               </summary>
 
-              <div class="service-more">
+              <div class="service-extra">
 
                 <p>
-                  Van CV-ketel tot lucht-water warmtepomp
-                  en van ventilatie-warmtepomp tot
-                  water-water warmtepomp kunnen wij u
+                  Van cv-ketel tot lucht-waterwarmtepomp
+                  en van ventilatiewarmtepomp tot
+                  water-waterwarmtepomp: wij kunnen u
                   van dienst zijn.
-                </p>
 
-                <p>
                   Het gehele traject van aanvraag tot
                   inbedrijfstelling nemen wij uit handen.
-                  Alles vindt plaats onder de daarvoor
-                  geldende certificeringen
-                  (BRL6000-25, BRL100 en BRL6000-21).
+                  De werkzaamheden vinden plaats onder
+                  de daarvoor geldende certificeringen,
+                  waaronder BRL 6000-25, BRL 100 en
+                  BRL 6000-21.
                 </p>
-
-                <a href="contact.html" class="service-contact">
-                  Bespreek uw mogelijkheden ↗
-                </a>
 
               </div>
 
             </details>
 
           </div>
+
+
+          <div class="service-photo">
+
+            <img
+              src="images/installatietechniek.png"
+              alt="Technische verwarmingsinstallatie"
+              loading="lazy"
+            >
+
+          </div>
+
+        </article>
+
+
+
+        <!-- =================================
+             02 SANITAIR
+        ================================== -->
+
+        <article class="service-item reveal">
+
+          <div class="service-copy">
+
+            <span class="service-number">
+              02 <span>/ SANITAIR</span>
+            </span>
+
+            <h2>
+              Sanitair
+            </h2>
+
+            <p>
+              Een nieuwe badkamer, douche of toilet?
+              Wij helpen bij het realiseren van een
+              comfortabele en praktische sanitaire ruimte.
+            </p>
+
+            <details class="service-details">
+
+              <summary>
+                Lees meer
+              </summary>
+
+              <div class="service-extra">
+
+                <p>
+                  Een nieuwe badkamer, douche of toilet?
+                  Ons ervaren team helpt u graag met de
+                  voorbereiding en realisatie van uw wensen.
+
+                  Door onze ervaring met de vele technische
+                  mogelijkheden kunnen we met u meedenken
+                  over een passende oplossing. Samen werken
+                  we toe naar het comfort dat bij uw situatie
+                  past.
+                </p>
+
+              </div>
+
+            </details>
+
+          </div>
+
 
           <div class="service-photo">
 
             <img
               src="images/sanitair.png"
-              alt="Verwarmingsinstallatie en warmtepomp"
+              alt="Moderne badkamer met douche, wastafel en toilet"
               loading="lazy"
             >
 
@@ -122,61 +420,60 @@
         </article>
 
 
-        <!-- 02 ONTSTOPPING -->
+
+        <!-- =================================
+             03 ONTSTOPPING
+        ================================== -->
 
         <article class="service-item reveal">
 
           <div class="service-copy">
 
             <span class="service-number">
-              02 <span>/ ONTSTOPPING</span>
+              03 <span>/ ONTSTOPPING</span>
             </span>
 
-            <h2>Ontstopping</h2>
+            <h2>
+              Ontstoppingsdienst
+            </h2>
 
             <p>
               Problemen met een verstopte afvoer?
-              Onze specialisten helpen u om verstoppingen
-              professioneel aan te pakken.
+              Onze ontstoppingsspecialisten helpen
+              bij het oplossen van verstoppingen.
             </p>
 
             <details class="service-details">
 
               <summary>
-                <span>Lees meer</span>
+                Lees meer
               </summary>
 
-              <div class="service-more">
+              <div class="service-extra">
 
                 <p>
                   Overal kan er weleens iets vastzitten.
                   Onze ervaren ontstoppingsspecialisten
-                  helpen u graag om snel en zonder te veel
-                  poespas de dagelijkse dingen weer kwijt
-                  te kunnen.
-                </p>
+                  helpen u graag om dagelijkse problemen
+                  met afvoeren en verstoppingen op te lossen.
 
-                <p>
-                  Met de juiste specialistische
-                  gereedschappen helpen wij u om schade
-                  en overlast te beperken.
+                  Met specialistisch gereedschap werken
+                  we aan een passende oplossing om schade
+                  en overlast zoveel mogelijk te beperken.
                 </p>
-
-                <a href="contact.html" class="service-contact">
-                  Neem contact op ↗
-                </a>
 
               </div>
 
             </details>
 
           </div>
+
 
           <div class="service-photo">
 
             <img
               src="images/ontstoppingsdienst.png"
-              alt="Professionele ontstoppingswerkzaamheden"
+              alt="Professionele apparatuur voor ontstoppingswerkzaamheden"
               loading="lazy"
             >
 
@@ -185,71 +482,10 @@
         </article>
 
 
-        <!-- 03 SANITAIR -->
 
-        <article class="service-item reveal">
-
-          <div class="service-copy">
-
-            <span class="service-number">
-              03 <span>/ SANITAIR</span>
-            </span>
-
-            <h2>Sanitair</h2>
-
-            <p>
-              Een nieuwe badkamer, douche of toilet?
-              Wij helpen u bij het realiseren van
-              sanitair dat aansluit op uw wensen.
-            </p>
-
-            <details class="service-details">
-
-              <summary>
-                <span>Lees meer</span>
-              </summary>
-
-              <div class="service-more">
-
-                <p>
-                  Een nieuwe badkamer, douche of toilet?
-                  Ons ervaren team helpt u graag met de
-                  voorbereiding en realisatie van al uw
-                  wensen.
-                </p>
-
-                <p>
-                  In het landschap van vele technische
-                  mogelijkheden weten wij door onze
-                  ervaring wat er allemaal mogelijk is.
-                  We nemen u mee om het juiste comfort
-                  te realiseren.
-                </p>
-
-                <a href="contact.html" class="service-contact">
-                  Bespreek uw plannen ↗
-                </a>
-
-              </div>
-
-            </details>
-
-          </div>
-
-          <div class="service-photo">
-
-            <img
-              src="images/onderhoud.png"
-              alt="Sanitaire en technische werkzaamheden"
-              loading="lazy"
-            >
-
-          </div>
-
-        </article>
-
-
-        <!-- 04 INDUSTRIE -->
+        <!-- =================================
+             04 INDUSTRIE
+        ================================== -->
 
         <article class="service-item reveal">
 
@@ -259,46 +495,42 @@
               04 <span>/ INDUSTRIE</span>
             </span>
 
-            <h2>Industrie</h2>
+            <h2>
+              Industrie
+            </h2>
 
             <p>
-              Technische installaties voor zakelijke
-              en industriële processen, met aandacht
-              voor efficiëntie en duurzaamheid.
+              Technische installaties voor industriële
+              omgevingen. Oplossingen die aansluiten
+              op de eisen van uw bedrijfsproces.
             </p>
 
             <details class="service-details">
 
               <summary>
-                <span>Lees meer</span>
+                Lees meer
               </summary>
 
-              <div class="service-more">
+              <div class="service-extra">
 
                 <p>
-                  Onze ervaren technici staan voor geen
-                  uitdaging te groot. Vele persleidingen
-                  en RVS-toevoerleidingen voor processen
-                  hebben wij reeds in ons portfolio
-                  aangelegd.
-                </p>
+                  Onze technici denken mee over
+                  installatietechnische oplossingen
+                  voor industriële processen.
 
-                <p>
-                  Voor het juiste advies nemen wij uw
-                  proces als uitgangspunt. Vervolgens
-                  bepalen we gezamenlijk de meest
-                  efficiënte en duurzame installatie.
+                  Denk hierbij aan persleidingen en
+                  RVS-toevoerleidingen. Voor het juiste
+                  advies nemen we uw proces als uitgangspunt
+                  en bepalen we samen welke installatie
+                  het beste aansluit op uw situatie.
                 </p>
-
-                <a href="contact.html" class="service-contact">
-                  Bespreek uw project ↗
-                </a>
 
               </div>
 
             </details>
 
           </div>
+
 
           <div class="service-photo">
 
@@ -320,9 +552,12 @@
   </section>
 
 
-  <!-- CONTACTBLOK -->
 
-  <section class="cta">
+  <!-- =====================================
+       CONTACT
+  ====================================== -->
+
+  <section class="cta services-cta">
 
     <div class="container">
 
@@ -333,13 +568,16 @@
         </h2>
 
         <p>
-          Neem contact op en ontdek wat
-          Koller & Tabor voor u kan betekenen.
+          Neem contact op voor meer informatie
+          over de mogelijkheden.
         </p>
 
       </div>
 
-      <a href="contact.html" class="btn btn-light">
+      <a
+        href="contact.html"
+        class="btn btn-light"
+      >
         Contact opnemen ↗
       </a>
 
@@ -347,9 +585,12 @@
 
   </section>
 
+
 </main>
 
+
 <div id="site-footer"></div>
+
 
 </body>
 </html>
