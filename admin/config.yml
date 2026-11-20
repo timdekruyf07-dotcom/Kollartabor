@@ -15,7 +15,7 @@ backend:
 
   auth_type: pkce
 
-  app_id: VUL_HIER_DE_GITHUB_OAUTH_CLIENT_ID_IN
+  app_id: Ov23lidaLcHml90MfeiP
 
 
 # ==========================================
@@ -190,7 +190,6 @@ collections:
                 name: price_in
                 widget: string
 
-
           - label: Toeslagen
             name: surcharges
             widget: list
@@ -204,7 +203,6 @@ collections:
               - label: Percentage
                 name: percentage
                 widget: string
-
 
           - label: Voorrijkosten
             name: travel
@@ -228,7 +226,6 @@ collections:
                 name: description
                 widget: text
 
-
           - label: Uitgebreide toelichting
             name: explanations
             widget: list
@@ -242,7 +239,6 @@ collections:
               - label: Inhoud
                 name: content
                 widget: text
-
 
           - label: Algemene voorwaarden consumenten
             name: consumer_terms
