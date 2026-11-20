@@ -2027,3 +2027,124 @@ a.card:focus-visible {
     }
 
 }
+/* ==========================================
+   DIENSTENPAGINA — HERO V3.9
+========================================== */
+
+.services-hero .hero-grid {
+
+    grid-template-columns: 1fr 0.95fr;
+
+    align-items: center;
+
+    gap: 55px;
+
+    min-height: 390px;
+
+    padding: 0;
+
+}
+
+.services-hero .hero-copy h1 {
+
+    margin: 22px 0;
+
+}
+
+.services-hero .hero-copy p {
+
+    max-width: 550px;
+
+}
+
+.services-hero .hero-visual {
+
+    min-height: 350px;
+
+    background: #edf0f5;
+
+    border: 1px solid #e1e6ed;
+
+}
+
+.services-hero .hero-visual svg {
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+.services-hero .arch-line {
+
+    fill: none;
+
+    stroke: #94a6bd;
+
+    stroke-width: 2;
+
+}
+
+.services-hero .tech-flow {
+
+    stroke: #2664a9;
+
+    stroke-width: 3;
+
+    stroke-dasharray: 9 13;
+
+    animation: flow 13s linear infinite;
+
+}
+
+.services-hero .warm-flow {
+
+    stroke: #ef4438;
+
+    stroke-width: 3;
+
+    stroke-dasharray: 9 13;
+
+    animation: flow 11s linear infinite;
+
+}
+
+
+/* TABLET */
+
+@media (max-width: 1040px) {
+
+    .services-hero .hero-grid {
+
+        gap: 30px;
+
+    }
+
+    .services-hero .hero-visual {
+
+        min-height: 320px;
+
+    }
+
+}
+
+
+/* MOBIEL */
+
+@media (max-width: 760px) {
+
+    .services-hero .hero-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+    }
+
+    .services-hero .hero-visual {
+
+        min-height: 300px;
+
+    }
+
+}
