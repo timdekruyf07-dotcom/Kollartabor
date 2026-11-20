@@ -32,14 +32,15 @@
     defer
   ></script>
 
+
   <style>
 
     /* ======================================
-       HOMEPAGE V3.6
+       HOMEPAGE V3.7
 
        Bestaande hero behouden.
        Diensten behouden.
-       Waarom Koller & Tabor toegevoegd.
+       Nieuwe reviewsectie toegevoegd.
     ====================================== */
 
 
@@ -398,6 +399,411 @@
 
 
     /* ======================================
+       REVIEWS
+       HOMEPAGE V3.7
+    ====================================== */
+
+    .reviews-section {
+
+      padding-top: 100px;
+      padding-bottom: 105px;
+
+      background: #f7f8fa;
+
+    }
+
+
+    /* ======================================
+       REVIEW INTRODUCTIE
+    ====================================== */
+
+    .reviews-heading {
+
+      max-width: 760px;
+
+      margin-bottom: 48px;
+
+    }
+
+    .reviews-heading h2 {
+
+      margin-top: 18px;
+
+      font-family: Manrope, Arial, sans-serif;
+
+      font-size: clamp(36px, 4.5vw, 60px);
+
+      font-weight: 600;
+
+      letter-spacing: -.065em;
+
+      line-height: 1.12;
+
+      color: #161b25;
+
+    }
+
+    .reviews-heading h2 .red-dot {
+      color: #ef4438;
+    }
+
+    .reviews-heading p {
+
+      max-width: 630px;
+
+      margin-top: 18px;
+
+      font-size: 15px;
+
+      line-height: 1.85;
+
+      color: #616b78;
+
+    }
+
+
+    /* ======================================
+       REVIEWKAARTEN
+    ====================================== */
+
+    .reviews-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      gap: 18px;
+
+      align-items: stretch;
+
+    }
+
+
+    /* ======================================
+       REVIEWKAART BASIS
+    ====================================== */
+
+    .review-card {
+
+      position: relative;
+
+      display: flex;
+
+      flex-direction: column;
+
+      min-width: 0;
+
+      padding: 32px;
+
+      overflow: hidden;
+
+      background: #ffffff;
+
+      border: 1px solid #e0e5ec;
+
+      border-radius: 12px;
+
+      box-shadow:
+        0 9px 20px rgba(16, 30, 50, .035),
+        0 24px 42px rgba(16, 30, 50, .02);
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+
+    }
+
+
+    /* ======================================
+       REVIEWNUMMER
+    ====================================== */
+
+    .review-number {
+
+      display: block;
+
+      margin-bottom: 25px;
+
+      color: var(--blue);
+
+      font-family: Manrope, Arial, sans-serif;
+
+      font-size: 16px;
+
+      font-weight: 800;
+
+      letter-spacing: -.04em;
+
+    }
+
+
+    /* ======================================
+       REVIEWTITEL
+    ====================================== */
+
+    .review-card h3 {
+
+      position: relative;
+
+      z-index: 2;
+
+      margin-bottom: 17px;
+
+      color: var(--ink);
+
+      font-family: Manrope, Arial, sans-serif;
+
+      font-size: 21px;
+
+      font-weight: 700;
+
+      letter-spacing: -.055em;
+
+      line-height: 1.3;
+
+    }
+
+
+    /* ======================================
+       REVIEWTEKST
+    ====================================== */
+
+    .review-card > p {
+
+      position: relative;
+
+      z-index: 2;
+
+      margin: 0;
+
+      color: #616b78;
+
+      font-size: 14px;
+
+      line-height: 1.85;
+
+    }
+
+
+    /* ======================================
+       KLANTGEGEVENS
+    ====================================== */
+
+    .review-author {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 5px;
+
+      margin-top: auto;
+
+      padding-top: 25px;
+
+      border-top: 1px solid #e8ebf0;
+
+    }
+
+    .review-author strong {
+
+      color: var(--ink);
+
+      font-family: Manrope, Arial, sans-serif;
+
+      font-size: 14px;
+
+      font-weight: 800;
+
+    }
+
+    .review-author span {
+
+      color: #7b8797;
+
+      font-size: 12px;
+
+    }
+
+
+    /* ======================================
+       SUBTIELE KLEURACCENTEN
+    ====================================== */
+
+    .review-card:nth-child(1) .review-number {
+      color: #bd571b;
+    }
+
+    .review-card:nth-child(2) .review-number {
+      color: var(--navy);
+    }
+
+    .review-card:nth-child(3) .review-number {
+      color: var(--blue);
+    }
+
+
+    /* ======================================
+       DECORATIEVE GOLF
+    ====================================== */
+
+    .review-card::after {
+
+      content: '';
+
+      position: absolute;
+
+      right: -95px;
+
+      bottom: -155px;
+
+      width: 250px;
+
+      height: 215px;
+
+      border-radius: 65% 0 0 0;
+
+      background: linear-gradient(
+        135deg,
+        rgba(38, 100, 169, .01),
+        rgba(38, 100, 169, .12)
+      );
+
+      transform: rotate(-20deg);
+
+      pointer-events: none;
+
+    }
+
+    .review-card:nth-child(1)::after {
+
+      background: linear-gradient(
+        135deg,
+        rgba(239, 145, 75, .01),
+        rgba(239, 145, 75, .13)
+      );
+
+    }
+
+    .review-card:nth-child(2)::after {
+
+      background: linear-gradient(
+        135deg,
+        rgba(39, 53, 121, .01),
+        rgba(39, 53, 121, .13)
+      );
+
+    }
+
+
+    /* ======================================
+       REVIEW HOVER
+    ====================================== */
+
+    @media (hover: hover) and (pointer: fine) {
+
+      .review-card:hover {
+
+        transform: translateY(-5px);
+
+        border-color: #cbd7e7;
+
+        box-shadow:
+          0 15px 30px rgba(16, 30, 50, .075),
+          0 28px 45px rgba(16, 30, 50, .035);
+
+      }
+
+    }
+
+
+    /* ======================================
+       TABLET REVIEWS
+    ====================================== */
+
+    @media (max-width: 900px) {
+
+      .reviews-grid {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      }
+
+      .review-card:last-child {
+
+        grid-column: 1 / -1;
+
+      }
+
+    }
+
+
+    /* ======================================
+       MOBIEL REVIEWS
+    ====================================== */
+
+    @media (max-width: 650px) {
+
+      .reviews-section {
+
+        padding-top: 65px;
+        padding-bottom: 70px;
+
+      }
+
+      .reviews-heading {
+
+        margin-bottom: 32px;
+
+      }
+
+      .reviews-heading h2 {
+
+        font-size: 36px;
+
+      }
+
+      .reviews-heading p {
+
+        font-size: 14px;
+
+      }
+
+      .reviews-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+
+      }
+
+      .review-card {
+
+        padding: 27px;
+
+      }
+
+      .review-card:last-child {
+
+        grid-column: auto;
+
+      }
+
+      .review-card h3 {
+
+        font-size: 20px;
+
+      }
+
+    }
+
+
+    /* ======================================
        MINDER BEWEGING
     ====================================== */
 
@@ -405,6 +811,10 @@
 
       .hero-photo {
         animation: none;
+      }
+
+      .review-card {
+        transition: none;
       }
 
     }
@@ -431,6 +841,7 @@
 
     <section class="hero">
 
+
       <div class="hero-photo-area">
 
         <img
@@ -446,6 +857,7 @@
       <div class="container hero-content">
 
         <div class="hero-copy reveal">
+
 
           <span class="eyebrow">
             Installatietechniek in Loenen
@@ -496,6 +908,7 @@
 
           </div>
 
+
         </div>
 
       </div>
@@ -506,7 +919,6 @@
 
     <!-- ======================================
          DIENSTEN
-
          BESTAANDE KAARTEN BEHOUDEN
     ====================================== -->
 
@@ -645,39 +1057,38 @@
 
 
     <!-- ======================================
-         WAAROM KOLLER & TABOR
+         KLANTBEOORDELINGEN
 
          VERVANGT:
          - INTERACTIEVE WONING
          - OUDE OVER ONS SECTIE
     ====================================== -->
 
-    <section class="section section-soft why-section">
+    <section class="reviews-section">
 
       <div class="container">
 
 
-        <!-- INTRODUCTIE -->
+        <!-- REVIEW INTRODUCTIE -->
 
-        <div class="why-heading reveal">
+        <div class="reviews-heading reveal">
 
           <span class="eyebrow">
-            Waarom Koller &amp; Tabor
+            Ervaringen van klanten
           </span>
 
 
           <h2>
-            Techniek die werkt.
-            Mensen die meedenken.
+            Dit is wat onze klanten zeggen<span class="red-dot">.</span>
           </h2>
 
 
           <p>
 
-            Goede installatietechniek draait om meer
-            dan alleen de installatie zelf. Het gaat
-            om kennis, duidelijke communicatie en
-            oplossingen die passen bij uw situatie.
+            We kunnen zelf vertellen waar we goed in zijn,
+            maar uiteindelijk zijn het onze klanten die
+            het beste kunnen vertellen hoe ze onze
+            samenwerking ervaren.
 
           </p>
 
@@ -685,149 +1096,141 @@
 
 
 
-        <!-- VIER REDENEN -->
+        <!-- DRIE REVIEWKAARTEN -->
 
-        <div class="why-grid">
+        <div class="reviews-grid">
 
 
           <!-- ==================================
-               01 — VAKMANSCHAP
+               REVIEW 01 — DAVE
           ================================== -->
 
-          <article class="why-card reveal">
+          <article class="review-card reveal">
 
-            <span class="why-number">
-              01
+            <span class="review-number">
+              01 / SERVICE
             </span>
 
-            <span class="why-tag">
-              VAKMANSCHAP
-            </span>
 
             <h3>
-              Kennis van techniek
+              Geweldige service en snel geholpen
             </h3>
+
 
             <p>
 
-              Installatiewerk vraagt om technische
-              kennis en een zorgvuldige uitvoering.
-              De focus ligt op oplossingen die
-              passen bij uw situatie.
+              Dave vertelt over de werkzaamheden
+              voor zijn nieuwe keuken. Ondanks de
+              sluiting rond de feestdagen werd hij
+              snel geholpen met het verleggen van
+              een waterleiding en afvoer.
 
             </p>
+
+
+            <div class="review-author">
+
+              <strong>
+                Dave
+              </strong>
+
+              <span>
+                Eerbeek
+              </span>
+
+            </div>
 
           </article>
 
 
 
           <!-- ==================================
-               02 — DUIDELIJKHEID
+               REVIEW 02 — ERIC
           ================================== -->
 
-          <article class="why-card reveal">
+          <article class="review-card reveal">
 
-            <span class="why-number">
-              02
+            <span class="review-number">
+              02 / PROJECTBEGELEIDING
             </span>
 
-            <span class="why-tag">
-              DUIDELIJKHEID
-            </span>
 
             <h3>
-              Helder uitgelegd
+              Zorgvuldig en klantgericht
             </h3>
+
 
             <p>
 
-              U wilt weten wat er nodig is en wat
-              u kunt verwachten. Daarom staat
-              begrijpelijke uitleg centraal.
+              Eric beschrijft een uitgebreid
+              hersteltraject van zijn woning.
+              Hij waardeert vooral de planning,
+              communicatie, samenwerking met
+              andere partijen en het bewaken
+              van het afgesproken budget.
 
             </p>
+
+
+            <div class="review-author">
+
+              <strong>
+                Eric Brons
+              </strong>
+
+              <span>
+                Loenen
+              </span>
+
+            </div>
 
           </article>
 
 
 
           <!-- ==================================
-               03 — BREED INZETBAAR
+               REVIEW 03 — HENRY
           ================================== -->
 
-          <article class="why-card reveal">
+          <article class="review-card reveal">
 
-            <span class="why-number">
-              03
+            <span class="review-number">
+              03 / KWALITEIT
             </span>
 
-            <span class="why-tag">
-              BREED INZETBAAR
-            </span>
 
             <h3>
-              Voor woning en bedrijf
+              Prima werk geleverd
             </h3>
+
 
             <p>
 
-              Van installaties en onderhoud tot
-              praktische technische oplossingen
-              voor woningen, bedrijven en
-              industriële omgevingen.
+              Henry is tevreden over het nakomen
+              van afspraken en de kwaliteit van
+              het geleverde werk. Hij noemt onder
+              andere de nieuwe cv-ketel en de
+              besparing die deze oplevert.
 
             </p>
 
-          </article>
 
+            <div class="review-author">
 
+              <strong>
+                Henry
+              </strong>
 
-          <!-- ==================================
-               04 — PRAKTISCHE AANPAK
-          ================================== -->
+              <span>
+                Eerbeek
+              </span>
 
-          <article class="why-card reveal">
-
-            <span class="why-number">
-              04
-            </span>
-
-            <span class="why-tag">
-              PRAKTISCHE AANPAK
-            </span>
-
-            <h3>
-              Techniek die werkt
-            </h3>
-
-            <p>
-
-              Geen onnodig ingewikkeld verhaal,
-              maar aandacht voor een passende
-              oplossing en een vakkundige uitvoering.
-
-            </p>
+            </div>
 
           </article>
 
 
         </div>
-
-
-
-        <!-- LINK NAAR WAAROM PAGINA -->
-
-        <div class="btn-row">
-
-          <a
-            class="btn btn-primary"
-            href="waarom.html"
-          >
-            Ontdek waarom Koller &amp; Tabor ↗
-          </a>
-
-        </div>
-
 
       </div>
 
@@ -837,7 +1240,6 @@
 
     <!-- ======================================
          CONTACTBALK
-
          BESTAANDE SECTIE BEHOUDEN
     ====================================== -->
 
@@ -876,7 +1278,6 @@
 
 
   </main>
-
 
 
   <!-- FOOTER UIT SCRIPT.JS -->
