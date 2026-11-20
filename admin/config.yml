@@ -1,21 +1,19 @@
 # ==========================================
-# KOLLER & TABOR
+# KOLLER & TABOR INSTALLATIETECHNIEK
 # SVELTIA CMS CONFIGURATIE
 # ==========================================
 
 
 # ==========================================
-# GITHUB VERBINDING
+# GITHUB & INLOGGEN
 # ==========================================
 
 backend:
   name: github
   repo: timdekruyf07-dotcom/Kollartabor
   branch: main
-
-  auth_type: ''
-
-  app_id: Ov23lidaLcHml90MfeiP
+  auth_methods:
+    - token
 
 
 # ==========================================
@@ -29,17 +27,15 @@ locale: nl
 # AFBEELDINGEN
 # ==========================================
 
-media_folder: images/uploads
-
-public_folder: images/uploads
+media_folder: "images/uploads"
+public_folder: "/Kollartabor/images/uploads"
 
 
 # ==========================================
-# COLLECTIES
+# BEHEERONDERDELEN
 # ==========================================
 
 collections:
-
 
   # ========================================
   # PROJECTEN
@@ -50,7 +46,6 @@ collections:
     label_singular: Project
 
     folder: content/projecten
-
     create: true
 
     extension: json
@@ -118,7 +113,6 @@ collections:
     label_singular: Medewerker
 
     folder: content/team
-
     create: true
 
     extension: json
@@ -175,6 +169,7 @@ collections:
         label: Tarievenpagina
 
         file: content/tarieven.json
+        format: json
 
         fields:
 
@@ -185,6 +180,10 @@ collections:
           - label: Arbeidstarieven
             name: hourly_rates
             widget: list
+            label_singular: Arbeidstarief
+            summary: "{{fields.name}}"
+            required: false
+            default: []
 
             fields:
 
@@ -204,6 +203,10 @@ collections:
           - label: Toeslagen
             name: surcharges
             widget: list
+            label_singular: Toeslag
+            summary: "{{fields.period}}"
+            required: false
+            default: []
 
             fields:
 
@@ -219,6 +222,7 @@ collections:
           - label: Voorrijkosten
             name: travel
             widget: object
+            collapsed: true
 
             fields:
 
@@ -242,6 +246,10 @@ collections:
           - label: Uitgebreide toelichting
             name: explanations
             widget: list
+            label_singular: Toelichting
+            summary: "{{fields.title}}"
+            required: false
+            default: []
 
             fields:
 
@@ -276,6 +284,7 @@ collections:
         label: Contactgegevens
 
         file: content/contact.json
+        format: json
 
         fields:
 
@@ -316,6 +325,10 @@ collections:
           - label: Openingstijden
             name: opening_hours
             widget: list
+            label_singular: Dag
+            summary: "{{fields.day}}"
+            required: false
+            default: []
 
             fields:
 
@@ -326,6 +339,7 @@ collections:
               - label: Tijden
                 name: hours
                 widget: string
+
 
           - label: Aanvullende informatie
             name: additional_information
