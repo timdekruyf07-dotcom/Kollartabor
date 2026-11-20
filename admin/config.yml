@@ -262,24 +262,20 @@ collections:
             summary: "{{fields.name}}"
             required: false
             default: []
-            hint: "Voeg tarieven toe of wijzig de bestaande bedragen. Vul bedragen inclusief het euroteken in."
 
             fields:
 
               - label: Tariefsoort
                 name: name
                 widget: string
-                hint: "Bijvoorbeeld: Hoofdmonteur"
 
               - label: Prijs exclusief btw
                 name: price_ex
                 widget: string
-                hint: "Bijvoorbeeld: € 75,00"
 
               - label: Prijs inclusief btw
                 name: price_in
                 widget: string
-                hint: "Bijvoorbeeld: € 90,75"
 
           - label: Toelichting onder de arbeidstarieven
             name: hourly_note
@@ -297,19 +293,16 @@ collections:
             summary: "{{fields.period}}"
             required: false
             default: []
-            hint: "Hier beheer je de toeslagen voor avondwerk, zaterdagen en zon- en feestdagen."
 
             fields:
 
               - label: Periode
                 name: period
                 widget: string
-                hint: "Bijvoorbeeld: Zaterdagen"
 
               - label: Percentage
                 name: percentage
                 widget: string
-                hint: "Bijvoorbeeld: 150%"
 
           - label: Toelichting onder de toeslagen
             name: surcharges_note
@@ -330,27 +323,22 @@ collections:
               - label: Introductietekst voorrijkosten
                 name: introduction
                 widget: text
-                hint: "Gebruik een lege regel tussen alinea's."
 
               - label: Binnen 25 kilometer exclusief btw
                 name: within_25
                 widget: string
-                hint: "Bijvoorbeeld: € 12,50"
 
               - label: Binnen 25 kilometer inclusief btw
                 name: within_25_vat
                 widget: string
-                hint: "Bijvoorbeeld: € 15,13"
 
               - label: Boven 25 kilometer exclusief btw
                 name: beyond_25
                 widget: string
-                hint: "Bijvoorbeeld: € 0,50"
 
               - label: Tekst bij prijs per kilometer
                 name: beyond_25_note
                 widget: string
-                hint: "Bijvoorbeeld: Per kilometer, naar boven afgerond"
 
               - label: Uitleg over afstand berekenen
                 name: description
@@ -376,7 +364,6 @@ collections:
             summary: "{{fields.title}}"
             required: false
             default: []
-            hint: "Hier beheer je de negen uitklapbare onderdelen van de tarievenpagina."
 
             fields:
 
@@ -387,13 +374,11 @@ collections:
               - label: Hoofdtekst
                 name: content
                 widget: text
-                hint: "Gebruik een lege regel tussen alinea's."
 
               - label: Opvallend informatieblok
                 name: highlight
                 widget: text
                 required: false
-                hint: "Deze tekst verschijnt in een opvallend gekleurd blok."
 
               - label: Tekst onder het informatieblok
                 name: after_highlight
@@ -404,7 +389,6 @@ collections:
                 name: subheading
                 widget: string
                 required: false
-                hint: "Bijvoorbeeld: Mogelijke netwerkproblemen"
 
               - label: Extra punten
                 name: problems
@@ -413,7 +397,6 @@ collections:
                 summary: "{{fields.title}}"
                 required: false
                 default: []
-                hint: "Bijvoorbeeld de netwerkproblemen bij Smarthome en netwerkverbindingen."
 
                 fields:
 
@@ -433,13 +416,11 @@ collections:
           - label: Link naar algemene voorwaarden consumenten
             name: consumer_terms
             widget: string
-            hint: "Pad naar het PDF-bestand in de map documents."
 
           - label: Link naar algemene voorwaarden bedrijven
             name: business_terms
             widget: string
             required: false
-            hint: "Laat leeg zolang de zakelijke voorwaarden niet beschikbaar zijn."
 
           - label: Tekst wanneer zakelijke voorwaarden ontbreken
             name: business_terms_description
@@ -469,38 +450,111 @@ collections:
     files:
 
       - name: contactpagina
-        label: Contactgegevens
+        label: Contactgegevens beheren
         file: content/contact.json
         format: json
 
         fields:
 
-          - label: Introductietekst
-            name: introduction
-            widget: text
+          # ==================================
+          # BOVENKANT CONTACTPAGINA
+          # ==================================
+
+          - label: Bovenkant van de contactpagina
+            name: hero
+            widget: object
+            collapsed: true
+
+            fields:
+
+              - label: Kleine tekst boven de titel
+                name: eyebrow
+                widget: string
+                hint: "Bijvoorbeeld: Neem contact op"
+
+              - label: Grote paginatitel
+                name: title
+                widget: string
+                hint: "Bijvoorbeeld: We helpen u verder"
+
+              - label: Tekst onder de titel
+                name: introduction
+                widget: text
+
+
+          # ==================================
+          # CONTACTSECTIE
+          # ==================================
+
+          - label: Teksten bij de contactmogelijkheden
+            name: section
+            widget: object
+            collapsed: true
+
+            fields:
+
+              - label: Kleine tekst boven de titel
+                name: eyebrow
+                widget: string
+
+              - label: Titel
+                name: title
+                widget: string
+
+              - label: Introductietekst
+                name: introduction
+                widget: text
+
+
+          # ==================================
+          # CONTACTGEGEVENS
+          # ==================================
 
           - label: Telefoonnummer
             name: phone
             widget: string
+            required: false
+            hint: "Laat leeg als het telefoonnummer nog niet gecontroleerd is."
 
           - label: E-mailadres
             name: email
             widget: string
+            required: false
+            hint: "Laat leeg als het e-mailadres nog niet gecontroleerd is."
 
           - label: Straat en huisnummer
             name: address
             widget: string
+            required: false
 
           - label: Postcode
             name: postal_code
             widget: string
+            required: false
 
           - label: Plaats
             name: city
             widget: string
+            required: false
+
+          - label: Provincie of regio
+            name: region
+            widget: string
+            required: false
+
+
+          # ==================================
+          # WEBSITE EN KAART
+          # ==================================
 
           - label: Website
             name: website
+            widget: string
+            required: false
+            hint: "Bijvoorbeeld: https://kollertabor.nl/"
+
+          - label: Tekst op de websiteknop
+            name: website_button_text
             widget: string
             required: false
 
@@ -508,6 +562,12 @@ collections:
             name: maps
             widget: string
             required: false
+            hint: "Plak hier eventueel de Google Maps-link."
+
+
+          # ==================================
+          # OPENINGSTIJDEN
+          # ==================================
 
           - label: Openingstijden
             name: opening_hours
@@ -516,18 +576,56 @@ collections:
             summary: "{{fields.day}}"
             required: false
             default: []
+            hint: "Voeg hier de openingstijden toe. Zonder ingevulde tijden verschijnt er geen openingstijdenblok."
 
             fields:
 
               - label: Dag
                 name: day
                 widget: string
+                hint: "Bijvoorbeeld: Maandag"
 
               - label: Tijden
                 name: hours
                 widget: string
+                hint: "Bijvoorbeeld: 08:00 - 17:00"
+
+
+          # ==================================
+          # BEDRIJFSINFORMATIE
+          # ==================================
+
+          - label: Bedrijfsnaam
+            name: company_name
+            widget: string
+
+          - label: Tekst onder bedrijfsnaam
+            name: company_subtitle
+            widget: string
 
           - label: Aanvullende informatie
             name: additional_information
             widget: text
             required: false
+            hint: "Bijvoorbeeld een belangrijke mededeling."
+
+
+          # ==================================
+          # CONTACTFORMULIER
+          # ==================================
+
+          - label: Melding over contactformulier
+            name: form
+            widget: object
+            collapsed: true
+
+            fields:
+
+              - label: Titel
+                name: title
+                widget: string
+
+              - label: Beschrijving
+                name: description
+                widget: text
+                hint: "Gebruik een lege regel voor een nieuwe alinea."
