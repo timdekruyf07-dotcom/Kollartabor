@@ -32,40 +32,48 @@
     defer
   ></script>
 
-  <!--
-    Alleen de nieuwe homepagefoto krijgt
-    aanvullende styling.
+  <!-- ======================================
+       HOMEPAGE V3
 
-    De bestaande style.css blijft ongewijzigd.
-  -->
+       Nieuwe PNG-foto rechtsboven.
+       De overige onderdelen blijven gelijk.
+  ====================================== -->
 
   <style>
 
     /* ======================================
-       HOMEPAGE V3 — ALLEEN HEROAFBEELDING
+       HOMEPAGE FOTO
     ====================================== */
 
     .hero-visual {
+
       position: relative;
+
       overflow: hidden;
+
       background: #e9edf2;
+
     }
 
     .hero-tech-photo {
+
       position: absolute;
+
       inset: 0;
 
       display: block;
 
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
+
       object-position: 50% center;
 
       /*
-        Een subtiele schuine rand.
-        De rest van de pagina verandert niet.
+        Subtiele schuine overgang
+        aan de linkerkant.
       */
 
       clip-path: polygon(
@@ -76,38 +84,65 @@
       );
 
       animation: photoReveal 1s ease-out both;
+
     }
 
     .hero-visual .visual-label {
+
+      position: absolute;
+
       z-index: 2;
+
     }
+
+    /* ======================================
+       FOTO-ANIMATIE
+    ====================================== */
 
     @keyframes photoReveal {
 
       from {
+
         opacity: 0;
+
         transform: scale(1.035);
+
       }
 
       to {
+
         opacity: 1;
+
         transform: scale(1);
+
       }
 
     }
+
+    /* ======================================
+       MOBIEL
+    ====================================== */
 
     @media (max-width: 760px) {
 
       .hero-tech-photo {
+
         clip-path: none;
+
       }
 
     }
 
+    /* ======================================
+       MINDER BEWEGING
+    ====================================== */
+
     @media (prefers-reduced-motion: reduce) {
 
       .hero-tech-photo {
+
         animation: none;
+
       }
 
     }
@@ -121,7 +156,8 @@
   <!-- ======================================
        NAVIGATIE
 
-       Wordt geladen via script.js.
+       Wordt automatisch geladen
+       via script.js.
   ====================================== -->
 
   <div id="site-header"></div>
@@ -129,19 +165,23 @@
   <main id="main">
 
     <!-- ======================================
-         HERO
+         HOMEPAGE HERO
     ====================================== -->
 
     <section class="hero">
 
       <div class="container hero-grid">
 
-        <!-- LINKERKANT: ONGEWIJZIGD -->
+        <!-- ==================================
+             LINKERKANT: TITEL EN KNOPPEN
+        ================================== -->
 
         <div class="hero-copy reveal">
 
           <span class="eyebrow">
+
             Installatietechniek in Loenen
+
           </span>
 
           <h1>
@@ -166,14 +206,18 @@
               class="btn btn-primary"
               href="diensten.html"
             >
+
               Ontdek onze diensten ↗
+
             </a>
 
             <a
               class="btn btn-outline"
               href="contact.html"
             >
+
               Contact opnemen
+
             </a>
 
           </div>
@@ -181,17 +225,14 @@
         </div>
 
         <!-- ==================================
-             RECHTERKANT: NIEUWE FOTO
-
-             Dit is de enige inhoudelijke
-             wijziging in de homepage.
+             RECHTERKANT: NIEUWE PNG-FOTO
         ================================== -->
 
         <div class="hero-visual">
 
           <img
             class="hero-tech-photo"
-            src="images/hero-installatie.jpg"
+            src="images/hero-installatie.png"
             alt="Conceptbeeld van een moderne technische ruimte met verwarmingsinstallaties"
             fetchpriority="high"
           >
@@ -209,7 +250,7 @@
     </section>
 
     <!-- ======================================
-         DIENSTEN — ONGEWIJZIGD
+         DIENSTEN
     ====================================== -->
 
     <section class="section">
@@ -221,11 +262,15 @@
           <div>
 
             <span class="eyebrow">
+
               Wat we doen
+
             </span>
 
             <h2>
+
               Expertise in techniek.
+
             </h2>
 
           </div>
@@ -241,16 +286,22 @@
 
         <div class="cards">
 
-          <!-- DIENST 1 -->
+          <!-- ==================================
+               DIENST 1
+          ================================== -->
 
           <article class="card reveal">
 
             <span class="num">
+
               01 /
+
             </span>
 
             <h3>
+
               Installaties
+
             </h3>
 
             <p>
@@ -264,21 +315,29 @@
               class="card-link"
               href="diensten.html"
             >
+
               Bekijk de diensten ↗
+
             </a>
 
           </article>
 
-          <!-- DIENST 2 -->
+          <!-- ==================================
+               DIENST 2
+          ================================== -->
 
           <article class="card reveal">
 
             <span class="num">
+
               02 /
+
             </span>
 
             <h3>
+
               Onderhoud &amp; service
+
             </h3>
 
             <p>
@@ -292,21 +351,29 @@
               class="card-link"
               href="diensten.html"
             >
+
               Lees verder ↗
+
             </a>
 
           </article>
 
-          <!-- DIENST 3 -->
+          <!-- ==================================
+               DIENST 3
+          ================================== -->
 
           <article class="card reveal">
 
             <span class="num">
+
               03 /
+
             </span>
 
             <h3>
+
               Industrie
+
             </h3>
 
             <p>
@@ -320,7 +387,9 @@
               class="card-link"
               href="diensten.html"
             >
+
               Ontdek meer ↗
+
             </a>
 
           </article>
@@ -332,10 +401,9 @@
     </section>
 
     <!-- ======================================
-         INTERACTIEVE WONING — ONGEWIJZIGD
+         INTERACTIEVE WONING
 
-         Deze sectie blijft staan.
-         De volledige klikbare woning blijft
+         De interactieve woning blijft
          bereikbaar via woning.html.
     ====================================== -->
 
@@ -346,11 +414,15 @@
         <div class="reveal">
 
           <span class="eyebrow">
+
             Interactief
+
           </span>
 
           <h2>
+
             Ontdek hoe techniek samenkomt.
+
           </h2>
 
           <p class="lead">
@@ -365,7 +437,9 @@
             class="btn btn-primary"
             href="woning.html"
           >
+
             Bekijk de interactieve woning ↗
+
           </a>
 
         </div>
@@ -381,13 +455,17 @@
 
             Maar ook hoe systemen
             <span class="accent">
+
               samenwerken.
+
             </span>
 
           </div>
 
           <small>
+
             Technisch concept — klikbaar schema
+
           </small>
 
         </div>
@@ -397,7 +475,7 @@
     </section>
 
     <!-- ======================================
-         OVER ONS — ONGEWIJZIGD
+         OVER ONS
     ====================================== -->
 
     <section class="section">
@@ -407,7 +485,9 @@
         <div class="reveal">
 
           <span class="eyebrow">
+
             Over Koller &amp; Tabor
+
           </span>
 
           <h2>
@@ -435,14 +515,18 @@
               class="btn btn-outline"
               href="waarom.html"
             >
+
               Over ons ↗
+
             </a>
 
             <a
               class="btn btn-outline"
               href="team.html"
             >
+
               Ons team ↗
+
             </a>
 
           </div>
@@ -454,7 +538,7 @@
     </section>
 
     <!-- ======================================
-         CONTACTBALK — ONGEWIJZIGD
+         CONTACT
     ====================================== -->
 
     <section class="cta">
@@ -464,7 +548,9 @@
         <div>
 
           <h2>
+
             Een vraag over uw installatie?
+
           </h2>
 
           <p>
@@ -480,7 +566,9 @@
           class="btn btn-light"
           href="contact.html"
         >
+
           Contact opnemen ↗
+
         </a>
 
       </div>
@@ -492,7 +580,8 @@
   <!-- ======================================
        FOOTER
 
-       Wordt geladen via script.js.
+       Wordt automatisch geladen
+       via script.js.
   ====================================== -->
 
   <div id="site-footer"></div>
