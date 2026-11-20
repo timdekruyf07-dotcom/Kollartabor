@@ -1,352 +1,502 @@
 <!doctype html>
 <html lang="nl">
+
 <head>
+
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Installatietechniek en onderhoud bij Koller & Tabor in Loenen.">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="theme-color"
+    content="#ffffff"
+  >
+
+  <meta
+    name="description"
+    content="Installatietechniek en onderhoud bij Koller & Tabor in Loenen."
+  >
 
   <title>Home | Koller &amp; Tabor</title>
 
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <script
+    src="script.js"
+    defer
+  ></script>
+
+  <!--
+    Alleen de nieuwe homepagefoto krijgt
+    aanvullende styling.
+
+    De bestaande style.css blijft ongewijzigd.
+  -->
+
+  <style>
+
+    /* ======================================
+       HOMEPAGE V3 — ALLEEN HEROAFBEELDING
+    ====================================== */
+
+    .hero-visual {
+      position: relative;
+      overflow: hidden;
+      background: #e9edf2;
+    }
+
+    .hero-tech-photo {
+      position: absolute;
+      inset: 0;
+
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: 50% center;
+
+      /*
+        Een subtiele schuine rand.
+        De rest van de pagina verandert niet.
+      */
+
+      clip-path: polygon(
+        9% 0,
+        100% 0,
+        100% 100%,
+        0 100%
+      );
+
+      animation: photoReveal 1s ease-out both;
+    }
+
+    .hero-visual .visual-label {
+      z-index: 2;
+    }
+
+    @keyframes photoReveal {
+
+      from {
+        opacity: 0;
+        transform: scale(1.035);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+    }
+
+    @media (max-width: 760px) {
+
+      .hero-tech-photo {
+        clip-path: none;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .hero-tech-photo {
+        animation: none;
+      }
+
+    }
+
+  </style>
+
 </head>
 
 <body>
 
-<div id="site-header"></div>
+  <!-- ======================================
+       NAVIGATIE
 
-<main id="main">
+       Wordt geladen via script.js.
+  ====================================== -->
 
-  <!-- HERO -->
+  <div id="site-header"></div>
 
-  <section class="hero">
-    <div class="container hero-grid">
+  <main id="main">
 
-      <div class="hero-copy reveal">
+    <!-- ======================================
+         HERO
+    ====================================== -->
 
-        <span class="eyebrow">
-          Installatietechniek in Loenen
-        </span>
+    <section class="hero">
 
-        <h1>
-          Techniek die
-          <span class="accent">werkt</span><span class="red-dot">.</span>
-        </h1>
+      <div class="container hero-grid">
 
-        <p class="lead">
-          Voor woning, bedrijf en industrie.
-          Installaties, onderhoud en praktische
-          technische oplossingen — helder uitgelegd
-          en vakkundig uitgevoerd.
-        </p>
+        <!-- LINKERKANT: ONGEWIJZIGD -->
 
-        <div class="btn-row">
-          <a class="btn btn-primary" href="diensten.html">
-            Ontdek onze diensten ↗
-          </a>
+        <div class="hero-copy reveal">
 
-          <a class="btn btn-outline" href="contact.html">
-            Contact opnemen
-          </a>
+          <span class="eyebrow">
+            Installatietechniek in Loenen
+          </span>
+
+          <h1>
+
+            Techniek die
+            <span class="accent">werkt</span><span class="red-dot">.</span>
+
+          </h1>
+
+          <p class="lead">
+
+            Voor woning, bedrijf en industrie.
+            Installaties, onderhoud en praktische
+            technische oplossingen — helder uitgelegd
+            en vakkundig uitgevoerd.
+
+          </p>
+
+          <div class="btn-row">
+
+            <a
+              class="btn btn-primary"
+              href="diensten.html"
+            >
+              Ontdek onze diensten ↗
+            </a>
+
+            <a
+              class="btn btn-outline"
+              href="contact.html"
+            >
+              Contact opnemen
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- ==================================
+             RECHTERKANT: NIEUWE FOTO
+
+             Dit is de enige inhoudelijke
+             wijziging in de homepage.
+        ================================== -->
+
+        <div class="hero-visual">
+
+          <img
+            class="hero-tech-photo"
+            src="images/hero-installatie.jpg"
+            alt="Conceptbeeld van een moderne technische ruimte met verwarmingsinstallaties"
+            fetchpriority="high"
+          >
+
+          <span class="visual-label">
+
+            INSTALLATIETECHNIEK / CONCEPTBEELD
+
+          </span>
+
         </div>
 
       </div>
 
-      <div
-        class="hero-visual"
-        aria-label="Gestileerde architectonische tekening"
-      >
+    </section>
 
-        <svg
-          viewBox="0 0 600 540"
-          preserveAspectRatio="xMidYMid meet"
-          role="img"
-          aria-label="Minimalistische lijntekening van een modern gebouw met installatielijnen"
-        >
+    <!-- ======================================
+         DIENSTEN — ONGEWIJZIGD
+    ====================================== -->
 
-          <path
-            d="M95 415 L95 182 L335 82 L520 170 L520 415 Z"
-            fill="#e5ebf3"
-            stroke="#a1afc0"
-            stroke-width="3"
-          />
+    <section class="section">
 
-          <path
-            d="M78 186 L335 64 L542 164"
-            class="arch-line"
-            stroke-width="5"
-          />
+      <div class="container">
 
-          <path
-            d="M117 225 H502 M117 328 H502"
-            class="arch-line"
-          />
+        <div class="section-head reveal">
 
-          <path
-            d="M225 225 V415 M387 225 V415"
-            class="arch-line"
-          />
+          <div>
 
-          <rect
-            x="137"
-            y="246"
-            width="61"
-            height="62"
-            fill="#fff"
-            stroke="#9aabc1"
-          />
+            <span class="eyebrow">
+              Wat we doen
+            </span>
 
-          <rect
-            x="273"
-            y="246"
-            width="81"
-            height="62"
-            fill="#fff"
-            stroke="#9aabc1"
-          />
+            <h2>
+              Expertise in techniek.
+            </h2>
 
-          <rect
-            x="422"
-            y="246"
-            width="62"
-            height="62"
-            fill="#fff"
-            stroke="#9aabc1"
-          />
+          </div>
 
-          <rect
-            x="269"
-            y="349"
-            width="85"
-            height="66"
-            fill="#fff"
-            stroke="#9aabc1"
-          />
+          <p>
 
-          <path
-            d="M26 425 H563"
-            stroke="#b3bece"
-            stroke-width="2"
-          />
+            Een overzicht van de werkzaamheden.
+            Klik door voor uitgebreide informatie.
 
-          <path
-            d="M490 415 V450 H440 V470 H205 V423"
-            class="tech-flow"
-          />
+          </p>
 
-          <path
-            d="M467 416 V440 H370 V456 H250"
-            class="warm-flow"
-          />
+        </div>
 
-          <circle
-            cx="490"
-            cy="415"
-            r="7"
-            fill="#2664a9"
-          />
+        <div class="cards">
 
-          <circle
-            cx="467"
-            cy="416"
-            r="7"
-            fill="#ef4438"
-          />
+          <!-- DIENST 1 -->
 
-          <path
-            d="M65 440 V180 M57 180 H73 M57 440 H73"
-            stroke="#c8cfda"
-            fill="none"
-          />
+          <article class="card reveal">
 
-          <path
-            d="M100 465 H520 M100 458 V472 M520 458 V472"
-            stroke="#c8cfda"
-            fill="none"
-          />
+            <span class="num">
+              01 /
+            </span>
 
-        </svg>
+            <h3>
+              Installaties
+            </h3>
 
-        <span class="visual-label">
-          ARCHITECTUUR × INSTALLATIETECHNIEK
-        </span>
+            <p>
+
+              Verwarming, warmtepompen,
+              sanitair en meer.
+
+            </p>
+
+            <a
+              class="card-link"
+              href="diensten.html"
+            >
+              Bekijk de diensten ↗
+            </a>
+
+          </article>
+
+          <!-- DIENST 2 -->
+
+          <article class="card reveal">
+
+            <span class="num">
+              02 /
+            </span>
+
+            <h3>
+              Onderhoud &amp; service
+            </h3>
+
+            <p>
+
+              Een betrouwbare werking begint
+              met aandacht voor onderhoud.
+
+            </p>
+
+            <a
+              class="card-link"
+              href="diensten.html"
+            >
+              Lees verder ↗
+            </a>
+
+          </article>
+
+          <!-- DIENST 3 -->
+
+          <article class="card reveal">
+
+            <span class="num">
+              03 /
+            </span>
+
+            <h3>
+              Industrie
+            </h3>
+
+            <p>
+
+              Installatietechnische oplossingen
+              voor zakelijke toepassingen.
+
+            </p>
+
+            <a
+              class="card-link"
+              href="diensten.html"
+            >
+              Ontdek meer ↗
+            </a>
+
+          </article>
+
+        </div>
 
       </div>
 
-    </div>
-  </section>
+    </section>
 
-  <!-- DIENSTEN -->
+    <!-- ======================================
+         INTERACTIEVE WONING — ONGEWIJZIGD
 
-  <section class="section">
-    <div class="container">
+         Deze sectie blijft staan.
+         De volledige klikbare woning blijft
+         bereikbaar via woning.html.
+    ====================================== -->
 
-      <div class="section-head reveal">
+    <section class="section section-soft">
+
+      <div class="container split">
+
+        <div class="reveal">
+
+          <span class="eyebrow">
+            Interactief
+          </span>
+
+          <h2>
+            Ontdek hoe techniek samenkomt.
+          </h2>
+
+          <p class="lead">
+
+            Een schematische woning waarin u
+            verschillende installaties kunt selecteren.
+            Informatief, toegankelijk en interactief.
+
+          </p>
+
+          <a
+            class="btn btn-primary"
+            href="woning.html"
+          >
+            Bekijk de interactieve woning ↗
+          </a>
+
+        </div>
+
+        <div class="feature-block reveal">
+
+          <div class="big">
+
+            Niet alleen wat techniek
+            <strong>doet.</strong>
+
+            <br>
+
+            Maar ook hoe systemen
+            <span class="accent">
+              samenwerken.
+            </span>
+
+          </div>
+
+          <small>
+            Technisch concept — klikbaar schema
+          </small>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ======================================
+         OVER ONS — ONGEWIJZIGD
+    ====================================== -->
+
+    <section class="section">
+
+      <div class="container split">
+
+        <div class="reveal">
+
+          <span class="eyebrow">
+            Over Koller &amp; Tabor
+          </span>
+
+          <h2>
+
+            Een bedrijf van mensen en vakkennis.
+
+          </h2>
+
+        </div>
+
+        <div class="reveal">
+
+          <p class="lead">
+
+            Lees meer over het bedrijf,
+            de aanpak en het team.
+            Ook projecten en tarieven krijgen
+            een eigen, overzichtelijke pagina.
+
+          </p>
+
+          <div class="btn-row">
+
+            <a
+              class="btn btn-outline"
+              href="waarom.html"
+            >
+              Over ons ↗
+            </a>
+
+            <a
+              class="btn btn-outline"
+              href="team.html"
+            >
+              Ons team ↗
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ======================================
+         CONTACTBALK — ONGEWIJZIGD
+    ====================================== -->
+
+    <section class="cta">
+
+      <div class="container">
 
         <div>
-          <span class="eyebrow">Wat we doen</span>
-          <h2>Expertise in techniek.</h2>
+
+          <h2>
+            Een vraag over uw installatie?
+          </h2>
+
+          <p>
+
+            Neem contact op voor informatie
+            over de mogelijkheden.
+
+          </p>
+
         </div>
 
-        <p>
-          Een overzicht van de werkzaamheden.
-          Klik door voor uitgebreide informatie.
-        </p>
-
-      </div>
-
-      <div class="cards">
-
-        <article class="card reveal">
-          <span class="num">01 /</span>
-          <h3>Installaties</h3>
-          <p>
-            Verwarming, warmtepompen,
-            sanitair en meer.
-          </p>
-          <a class="card-link" href="diensten.html">
-            Bekijk de diensten ↗
-          </a>
-        </article>
-
-        <article class="card reveal">
-          <span class="num">02 /</span>
-          <h3>Onderhoud &amp; service</h3>
-          <p>
-            Een betrouwbare werking begint
-            met aandacht voor onderhoud.
-          </p>
-          <a class="card-link" href="diensten.html">
-            Lees verder ↗
-          </a>
-        </article>
-
-        <article class="card reveal">
-          <span class="num">03 /</span>
-          <h3>Industrie</h3>
-          <p>
-            Installatietechnische oplossingen
-            voor zakelijke toepassingen.
-          </p>
-          <a class="card-link" href="diensten.html">
-            Ontdek meer ↗
-          </a>
-        </article>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- INTERACTIEVE WONING -->
-
-  <section class="section section-soft">
-    <div class="container split">
-
-      <div class="reveal">
-
-        <span class="eyebrow">Interactief</span>
-
-        <h2>Ontdek hoe techniek samenkomt.</h2>
-
-        <p class="lead">
-          Een schematische woning waarin u
-          verschillende installaties kunt selecteren.
-          Informatief, toegankelijk en interactief.
-        </p>
-
-        <a class="btn btn-primary" href="woning.html">
-          Bekijk de interactieve woning ↗
+        <a
+          class="btn btn-light"
+          href="contact.html"
+        >
+          Contact opnemen ↗
         </a>
 
       </div>
 
-      <div class="feature-block reveal">
+    </section>
 
-        <div class="big">
-          Niet alleen wat techniek
-          <strong>doet.</strong>
-          <br>
-          Maar ook hoe systemen
-          <span class="accent">samenwerken.</span>
-        </div>
+  </main>
 
-        <small>
-          Technisch concept — klikbaar schema
-        </small>
+  <!-- ======================================
+       FOOTER
 
-      </div>
+       Wordt geladen via script.js.
+  ====================================== -->
 
-    </div>
-  </section>
-
-  <!-- OVER ONS -->
-
-  <section class="section">
-    <div class="container split">
-
-      <div class="reveal">
-
-        <span class="eyebrow">
-          Over Koller &amp; Tabor
-        </span>
-
-        <h2>
-          Een bedrijf van mensen en vakkennis.
-        </h2>
-
-      </div>
-
-      <div class="reveal">
-
-        <p class="lead">
-          Lees meer over het bedrijf,
-          de aanpak en het team.
-          Ook projecten en tarieven krijgen
-          een eigen, overzichtelijke pagina.
-        </p>
-
-        <div class="btn-row">
-
-          <a class="btn btn-outline" href="waarom.html">
-            Over ons ↗
-          </a>
-
-          <a class="btn btn-outline" href="team.html">
-            Ons team ↗
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACTBALK -->
-
-  <section class="cta">
-    <div class="container">
-
-      <div>
-        <h2>Een vraag over uw installatie?</h2>
-        <p>
-          Neem contact op voor informatie
-          over de mogelijkheden.
-        </p>
-      </div>
-
-      <a class="btn btn-light" href="contact.html">
-        Contact opnemen ↗
-      </a>
-
-    </div>
-  </section>
-
-</main>
-
-<div id="site-footer"></div>
+  <div id="site-footer"></div>
 
 </body>
+
 </html>
