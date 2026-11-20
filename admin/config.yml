@@ -1,6 +1,11 @@
 # ==========================================
 # KOLLER & TABOR INSTALLATIETECHNIEK
-# SVELTIA CMS
+# SVELTIA CMS CONFIGURATIE
+# ==========================================
+
+
+# ==========================================
+# GITHUB & INLOGGEN
 # ==========================================
 
 backend:
@@ -10,13 +15,28 @@ backend:
   auth_methods:
     - token
 
+
+# ==========================================
+# TAAL
+# ==========================================
+
 locale: nl
+
+
+# ==========================================
+# AFBEELDINGEN
+# ==========================================
 
 media_folder: "images/uploads"
 public_folder: "images/uploads"
 
 
+# ==========================================
+# BEHEERONDERDELEN
+# ==========================================
+
 collections:
+
 
   # ========================================
   # PROJECTEN
@@ -46,7 +66,7 @@ collections:
             summary: "{{fields.title}}"
             required: false
             default: []
-            hint: "Voeg projecten toe, wijzig bestaande projecten of verwijder ze. De volgorde kun je aanpassen met het veld Volgorde."
+            hint: "Voeg projecten toe, wijzig bestaande projecten of verwijder ze."
 
             fields:
 
@@ -67,7 +87,7 @@ collections:
                 name: image
                 widget: image
                 required: false
-                hint: "Upload een foto van het project. Zonder foto blijft het voorbeeldvak zichtbaar."
+                hint: "Upload een foto van het project."
 
               - label: Beschrijving van de foto
                 name: image_alt
@@ -103,51 +123,88 @@ collections:
 
   - name: team
     label: Ons team
-    label_singular: Medewerker
 
-    folder: content/team
-    create: true
+    files:
 
-    extension: json
-    format: json
+      - name: teampagina
+        label: Team beheren
+        file: content/team.json
+        format: json
 
-    slug: "{{slug}}"
+        fields:
 
-    fields:
+          # Introductietekst bovenaan
+          - label: Introductietekst bovenaan
+            name: introduction
+            widget: text
+            hint: "Deze tekst verschijnt bovenaan de teampagina."
 
-      - label: Naam
-        name: name
-        widget: string
 
-      - label: Functie
-        name: role
-        widget: string
+          # Titel boven de medewerkers
+          - label: Titel boven de medewerkers
+            name: section_title
+            widget: string
+            hint: "Bijvoorbeeld: De mensen achter Koller & Tabor"
 
-      - label: Introductie
-        name: description
-        widget: text
-        required: false
 
-      - label: Profielfoto
-        name: photo
-        widget: image
-        required: false
+          # Beschrijving boven de medewerkers
+          - label: Beschrijving boven de medewerkers
+            name: section_description
+            widget: text
+            hint: "Deze tekst staat naast de titel boven de medewerkers."
 
-      - label: Alternatieve fototekst
-        name: photo_alt
-        widget: string
-        required: false
 
-      - label: Volgorde
-        name: order
-        widget: number
-        value_type: int
-        required: false
+          # Medewerkers
+          - label: Medewerkers
+            name: members
+            widget: list
+            label_singular: Medewerker
+            summary: "{{fields.name}}"
+            required: false
+            default: []
+            hint: "Voeg medewerkers toe, wijzig ze of verwijder ze. Je kunt de volgorde zelf bepalen."
 
-      - label: Publiceren
-        name: published
-        widget: boolean
-        default: true
+            fields:
+
+              - label: Naam
+                name: name
+                widget: string
+                hint: "Vul de naam van de medewerker in."
+
+              - label: Functie
+                name: role
+                widget: string
+                hint: "Bijvoorbeeld: Installatiemonteur"
+
+              - label: Introductie
+                name: description
+                widget: text
+                required: false
+                hint: "Een korte beschrijving van de medewerker."
+
+              - label: Profielfoto
+                name: photo
+                widget: image
+                required: false
+                hint: "Upload een profielfoto. Zonder foto verschijnt Foto volgt."
+
+              - label: Beschrijving van de foto
+                name: photo_alt
+                widget: string
+                required: false
+                hint: "Beschrijf kort wat op de foto te zien is."
+
+              - label: Volgorde
+                name: order
+                widget: number
+                value_type: int
+                required: false
+                hint: "Bijvoorbeeld 1, 2 of 3."
+
+              - label: Medewerker zichtbaar op website
+                name: published
+                widget: boolean
+                default: true
 
 
   # ========================================
@@ -192,6 +249,7 @@ collections:
                 name: price_in
                 widget: string
 
+
           - label: Toeslagen
             name: surcharges
             widget: list
@@ -209,6 +267,7 @@ collections:
               - label: Percentage
                 name: percentage
                 widget: string
+
 
           - label: Voorrijkosten
             name: travel
@@ -233,6 +292,7 @@ collections:
                 name: description
                 widget: text
 
+
           - label: Uitgebreide toelichting
             name: explanations
             widget: list
@@ -250,6 +310,7 @@ collections:
               - label: Inhoud
                 name: content
                 widget: text
+
 
           - label: Algemene voorwaarden consumenten
             name: consumer_terms
@@ -327,6 +388,7 @@ collections:
               - label: Tijden
                 name: hours
                 widget: string
+
 
           - label: Aanvullende informatie
             name: additional_information
