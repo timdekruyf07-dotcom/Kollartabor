@@ -2,7 +2,6 @@
 <html lang="nl">
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#ffffff">
@@ -17,6 +16,33 @@
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 
+  <style>
+    /* Aanvullingen voor CMS-teksten */
+
+    .cms-paragraphs p + p {
+      margin-top: 1em;
+    }
+
+    .tariff-highlight {
+      white-space: pre-line;
+    }
+
+    .tariff-loading {
+      padding: 24px 0;
+      color: #273579;
+    }
+
+    .tariff-error {
+      padding: 20px;
+      background: #fff3f2;
+      border-left: 4px solid #ef4438;
+      border-radius: 8px;
+    }
+
+    .terms-card[hidden] {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -25,31 +51,28 @@
 
 <main id="main">
 
-
   <!-- =====================================
        PAGINA INTRODUCTIE
   ====================================== -->
 
   <section class="page-hero tariffs-hero">
-
     <div class="container">
 
-      <span class="eyebrow">
+      <span class="eyebrow" id="tariffs-hero-eyebrow">
         Transparante informatie
       </span>
 
       <h1>
-        Onze tarieven<span class="red-dot">.</span>
+        <span id="tariffs-hero-title">Onze tarieven</span><span class="red-dot">.</span>
       </h1>
 
-      <p class="lead">
+      <p class="lead" id="tariffs-hero-introduction">
         Duidelijkheid over kosten vinden we belangrijk.
         Bekijk hieronder onze actuele uurtarieven,
         voorrijkosten en aanvullende voorwaarden.
       </p>
 
     </div>
-
   </section>
 
 
@@ -58,29 +81,33 @@
   ====================================== -->
 
   <section class="section tariffs-intro">
-
     <div class="container">
 
       <div class="tariffs-intro-grid">
 
         <div>
-
           <span class="eyebrow">
             Eerlijk en transparant
           </span>
 
           <h2>
-            Helder over kosten.
-            <span class="accent">Duidelijk over afspraken.</span>
-          </h2>
+            <span id="tariffs-intro-heading">
+              Helder over kosten.
+            </span>
 
+            <span class="accent" id="tariffs-intro-accent">
+              Duidelijk over afspraken.
+            </span>
+          </h2>
         </div>
 
-        <div>
-
+        <div
+          id="tariffs-introduction"
+          class="cms-paragraphs"
+        >
           <p>
             Wij krijgen wel eens vragen over de door ons
-            gehanteerde tarieven. Bij Koller & Tabor
+            gehanteerde tarieven. Bij Koller &amp; Tabor
             Installatietechniek willen wij transparant
             zijn in alles wat we doen, dus ook in onze
             tarieven.
@@ -95,13 +122,10 @@
             van dienst kunnen zijn en onze medewerkers
             voor lange tijd zekerheid hebben over hun baan.
           </p>
-
         </div>
 
       </div>
-
     </div>
-
   </section>
 
 
@@ -110,13 +134,10 @@
   ====================================== -->
 
   <section class="section tariffs-section section-soft">
-
     <div class="container">
 
       <div class="section-head">
-
         <div>
-
           <span class="eyebrow">
             Onze tarieven
           </span>
@@ -124,23 +145,21 @@
           <h2>
             Uurtarieven<span class="red-dot">.</span>
           </h2>
-
         </div>
 
-        <p>
+        <p id="hourly-introduction">
           Onderstaande tarieven gelden op normale
           werkdagen tussen 08:00 en 17:00 uur.
         </p>
-
       </div>
 
+
+      <!-- ARBEIDSTARIEVEN -->
 
       <div class="tariff-table-card">
 
         <div class="tariff-table-heading">
-
           <div>
-
             <span class="tariff-label">
               OVERZICHT
             </span>
@@ -148,106 +167,54 @@
             <h3>
               Arbeidstarieven
             </h3>
-
           </div>
 
           <span class="tariff-vat">
             Bedragen inclusief en exclusief btw
           </span>
-
         </div>
-
 
         <div class="tariff-table-wrap">
 
           <table class="tariff-table">
-
             <thead>
-
               <tr>
                 <th>Tariefsoort</th>
                 <th>Excl. btw</th>
                 <th>Incl. btw</th>
               </tr>
-
             </thead>
 
-            <tbody>
-
+            <tbody id="hourly-rates-body">
               <tr>
-                <td>Hoofdmonteur</td>
-                <td>€ 75,00</td>
-                <td>€ 90,75</td>
+                <td colspan="3">
+                  Tarieven worden geladen...
+                </td>
               </tr>
-
-              <tr>
-                <td>Hulpmonteur</td>
-                <td>€ 55,00</td>
-                <td>€ 66,55</td>
-              </tr>
-
-              <tr>
-                <td>Servicemonteur</td>
-                <td>€ 75,00</td>
-                <td>€ 90,75</td>
-              </tr>
-
-              <tr>
-                <td>Werkvoorbereider</td>
-                <td>€ 85,00</td>
-                <td>€ 102,85</td>
-              </tr>
-
-              <tr>
-                <td>Projectleider</td>
-                <td>€ 85,00</td>
-                <td>€ 102,85</td>
-              </tr>
-
-              <tr>
-                <td>Calculator</td>
-                <td>€ 85,00</td>
-                <td>€ 102,85</td>
-              </tr>
-
-              <tr>
-                <td>Tekenaar</td>
-                <td>€ 100,00</td>
-                <td>€ 121,00</td>
-              </tr>
-
             </tbody>
-
           </table>
 
         </div>
 
-
         <div class="tariff-table-note">
-
           <span class="tariff-note-mark">!</span>
 
-          <p>
+          <p id="hourly-note">
             Alle bovenstaande arbeidstarieven zijn
             uurtarieven en gelden op normale werkdagen
             tussen 08:00 en 17:00 uur.
           </p>
-
         </div>
 
       </div>
 
 
-      <!-- =================================
-           TOESLAGEN
-      ================================== -->
+      <!-- TOESLAGEN -->
 
       <div class="tariff-table-card">
 
         <div class="tariff-table-heading">
-
           <div>
-
             <span class="tariff-label">
               BUITEN REGULIERE WERKTIJDEN
             </span>
@@ -255,70 +222,48 @@
             <h3>
               Toeslagen
             </h3>
-
           </div>
 
           <span class="tariff-vat">
             Percentage van het toepasselijke tarief
           </span>
-
         </div>
-
 
         <div class="tariff-table-wrap">
 
           <table class="tariff-table">
-
             <thead>
-
               <tr>
                 <th>Periode</th>
                 <th>Toeslag</th>
               </tr>
-
             </thead>
 
-            <tbody>
-
+            <tbody id="surcharges-body">
               <tr>
-                <td>Werkdagen na 17:00 uur</td>
-                <td><strong>150%</strong></td>
+                <td colspan="2">
+                  Toeslagen worden geladen...
+                </td>
               </tr>
-
-              <tr>
-                <td>Zaterdagen</td>
-                <td><strong>150%</strong></td>
-              </tr>
-
-              <tr>
-                <td>Zon- en feestdagen</td>
-                <td><strong>200%</strong></td>
-              </tr>
-
             </tbody>
-
           </table>
 
         </div>
 
-
         <div class="tariff-table-note">
-
           <span class="tariff-note-mark">!</span>
 
-          <p>
+          <p id="surcharges-note">
             Buiten de reguliere werktijden kunnen
             aanvullende kosten gelden. Bij storingen
             buiten reguliere werktijden wordt ook
             de reistijd als arbeidstijd gerekend.
           </p>
-
         </div>
 
       </div>
 
     </div>
-
   </section>
 
 
@@ -327,7 +272,6 @@
   ====================================== -->
 
   <section class="section travel-section">
-
     <div class="container">
 
       <div class="travel-layout">
@@ -342,21 +286,26 @@
             Voorrijkosten<span class="red-dot">.</span>
           </h2>
 
-          <p>
-            Wij voeren onze service en diensten
-            voornamelijk uit in de regio rondom
-            Eerbeek en Loenen.
-          </p>
+          <div
+            id="travel-introduction"
+            class="cms-paragraphs"
+          >
+            <p>
+              Wij voeren onze service en diensten
+              voornamelijk uit in de regio rondom
+              Eerbeek en Loenen.
+            </p>
 
-          <p>
-            Daarvoor maken onze monteurs gebruik
-            van bedrijfsauto's met daarin gereedschap
-            en benodigde materialen. Ondanks ons
-            zorgvuldige beleid rond ons wagenpark
-            om zo weinig mogelijk kosten te maken
-            en het milieu zo min mogelijk te belasten,
-            ontkomen wij niet aan voorrijkosten.
-          </p>
+            <p>
+              Daarvoor maken onze monteurs gebruik
+              van bedrijfsauto's met daarin gereedschap
+              en benodigde materialen. Ondanks ons
+              zorgvuldige beleid rond ons wagenpark
+              om zo weinig mogelijk kosten te maken
+              en het milieu zo min mogelijk te belasten,
+              ontkomen wij niet aan voorrijkosten.
+            </p>
+          </div>
 
         </div>
 
@@ -369,7 +318,10 @@
               BINNEN 25 KILOMETER
             </span>
 
-            <div class="travel-price">
+            <div
+              class="travel-price"
+              id="travel-within-25"
+            >
               € 12,50
             </div>
 
@@ -377,7 +329,10 @@
               Exclusief btw
             </p>
 
-            <span class="travel-price-extra">
+            <span
+              class="travel-price-extra"
+              id="travel-within-25-vat"
+            >
               € 15,13 inclusief btw
             </span>
 
@@ -390,7 +345,10 @@
               BOVEN 25 KILOMETER
             </span>
 
-            <div class="travel-price">
+            <div
+              class="travel-price"
+              id="travel-beyond-25"
+            >
               € 0,50
             </div>
 
@@ -398,7 +356,10 @@
               Exclusief btw per kilometer
             </p>
 
-            <span class="travel-price-extra">
+            <span
+              class="travel-price-extra"
+              id="travel-beyond-note"
+            >
               Per kilometer, naar boven afgerond
             </span>
 
@@ -411,25 +372,26 @@
 
       <div class="travel-footnote">
 
-        <strong>Hoe wordt de afstand berekend?</strong>
+        <strong>
+          Hoe wordt de afstand berekend?
+        </strong>
 
-        <p>
+        <p id="travel-description">
           De afstand wordt gemeten vanaf onze locatie
           aan de Dalenk 3-H in Loenen. Bij afstanden
           boven de 25 kilometer wordt naar boven
           afgerond op hele kilometers.
         </p>
 
-        <small>
+        <small id="travel-date-note">
           De vermelde tarieven voor voorrijkosten
-          gelden volgens de oorspronkelijke tarievenpagina
-          per 01-04-2026.
+          gelden volgens de oorspronkelijke
+          tarievenpagina per 01-04-2026.
         </small>
 
       </div>
 
     </div>
-
   </section>
 
 
@@ -438,13 +400,11 @@
   ====================================== -->
 
   <section class="section section-soft tariff-details">
-
     <div class="container">
 
       <div class="section-head">
 
         <div>
-
           <span class="eyebrow">
             Goed om te weten
           </span>
@@ -452,10 +412,9 @@
           <h2>
             Hoe werken onze tarieven?
           </h2>
-
         </div>
 
-        <p>
+        <p id="explanations-introduction">
           Achter onze tarieven zitten verschillende
           werkzaamheden en afspraken. Hieronder
           leggen we deze graag uit.
@@ -464,514 +423,16 @@
       </div>
 
 
-      <div class="tariff-accordion">
-
-
-        <!-- 01 OFFERTE -->
-
-        <details class="tariff-detail" open>
-
-          <summary>
-            <span>01</span>
-            Offerte aanvragen
-          </summary>
-
-          <div class="tariff-detail-content">
-
-            <p>
-              Regelmatig krijgen wij het verzoek om
-              een offerte of prijsopgave uit te brengen.
-              Vaak zodat de aanvrager offertes en prijzen
-              kan vergelijken. Natuurlijk zijn wij u hier
-              graag bij van dienst, wij doen dit alleen
-              niet altijd kosteloos.
-            </p>
-
-            <p>
-              Voor het maken van een goed en persoonlijk
-              advies door een ervaren professional is tijd
-              nodig. Bijvoorbeeld voor informatie-inwinning,
-              een bezoek, calculeren en prijsonderhandelingen
-              met leveranciers.
-            </p>
-
-            <p>
-              De tijd voor het maken van een offerte kunnen
-              wij aan u doorberekenen. Dit kan variëren vanaf
-              één uur tot meerdere dagen, afhankelijk van
-              de complexiteit van uw vraag.
-            </p>
-
-            <p>
-              Vooraf zullen wij u zo goed mogelijk een
-              indicatie van de benodigde tijd afgeven.
-              Het resultaat voor u is een goede en
-              gedetailleerde offerte. Zo kunt u goed
-              offertes vergelijken, zonder verdere
-              verplichtingen.
-            </p>
-
-          </div>
-
-        </details>
-
-
-        <!-- 02 GEPLANDE WERKZAAMHEDEN -->
-
-        <details class="tariff-detail">
-
-          <summary>
-            <span>02</span>
-            Geplande werkzaamheden
-          </summary>
-
-          <div class="tariff-detail-content">
-
-            <p>
-              De werkzaamheden die wij kunnen uitvoeren
-              voor u zijn divers. Zo zijn er werkzaamheden
-              die eenvoudig op termijn kunnen worden
-              gepland, zoals bijvoorbeeld een onderhoudsbeurt
-              aan uw CV-ketel en/of andere installatie.
-            </p>
-
-            <p>
-              Ook zijn er klussen die een paar uur of
-              een dag in beslag nemen (korte klussen),
-              maar ook grotere projecten.
-            </p>
-
-            <p>
-              Deze worden in overleg met u zo snel
-              mogelijk ingepland binnen de mogelijkheden.
-            </p>
-
-          </div>
-
-        </details>
-
-
-        <!-- 03 KLEINE KLUSSEN -->
-
-        <details class="tariff-detail">
-
-          <summary>
-            <span>03</span>
-            Kleine klussen en storingen
-          </summary>
-
-          <div class="tariff-detail-content">
-
-            <p>
-              Helaas kunnen wij niet alles plannen.
-              En ook is het moeilijk om aan de telefoon
-              een inschatting te maken van de benodigde
-              tijd die wij nodig hebben om u te helpen.
-            </p>
-
-            <p>
-              Daarnaast is er bij elke opdracht,
-              klein of groot, tijd voor werkvoorbereiding
-              en financiële afhandeling nodig.
-            </p>
-
-            <p>
-              Wij rekenen onze reistijd naar uw adres
-              als arbeidstijd. Als startpunt hanteren
-              wij hiervoor onze vestiging aan de
-              Dalenk 3H te Loenen.
-            </p>
-
-            <div class="tariff-highlight">
-
-              Houdt u er tevens rekening mee dat wij
-              altijd minimaal 1 uur factureren.
-
-            </div>
-
-            <p>
-              Verwacht u dat uw opdracht minder dan
-              1 uur tijd in beslag zal nemen? Dan kunt
-              u misschien een extra klusje tegelijkertijd
-              laten uitvoeren, bijvoorbeeld een dakgoot
-              schoonmaken of een kraanleertje vervangen.
-            </p>
-
-          </div>
-
-        </details>
-
-
-        <!-- 04 WERKVOORBEREIDING -->
-
-        <details class="tariff-detail">
-
-          <summary>
-            <span>04</span>
-            Werkvoorbereiding, calculatie en facturatie
-          </summary>
-
-          <div class="tariff-detail-content">
-
-            <p>
-              Als klant ziet u enkel de werkzaamheden
-              die onze monteurs bij u op locatie uitvoeren.
-              Echter zijn niet enkel onze monteurs voor u
-              aan het werk.
-            </p>
-
-            <p>
-              Bij ons op het bedrijf vinden allerlei
-              voorbereidende werkzaamheden plaats,
-              vanaf het aannemen van de telefoon of
-              beantwoorden van uw e-mail.
-            </p>
-
-            <p>
-              Voordat onze monteurs aan de slag kunnen
-              bij u thuis zijn er al een aantal zaken
-              op kantoor voorbereid. Het bestellen van
-              eventuele producten, het instrueren van
-              de monteurs, administratieve voorbereiding
-              en afhandeling en het zoeken naar de beste
-              oplossing en het uitwerken hiervan zijn
-              goede voorbeelden.
-            </p>
-
-            <p>
-              Al het werk moet vervolgens op de juiste
-              wijze correct worden gefactureerd aan u,
-              facturen worden verstuurd en al dan niet
-              tijdige betalingen worden verwerkt.
-            </p>
-
-          </div>
-
-        </details>
-
-
-        <!-- 05 STORINGEN -->
-
-        <details class="tariff-detail">
-
-          <summary>
-            <span>05</span>
-            Storingen binnen en buiten reguliere werktijden
-          </summary>
-
-          <div class="tariff-detail-content">
-
-            <p>
-              Storingen verhelpen wij graag zo snel
-              mogelijk binnen onze reguliere openingstijden.
-              Afhankelijk van de aard van uw storing en
-              onze beschikbaarheid van de servicemonteurs
-              zijn wij ook buiten de reguliere werktijden
-              te bereiken om calamiteiten op te lossen.
-            </p>
-
-            <p>
-              Wilt u de storing laten verhelpen buiten
-              de reguliere werktijden? Houdt u dan rekening
-              met een toeslag. Daarnaast rekenen wij in
-              geval van storingen buiten reguliere werktijden
-              onze reistijd ook als arbeidstijd.
-            </p>
-
-            <p>
-              Als startpunt hanteren wij hiervoor onze
-              vestiging aan de Dalenk 3H te Loenen.
-            </p>
-
-            <div class="tariff-highlight">
-
-              Op werkdagen na 17:00 uur en op zaterdagen
-              hanteren wij een opslag van 150% van het
-              reguliere (van toepassing zijnde) tarief.
-
-              <br><br>
-
-              Op zon- en feestdagen hanteren wij een
-              opslag van 200% van het reguliere
-              (van toepassing zijnde) tarief.
-
-            </div>
-
-          </div>
-
-        </details>
-
-
-        <!-- 06 PRIJSINDICATIE -->
-
-        <details class="tariff-detail">
-
-          <summary>
-            <span>06</span>
-            Prijsindicatie
-          </summary>
-
-          <div class="tariff-detail-content">
-
-            <p>
-              Als u een prijsindicatie wenst voorafgaande
-              aan de werkzaamheden, dan proberen wij u
-              een zo goed mogelijke prijsindicatie te geven
-              op basis van de dan beschikbare informatie.
-            </p>
-
-            <p>
-              Wij zijn zorgvuldig in het berekenen van
-              deze prijsindicatie, maar het is geen vaste
-              prijsafspraak.
-            </p>
-
-            <p>
-              Ondanks onze moeite om tot een goede en
-              eerlijke prijsindicatie te komen, kan het zijn
-              dat tijdens het uitvoeren van de werkzaamheden
-              blijkt dat er meer uren nodig zijn voor een
-              goede oplevering.
-            </p>
-
-            <p>
-              Ook onze medewerkers lopen tegen onvoorziene
-              situaties aan en kunnen niet door muren of
-              vloeren heen kijken om vooraf precies te zien
-              hoe de situatie is.
-            </p>
-
-          </div>
-
-        </details>
-
-
-        <!-- 07 MATERIAAL -->
-
-        <details class="tariff-detail">
-
-          <summary>
-            <span>07</span>
-            Benodigd materiaal in de auto en in het magazijn
-          </summary>
-
-          <div class="tariff-detail-content">
-
-            <p>
-              Onze monteurs hebben een beperkt assortiment
-              aan materiaal in hun auto. Ons complete
-              magazijn telt ruim 350 m², dus u kunt zich
-              voorstellen dat wat zij in de auto meenemen
-              slechts een klein deel is. Ook om diefstal
-              uit de auto te voorkomen.
-            </p>
-
-            <p>
-              Daarnaast wegen zij vooraf zoveel mogelijk
-              af welk materiaal er extra meegenomen moet
-              worden.
-            </p>
-
-            <p>
-              Ondanks dit voorwerk kan het voorkomen
-              dat zij terug naar ons magazijn moeten
-              om het juiste materiaal op te halen.
-              Dit valt onder reguliere werktijd bij
-              de opdracht.
-            </p>
-
-            <p>
-              Wij proberen dit natuurlijk tot een
-              minimum te beperken.
-            </p>
-
-          </div>
-
-        </details>
-
-
-        <!-- 08 SPECIAAL GEREEDSCHAP -->
-
-        <details class="tariff-detail">
-
-          <summary>
-            <span>08</span>
-            Speciaal gereedschap
-          </summary>
-
-          <div class="tariff-detail-content">
-
-            <p>
-              Het komt voor dat specialistische
-              gereedschappen ingezet moeten worden.
-            </p>
-
-            <p>
-              Een warmtebeeldcamera en speciale
-              rioolontstoppers, dan wel speciale boren
-              of industriële rookgasmeters zijn hiervan
-              een goed voorbeeld.
-            </p>
-
-            <p>
-              Wanneer deze gereedschappen worden gebruikt,
-              worden deze aan u doorgerekend.
-            </p>
-
-          </div>
-
-        </details>
-
-
-        <!-- 09 SMARTHOME -->
-
-        <details class="tariff-detail">
-
-          <summary>
-            <span>09</span>
-            Smarthome en netwerkverbindingen
-          </summary>
-
-          <div class="tariff-detail-content">
-
-            <p>
-              Onze monteurs zijn gespecialiseerd in het
-              plaatsen en onderhouden van installaties,
-              maar zijn geen IT-specialisten.
-            </p>
-
-            <p>
-              Wij leveren de installatie werkend op.
-              Wij kunnen u, tot een bepaalde hoogte,
-              bijstaan bij het installeren en simpel
-              instellen van bijvoorbeeld een app.
-            </p>
-
-            <p>
-              Echter zijn er tegenwoordig in veel
-              huishoudens al persoonlijke keuzes gemaakt
-              als het aankomt op de inrichting van routers,
-              switches, merken, smarthomeprotocollen en
-              de kwaliteit van bedraad en/of draadloos
-              netwerk (LAN en/of WiFi).
-            </p>
-
-            <p>
-              Hier hebben wij geen invloed op, maar
-              deze factoren kunnen de werking negatief
-              beïnvloeden.
-            </p>
-
-
-            <h4>
-              Mogelijke netwerkproblemen
-            </h4>
-
-
-            <ul class="tariff-problem-list">
-
-              <li>
-
-                <strong>Verbindingsproblemen</strong>
-
-                <p>
-                  De installatie kan moeite hebben om
-                  verbinding te maken met uw (wifi)netwerk.
-                  Dit zou veroorzaakt kunnen worden door
-                  een zwak wifi-signaal, interferentie van
-                  andere apparaten of een verkeerd ingevoerd
-                  wifi-wachtwoord.
-                </p>
-
-              </li>
-
-
-              <li>
-
-                <strong>IP-conflicten</strong>
-
-                <p>
-                  Als uw netwerk zowel vaste als dynamische
-                  IP-adressen gebruikt, kan dit leiden
-                  tot conflicten.
-                </p>
-
-              </li>
-
-
-              <li>
-
-                <strong>Portforwarding</strong>
-
-                <p>
-                  Sommige apparaten vereisen specifieke
-                  poorten om correct te functioneren.
-                  Als deze poorten anders zijn geconfigureerd
-                  in uw router, kan de installatie mogelijk
-                  geen verbinding maken met de server of
-                  andere apparaten.
-                </p>
-
-              </li>
-
-
-              <li>
-
-                <strong>Netwerkprioritering</strong>
-
-                <p>
-                  Als uw router bepaalde apparaten of
-                  diensten prioriteert, kan dit van invloed
-                  zijn op de prestaties van uw installatie.
-                </p>
-
-              </li>
-
-
-              <li>
-
-                <strong>Verouderde software, firmware
-                of hardware</strong>
-
-                <p>
-                  Als de software, firmware of hardware
-                  van overige, in uw huis gebruikte,
-                  apparaten niet up-to-date is, kunnen
-                  er compatibiliteitsproblemen optreden
-                  die de werking van de installatie
-                  negatief kunnen beïnvloeden.
-                </p>
-
-              </li>
-
-            </ul>
-
-
-            <div class="tariff-highlight">
-
-              Koller & Tabor kan niet aansprakelijk
-              worden gesteld voor de onjuiste werking
-              van (delen van) de installatie in combinatie
-              met overige, al in uw huis aanwezige
-              (netwerk)apparatuur.
-
-              <br><br>
-
-              Wij raden u in voorkomende gevallen
-              een IT-specialist te raadplegen
-              voor ondersteuning.
-
-            </div>
-
-          </div>
-
-        </details>
-
-
+      <div
+        class="tariff-accordion"
+        id="tariff-accordion"
+      >
+        <p class="tariff-loading">
+          Toelichtingen worden geladen...
+        </p>
       </div>
 
     </div>
-
   </section>
 
 
@@ -980,13 +441,11 @@
   ====================================== -->
 
   <section class="section section-soft">
-
     <div class="container">
 
       <div class="section-head">
 
         <div>
-
           <span class="eyebrow">
             Documenten
           </span>
@@ -994,7 +453,6 @@
           <h2>
             Algemene voorwaarden<span class="red-dot">.</span>
           </h2>
-
         </div>
 
         <p>
@@ -1006,7 +464,6 @@
 
 
       <div class="terms-grid">
-
 
         <!-- CONSUMENTEN -->
 
@@ -1026,6 +483,7 @@
           </p>
 
           <a
+            id="consumer-terms-link"
             href="documents/Algemene-Voorwaarden-voor-Installatiewerk-voor-Consumenten-AVIC-2016.pdf"
             class="btn btn-primary"
             download
@@ -1048,13 +506,24 @@
             Algemene voorwaarden bedrijven
           </h3>
 
-          <p>
+          <p id="business-terms-description">
             De algemene voorwaarden voor zakelijke
             opdrachten worden hier beschikbaar
             zodra de juiste documentversie is aangeleverd.
           </p>
 
+          <a
+            id="business-terms-link"
+            class="btn btn-primary"
+            href="#"
+            download
+            hidden
+          >
+            Download voorwaarden ↓
+          </a>
+
           <button
+            id="business-terms-unavailable"
             type="button"
             class="btn btn-outline"
             disabled
@@ -1064,11 +533,9 @@
 
         </article>
 
-
       </div>
 
     </div>
-
   </section>
 
 
@@ -1077,16 +544,15 @@
   ====================================== -->
 
   <section class="cta">
-
     <div class="container">
 
       <div>
 
-        <h2>
+        <h2 id="tariffs-contact-heading">
           Heeft u vragen over onze tarieven?
         </h2>
 
-        <p>
+        <p id="tariffs-contact-description">
           We vertellen u graag meer over onze
           werkzaamheden en de bijbehorende kosten.
         </p>
@@ -1101,14 +567,724 @@
       </a>
 
     </div>
-
   </section>
-
 
 </main>
 
 <div id="site-footer"></div>
 
-</body>
 
+<!-- ==========================================
+     SVELTIA CMS KOPPELING
+========================================== -->
+
+<script>
+(function () {
+  "use strict";
+
+  const DATA_URL = "content/tarieven.json";
+
+
+  // ========================================
+  // ELEMENTEN VEILIG MAKEN
+  // ========================================
+
+  function makeElement(tag, className, text) {
+    const element = document.createElement(tag);
+
+    if (className) {
+      element.className = className;
+    }
+
+    if (text !== undefined && text !== null) {
+      element.textContent = String(text);
+    }
+
+    return element;
+  }
+
+
+  // ========================================
+  // TEKST VANUIT CMS INVULLEN
+  // ========================================
+
+  function setText(id, value) {
+    const element = document.getElementById(id);
+
+    if (!element || typeof value !== "string") {
+      return;
+    }
+
+    element.textContent = value;
+  }
+
+
+  // ========================================
+  // TEKST MET MEERDERE ALINEA'S
+  // ========================================
+
+  function makeParagraphs(text) {
+    const fragment = document.createDocumentFragment();
+
+    if (typeof text !== "string" || !text.trim()) {
+      return fragment;
+    }
+
+    const paragraphs = text
+      .trim()
+      .split(/\n\s*\n/);
+
+    paragraphs.forEach(function (paragraph) {
+      const element = makeElement(
+        "p",
+        "",
+        paragraph.trim()
+      );
+
+      element.style.whiteSpace = "pre-line";
+
+      fragment.appendChild(element);
+    });
+
+    return fragment;
+  }
+
+
+  function setParagraphs(id, text) {
+    const container = document.getElementById(id);
+
+    if (!container || typeof text !== "string") {
+      return;
+    }
+
+    container.replaceChildren(
+      makeParagraphs(text)
+    );
+  }
+
+
+  // ========================================
+  // UURTARIEVEN
+  // ========================================
+
+  function renderHourlyRates(rates) {
+    const tbody = document.getElementById(
+      "hourly-rates-body"
+    );
+
+    if (!Array.isArray(rates)) {
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+
+    rates.forEach(function (rate) {
+      if (!rate || typeof rate !== "object") {
+        return;
+      }
+
+      const row = document.createElement("tr");
+
+      row.appendChild(
+        makeElement("td", "", rate.name || "")
+      );
+
+      row.appendChild(
+        makeElement("td", "", rate.price_ex || "")
+      );
+
+      row.appendChild(
+        makeElement("td", "", rate.price_in || "")
+      );
+
+      fragment.appendChild(row);
+    });
+
+    if (!rates.length) {
+      const row = document.createElement("tr");
+      const cell = makeElement(
+        "td",
+        "",
+        "Er zijn momenteel geen arbeidstarieven beschikbaar."
+      );
+
+      cell.colSpan = 3;
+
+      row.appendChild(cell);
+      fragment.appendChild(row);
+    }
+
+    tbody.replaceChildren(fragment);
+  }
+
+
+  // ========================================
+  // TOESLAGEN
+  // ========================================
+
+  function renderSurcharges(surcharges) {
+    const tbody = document.getElementById(
+      "surcharges-body"
+    );
+
+    if (!Array.isArray(surcharges)) {
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+
+    surcharges.forEach(function (surcharge) {
+      if (!surcharge || typeof surcharge !== "object") {
+        return;
+      }
+
+      const row = document.createElement("tr");
+
+      row.appendChild(
+        makeElement(
+          "td",
+          "",
+          surcharge.period || ""
+        )
+      );
+
+      const percentageCell = document.createElement("td");
+
+      const strong = makeElement(
+        "strong",
+        "",
+        surcharge.percentage || ""
+      );
+
+      percentageCell.appendChild(strong);
+      row.appendChild(percentageCell);
+
+      fragment.appendChild(row);
+    });
+
+    if (!surcharges.length) {
+      const row = document.createElement("tr");
+      const cell = makeElement(
+        "td",
+        "",
+        "Er zijn momenteel geen toeslagen vermeld."
+      );
+
+      cell.colSpan = 2;
+
+      row.appendChild(cell);
+      fragment.appendChild(row);
+    }
+
+    tbody.replaceChildren(fragment);
+  }
+
+
+  // ========================================
+  // VOORRIJKOSTEN
+  // ========================================
+
+  function renderTravel(travel) {
+    if (!travel || typeof travel !== "object") {
+      return;
+    }
+
+    setParagraphs(
+      "travel-introduction",
+      travel.introduction
+    );
+
+    setText(
+      "travel-within-25",
+      travel.within_25
+    );
+
+    if (typeof travel.within_25_vat === "string") {
+      setText(
+        "travel-within-25-vat",
+        travel.within_25_vat + " inclusief btw"
+      );
+    }
+
+    setText(
+      "travel-beyond-25",
+      travel.beyond_25
+    );
+
+    setText(
+      "travel-beyond-note",
+      travel.beyond_25_note
+    );
+
+    setText(
+      "travel-description",
+      travel.description
+    );
+
+    setText(
+      "travel-date-note",
+      travel.date_note
+    );
+  }
+
+
+  // ========================================
+  // EXTRA NETWERKPROBLEMEN
+  // ========================================
+
+  function makeProblemsList(problems) {
+    const list = makeElement(
+      "ul",
+      "tariff-problem-list"
+    );
+
+    problems.forEach(function (problem) {
+      if (!problem || typeof problem !== "object") {
+        return;
+      }
+
+      const item = document.createElement("li");
+
+      if (problem.title) {
+        item.appendChild(
+          makeElement(
+            "strong",
+            "",
+            problem.title
+          )
+        );
+      }
+
+      if (problem.description) {
+        item.appendChild(
+          makeElement(
+            "p",
+            "",
+            problem.description
+          )
+        );
+      }
+
+      list.appendChild(item);
+    });
+
+    return list;
+  }
+
+
+  // ========================================
+  // EEN UITKLAPBARE TOELICHTING
+  // ========================================
+
+  function makeExplanation(explanation, index) {
+    const details = makeElement(
+      "details",
+      "tariff-detail"
+    );
+
+    // Het eerste onderdeel staat standaard open.
+    if (index === 0) {
+      details.open = true;
+    }
+
+    const summary = document.createElement("summary");
+
+    const number = String(index + 1).padStart(2, "0");
+
+    summary.appendChild(
+      makeElement("span", "", number)
+    );
+
+    summary.appendChild(
+      document.createTextNode(
+        explanation.title || "Toelichting"
+      )
+    );
+
+    details.appendChild(summary);
+
+
+    const content = makeElement(
+      "div",
+      "tariff-detail-content"
+    );
+
+
+    // Hoofdtekst
+    if (explanation.content) {
+      content.appendChild(
+        makeParagraphs(explanation.content)
+      );
+    }
+
+
+    // Opvallend informatieblok
+    if (explanation.highlight) {
+      content.appendChild(
+        makeElement(
+          "div",
+          "tariff-highlight",
+          explanation.highlight
+        )
+      );
+    }
+
+
+    // Tekst onder informatieblok
+    if (explanation.after_highlight) {
+      content.appendChild(
+        makeParagraphs(explanation.after_highlight)
+      );
+    }
+
+
+    // Extra tussenkop
+    if (explanation.subheading) {
+      content.appendChild(
+        makeElement(
+          "h4",
+          "",
+          explanation.subheading
+        )
+      );
+    }
+
+
+    // Bijvoorbeeld netwerkproblemen
+    if (
+      Array.isArray(explanation.problems) &&
+      explanation.problems.length > 0
+    ) {
+      content.appendChild(
+        makeProblemsList(explanation.problems)
+      );
+    }
+
+    details.appendChild(content);
+
+    return details;
+  }
+
+
+  // ========================================
+  // ALLE TOELICHTINGEN
+  // ========================================
+
+  function renderExplanations(explanations) {
+    const container = document.getElementById(
+      "tariff-accordion"
+    );
+
+    if (!Array.isArray(explanations)) {
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+
+    if (explanations.length === 0) {
+      fragment.appendChild(
+        makeElement(
+          "p",
+          "",
+          "Er zijn momenteel geen toelichtingen beschikbaar."
+        )
+      );
+    } else {
+      explanations.forEach(function (explanation, index) {
+        if (!explanation || typeof explanation !== "object") {
+          return;
+        }
+
+        fragment.appendChild(
+          makeExplanation(explanation, index)
+        );
+      });
+    }
+
+    container.replaceChildren(fragment);
+  }
+
+
+  // ========================================
+  // DOCUMENTLINKS
+  // ========================================
+
+  function getDocumentUrl(path) {
+    if (typeof path !== "string" || !path.trim()) {
+      return "";
+    }
+
+    let cleanPath = path.trim();
+
+    // Alleen HTTPS of lokale bestanden toestaan.
+    if (/^https:\/\//i.test(cleanPath)) {
+      return cleanPath;
+    }
+
+    if (
+      /^[a-z][a-z0-9+.-]*:/i.test(cleanPath) ||
+      cleanPath.startsWith("//")
+    ) {
+      return "";
+    }
+
+    const siteBase = new URL(".", document.baseURI);
+
+    // Ook paden met een voorloopslash ondersteunen.
+    const siteFolder = siteBase.pathname.replace(/\/$/, "");
+
+    if (
+      siteFolder &&
+      cleanPath.startsWith(siteFolder + "/")
+    ) {
+      cleanPath = cleanPath.slice(siteFolder.length);
+    }
+
+    cleanPath = cleanPath.replace(/^\/+/, "");
+
+    if (cleanPath.split("/").includes("..")) {
+      return "";
+    }
+
+    return new URL(cleanPath, siteBase).href;
+  }
+
+
+  function renderDocuments(data) {
+    const consumerLink = document.getElementById(
+      "consumer-terms-link"
+    );
+
+    const businessLink = document.getElementById(
+      "business-terms-link"
+    );
+
+    const unavailableButton = document.getElementById(
+      "business-terms-unavailable"
+    );
+
+
+    // Consumentenvoorwaarden
+    if (typeof data.consumer_terms === "string") {
+      const url = getDocumentUrl(data.consumer_terms);
+
+      if (url) {
+        consumerLink.href = url;
+        consumerLink.hidden = false;
+      } else {
+        consumerLink.removeAttribute("href");
+        consumerLink.hidden = true;
+      }
+    }
+
+
+    // Zakelijke voorwaarden
+    if (typeof data.business_terms === "string") {
+      const url = getDocumentUrl(data.business_terms);
+
+      if (url) {
+        businessLink.href = url;
+        businessLink.hidden = false;
+
+        unavailableButton.hidden = true;
+      } else {
+        businessLink.removeAttribute("href");
+        businessLink.hidden = true;
+
+        unavailableButton.hidden = false;
+      }
+    }
+
+    setText(
+      "business-terms-description",
+      data.business_terms_description
+    );
+  }
+
+
+  // ========================================
+  // ALLE TARIEFGEGEVENS INVULLEN
+  // ========================================
+
+  function renderTariffs(data) {
+
+    // Bovenkant van de pagina
+    if (data.hero && typeof data.hero === "object") {
+      setText(
+        "tariffs-hero-eyebrow",
+        data.hero.eyebrow
+      );
+
+      setText(
+        "tariffs-hero-title",
+        data.hero.title
+      );
+
+      setText(
+        "tariffs-hero-introduction",
+        data.hero.introduction
+      );
+    }
+
+
+    // Introductie
+    setText(
+      "tariffs-intro-heading",
+      data.intro_heading
+    );
+
+    setText(
+      "tariffs-intro-accent",
+      data.intro_accent
+    );
+
+    setParagraphs(
+      "tariffs-introduction",
+      data.introduction
+    );
+
+
+    // Uurtarieven
+    setText(
+      "hourly-introduction",
+      data.hourly_intro
+    );
+
+    renderHourlyRates(data.hourly_rates);
+
+    setText(
+      "hourly-note",
+      data.hourly_note
+    );
+
+
+    // Toeslagen
+    renderSurcharges(data.surcharges);
+
+    setText(
+      "surcharges-note",
+      data.surcharges_note
+    );
+
+
+    // Voorrijkosten
+    renderTravel(data.travel);
+
+
+    // Uitgebreide toelichtingen
+    setText(
+      "explanations-introduction",
+      data.explanations_intro
+    );
+
+    renderExplanations(data.explanations);
+
+
+    // Algemene voorwaarden
+    renderDocuments(data);
+
+
+    // Contactblok onderaan
+    setText(
+      "tariffs-contact-heading",
+      data.contact_heading
+    );
+
+    setText(
+      "tariffs-contact-description",
+      data.contact_description
+    );
+  }
+
+
+  // ========================================
+  // JSON LADEN
+  // ========================================
+
+  async function loadTariffs() {
+    try {
+      const response = await fetch(DATA_URL, {
+        cache: "no-store"
+      });
+
+      if (!response.ok) {
+        throw new Error(
+          "Tariefgegevens niet beschikbaar: " +
+          response.status
+        );
+      }
+
+      const data = await response.json();
+
+      if (
+        !data ||
+        typeof data !== "object" ||
+        !Array.isArray(data.hourly_rates) ||
+        !Array.isArray(data.surcharges) ||
+        !Array.isArray(data.explanations)
+      ) {
+        throw new Error(
+          "Het tariefbestand heeft niet de verwachte structuur."
+        );
+      }
+
+      renderTariffs(data);
+
+    } catch (error) {
+      console.error(
+        "Kon tarieven niet laden:",
+        error
+      );
+
+      const hourlyBody = document.getElementById(
+        "hourly-rates-body"
+      );
+
+      const surchargesBody = document.getElementById(
+        "surcharges-body"
+      );
+
+      const accordion = document.getElementById(
+        "tariff-accordion"
+      );
+
+      const message =
+        "De actuele tarieven kunnen momenteel niet worden geladen. " +
+        "Neem contact met ons op voor meer informatie.";
+
+      const hourlyRow = document.createElement("tr");
+      const hourlyCell = makeElement("td", "", message);
+
+      hourlyCell.colSpan = 3;
+      hourlyRow.appendChild(hourlyCell);
+      hourlyBody.replaceChildren(hourlyRow);
+
+      const surchargeRow = document.createElement("tr");
+      const surchargeCell = makeElement("td", "", message);
+
+      surchargeCell.colSpan = 2;
+      surchargeRow.appendChild(surchargeCell);
+      surchargesBody.replaceChildren(surchargeRow);
+
+      accordion.replaceChildren(
+        makeElement(
+          "p",
+          "tariff-error",
+          "De uitgebreide toelichtingen zijn tijdelijk niet beschikbaar."
+        )
+      );
+    }
+  }
+
+
+  // ========================================
+  // STARTEN
+  // ========================================
+
+  loadTariffs();
+
+})();
+</script>
+
+</body>
 </html>
