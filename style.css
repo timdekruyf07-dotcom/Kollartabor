@@ -1873,3 +1873,500 @@ a.card:focus-visible {
   }
 
 }
+/* ==========================================
+   TARIEVENPAGINA
+   KOLLER & TABOR
+========================================== */
+
+.tariffs-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.tariffs-intro-grid h2 {
+  margin-top: 20px;
+  font-size: clamp(36px, 4vw, 55px);
+}
+
+.tariffs-intro-grid p {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+
+/* ==========================================
+   TARIEVENKAARTEN
+========================================== */
+
+.tariff-table-card {
+  overflow: hidden;
+  margin-bottom: 30px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(20, 35, 55, .045);
+}
+
+.tariff-table-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 30px 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.tariff-table-heading h3 {
+  margin-top: 8px;
+}
+
+.tariff-label {
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+
+.tariff-vat {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.tariff-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tariff-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tariff-table th {
+  padding: 17px 32px;
+  background: #f5f7fa;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.tariff-table td {
+  padding: 19px 32px;
+  border-bottom: 1px solid #edf0f4;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.tariff-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tariff-table td:first-child {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.tariff-table td strong {
+  color: var(--blue);
+  font-size: 17px;
+}
+
+.tariff-table tbody tr {
+  transition: background .2s ease;
+}
+
+.tariff-table tbody tr:hover {
+  background: #f7f9fc;
+}
+
+.tariff-table-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 20px 32px;
+  background: #f5f7fa;
+  border-top: 1px solid var(--line);
+}
+
+.tariff-table-note p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.tariff-note-mark {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  background: #e5edf8;
+  border-radius: 50%;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+
+/* ==========================================
+   VOORRIJKOSTEN
+========================================== */
+
+.travel-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+  gap: 65px;
+}
+
+.travel-copy h2 {
+  margin: 18px 0;
+}
+
+.travel-copy p {
+  max-width: 530px;
+}
+
+.travel-prices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.travel-price-card {
+  padding: 28px 23px;
+  background: #fff0e5;
+  border: 1px solid #efc5a8;
+  border-radius: 12px;
+}
+
+.travel-price-secondary {
+  background: #edf5ff;
+  border-color: #c6d9f1;
+}
+
+.travel-price-label {
+  display: block;
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .11em;
+}
+
+.travel-price {
+  margin-top: 24px;
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 800;
+  letter-spacing: -.06em;
+}
+
+.travel-price-card p {
+  margin: 5px 0;
+  font-size: 12px;
+}
+
+.travel-price-extra {
+  display: block;
+  margin-top: 18px;
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.travel-footnote {
+  margin-top: 30px;
+  padding: 25px 30px;
+  background: var(--paper);
+  border-left: 3px solid var(--blue);
+}
+
+.travel-footnote strong {
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.travel-footnote p {
+  margin: 8px 0;
+  font-size: 13px;
+}
+
+.travel-footnote small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+
+/* ==========================================
+   UITKLAPBARE INFORMATIE
+========================================== */
+
+.tariff-accordion {
+  border-top: 1px solid var(--line);
+}
+
+.tariff-detail {
+  border-bottom: 1px solid var(--line);
+}
+
+.tariff-detail summary {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 25px 10px;
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+  transition: color .2s ease;
+}
+
+.tariff-detail summary::-webkit-details-marker {
+  display: none;
+}
+
+.tariff-detail summary::after {
+  content: '+';
+  margin-left: auto;
+  color: var(--blue);
+  font-size: 25px;
+  font-weight: 400;
+  transition: transform .25s ease;
+}
+
+.tariff-detail[open] summary::after {
+  content: '−';
+}
+
+.tariff-detail summary:hover {
+  color: var(--blue);
+}
+
+.tariff-detail summary span {
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.tariff-detail-content {
+  max-width: 850px;
+  padding: 0 20px 30px 60px;
+  animation: tariffReveal .3s ease;
+}
+
+.tariff-detail-content p {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.tariff-detail-content h4 {
+  margin: 25px 0 15px;
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 20px;
+}
+
+@keyframes tariffReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ==========================================
+   BELANGRIJKE OPMERKINGEN
+========================================== */
+
+.tariff-highlight {
+  margin: 23px 0;
+  padding: 20px 23px;
+  background: #edf3fb;
+  border-left: 3px solid var(--blue);
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.tariff-problem-list {
+  padding-left: 20px;
+}
+
+.tariff-problem-list li {
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+
+.tariff-problem-list li strong {
+  font-size: 14px;
+}
+
+.tariff-problem-list li p {
+  margin-top: 7px;
+}
+
+
+/* ==========================================
+   ALGEMENE VOORWAARDEN
+========================================== */
+
+.terms-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  padding: 45px;
+  background: #f1f4f8;
+  border-left: 4px solid var(--blue);
+}
+
+.terms-box h2 {
+  margin: 18px 0;
+  font-size: clamp(32px, 3.5vw, 45px);
+}
+
+.terms-box p {
+  font-size: 14px;
+}
+
+.terms-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.terms-link-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid #d9e0e9;
+}
+
+.terms-link-item > span {
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.terms-link-item strong {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.terms-note {
+  margin-top: 15px;
+  font-size: 11px !important;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1040px) {
+
+  .tariffs-intro-grid,
+  .travel-layout,
+  .terms-box {
+    gap: 35px;
+  }
+
+  .travel-prices {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* ==========================================
+   MOBIEL
+========================================== */
+
+@media (max-width: 760px) {
+
+  .tariffs-intro-grid,
+  .travel-layout,
+  .terms-box {
+    grid-template-columns: 1fr;
+  }
+
+  .tariffs-intro-grid {
+    gap: 20px;
+  }
+
+  .tariff-table-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 23px;
+  }
+
+  .tariff-table th,
+  .tariff-table td {
+    padding: 15px 18px;
+    font-size: 12px;
+  }
+
+  .tariff-table-note {
+    padding: 18px;
+  }
+
+  .travel-prices {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .travel-price-card {
+    padding: 22px 16px;
+  }
+
+  .travel-price {
+    font-size: 30px;
+  }
+
+  .tariff-detail summary {
+    gap: 14px;
+    padding: 21px 5px;
+    font-size: 15px;
+  }
+
+  .tariff-detail-content {
+    padding: 0 5px 25px 34px;
+  }
+
+  .terms-box {
+    padding: 28px 23px;
+  }
+
+}
+
+
+/* ==========================================
+   KLEINE TELEFOONS
+========================================== */
+
+@media (max-width: 450px) {
+
+  .travel-prices {
+    grid-template-columns: 1fr;
+  }
+
+  .travel-price-card {
+    padding: 25px;
+  }
+
+  .tariff-detail summary {
+    font-size: 14px;
+  }
+
+}
