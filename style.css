@@ -2370,3 +2370,49 @@ a.card:focus-visible {
   }
 
 }
+/* ==========================================
+   ALGEMENE VOORWAARDEN
+========================================== */
+
+.terms-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.terms-card {
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.terms-card h3 {
+  margin: 22px 0 12px;
+  font-size: 24px;
+}
+
+.terms-card p {
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.terms-card button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* MOBIEL */
+
+@media (max-width: 760px) {
+
+  .terms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .terms-card {
+    padding: 25px;
+  }
+
+}
