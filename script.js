@@ -1,11 +1,12 @@
 /* ==========================================
-   KOLLER & TABOR V2
+   KOLLER & TABOR V3
    JAVASCRIPT
 ========================================== */
 
 (() => {
 
   "use strict";
+
 
   /* ========================================
      PAGINA'S
@@ -17,9 +18,7 @@
 
     ["diensten.html", "Diensten"],
 
-    ["woning.html", "Interactieve woning"],
-
-    ["waarom.html", "Over ons"],
+    ["waarom-koller-tabor.html", "Waarom Koller & Tabor"],
 
     ["projecten.html", "Projecten"],
 
@@ -31,6 +30,7 @@
 
   ];
 
+
   /* ========================================
      HUIDIGE PAGINA BEPALEN
   ======================================== */
@@ -39,113 +39,75 @@
     location.pathname.split("/").pop() ||
     "index.html";
 
+
   /* ========================================
      HEADER AUTOMATISCH TOEVOEGEN
   ======================================== */
 
-  document.getElementById("site-header").innerHTML = `
+  const header = document.getElementById("site-header");
 
-    <div class="strip"></div>
+  if (header) {
 
-    <div class="site-header">
+    header.innerHTML = `
 
-      <div class="container nav">
+      <div class="strip"></div>
 
-        <a
-          class="brand"
-          href="index.html"
-          aria-label="Koller en Tabor — Home"
-        >
+      <div class="site-header">
 
-          <img
-            src="images/logo.png"
-            alt="Koller & Tabor Installatietechniek"
+        <div class="container nav">
+
+          <a
+            class="brand"
+            href="index.html"
+            aria-label="Koller en Tabor — Home"
           >
 
-        </a>
-
-        <button
-          class="menu-toggle"
-          id="menu-toggle"
-          aria-controls="menu"
-          aria-expanded="false"
-          aria-label="Menu openen"
-        >
-
-          ☰
-
-        </button>
-
-        <nav
-          class="menu"
-          id="menu"
-          aria-label="Hoofdnavigatie"
-        >
-
-          ${links.map(([href, label]) => `
-
-            <a
-              href="${href}"
-              class="${
-                file === href ? "current" : ""
-              } ${
-                href === "contact.html" ? "nav-cta" : ""
-              }"
-
-              ${
-                file === href
-                  ? 'aria-current="page"'
-                  : ""
-              }
+            <img
+              src="images/logo.png"
+              alt="Koller & Tabor Installatietechniek"
             >
 
-              ${label}
+          </a>
 
-            </a>
 
-          `).join("")}
+          <button
+            class="menu-toggle"
+            id="menu-toggle"
+            aria-controls="menu"
+            aria-expanded="false"
+            aria-label="Menu openen"
+          >
 
-        </nav>
+            ☰
 
-      </div>
+          </button>
 
-    </div>
-
-  `;
-
-  /* ========================================
-     FOOTER AUTOMATISCH TOEVOEGEN
-  ======================================== */
-
-  document.getElementById("site-footer").innerHTML = `
-
-    <div class="footer">
-
-      <div class="container">
-
-        <div class="footer-grid">
-
-          <div>
-
-            <div class="footer-logo">
-              Koller &amp; Tabor
-            </div>
-
-            <p>
-              Installatietechniek · Loenen
-            </p>
-
-          </div>
 
           <nav
-            class="footer-nav"
-            aria-label="Footernavigatie"
+            class="menu"
+            id="menu"
+            aria-label="Hoofdnavigatie"
           >
 
             ${links.map(([href, label]) => `
 
-              <a href="${href}">
+              <a
+                href="${href}"
+                class="${
+                  file === href ? "current" : ""
+                } ${
+                  href === "contact.html" ? "nav-cta" : ""
+                }"
+
+                ${
+                  file === href
+                    ? 'aria-current="page"'
+                    : ""
+                }
+              >
+
                 ${label}
+
               </a>
 
             `).join("")}
@@ -154,22 +116,79 @@
 
         </div>
 
-        <div class="footnote">
+      </div>
 
-          © ${new Date().getFullYear()}
-          Koller &amp; Tabor ·
+    `;
 
-          Onafhankelijk ontwerpconcept.
-          Bedrijfsinformatie controleren
-          vóór publicatie.
+  }
+
+
+  /* ========================================
+     FOOTER AUTOMATISCH TOEVOEGEN
+  ======================================== */
+
+  const footer = document.getElementById("site-footer");
+
+  if (footer) {
+
+    footer.innerHTML = `
+
+      <div class="footer">
+
+        <div class="container">
+
+          <div class="footer-grid">
+
+            <div>
+
+              <div class="footer-logo">
+                Koller &amp; Tabor
+              </div>
+
+              <p>
+                Installatietechniek · Loenen
+              </p>
+
+            </div>
+
+
+            <nav
+              class="footer-nav"
+              aria-label="Footernavigatie"
+            >
+
+              ${links.map(([href, label]) => `
+
+                <a href="${href}">
+                  ${label}
+                </a>
+
+              `).join("")}
+
+            </nav>
+
+          </div>
+
+
+          <div class="footnote">
+
+            © ${new Date().getFullYear()}
+            Koller &amp; Tabor ·
+
+            Onafhankelijk ontwerpconcept.
+            Bedrijfsinformatie controleren
+            vóór publicatie.
+
+          </div>
 
         </div>
 
       </div>
 
-    </div>
+    `;
 
-  `;
+  }
+
 
   /* ========================================
      MOBIEL MENU
@@ -183,25 +202,81 @@
     "menu"
   );
 
-  toggle.addEventListener("click", () => {
 
-    const open = menu.classList.toggle(
-      "open"
-    );
+  if (toggle && menu) {
 
-    toggle.setAttribute(
-      "aria-expanded",
-      String(open)
-    );
+    toggle.addEventListener("click", () => {
 
-    toggle.setAttribute(
-      "aria-label",
-      open ? "Menu sluiten" : "Menu openen"
-    );
+      const open = menu.classList.toggle(
+        "open"
+      );
 
-    toggle.textContent = open ? "✕" : "☰";
+      toggle.setAttribute(
+        "aria-expanded",
+        String(open)
+      );
 
-  });
+      toggle.setAttribute(
+        "aria-label",
+        open ? "Menu sluiten" : "Menu openen"
+      );
+
+      toggle.textContent = open ? "✕" : "☰";
+
+    });
+
+
+    /* MENU SLUITEN NA KLIKKEN */
+
+    menu.querySelectorAll("a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        menu.classList.remove("open");
+
+        toggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        toggle.setAttribute(
+          "aria-label",
+          "Menu openen"
+        );
+
+        toggle.textContent = "☰";
+
+      });
+
+    });
+
+
+    /* MENU SLUITEN MET ESCAPE */
+
+    document.addEventListener("keydown", event => {
+
+      if (event.key === "Escape") {
+
+        menu.classList.remove("open");
+
+        toggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        toggle.setAttribute(
+          "aria-label",
+          "Menu openen"
+        );
+
+        toggle.textContent = "☰";
+
+      }
+
+    });
+
+  }
+
 
   /* ========================================
      SCROLLANIMATIES
@@ -210,6 +285,7 @@
   const items = document.querySelectorAll(
     ".reveal"
   );
+
 
   if (
 
@@ -249,6 +325,7 @@
 
     );
 
+
     items.forEach(item => {
 
       observer.observe(item);
@@ -259,224 +336,11 @@
 
     items.forEach(item => {
 
-      item.classList.add(
-        "visible"
-      );
+      item.classList.add("visible");
 
     });
 
   }
 
-  /* ========================================
-     INFORMATIE INTERACTIEVE WONING
-  ======================================== */
-
-  const data = {
-
-    verwarming: [
-
-      "Verwarming",
-
-      "Verwarming en warmteverdeling zorgen " +
-      "voor comfort in het gebouw. " +
-      "Deze tekening is schematisch en geen " +
-      "technisch installatieplan."
-
-    ],
-
-    warmtepomp: [
-
-      "Warmtepomp",
-
-      "Een warmtepomp kan warmte uit de " +
-      "omgeving gebruiken om een gebouw " +
-      "te verwarmen. De toepasbaarheid " +
-      "verschilt per gebouw."
-
-    ],
-
-    sanitair: [
-
-      "Sanitair",
-
-      "Waterleidingen en sanitaire voorzieningen " +
-      "zijn essentieel voor het dagelijks gebruik " +
-      "van woningen en gebouwen."
-
-    ],
-
-    onderhoud: [
-
-      "Onderhoud & service",
-
-      "Onderhoud is belangrijk voor een " +
-      "betrouwbare werking van installaties " +
-      "en het tijdig herkennen van problemen."
-
-    ]
-
-  };
-
-  /* ========================================
-     SYSTEEM SELECTEREN
-  ======================================== */
-
-  function select(name) {
-
-    if (!data[name]) {
-      return;
-    }
-
-    /* ====================================
-       WONINGTEKENING AANPASSEN
-    ==================================== */
-
-    document.querySelectorAll(
-      "[data-system]"
-    ).forEach(node => {
-
-      const active =
-        node.dataset.system === name;
-
-      node.classList.toggle(
-        "active",
-        active
-      );
-
-    });
-
-    /* ====================================
-       KNOPPEN AANPASSEN
-    ==================================== */
-
-    document.querySelectorAll(
-      "[data-select]"
-    ).forEach(button => {
-
-      const active =
-        button.dataset.select === name;
-
-      button.classList.toggle(
-        "active",
-        active
-      );
-
-      button.setAttribute(
-        "aria-pressed",
-        String(active)
-      );
-
-    });
-
-    /* ====================================
-       UITLEG AANPASSEN
-    ==================================== */
-
-    const title = document.getElementById(
-      "system-title"
-    );
-
-    const info = document.getElementById(
-      "system-description"
-    );
-
-    if (title) {
-
-      title.textContent = data[name][0];
-
-    }
-
-    if (info) {
-
-      info.textContent = data[name][1];
-
-    }
-
-  }
-
-  /* ========================================
-     BEDIENINGSKNOPPEN
-  ======================================== */
-
-  document.querySelectorAll(
-    "[data-select]"
-  ).forEach(button => {
-
-    button.addEventListener(
-      "click",
-      () => {
-
-        select(
-          button.dataset.select
-        );
-
-      }
-    );
-
-  });
-
-  /* ========================================
-     KLIKKEN OP DE WONING
-  ======================================== */
-
-  document.querySelectorAll(
-    "[data-system]"
-  ).forEach(node => {
-
-    node.addEventListener(
-      "click",
-      () => {
-
-        select(
-          node.dataset.system
-        );
-
-      }
-    );
-
-    /* ====================================
-       TOETSENBORDONDERSTEUNING
-    ==================================== */
-
-    node.addEventListener(
-      "keydown",
-      event => {
-
-        if (
-
-          event.key === "Enter" ||
-
-          event.key === " "
-
-        ) {
-
-          event.preventDefault();
-
-          select(
-            node.dataset.system
-          );
-
-        }
-
-      }
-    );
-
-  });
-
-  /* ========================================
-     STANDAARDSELECTIE
-  ======================================== */
-
-  if (
-
-    document.querySelector(
-      "[data-select]"
-    )
-
-  ) {
-
-    select("verwarming");
-
-  }
 
 })();
