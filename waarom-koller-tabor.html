@@ -2,259 +2,678 @@
 <html lang="nl">
 
 <head>
+
   <meta charset="utf-8">
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
+
   <meta name="theme-color" content="#ffffff">
 
   <meta
     name="description"
-    content="Ontdek waarom klanten kiezen voor Koller & Tabor: meer dan 150 jaar ervaring, professionele installateurs, duurzame oplossingen en storingsservice."
+    content="Ontdek wie Koller & Tabor is, waar het bedrijf voor staat en waarom u voor Koller & Tabor Installatietechniek kiest."
   >
 
-  <title>Waarom Koller & Tabor | Installatietechniek</title>
+  <title>Waarom Koller &amp; Tabor</title>
 
   <link rel="stylesheet" href="style.css">
+
   <script src="script.js" defer></script>
+
+
+  <style>
+
+    /* ==========================================
+       WAAROM KOLLER & TABOR
+       PAGINA V2.0
+    ========================================== */
+
+
+    /* ==========================================
+       WIE ZIJN WIJ?
+    ========================================== */
+
+    .why-about-section {
+      padding: 95px 0;
+      background: white;
+    }
+
+    .why-about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 75px;
+    }
+
+    .why-about-copy h2 {
+      margin: 18px 0 22px;
+      font-size: clamp(34px, 4vw, 55px);
+    }
+
+    .why-about-copy p {
+      max-width: 540px;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .why-about-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 350px;
+      padding: 40px;
+
+      background: #ffffff;
+
+      border: 1px solid var(--line);
+      border-radius: 12px;
+
+      box-shadow:
+        0 9px 25px rgba(16, 30, 50, .045),
+        0 24px 45px rgba(16, 30, 50, .025);
+    }
+
+    .why-about-logo img {
+      display: block;
+
+      width: 100%;
+      max-width: 350px;
+      max-height: 270px;
+
+      height: auto;
+
+      object-fit: contain;
+    }
+
+
+    /* ==========================================
+       VIER REDENEN
+    ========================================== */
+
+    .why-reasons-section {
+      padding: 90px 0 100px;
+      background: var(--paper);
+    }
+
+    .why-four-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .why-four-grid .why-card {
+      min-height: 310px;
+      padding: 29px 27px;
+    }
+
+    .why-four-grid .why-card h3 {
+      font-size: 23px;
+    }
+
+
+    /* ==========================================
+       WAAR STAAN WE VOOR?
+    ========================================== */
+
+    .why-values-section {
+      padding: 95px 0 110px;
+      background: white;
+    }
+
+    .why-values-section .why-card {
+      min-height: 320px;
+    }
+
+
+    /* ==========================================
+       RESPONSIVE - TABLET
+    ========================================== */
+
+    @media (max-width: 1040px) {
+
+      .why-about-grid {
+        gap: 40px;
+      }
+
+      .why-four-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .why-four-grid .why-card {
+        min-height: 280px;
+      }
+
+    }
+
+
+    /* ==========================================
+       RESPONSIVE - MOBIEL
+    ========================================== */
+
+    @media (max-width: 760px) {
+
+      .why-about-section,
+      .why-reasons-section,
+      .why-values-section {
+        padding: 65px 0 75px;
+      }
+
+      .why-about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .why-about-copy h2 {
+        font-size: 36px;
+      }
+
+      .why-about-logo {
+        min-height: 240px;
+        padding: 30px;
+      }
+
+      .why-about-logo img {
+        max-width: 260px;
+        max-height: 200px;
+      }
+
+      .why-four-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .why-four-grid .why-card,
+      .why-values-section .why-card {
+        min-height: 0;
+        padding: 30px;
+      }
+
+    }
+
+
+    /* ==========================================
+       MINDER BEWEGING
+    ========================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .why-about-logo {
+        transition: none;
+      }
+
+    }
+
+  </style>
+
 </head>
+
 
 <body>
 
-<div id="site-header"></div>
 
-<main id="main">
+  <!-- HEADER -->
 
-  <!-- =====================================
-       PAGINA INTRO
-  ====================================== -->
-
-  <section class="page-hero why-hero">
-
-    <div class="container">
-
-      <span class="eyebrow">
-        Waarom Koller & Tabor
-      </span>
-
-      <h1>
-        Waarom kiezen voor
-        Koller &amp; Tabor<span class="red-dot">?</span>
-      </h1>
-
-      <p class="lead">
-        Wij begrijpen uw behoeften & leveren vakwerk
-        met een glimlach!
-      </p>
-
-      <p class="why-intro">
-        Al meer dan 150 jaar staat Koller & Tabor
-        voor kennis, ervaring en vakmanschap.
-        Ontdek wat ons onderscheidt en waarom
-        klanten op onze dienstverlening vertrouwen.
-      </p>
-
-    </div>
-
-  </section>
+  <div id="site-header"></div>
 
 
-  <!-- =====================================
-       WAAROM KOLLER & TABOR
-  ====================================== -->
+  <main id="main">
 
-  <section class="section why-section">
 
-    <div class="container">
+    <!-- ======================================
+         PAGINA INTRODUCTIE
+    ====================================== -->
 
-      <div class="why-heading">
+    <section class="page-hero why-hero">
+
+      <div class="container">
 
         <span class="eyebrow">
-          Onze kracht
+          Waarom Koller &amp; Tabor
         </span>
 
-        <h2>
-          Vier redenen om
-          voor ons te kiezen<span class="red-dot">.</span>
-        </h2>
+        <h1>
+          Waarom kiezen voor ons<span class="red-dot">.</span>
+        </h1>
 
-        <p>
-          Ervaring, vakmanschap en betrokkenheid.
-          Dat is waar Koller & Tabor voor staat.
+        <p class="lead">
+
+          Ontdek wie we zijn, wat ons drijft
+          en waar Koller &amp; Tabor voor staat.
+
         </p>
 
       </div>
 
-
-      <div class="why-grid">
-
-
-        <!-- 01 ERVARING -->
-
-        <article class="why-card">
-
-          <span class="why-number">
-            01
-          </span>
-
-          <span class="why-tag">
-            ERVARING
-          </span>
-
-          <h3>
-            Meer dan 150 jaar ervaring
-          </h3>
-
-          <p>
-            Met meer dan 150 jaar ervaring beschikt
-            Koller & Tabor over een rijke geschiedenis
-            en ruime kennis van installatietechniek.
-
-            Onze installateurs en adviseurs staan klaar
-            om mee te denken en uw wensen te realiseren.
-          </p>
-
-        </article>
+    </section>
 
 
-        <!-- 02 INSTALLATEURS -->
 
-        <article class="why-card">
+    <!-- ======================================
+         01 - WIE ZIJN WIJ?
+    ====================================== -->
 
-          <span class="why-number">
-            02
-          </span>
+    <section class="why-about-section">
 
-          <span class="why-tag">
-            VAKMANSCHAP
-          </span>
+      <div class="container">
 
-          <h3>
-            Professionele installateurs
-          </h3>
-
-          <p>
-            Onze installateurs zijn doortastend,
-            enthousiast en gemotiveerd.
-
-            Dankzij hun jarenlange ervaring en de juiste
-            ondersteuning kunnen zij u helpen met
-            professionele oplossingen en vakwerk.
-          </p>
-
-        </article>
+        <div class="why-about-grid">
 
 
-        <!-- 03 KOSTENBESPARING -->
+          <!-- TEKST LINKS -->
 
-        <article class="why-card">
+          <div class="why-about-copy reveal">
 
-          <span class="why-number">
-            03
-          </span>
+            <span class="eyebrow">
+              Wie zijn wij?
+            </span>
 
-          <span class="why-tag">
-            DUURZAAMHEID
-          </span>
+            <h2>
 
-          <h3>
-            Bespaar kosten
-          </h3>
+              Een lokaal sterk
+              installatieteam dat
+              trots is op het werk
+              waar we ons samen
+              voor inzetten.
 
-          <p>
-            Koller & Tabor biedt een ruim aanbod aan
-            duurzame oplossingen.
+            </h2>
 
-            We denken graag met u mee over de
-            mogelijkheden om uw installatie te
-            verduurzamen en kosten te besparen.
-          </p>
+            <p>
 
-        </article>
+              Met een team van meer dan 20 medewerkers
+              staan we iedere dag voor onze klanten klaar.
+              Samen bouwen we aan duurzame relaties
+              en installaties.
+
+            </p>
+
+          </div>
 
 
-        <!-- 04 STORINGSLIJN -->
 
-        <article class="why-card">
+          <!-- LOGO RECHTS -->
 
-          <span class="why-number">
-            04
-          </span>
+          <div class="why-about-logo reveal">
 
-          <span class="why-tag">
-            SERVICE
-          </span>
+            <img
+              src="images/waarom-logo.png"
+              alt="Koller & Tabor beeldmerk"
+              loading="lazy"
+            >
 
-          <h3>
-            Storingslijn Service
-          </h3>
+          </div>
 
-          <p>
-            Voor onze vaste klanten bieden wij een
-            storingsservice.
 
-            Want wanneer een installatie niet werkt,
-            wilt u natuurlijk zo snel mogelijk geholpen
-            worden. Zeker wanneer er sprake is
-            van een noodgeval.
-          </p>
-
-        </article>
-
+        </div>
 
       </div>
 
-    </div>
-
-  </section>
+    </section>
 
 
-  <!-- =====================================
-       RUIMTE VOOR HET INVULBLAD
-       WORDT LATER TOEGEVOEGD
-  ====================================== -->
 
-  <!--
-    HIER KOMT LATER HET BESTAANDE INVULBLAD.
+    <!-- ======================================
+         02 - VIER REDENEN OM TE KIEZEN
+    ====================================== -->
 
-    De vormgeving en werking hiervan voegen
-    we in een volgende stap toe.
-  -->
+    <section class="why-reasons-section">
+
+      <div class="container">
 
 
-  <!-- =====================================
-       CONTACTBLOK
-  ====================================== -->
+        <div class="why-heading reveal">
 
-  <section class="cta">
+          <span class="eyebrow">
+            Waarom voor ons kiezen?
+          </span>
 
-    <div class="container">
+          <h2>
+            Vier redenen om voor ons te kiezen<span class="red-dot">.</span>
+          </h2>
 
-      <div>
+          <p>
 
-        <h2>
-          Samen kijken naar de mogelijkheden?
-        </h2>
+            Bij Koller &amp; Tabor draait het om
+            vakkennis, betrokkenheid en oplossingen
+            die aansluiten bij de wensen van onze klanten.
 
-        <p>
-          Ontdek wat Koller & Tabor voor u
-          kan betekenen.
-        </p>
+          </p>
+
+        </div>
+
+
+
+        <div class="why-four-grid">
+
+
+          <!-- REDEN 01 -->
+
+          <article class="why-card reveal">
+
+            <span class="why-number">
+              01
+            </span>
+
+            <span class="why-tag">
+              ERVARING
+            </span>
+
+            <h3>
+              Ervaren vakmensen
+            </h3>
+
+            <p>
+
+              Jarenlange ervaring en een team van
+              ervaren installateurs en adviseurs
+              vormen de basis van ons werk.
+
+            </p>
+
+          </article>
+
+
+
+          <!-- REDEN 02 -->
+
+          <article class="why-card reveal">
+
+            <span class="why-number">
+              02
+            </span>
+
+            <span class="why-tag">
+              LOKAAL TEAM
+            </span>
+
+            <h3>
+              Een sterk team
+            </h3>
+
+            <p>
+
+              Met meer dan 20 medewerkers zetten
+              we ons iedere dag in om onze klanten
+              zo goed mogelijk van dienst te zijn.
+
+            </p>
+
+          </article>
+
+
+
+          <!-- REDEN 03 -->
+
+          <article class="why-card reveal">
+
+            <span class="why-number">
+              03
+            </span>
+
+            <span class="why-tag">
+              BETROKKENHEID
+            </span>
+
+            <h3>
+              Persoonlijke aandacht
+            </h3>
+
+            <p>
+
+              We luisteren naar onze klanten,
+              denken mee en blijven zoeken naar
+              passende oplossingen.
+
+            </p>
+
+          </article>
+
+
+
+          <!-- REDEN 04 -->
+
+          <article class="why-card reveal">
+
+            <span class="why-number">
+              04
+            </span>
+
+            <span class="why-tag">
+              DUURZAAMHEID
+            </span>
+
+            <h3>
+              Samen vooruit
+            </h3>
+
+            <p>
+
+              We streven naar optimale en duurzame
+              oplossingen en bouwen aan langdurige
+              relaties met onze klanten.
+
+            </p>
+
+          </article>
+
+
+        </div>
 
       </div>
 
-      <a
-        href="contact.html"
-        class="btn btn-light"
-      >
-        Contact opnemen ↗
-      </a>
+    </section>
 
-    </div>
 
-  </section>
 
-</main>
+    <!-- ======================================
+         03 - WAAR STAAN WE VOOR?
+    ====================================== -->
 
-<div id="site-footer"></div>
+    <section class="why-values-section">
+
+      <div class="container">
+
+
+        <div class="why-heading reveal">
+
+          <span class="eyebrow">
+            Onze uitgangspunten
+          </span>
+
+          <h2>
+            Waar staan we voor<span class="red-dot">?</span>
+          </h2>
+
+          <p>
+
+            Dit zijn de uitgangspunten die centraal
+            staan bij alles wat we doen.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="why-four-grid">
+
+
+          <!-- ==================================
+               VAKWERK
+          ================================== -->
+
+          <article class="why-card reveal">
+
+            <span class="why-number">
+              01
+            </span>
+
+            <span class="why-tag">
+              ONZE ERVARING
+            </span>
+
+            <h3>
+              Vakwerk
+            </h3>
+
+            <p>
+
+              Jarenlange ervaring maakt ons de ideale
+              partner voor al uw projecten. Ons team
+              van ervaren installateurs en adviseurs
+              levert betrokken vakwerk. Daar kunt
+              u op rekenen.
+
+            </p>
+
+          </article>
+
+
+
+          <!-- ==================================
+               KLANTVRIENDELIJK
+          ================================== -->
+
+          <article class="why-card reveal">
+
+            <span class="why-number">
+              02
+            </span>
+
+            <span class="why-tag">
+              ONZE KLANTEN
+            </span>
+
+            <h3>
+              Klantvriendelijk
+            </h3>
+
+            <p>
+
+              Wij zetten alles op alles om u zo goed
+              mogelijk van dienst te zijn. Samen
+              blijven we verbeteren en streven we
+              naar optimale en duurzame oplossingen
+              voor onze klanten.
+
+            </p>
+
+          </article>
+
+
+
+          <!-- ==================================
+               KWALITEIT
+          ================================== -->
+
+          <article class="why-card reveal">
+
+            <span class="why-number">
+              03
+            </span>
+
+            <span class="why-tag">
+              ONZE KWALITEIT
+            </span>
+
+            <h3>
+              Kwaliteit
+            </h3>
+
+            <p>
+
+              Wij werken met hoogwaardige materialen
+              en gereedschappen om u het beste werk
+              te kunnen leveren. Onze partners zijn
+              specialisten op hun vakgebied.
+
+            </p>
+
+          </article>
+
+
+
+          <!-- ==================================
+               SERVICE
+          ================================== -->
+
+          <article class="why-card reveal">
+
+            <span class="why-number">
+              04
+            </span>
+
+            <span class="why-tag">
+              ONZE SERVICE
+            </span>
+
+            <h3>
+              Service
+            </h3>
+
+            <p>
+
+              Wij begrijpen als geen ander dat u
+              snel geholpen wilt worden, zeker bij
+              noodgevallen. Daarom bieden wij onze
+              vaste klanten ook een storingsservice.
+
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         CONTACTBLOK
+    ====================================== -->
+
+    <section class="cta">
+
+      <div class="container">
+
+        <div>
+
+          <h2>
+            Meer weten over Koller &amp; Tabor?
+          </h2>
+
+          <p>
+
+            Neem contact met ons op.
+            We helpen u graag verder.
+
+          </p>
+
+        </div>
+
+
+        <a
+          href="contact.html"
+          class="btn btn-light"
+        >
+          Contact opnemen ↗
+        </a>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <div id="site-footer"></div>
+
 
 </body>
 </html>
