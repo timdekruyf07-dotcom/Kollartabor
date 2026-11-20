@@ -33,27 +33,133 @@
   ></script>
 
   <!-- ======================================
-       HOMEPAGE V3
+       HOMEPAGE V3.2
 
-       Nieuwe PNG-foto rechtsboven.
-       De overige onderdelen blijven gelijk.
+       De foto vult nu de volledige
+       rechterkant van de hero.
+
+       Alle overige onderdelen blijven gelijk.
   ====================================== -->
 
   <style>
 
     /* ======================================
-       HOMEPAGE FOTO
+       HERO — VOLLEDIGE BREEDTE
     ====================================== */
 
-    .hero-visual {
+    .hero {
 
       position: relative;
 
       overflow: hidden;
 
-      background: #e9edf2;
+      background: #ffffff;
+
+      isolation: isolate;
 
     }
+
+    /* ======================================
+       HERO GRID
+
+       De tekst blijft op zijn plek.
+       De afbeelding wordt daarachter
+       onafhankelijk gepositioneerd.
+    ====================================== */
+
+    .hero-grid {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1.02fr;
+
+      align-items: center;
+
+      min-height: 620px;
+
+      padding: 70px 0;
+
+    }
+
+    /* ======================================
+       LINKERKANT — TEKST
+    ====================================== */
+
+    .hero-copy {
+
+      position: relative;
+
+      z-index: 3;
+
+      grid-column: 1;
+
+    }
+
+    /* ======================================
+       RECHTERKANT — VOLLEDIGE FOTO
+
+       Dit is de belangrijkste wijziging.
+
+       De foto is niet meer beperkt tot
+       de container van de website.
+
+       Hij vult de hele hero en wordt
+       links schuin afgesneden.
+    ====================================== */
+
+    .hero-visual {
+
+      position: absolute;
+
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      min-height: 0;
+
+      margin: 0;
+      padding: 0;
+
+      border: none;
+
+      background: #e8edf5;
+
+      overflow: hidden;
+
+      z-index: 1;
+
+      /*
+        Schuine overgang.
+
+        Links boven begint de foto op 48%.
+        Links onder begint hij op 36%.
+
+        Zo blijft voldoende ruimte voor
+        de titel en knoppen.
+      */
+
+      clip-path: polygon(
+        48% 0,
+        100% 0,
+        100% 100%,
+        36% 100%
+      );
+
+      animation: photoReveal 1s ease-out both;
+
+    }
+
+    /* ======================================
+       DE FOTO ZELF
+    ====================================== */
 
     .hero-tech-photo {
 
@@ -64,39 +170,49 @@
       display: block;
 
       width: 100%;
-
       height: 100%;
 
       object-fit: cover;
 
-      object-position: 50% center;
-
       /*
-        Subtiele schuine overgang
-        aan de linkerkant.
+        Zorgt dat de installaties rechts
+        duidelijk zichtbaar blijven.
       */
 
-      clip-path: polygon(
-        9% 0,
-        100% 0,
-        100% 100%,
-        0 100%
-      );
-
-      animation: photoReveal 1s ease-out both;
+      object-position: 70% center;
 
     }
+
+    /* ======================================
+       LABEL RECHTSONDER
+    ====================================== */
 
     .hero-visual .visual-label {
 
       position: absolute;
 
+      bottom: 24px;
+      right: 5%;
+      left: auto;
+
       z-index: 2;
+
+      background: #ffffffed;
+
+      color: #273579;
+
+      padding: 12px 16px;
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      letter-spacing: .12em;
 
     }
 
     /* ======================================
-       FOTO-ANIMATIE
+       SUBTIELE FOTO-ANIMATIE
     ====================================== */
 
     @keyframes photoReveal {
@@ -105,7 +221,7 @@
 
         opacity: 0;
 
-        transform: scale(1.035);
+        transform: scale(1.025);
 
       }
 
@@ -120,26 +236,138 @@
     }
 
     /* ======================================
-       MOBIEL
+       TABLET
+
+       Iets minder schuine uitsnede.
     ====================================== */
 
-    @media (max-width: 760px) {
+    @media (max-width: 1050px) {
+
+      .hero-visual {
+
+        clip-path: polygon(
+          51% 0,
+          100% 0,
+          100% 100%,
+          43% 100%
+        );
+
+      }
 
       .hero-tech-photo {
 
-        clip-path: none;
+        object-position: 72% center;
 
       }
 
     }
 
     /* ======================================
-       MINDER BEWEGING
+       MOBIEL
+
+       Op een telefoon komt de foto
+       gewoon onder de tekst.
+
+       Anders zou de tekst te weinig
+       ruimte krijgen.
+    ====================================== */
+
+    @media (max-width: 760px) {
+
+      .hero-grid {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 35px;
+
+        min-height: 0;
+
+        padding: 55px 0 0;
+
+      }
+
+      .hero-copy {
+
+        width: 100%;
+
+      }
+
+      .hero-visual {
+
+        position: relative;
+
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+
+        width: 100%;
+
+        height: 350px;
+
+        min-height: 350px;
+
+        /*
+          Foto loopt op mobiel ook
+          over de volledige schermbreedte.
+        */
+
+        width: 100vw;
+
+        margin-left: calc(
+          -1 * (100vw - 100%) / 2
+        );
+
+        clip-path: none;
+
+        animation: none;
+
+      }
+
+      .hero-tech-photo {
+
+        object-position: center;
+
+      }
+
+      .hero-visual .visual-label {
+
+        right: 15px;
+        bottom: 15px;
+
+        font-size: 9px;
+
+      }
+
+    }
+
+    /* ======================================
+       EXTRA KLEINE SCHERMEN
+    ====================================== */
+
+    @media (max-width: 480px) {
+
+      .hero-visual {
+
+        height: 290px;
+
+        min-height: 290px;
+
+      }
+
+    }
+
+    /* ======================================
+       TOEGANKELIJKHEID
     ====================================== */
 
     @media (prefers-reduced-motion: reduce) {
 
-      .hero-tech-photo {
+      .hero-visual {
 
         animation: none;
 
@@ -156,8 +384,7 @@
   <!-- ======================================
        NAVIGATIE
 
-       Wordt automatisch geladen
-       via script.js.
+       Wordt geladen door script.js.
   ====================================== -->
 
   <div id="site-header"></div>
@@ -165,16 +392,37 @@
   <main id="main">
 
     <!-- ======================================
-         HOMEPAGE HERO
+         HERO
     ====================================== -->
 
     <section class="hero">
 
-      <div class="container hero-grid">
+      <!-- ==================================
+           FOTO OVER VOLLEDIGE RECHTERKANT
+      ================================== -->
 
-        <!-- ==================================
-             LINKERKANT: TITEL EN KNOPPEN
-        ================================== -->
+      <div class="hero-visual">
+
+        <img
+          class="hero-tech-photo"
+          src="images/hero-installatie.png"
+          alt="Conceptbeeld van een moderne technische ruimte met verwarmingsinstallaties"
+          fetchpriority="high"
+        >
+
+        <span class="visual-label">
+
+          INSTALLATIETECHNIEK / CONCEPTBEELD
+
+        </span>
+
+      </div>
+
+      <!-- ==================================
+           TEKST LINKS
+      ================================== -->
+
+      <div class="container hero-grid">
 
         <div class="hero-copy reveal">
 
@@ -224,33 +472,14 @@
 
         </div>
 
-        <!-- ==================================
-             RECHTERKANT: NIEUWE PNG-FOTO
-        ================================== -->
-
-        <div class="hero-visual">
-
-          <img
-            class="hero-tech-photo"
-            src="images/hero-installatie.png"
-            alt="Conceptbeeld van een moderne technische ruimte met verwarmingsinstallaties"
-            fetchpriority="high"
-          >
-
-          <span class="visual-label">
-
-            INSTALLATIETECHNIEK / CONCEPTBEELD
-
-          </span>
-
-        </div>
-
       </div>
 
     </section>
 
     <!-- ======================================
          DIENSTEN
+
+         ONGEWIJZIGD
     ====================================== -->
 
     <section class="section">
@@ -403,6 +632,8 @@
     <!-- ======================================
          INTERACTIEVE WONING
 
+         ONGEWIJZIGD
+
          De interactieve woning blijft
          bereikbaar via woning.html.
     ====================================== -->
@@ -476,6 +707,8 @@
 
     <!-- ======================================
          OVER ONS
+
+         ONGEWIJZIGD
     ====================================== -->
 
     <section class="section">
@@ -538,7 +771,9 @@
     </section>
 
     <!-- ======================================
-         CONTACT
+         CONTACTBALK
+
+         ONGEWIJZIGD
     ====================================== -->
 
     <section class="cta">
@@ -579,10 +814,7 @@
 
   <!-- ======================================
        FOOTER
-
-       Wordt automatisch geladen
-       via script.js.
-  ====================================== -->
+    ====================================== -->
 
   <div id="site-footer"></div>
 
