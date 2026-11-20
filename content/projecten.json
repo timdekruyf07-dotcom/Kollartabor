@@ -2,12 +2,13 @@
   "introduction": "Hier presenteren we straks uitgevoerde opdrachten met echte foto's en door de eigenaar goedgekeurde projectbeschrijvingen.",
   "projects": [
     {
-      "title": "Project 01",
+      "title": "Testproject Koller & Tabor",
       "summary": "Naam, foto en beschrijving volgen.",
       "description": "",
       "image": "",
       "image_alt": "",
       "location": "",
+      "date": "",
       "order": 1,
       "published": true
     },
@@ -18,6 +19,7 @@
       "image": "",
       "image_alt": "",
       "location": "",
+      "date": "",
       "order": 2,
       "published": true
     },
@@ -28,6 +30,7 @@
       "image": "",
       "image_alt": "",
       "location": "",
+      "date": "",
       "order": 3,
       "published": true
     }
