@@ -4,17 +4,13 @@
     "title": "Onze tarieven",
     "introduction": "Duidelijkheid over kosten vinden we belangrijk. Bekijk hieronder onze actuele uurtarieven, voorrijkosten en aanvullende voorwaarden."
   },
-
-  "introduction": "Wij krijgen wel eens vragen over de door ons gehanteerde tarieven. Bij Koller & Tabor Installatietechniek willen wij transparant zijn in alles wat we doen, dus ook in onze tarieven.\n\nDaarnaast geven wij u graag een toelichting op factoren die van invloed zijn op deze tarieven. Onze uurtarieven zijn natuurlijk ook gebaseerd op het rendabel houden van ons mooie bedrijf. Zodat wij u nog jarenlang van dienst kunnen zijn en onze medewerkers voor lange tijd zekerheid hebben over hun baan.",
-
   "intro_heading": "Helder over kosten.",
   "intro_accent": "Duidelijk over afspraken.",
-
+  "introduction": "Wij krijgen wel eens vragen over de door ons gehanteerde tarieven. Bij Koller & Tabor Installatietechniek willen wij transparant zijn in alles wat we doen, dus ook in onze tarieven.\n\nDaarnaast geven wij u graag een toelichting op factoren die van invloed zijn op deze tarieven. Onze uurtarieven zijn natuurlijk ook gebaseerd op het rendabel houden van ons mooie bedrijf. Zodat wij u nog jarenlang van dienst kunnen zijn en onze medewerkers voor lange tijd zekerheid hebben over hun baan.",
   "hourly_intro": "Onderstaande tarieven gelden op normale werkdagen tussen 08:00 en 17:00 uur.",
-
   "hourly_rates": [
     {
-      "name": "Hoofdmonteur",
+      "name": "Hoofdmuis",
       "price_ex": "€ 75,00",
       "price_in": "€ 90,75"
     },
@@ -49,9 +45,7 @@
       "price_in": "€ 121,00"
     }
   ],
-
   "hourly_note": "Alle bovenstaande arbeidstarieven zijn uurtarieven en gelden op normale werkdagen tussen 08:00 en 17:00 uur.",
-
   "surcharges": [
     {
       "period": "Werkdagen na 17:00 uur",
@@ -66,129 +60,88 @@
       "percentage": "200%"
     }
   ],
-
   "surcharges_note": "Buiten de reguliere werktijden kunnen aanvullende kosten gelden. Bij storingen buiten reguliere werktijden wordt ook de reistijd als arbeidstijd gerekend.",
-
   "travel": {
     "introduction": "Wij voeren onze service en diensten voornamelijk uit in de regio rondom Eerbeek en Loenen.\n\nDaarvoor maken onze monteurs gebruik van bedrijfsauto's met daarin gereedschap en benodigde materialen. Ondanks ons zorgvuldige beleid rond ons wagenpark om zo weinig mogelijk kosten te maken en het milieu zo min mogelijk te belasten, ontkomen wij niet aan voorrijkosten.",
-
     "within_25": "€ 12,50",
     "within_25_vat": "€ 15,13",
-
     "beyond_25": "€ 0,50",
-
     "beyond_25_note": "Per kilometer, naar boven afgerond",
-
     "description": "De afstand wordt gemeten vanaf onze locatie aan de Dalenk 3-H in Loenen. Bij afstanden boven de 25 kilometer wordt naar boven afgerond op hele kilometers.",
-
     "date_note": "De vermelde tarieven voor voorrijkosten gelden volgens de oorspronkelijke tarievenpagina per 01-04-2026."
   },
-
   "explanations_intro": "Achter onze tarieven zitten verschillende werkzaamheden en afspraken. Hieronder leggen we deze graag uit.",
-
   "explanations": [
     {
       "title": "Offerte aanvragen",
-
       "content": "Regelmatig krijgen wij het verzoek om een offerte of prijsopgave uit te brengen. Vaak zodat de aanvrager offertes en prijzen kan vergelijken. Natuurlijk zijn wij u hier graag bij van dienst, wij doen dit alleen niet altijd kosteloos.\n\nVoor het maken van een goed en persoonlijk advies door een ervaren professional is tijd nodig. Bijvoorbeeld voor informatie-inwinning, een bezoek, calculeren en prijsonderhandelingen met leveranciers.\n\nDe tijd voor het maken van een offerte kunnen wij aan u doorberekenen. Dit kan variëren vanaf één uur tot meerdere dagen, afhankelijk van de complexiteit van uw vraag.\n\nVooraf zullen wij u zo goed mogelijk een indicatie van de benodigde tijd afgeven. Het resultaat voor u is een goede en gedetailleerde offerte. Zo kunt u goed offertes vergelijken, zonder verdere verplichtingen.",
-
       "highlight": "",
       "after_highlight": "",
       "subheading": "",
       "problems": []
     },
-
     {
       "title": "Geplande werkzaamheden",
-
       "content": "De werkzaamheden die wij kunnen uitvoeren voor u zijn divers. Zo zijn er werkzaamheden die eenvoudig op termijn kunnen worden gepland, zoals bijvoorbeeld een onderhoudsbeurt aan uw CV-ketel en/of andere installatie.\n\nOok zijn er klussen die een paar uur of een dag in beslag nemen (korte klussen), maar ook grotere projecten.\n\nDeze worden in overleg met u zo snel mogelijk ingepland binnen de mogelijkheden.",
-
       "highlight": "",
       "after_highlight": "",
       "subheading": "",
       "problems": []
     },
-
     {
       "title": "Kleine klussen en storingen",
-
       "content": "Helaas kunnen wij niet alles plannen. En ook is het moeilijk om aan de telefoon een inschatting te maken van de benodigde tijd die wij nodig hebben om u te helpen.\n\nDaarnaast is er bij elke opdracht, klein of groot, tijd voor werkvoorbereiding en financiële afhandeling nodig.\n\nWij rekenen onze reistijd naar uw adres als arbeidstijd. Als startpunt hanteren wij hiervoor onze vestiging aan de Dalenk 3H te Loenen.",
-
       "highlight": "Houdt u er tevens rekening mee dat wij altijd minimaal 1 uur factureren.",
-
       "after_highlight": "Verwacht u dat uw opdracht minder dan 1 uur tijd in beslag zal nemen? Dan kunt u misschien een extra klusje tegelijkertijd laten uitvoeren, bijvoorbeeld een dakgoot schoonmaken of een kraanleertje vervangen.",
-
       "subheading": "",
       "problems": []
     },
-
     {
       "title": "Werkvoorbereiding, calculatie en facturatie",
-
       "content": "Als klant ziet u enkel de werkzaamheden die onze monteurs bij u op locatie uitvoeren. Echter zijn niet enkel onze monteurs voor u aan het werk.\n\nBij ons op het bedrijf vinden allerlei voorbereidende werkzaamheden plaats, vanaf het aannemen van de telefoon of beantwoorden van uw e-mail.\n\nVoordat onze monteurs aan de slag kunnen bij u thuis zijn er al een aantal zaken op kantoor voorbereid. Het bestellen van eventuele producten, het instrueren van de monteurs, administratieve voorbereiding en afhandeling en het zoeken naar de beste oplossing en het uitwerken hiervan zijn goede voorbeelden.\n\nAl het werk moet vervolgens op de juiste wijze correct worden gefactureerd aan u, facturen worden verstuurd en al dan niet tijdige betalingen worden verwerkt.",
-
       "highlight": "",
       "after_highlight": "",
       "subheading": "",
       "problems": []
     },
-
     {
       "title": "Storingen binnen en buiten reguliere werktijden",
-
       "content": "Storingen verhelpen wij graag zo snel mogelijk binnen onze reguliere openingstijden. Afhankelijk van de aard van uw storing en onze beschikbaarheid van de servicemonteurs zijn wij ook buiten de reguliere werktijden te bereiken om calamiteiten op te lossen.\n\nWilt u de storing laten verhelpen buiten de reguliere werktijden? Houdt u dan rekening met een toeslag. Daarnaast rekenen wij in geval van storingen buiten reguliere werktijden onze reistijd ook als arbeidstijd.\n\nAls startpunt hanteren wij hiervoor onze vestiging aan de Dalenk 3H te Loenen.",
-
       "highlight": "Op werkdagen na 17:00 uur en op zaterdagen hanteren wij een opslag van 150% van het reguliere (van toepassing zijnde) tarief.\n\nOp zon- en feestdagen hanteren wij een opslag van 200% van het reguliere (van toepassing zijnde) tarief.",
-
       "after_highlight": "",
       "subheading": "",
       "problems": []
     },
-
     {
       "title": "Prijsindicatie",
-
       "content": "Als u een prijsindicatie wenst voorafgaande aan de werkzaamheden, dan proberen wij u een zo goed mogelijke prijsindicatie te geven op basis van de dan beschikbare informatie.\n\nWij zijn zorgvuldig in het berekenen van deze prijsindicatie, maar het is geen vaste prijsafspraak.\n\nOndanks onze moeite om tot een goede en eerlijke prijsindicatie te komen, kan het zijn dat tijdens het uitvoeren van de werkzaamheden blijkt dat er meer uren nodig zijn voor een goede oplevering.\n\nOok onze medewerkers lopen tegen onvoorziene situaties aan en kunnen niet door muren of vloeren heen kijken om vooraf precies te zien hoe de situatie is.",
-
       "highlight": "",
       "after_highlight": "",
       "subheading": "",
       "problems": []
     },
-
     {
       "title": "Benodigd materiaal in de auto en in het magazijn",
-
       "content": "Onze monteurs hebben een beperkt assortiment aan materiaal in hun auto. Ons complete magazijn telt ruim 350 m², dus u kunt zich voorstellen dat wat zij in de auto meenemen slechts een klein deel is. Ook om diefstal uit de auto te voorkomen.\n\nDaarnaast wegen zij vooraf zoveel mogelijk af welk materiaal er extra meegenomen moet worden.\n\nOndanks dit voorwerk kan het voorkomen dat zij terug naar ons magazijn moeten om het juiste materiaal op te halen. Dit valt onder reguliere werktijd bij de opdracht.\n\nWij proberen dit natuurlijk tot een minimum te beperken.",
-
       "highlight": "",
       "after_highlight": "",
       "subheading": "",
       "problems": []
     },
-
     {
       "title": "Speciaal gereedschap",
-
       "content": "Het komt voor dat specialistische gereedschappen ingezet moeten worden.\n\nEen warmtebeeldcamera en speciale rioolontstoppers, dan wel speciale boren of industriële rookgasmeters zijn hiervan een goed voorbeeld.\n\nWanneer deze gereedschappen worden gebruikt, worden deze aan u doorgerekend.",
-
       "highlight": "",
       "after_highlight": "",
       "subheading": "",
       "problems": []
     },
-
     {
       "title": "Smarthome en netwerkverbindingen",
-
       "content": "Onze monteurs zijn gespecialiseerd in het plaatsen en onderhouden van installaties, maar zijn geen IT-specialisten.\n\nWij leveren de installatie werkend op. Wij kunnen u, tot een bepaalde hoogte, bijstaan bij het installeren en simpel instellen van bijvoorbeeld een app.\n\nEchter zijn er tegenwoordig in veel huishoudens al persoonlijke keuzes gemaakt als het aankomt op de inrichting van routers, switches, merken, smarthomeprotocollen en de kwaliteit van bedraad en/of draadloos netwerk (LAN en/of WiFi).\n\nHier hebben wij geen invloed op, maar deze factoren kunnen de werking negatief beïnvloeden.",
-
       "highlight": "Koller & Tabor kan niet aansprakelijk worden gesteld voor de onjuiste werking van (delen van) de installatie in combinatie met overige, al in uw huis aanwezige (netwerk)apparatuur.\n\nWij raden u in voorkomende gevallen een IT-specialist te raadplegen voor ondersteuning.",
-
       "after_highlight": "",
-
       "subheading": "Mogelijke netwerkproblemen",
-
       "problems": [
         {
           "title": "Verbindingsproblemen",
@@ -213,14 +166,9 @@
       ]
     }
   ],
-
   "consumer_terms": "documents/Algemene-Voorwaarden-voor-Installatiewerk-voor-Consumenten-AVIC-2016.pdf",
-
   "business_terms": "",
-
   "business_terms_description": "De algemene voorwaarden voor zakelijke opdrachten worden hier beschikbaar zodra de juiste documentversie is aangeleverd.",
-
   "contact_heading": "Heeft u vragen over onze tarieven?",
-
   "contact_description": "We vertellen u graag meer over onze werkzaamheden en de bijbehorende kosten."
 }
